@@ -56,6 +56,42 @@ backend_exit(void)
 
 static const char *mountpoint;
 
+static struct rbh_mut_iterator *
+fsevents_from_file(FILE *file)
+{
+    if (fclose(file) == EOF)
+        error(EXIT_FAILURE, errno, "fclose");
+
+    /* TODO: parse yaml documents and enrich them if needed/possible */
+
+    error(EXIT_FAILURE, ENOSYS, "%s", __func__);
+    __builtin_unreachable();
+}
+
+static struct rbh_mut_iterator *
+fsevents_from_source(const char *arg)
+{
+    FILE *file;
+
+    if (strcmp(arg, "-") == 0)
+        /* SOURCE is '-' (stdin) */
+        return fsevents_from_file(stdin);
+
+    file = fopen(arg, "r");
+    if (file != NULL)
+        /* SOURCE is a path to a file */
+        return fsevents_from_file(file);
+    if (file == NULL && errno != ENOENT)
+        /* SOURCE is a path to a file, but there was some sort of error trying
+         * to open it.
+         */
+        error(EXIT_FAILURE, errno, "%s", arg);
+
+    /* TODO: parse SOURCE as an MDT name (ie. <fsname>-MDT<index>) */
+    error(EXIT_FAILURE, EINVAL, "%s", arg);
+    __builtin_unreachable();
+}
+
 int
 main(int argc, char *argv[])
 {
@@ -75,6 +111,7 @@ main(int argc, char *argv[])
         },
         {}
     };
+    struct rbh_mut_iterator *fsevents;
     char c;
 
     /* Parse the command line */
@@ -101,11 +138,10 @@ main(int argc, char *argv[])
     if (argc - optind > 2)
         error(EX_USAGE, 0, "too many arguments");
 
-    /* TODO: parse SOURCE into an iterator yielding fsevents
-     *       (potentially enriching them as is needed/possible)
-     */
+    fsevents = fsevents_from_source(argv[optind++]);
 
     /* TODO: parse DESTINATION and feed it SOURCE's fsevents */
+    rbh_mut_iter_destroy(fsevents);
 
     error(EXIT_FAILURE, ENOSYS, "%s", __func__);
 }
