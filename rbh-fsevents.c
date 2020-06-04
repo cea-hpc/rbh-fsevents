@@ -25,6 +25,10 @@
 #include <robinhood.h>
 #include <robinhood/utils.h>
 
+#include "readers.h"
+
+const char *mountpoint;
+
 static void
 usage(void)
 {
@@ -54,16 +58,38 @@ usage(void)
     printf(message, program_invocation_short_name);
 }
 
-static struct rbh_backend *backend;
-
-static void __attribute__((destructor))
-backend_exit(void)
+static struct rbh_iterator *
+fsevents_from_source(const char *arg)
 {
-    if (backend)
-        rbh_backend_destroy(backend);
+    FILE *file;
+
+    if (strcmp(arg, "-") == 0)
+        /* SOURCE is '-' (stdin) */
+        return fsevents_from_file(stdin);
+
+    file = fopen(arg, "r");
+    if (file != NULL)
+        /* SOURCE is a path to a file */
+        return fsevents_from_file(file);
+    if (file == NULL && errno != ENOENT)
+        /* SOURCE is a path to a file, but there was some sort of error trying
+         * to open it.
+         */
+        error(EXIT_FAILURE, errno, "%s", arg);
+
+    /* TODO: parse SOURCE as an MDT name (ie. <fsname>-MDT<index>) */
+    error(EXIT_FAILURE, EINVAL, "%s", arg);
+    __builtin_unreachable();
 }
 
-static const char *mountpoint;
+static struct rbh_iterator *fsevents;
+
+static void __attribute__((destructor))
+fsevents_exit(void)
+{
+    if (fsevents)
+        rbh_iter_destroy(fsevents);
+}
 
 int
 main(int argc, char *argv[])
@@ -110,10 +136,7 @@ main(int argc, char *argv[])
     if (argc - optind > 2)
         error(EX_USAGE, 0, "too many arguments");
 
-    /* TODO: parse SOURCE into an iterator yielding fsevents
-     *       (potentially enriching them as is needed/possible)
-     */
-
+    fsevents = fsevents_from_source(argv[optind++]);
     /* TODO: parse DESTINATION and feed it SOURCE's fsevents */
 
     error(EXIT_FAILURE, ENOSYS, "%s", __func__);
