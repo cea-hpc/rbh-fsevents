@@ -22,6 +22,30 @@
       "revId": "be2b46c7ef33690742cade268fe562485f95acac",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1bdd4a6_17eec297",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-06-09T21:01:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d439d91c_c1925f4d",
+      "range": {
+        "startLine": 38,
+        "startChar": 29,
+        "endLine": 38,
+        "endChar": 33
+      },
+      "revId": "be2b46c7ef33690742cade268fe562485f95acac",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
