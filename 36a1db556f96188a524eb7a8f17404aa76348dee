@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2e41dfa_b9da3e5d",
+        "filename": "include/readers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2020-06-17T12:50:51Z",
+      "side": 1,
+      "message": "Missing #define RBH_FSEVENTS_READERS_H",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 30
+      },
+      "revId": "36a1db556f96188a524eb7a8f17404aa76348dee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
