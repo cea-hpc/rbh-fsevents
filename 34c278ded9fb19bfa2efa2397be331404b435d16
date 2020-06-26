@@ -45,6 +45,30 @@
       "revId": "34c278ded9fb19bfa2efa2397be331404b435d16",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e535b9b3_6a19ea7b",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-06-26T12:42:01Z",
+      "side": 1,
+      "message": "No, raw records are simply not valid (think struct statx with a mask that does not reflect its content and fsevent with types that are not even valid (RBH_FET_UPSERT | NEEDS_STATX)). They are considered internals to rbh-fsevents and it is not expected that backends understand them. Moreover, I except rbh-fsevents will check itself whether records are raw or not, whether the DESTINATION is a robinhood backend, and fail rather than pass on weird fsevents and rely on backends to decide whether they understand the format or not.\n\nThere could be a point writing something that ingest \"raw records\" and spits \"valid fsevents\" without the parts that needed enriching nor the tricks used internally by rbh-fsevents. But I would rather have this be a separate (\"hacky\") project.",
+      "parentUuid": "6a0f93a8_1ea39c1a",
+      "range": {
+        "startLine": 51,
+        "startChar": 64,
+        "endLine": 51,
+        "endChar": 68
+      },
+      "revId": "34c278ded9fb19bfa2efa2397be331404b435d16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
