@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d75791c_66ec2d4e",
+        "filename": "doc/adr/cli.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2020-10-19T07:43:03Z",
+      "side": 1,
+      "message": "If I get it right, \u0027sparse\u0027 is used as an opposite for \u0027enriched\u0027. Is it a common use (or maybe explained in another doc)? If not, maybe add a simple reminder.",
+      "range": {
+        "startLine": 35,
+        "startChar": 17,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "7f1cc2684a4cbf2811f8ef5475fb4d06cb4ab619",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d1ee345_0ecfa9a2",
+        "filename": "doc/adr/cli.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2020-10-19T07:43:03Z",
+      "side": 1,
+      "message": "style: two spaces",
+      "range": {
+        "startLine": 79,
+        "startChar": 27,
+        "endLine": 79,
+        "endChar": 29
+      },
+      "revId": "7f1cc2684a4cbf2811f8ef5475fb4d06cb4ab619",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
