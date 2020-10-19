@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3364cd21_f85ea7e6",
+        "filename": "doc/adr/cli.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-10-19T07:59:04Z",
+      "side": 1,
+      "message": "You are right. I wondered about it as well, and decided it was out of scope for this document.\nWhat I am planning to do is give a definition for sparse fsevents in another document and link to it.\n\nBut this shouldn\u0027t be only my mind.\n\nDone (left a TODO)",
+      "parentUuid": "9d75791c_66ec2d4e",
+      "range": {
+        "startLine": 35,
+        "startChar": 17,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "7f1cc2684a4cbf2811f8ef5475fb4d06cb4ab619",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d1ee345_0ecfa9a2",
         "filename": "doc/adr/cli.rst",
         "patchSetId": 1
