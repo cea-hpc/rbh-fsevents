@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be1968c0_df8062c0",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2020-11-03T16:05:03Z",
+      "side": 1,
+      "message": "typo: absorb",
+      "range": {
+        "startLine": 14,
+        "startChar": 32,
+        "endLine": 14,
+        "endChar": 38
+      },
+      "revId": "de95bf735c971df6a331dcd2827891f7a6fc4f0f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f3be6c7_6f84140c",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2020-11-03T16:05:03Z",
+      "side": 1,
+      "message": "style: spaces",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 12
+      },
+      "revId": "de95bf735c971df6a331dcd2827891f7a6fc4f0f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
