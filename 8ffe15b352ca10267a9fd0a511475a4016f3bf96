@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d8ecda2_5b69bac8",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-13T09:59:57Z",
+      "side": 1,
+      "message": "Arguably, this could have waited for the patch to land...",
+      "range": {
+        "startLine": 1,
+        "startChar": 35,
+        "endLine": 1,
+        "endChar": 36
+      },
+      "revId": "8ffe15b352ca10267a9fd0a511475a4016f3bf96",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
