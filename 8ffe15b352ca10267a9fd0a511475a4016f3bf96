@@ -22,6 +22,30 @@
       "revId": "8ffe15b352ca10267a9fd0a511475a4016f3bf96",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37308ab0_683c2b58",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1010215
+      },
+      "writtenOn": "2020-11-22T13:16:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8d8ecda2_5b69bac8",
+      "range": {
+        "startLine": 1,
+        "startChar": 35,
+        "endLine": 1,
+        "endChar": 36
+      },
+      "revId": "8ffe15b352ca10267a9fd0a511475a4016f3bf96",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
