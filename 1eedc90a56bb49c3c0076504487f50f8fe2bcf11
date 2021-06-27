@@ -34,6 +34,24 @@
       "parentUuid": "13cb6252_cc64a1d3",
       "revId": "1eedc90a56bb49c3c0076504487f50f8fe2bcf11",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a40ed6f_fe6acca4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-27T23:59:33Z",
+      "side": 1,
+      "message": "It cannot hurt to share the meson configuration to compile the snippet above:\n\n executable(\n     \u0027fsevent2yaml\u0027,\n     sources: [\n         \u0027fsevent2yaml.c\u0027,\n         \u0027src/serialization.c\u0027,\n     ],\n     include_directories: includes,\n     dependencies: [librobinhood, libyaml, miniyaml],\n     install: true,\n )\n\nWith that you should be able to check that:\n\n $ ./fsevent2yaml . | ./rbh-fsevents - - | diff - \u003c(./fsevent2yaml .)\n\nEDIT: tested it, found a bug, fixed the bug. 😊",
+      "parentUuid": "4f74c511_83378e25",
+      "revId": "1eedc90a56bb49c3c0076504487f50f8fe2bcf11",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
