@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c14215ad_db79617d",
+        "filename": "src/sources/file.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-27T22:00:00Z",
+      "side": 1,
+      "message": "that\u0027s just me not knowing how libyaml/miniyaml work so just asking: yaml_parser_parse will stop at the first token, and the fsevent stream of yaml will be formatted such as each fsevent is prefixed by its type and followed by an end of event token; while in the grand scheme of things you\u0027ll also get an end event token for EOF (with corresponding start having been in yaml_fsevent_init) ?\n\nI don\u0027t get what fills in fsevent-\u003efsevent.type before parse_fsevent() just below.",
+      "revId": "45a13a469fd62875d3bc4d78afd04f585ba20bfc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f7d2997_4eec230d",
+        "filename": "src/sources/file.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-27T22:00:00Z",
+      "side": 1,
+      "message": "(nitpick) would it be simpler to name the union and memset it to zero unconditionally?\nI guess it doesn\u0027t apply to RBH_FET_DELETE...",
+      "revId": "45a13a469fd62875d3bc4d78afd04f585ba20bfc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa44050_92d65b84",
+        "filename": "src/sources/file.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-27T22:00:00Z",
+      "side": 1,
+      "message": "(nitpick) unexpected yaml format/yaml type rather than fsevent type? (fsevent type \u003d upsert/link/etc for me, even if yaml event types are also called type)",
+      "revId": "45a13a469fd62875d3bc4d78afd04f585ba20bfc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21af3a54_f024d484",
+        "filename": "src/sources/file.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-27T22:00:00Z",
+      "side": 1,
+      "message": "(nitpick, future improvement) I feel this could really use a magic first byte of the struct checked in debug mode, or at least for tests (e.g. assert)",
+      "revId": "45a13a469fd62875d3bc4d78afd04f585ba20bfc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
