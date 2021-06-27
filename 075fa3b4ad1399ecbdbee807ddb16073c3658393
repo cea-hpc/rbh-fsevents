@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3995f563_4cfc49fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-27T20:20:54Z",
+      "side": 1,
+      "message": "Hi, I managed to put together an MVP for rbh-fsevents (let\u0027s say minimal-ish).\nIt\u0027s far from being performant or supporting all the features described in doc/adr [0] but at least it allows for testing stuff.\n\nThe goal is to merge this and then start petitioning different communities to write their own fsevent converter (which I call \"source\" in the code):\n- lustre\n- fanotify\n- beegfs\n- PanFS\n- netapp\n\nI\u0027m open to supporting just about as many sources as people are willing to write code for (so long as the code is in good shape), but the only source that I would ever consider writing myself is the fanotify one, and I still intend to get some help from the community.\n\nThe roadmap from here on out looks like:\n- merge this patch series;\n- post on the relevant mailing lists to get help writing more sources;\n- code the deduplication algorithm;\n- code a kafka source / sink.\n\nI need your help for the first step, I can handle the next two, the last one I consider to be more of a bonus than anything else, and I feel like getting a python binding on top of librobinhood has higher priority.\n\nIf any of you guys is interested in writing a source, let me know, maybe I can help. 😊\n\n[0] https://github.com/cea-hpc/rbh-fsevents/tree/main/doc/adr",
+      "revId": "075fa3b4ad1399ecbdbee807ddb16073c3658393",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
