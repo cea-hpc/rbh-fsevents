@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13cb6252_cc64a1d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-27T21:39:11Z",
+      "side": 1,
+      "message": "(not reviewed yet) do you have any sample yaml file that\u0027d sort of work for this? I\u0027m in another fuzzing period so would be glad to play with it if you haven\u0027t yet\nIf you don\u0027t I\u0027ll write one, I just don\u0027t see any test and wondered how far you got",
+      "revId": "1eedc90a56bb49c3c0076504487f50f8fe2bcf11",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
