@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ddf8f29_db4b08e4",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-27T23:27:23Z",
+      "side": 1,
+      "message": "We could require URIs for paths (eg. file:///path/to/dir), but I quite like that we can have \u0027-\u0027 mean stdin/stdout.\n\nWe could go the other way around and require URIs for Lustre (eg. mdt://fsname-MDT0001), but it doesn\u0027t feel quite right to decide for Lustre how MDTs should be addressed.\n\nAll in all, I don\u0027t think it\u0027s that bad. Technically, you could have files named \u0027-\u0027 and yet it\u0027s never really a problem, is it? Also, even if you do have files whose name conflicts with an MDT, unless they are yaml files that contain valid fsevents, rbh-fsevents will error out. To fix the issue, all you have to do is move to a directory where there is no name conflict.\n\nI\u0027d prefer we table this issue until support for Lustre is implemented. Ideally with some input from the Lustre community.",
+      "parentUuid": "967dbf42_5881463b",
+      "revId": "61debe6a472ccb596ac66e9a0d518d5df92edea3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "55622aeb_22e90105",
         "filename": "rbh-fsevents.c",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2021-06-27T21:28:23Z",
       "side": 1,
       "message": "s/constructor/destructor/",
+      "revId": "61debe6a472ccb596ac66e9a0d518d5df92edea3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d6c8ca0_8a69451b",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-27T23:27:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55622aeb_22e90105",
       "revId": "61debe6a472ccb596ac66e9a0d518d5df92edea3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
