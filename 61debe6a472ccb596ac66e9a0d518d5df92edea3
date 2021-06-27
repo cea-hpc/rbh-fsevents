@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "967dbf42_5881463b",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-27T21:28:23Z",
+      "side": 1,
+      "message": "(nitpick) I\u0027m going to create a file named fsname-MDT0001 someday... an explicit switch to distinguish sources (e.g. local filesystem for yaml file, fanotify, lustre mdt, etc) might be better?",
+      "revId": "61debe6a472ccb596ac66e9a0d518d5df92edea3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55622aeb_22e90105",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-27T21:28:23Z",
+      "side": 1,
+      "message": "s/constructor/destructor/",
+      "revId": "61debe6a472ccb596ac66e9a0d518d5df92edea3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
