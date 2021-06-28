@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a7bac9_7d0fefa1",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-28T12:33:11Z",
+      "side": 1,
+      "message": "question: why use the FILE API for this ? Seeing the other projects, I expected the base file descriptors and functions",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 15
+      },
+      "revId": "e9dc347b0c16663daee83d1ce9d3dff19fee7690",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
