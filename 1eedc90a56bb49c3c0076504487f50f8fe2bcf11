@@ -52,6 +52,24 @@
       "parentUuid": "4f74c511_83378e25",
       "revId": "1eedc90a56bb49c3c0076504487f50f8fe2bcf11",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50f8a8df_0d735589",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-28T11:48:03Z",
+      "side": 1,
+      "message": "Started fuzzing a bit... There\u0027s actually a conceptual problem in that it considers assert failures as crash and we do assert based on input (e.g. expect tag to be this or that value).\n\nShould the code just skip bad events instead of asserting?\n\nIn practice if we\u0027re only consuming events we produced ourselves I believe it\u0027s fine to assert, if it ever happens it\u0027ll signal a strong problem rather than just skipping events.\n\n\nThat said it also found a real SEGV (only with asan, interesting.. didn\u0027t look into it yet)\n\n$ base64 -d \u003c\u003c EOF | unxz \u003e input\n/Td6WFoAAATm1rRGAgAhARYAAAB0L+Wj4AgXAY5dABboBAQq5pOE+XIpsHGsMheANitRR6bJLERu\n93gJ3wR7j/01ipdpC934pbRKEt85DKrAVKc04AMfDNhKxxI/L6Jtf3bdBu34Z9y/RdTIZZGQAhd9\nHC6a9z7vbXVdWmLQs+XDJt44s0uqr6zcw5ReS5cudZCiP5a70yxvrIVf9Gdfc3xlOIUYFHlChQVr\nMqWLNrO8QQVLmQ9UHvA7js7kJjEPAebGY/f8hzhUEnSD2DzbTtR7VbVV/rSrxoUWUa3TiYVVBDHR\nJ2zIfOFislRT8pu6H/tOHcbizWz/tk4kvO/462TF5PRkAvIl/E9ypaX3XmUSvaF+wp/PmUhYv6o7\nfkRZhw4tEwrTL8TVboKZH844CjPevBFg8xZnJ8X+I7+44GpQf05hkbNam7L7U3U4NGzGQrreHh7m\nG77UnyBTGnowLpk7s76UUJaQLWCRL6PSIBsl8gPqPlsogVkU5/9cev/+ZTUVE+fgTfQKEqhvofAX\nmXHXHjaPTEBOIDEkzesLhrPBiPWmZqb0C/xh74IAAAAAhAuL+BrlrmQAAaoDmBAAAL72oFixxGf7\nAgAAAAAEWVo\u003d\nEOF\n$ rbh-fsevents input -\nAddressSanitizer:DEADLYSIGNAL\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d2960184\u003d\u003dERROR: AddressSanitizer: SEGV on unknown address (pc 0x000000407224 bp 0x7fffea6fbc60 sp 0x7fffea6fbc40 T0)\n\u003d\u003d2960184\u003d\u003dThe signal is caused by a READ memory access.\n\u003d\u003d2960184\u003d\u003dHint: this fault was caused by a dereference of a high value address (see register values below).  Dissassemble the provided pc to learn which register was used.\n    #0 0x407224 in emit_rbh_value_map ../src/serialization.c:453\n    #1 0x40eea4 in emit_upsert ../src/serialization.c:2060\n    #2 0x411fb5 in emit_fsevent ../src/serialization.c:2694\n    #3 0x413a1a in file_sink_process ../src/sinks/file.c:35\n    #4 0x402879 in sink_process ../include/sink.h:26\n    #5 0x402ebd in feed ../rbh-fsevents.c:166\n    #6 0x40359b in main ../rbh-fsevents.c:226\n    #7 0x7f1a4fcf5b74  (/lib64/libc.so.6+0x27b74)\n    #8 0x40249d in _start (/home/shared/robinhood/rbh-fsevents/build_asan/rbh-fsevents+0x40249d)\n\nAddressSanitizer can not provide additional info.\nSUMMARY: AddressSanitizer: SEGV ../src/serialization.c:453 in emit_rbh_value_map\n\u003d\u003d2960184\u003d\u003dABORTING\n\n\nah, valgrind is more useful:\n\u003d\u003d2992570\u003d\u003d Conditional jump or move depends on uninitialised value(s)\n\u003d\u003d2992570\u003d\u003d    at 0x403F0E: emit_rbh_value_map (serialization.c:450)\n\u003d\u003d2992570\u003d\u003d    by 0x40735E: emit_upsert (serialization.c:2060)\n\u003d\u003d2992570\u003d\u003d    by 0x408747: emit_fsevent (serialization.c:2694)\n\u003d\u003d2992570\u003d\u003d    by 0x40920E: file_sink_process (file.c:35)\n\u003d\u003d2992570\u003d\u003d    by 0x402539: sink_process (sink.h:26)\n\u003d\u003d2992570\u003d\u003d    by 0x40290B: feed (rbh-fsevents.c:166)\n\u003d\u003d2992570\u003d\u003d    by 0x402B9B: main (rbh-fsevents.c:226)\n\nso it\u0027s an upsert with xattrs uninitialized because xattrs had been commented out, I guess the reset code in yaml_fsevent_iter_next and yaml_fsevent_init should be a bit more thoroughful with zeroing the struct... (it\u0027s on first element, so type \u003d 0 and only init\u0027s init is used)",
+      "parentUuid": "1a40ed6f_fe6acca4",
+      "revId": "1eedc90a56bb49c3c0076504487f50f8fe2bcf11",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
