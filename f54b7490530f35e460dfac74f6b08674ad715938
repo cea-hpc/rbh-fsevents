@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27f402d0_3c154f0f",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-28T20:56:29Z",
+      "side": 1,
+      "message": "(same nitpick on initial size)",
+      "revId": "f54b7490530f35e460dfac74f6b08674ad715938",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
