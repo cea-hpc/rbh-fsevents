@@ -22,6 +22,30 @@
       },
       "revId": "8fdce960baafba2c2766323df989ded776c8dab0",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46d99821_21318c0b",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-28T23:57:49Z",
+      "side": 1,
+      "message": "(Since Quentin didn\u0027t reply) it\u0027s most definitely not needed, and actually probably doesn\u0027t change anything in this function.\nIn others e.g. parse_statx_mapping later on he fits four bools in a single such struct, which optimizes size a bit (the :1 is a \"bitfield\" saying each field only takes one bit, so up to 8 bools can fit in a single byte)\n\nIt\u0027s mostly used for structs with lots of flags to replace bit flags and explicit bitwise manipulation for readability.\n\nI wouldn\u0027t say I\u0027d have bothered for on-stack values but I guess why not :)",
+      "parentUuid": "df27ddb9_3daa6095",
+      "range": {
+        "startLine": 169,
+        "startChar": 4,
+        "endLine": 171,
+        "endChar": 16
+      },
+      "revId": "8fdce960baafba2c2766323df989ded776c8dab0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
