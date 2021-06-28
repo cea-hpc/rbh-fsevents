@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d23c7f0_ce1679fd",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-28T20:44:44Z",
+      "side": 1,
+      "message": "I don\u0027t think I\u0027ve ever seen a yaml with regex or sequence, would appreciate if you have one to show as well for completeness.\nI\u0027ll try later if not",
+      "revId": "50c3cfc5343e27a15ddf2afca4f825f87c784077",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
