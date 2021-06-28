@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ca908b8_9ed96c6d",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-28T20:27:56Z",
+      "side": 1,
+      "message": "(nitpick) should be sizeof(*pointers), but it\u0027s the same anyway",
+      "revId": "f29cbeb16ba56b0699a5734a220356d3558cdd68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a1b2e5a_947c8655",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-28T20:27:56Z",
+      "side": 1,
+      "message": "(nitpick) would it make sense to start with a bit more than 1? e.g. make it something that would fit most of the pairs we expect to parse.",
+      "revId": "f29cbeb16ba56b0699a5734a220356d3558cdd68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "407e1f5f_02811829",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-28T20:27:56Z",
+      "side": 1,
+      "message": "do we have any guarantee about yaml_parser_parse filling event in?\nif we\u0027re not cetain event.type will be set to something other than scalar or mapping end event then this might need an explicit return too?",
+      "revId": "f29cbeb16ba56b0699a5734a220356d3558cdd68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea38cd56_f32a481b",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-28T20:27:56Z",
+      "side": 1,
+      "message": "(mindless mumbling) continue to exit the loop because we can\u0027t break as the switch would catch it is.... meh",
+      "revId": "f29cbeb16ba56b0699a5734a220356d3558cdd68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
