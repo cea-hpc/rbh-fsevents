@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e818ec0_fd829f05",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-28T13:13:57Z",
+      "side": 1,
+      "message": "question: shouldn\u0027t there be a space between the two ?",
+      "range": {
+        "startLine": 91,
+        "startChar": 41,
+        "endLine": 91,
+        "endChar": 50
+      },
+      "revId": "128f7894324cea27b4869af2a03750d9b18d8cdf",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
