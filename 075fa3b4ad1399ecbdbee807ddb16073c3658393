@@ -78,6 +78,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e54ecf38_d59dd141",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-28T23:28:54Z",
+      "side": 1,
+      "message": "Command line interfaces usually have --option and --no-option to allow programmatically building commands like:\n\n command\u003d\"rbh-fsevent --raw\"\n\n [[ $MOUNTPOINT ]] \u0026\u0026 command+\u003d\" --enrich $MOUNTPOINT\"\n [[ -e $MOUNTPOINT ]] || command+\u003d\" --raw\"\n\nArguably not the best example, but you get the idea.\nI felt --raw was nicer than --no-enrich.",
+      "parentUuid": "0c8d3155_813ad4c7",
+      "range": {
+        "startLine": 37,
+        "startChar": 61,
+        "endLine": 37,
+        "endChar": 70
+      },
+      "revId": "075fa3b4ad1399ecbdbee807ddb16073c3658393",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "87760b1c_4cbf44a2",
         "filename": "rbh-fsevents.c",
         "patchSetId": 1
@@ -101,6 +125,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05f4f338_7672af64",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-28T23:28:54Z",
+      "side": 1,
+      "message": "\u003e getopt_long() (...) also return the option character when a short option is recognized. (...) Error and -1 returns are the same as for getopt(), plus \u0027?\u0027 for an ambiguous match or an extraneous parameter.\n\nref: https://man7.org/linux/man-pages/man3/getopt.3.html",
+      "parentUuid": "87760b1c_4cbf44a2",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 82,
+        "endChar": 17
+      },
+      "revId": "075fa3b4ad1399ecbdbee807ddb16073c3658393",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0dc4d7b3_9ae697b4",
         "filename": "rbh-fsevents.c",
         "patchSetId": 1
@@ -112,6 +160,30 @@
       "writtenOn": "2021-06-28T10:45:15Z",
       "side": 1,
       "message": "typo: this needs to be removed I think",
+      "range": {
+        "startLine": 95,
+        "startChar": 44,
+        "endLine": 95,
+        "endChar": 46
+      },
+      "revId": "075fa3b4ad1399ecbdbee807ddb16073c3658393",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4aca9494_10cf2628",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-28T23:28:54Z",
+      "side": 1,
+      "message": "It\u0027s going to be deleted by a future patch in this series.\n\nI\u0027d rather not make people re-review this patch for a typo that\u0027s going away.",
+      "parentUuid": "0dc4d7b3_9ae697b4",
       "range": {
         "startLine": 95,
         "startChar": 44,
