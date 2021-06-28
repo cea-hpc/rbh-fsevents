@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "555eefba_7572ecd8",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-28T20:49:27Z",
+      "side": 1,
+      "message": "I\u0027m impressed the compiler doesn\u0027t complain at that check for being useless... (note it makes sense to keep, just won\u0027t be used on most platforms)",
+      "revId": "aaf970d11a36d71efe34769fa963bc3bd0daef5f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
