@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d11ada95_37c08d42",
+        "filename": "src/sources/file.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-28T00:07:59Z",
+      "side": 1,
+      "message": "Ah! Okay, resetting the previous fsevent makes sense, but I can definitely agree it isn\u0027t obvious without at least a comment!!\n\nPerformance-wise, branches can be pretty costly if the cpu can\u0027t guess which will be taken so I\u0027d say just a memset without check will usually be faster -- but compared to a filesystem access it\u0027s going to be hard to measure anyway so it doesn\u0027t really matter. Having just a memset for whole struct might actually be better just for code clarity though!\n\nHappy to leave that to tomorrow-you, leaving this point unresolved for a comment at least.\n\n\nAlso, thanks for yaml explanation, I didn\u0027t realize you were using document/tags like that -- seeing an actual yaml example in last commit also helped clear it up.",
+      "parentUuid": "d6e28cfc_31c6ab55",
+      "revId": "45a13a469fd62875d3bc4d78afd04f585ba20bfc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f7d2997_4eec230d",
         "filename": "src/sources/file.c",
         "patchSetId": 1
