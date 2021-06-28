@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5887c931_5c3b6373",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-28T13:24:06Z",
+      "side": 1,
+      "message": "minor: put this check first, as it is easier than multiple comparisons/conversions",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 38
+      },
+      "revId": "705356b713ad9b9e5e02a44381b5c87d297b8241",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
