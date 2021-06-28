@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df27ddb9_3daa6095",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-28T12:58:57Z",
+      "side": 1,
+      "message": "question: why is a structure like this needed ?",
+      "range": {
+        "startLine": 169,
+        "startChar": 4,
+        "endLine": 171,
+        "endChar": 16
+      },
+      "revId": "8fdce960baafba2c2766323df989ded776c8dab0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
