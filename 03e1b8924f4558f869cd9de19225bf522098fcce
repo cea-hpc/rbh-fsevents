@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8694b282_bfc057b1",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-28T12:53:04Z",
+      "side": 1,
+      "message": "defect: upsert",
+      "range": {
+        "startLine": 26,
+        "startChar": 21,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "03e1b8924f4558f869cd9de19225bf522098fcce",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
