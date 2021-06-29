@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae4705c0_c944ffd7",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2465,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T21:25:42Z",
+      "side": 1,
+      "message": "(nitpick) so unlink ignores unwanted fields (e.g. xattrs) but delete will error on them, should it just skip other tags or should unlink error on xattrs?",
+      "revId": "94586d7c7c42d73f0c2ec344b6f46b22d4ea7eeb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
