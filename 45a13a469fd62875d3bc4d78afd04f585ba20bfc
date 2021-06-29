@@ -72,6 +72,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2ac161f_522b66bc",
+        "filename": "src/sources/file.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "Actually, re-reading the code, just zero-ing a few fields is not enough. Only `fsevent-\u003eid` is reliably overwritten after a successful call to parse_fsevent(), so I opted to replace the big switch with a memset().",
+      "parentUuid": "d11ada95_37c08d42",
+      "revId": "45a13a469fd62875d3bc4d78afd04f585ba20bfc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f7d2997_4eec230d",

@@ -16,6 +16,24 @@
       "message": "(ultra-nitpick) btw Signed-off-by usually requires a name rather than a login for the first field (would say the same of author/committer name in general) -- is signing as ypsah intended to hide your name or something?",
       "revId": "c0407067e29ea03c2aa66ca6ebdb33eda351c4db",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f5d3aeb_ccbcde83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "Oh right... Well, that\u0027s going to be a lot of noise... Sorry in advance \u003d/",
+      "parentUuid": "38f84cac_93fa6a81",
+      "revId": "c0407067e29ea03c2aa66ca6ebdb33eda351c4db",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
