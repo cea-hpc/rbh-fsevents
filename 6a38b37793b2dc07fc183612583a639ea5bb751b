@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d32553f_1eebaf87",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2536,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T21:26:44Z",
+      "side": 1,
+      "message": "any reason for these asserts -- don\u0027t trust the if statement?",
+      "revId": "6a38b37793b2dc07fc183612583a639ea5bb751b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
