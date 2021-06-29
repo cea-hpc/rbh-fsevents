@@ -16,6 +16,24 @@
       "message": "(nitpick) should add to robinhood/statx.h?",
       "revId": "99bee30073f11bd93ae3f9ac9a447595f105867c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26f00121_eedc1f82",
+        "filename": "src/serialization.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T21:35:08Z",
+      "side": 1,
+      "message": "Yep, also, I don\u0027t want to backport too much and this symbol is now available on my machine. If it\u0027s not on Centos8, someone just let me know, and we\u0027ll add the required #ifndefs.\n\nPatch in librobinhood: https://review.gerrithub.io/c/cea-hpc/librobinhood/+/519814",
+      "parentUuid": "ce28407e_181c5d3b",
+      "revId": "99bee30073f11bd93ae3f9ac9a447595f105867c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
