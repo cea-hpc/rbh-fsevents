@@ -53,6 +53,23 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2033bde2_75e87459",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T00:59:35Z",
+      "side": 1,
+      "message": "Dominique makes a fair point that this is an insane amount of code for anyone to review. Feel free to skip patches that already have a +1, and let me know when you\u0027ve had enough, we\u0027ll merge everything and fix bugs as they come up.",
+      "revId": "075fa3b4ad1399ecbdbee807ddb16073c3658393",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c8d3155_813ad4c7",
