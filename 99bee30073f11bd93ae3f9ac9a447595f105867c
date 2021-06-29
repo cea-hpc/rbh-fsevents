@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce28407e_181c5d3b",
+        "filename": "src/serialization.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T10:19:07Z",
+      "side": 1,
+      "message": "(nitpick) should add to robinhood/statx.h?",
+      "revId": "99bee30073f11bd93ae3f9ac9a447595f105867c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
