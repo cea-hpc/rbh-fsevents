@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92759d32_ebd0d892",
+        "filename": "src/serialization.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T10:17:36Z",
+      "side": 1,
+      "message": "(nitpick) where does that 4 * sizeof(u) comes from? :D\nI mean, it works (and even better for octal than I was checking decimals at first...), but it feels bit \"sorti du chapeau\"... Well okay really just nitpicking here, it was fun to see",
+      "revId": "26846b0b690d46cfd37bc90e0d4ef05c7800d6b3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
