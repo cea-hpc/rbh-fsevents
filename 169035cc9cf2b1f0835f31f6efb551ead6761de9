@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "017fbb5f_d30a6e50",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2581,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T21:37:20Z",
+      "side": 1,
+      "message": "(defect) should be INODE_XATTR_TAG",
+      "revId": "169035cc9cf2b1f0835f31f6efb551ead6761de9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "556b070d_a29656de",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2617,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T21:37:20Z",
+      "side": 1,
+      "message": "(nitpick) if an xattr event has only id set, what does it mean?\niirc, a value-null pair in xattrs means remove value, but an empty map is pointless right? shouldn\u0027t these be skipped/considered invalid?",
+      "revId": "169035cc9cf2b1f0835f31f6efb551ead6761de9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
