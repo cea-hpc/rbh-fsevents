@@ -34,6 +34,24 @@
       "parentUuid": "ce28407e_181c5d3b",
       "revId": "99bee30073f11bd93ae3f9ac9a447595f105867c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c92954f1_6d6a545d",
+        "filename": "src/serialization.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T21:53:22Z",
+      "side": 1,
+      "message": "[centos@c8 ~]$ rg STATX_ATTR_VER /usr/include/\n[centos@c8 ~]$ \n\ndoes that answer the question? (it\u0027s 8.3, I think there are updates but we probably want to play safe)",
+      "parentUuid": "26f00121_eedc1f82",
+      "revId": "99bee30073f11bd93ae3f9ac9a447595f105867c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
