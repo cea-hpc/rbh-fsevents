@@ -16,6 +16,24 @@
       "message": "While I\u0027m convinced this memory management works, I really find it horrible to think about :D",
       "revId": "b79c9000f641b2e4beecc6c10463da58e880ed99",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0db1098e_cafc6aea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "It\u0027s the most simple and user-friendly scheme I could come up with, but I admit that it took me a while to come to terms with it.",
+      "parentUuid": "c57e81f1_5404e845",
+      "revId": "b79c9000f641b2e4beecc6c10463da58e880ed99",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
