@@ -16,6 +16,24 @@
       "message": "(note: also noticed I\u0027ve not really tested these either now I\u0027m seeing this... later™)",
       "revId": "9e3ef1660c94b2c82da635f02774eae454a11aaf",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c2902f6_ac89a74e",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "Thanks 😊",
+      "parentUuid": "33c7db44_b9ab7338",
+      "revId": "9e3ef1660c94b2c82da635f02774eae454a11aaf",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
