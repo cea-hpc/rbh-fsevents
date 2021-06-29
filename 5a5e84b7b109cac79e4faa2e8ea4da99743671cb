@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86fb61da_a29277a1",
+        "filename": "src/sinks/backend.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T21:44:32Z",
+      "side": 1,
+      "message": "remind me, does rbh_backend_update have to consume all fsevents?\nThis will be chunked by the deduplicator iterator but some database might say batches should be up to xyz which isn\u0027t the same setting so this might need looping over until iterator is empty, or is it the responsability of the backend to do that?",
+      "revId": "5a5e84b7b109cac79e4faa2e8ea4da99743671cb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
