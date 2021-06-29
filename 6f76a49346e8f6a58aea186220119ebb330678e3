@@ -34,6 +34,24 @@
       "parentUuid": "7ae0cc2b_619ace56",
       "revId": "6f76a49346e8f6a58aea186220119ebb330678e3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "661f5ddc_2247493b",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T23:22:25Z",
+      "side": 1,
+      "message": "it\u0027s a bitmask but it\u0027s used as an enum in the code -- if we ever see a directory socket I\u0027m not sure things will bode well.\nAnyway, I\u0027m fine with 0, it\u0027s just about having a name on it for the error check below",
+      "parentUuid": "05b982e3_f194f3bc",
+      "revId": "6f76a49346e8f6a58aea186220119ebb330678e3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
