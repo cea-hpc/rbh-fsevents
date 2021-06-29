@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbc03f9a_a840859e",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T10:50:13Z",
+      "side": 1,
+      "message": "(note) parse_uint32 already checks for event-\u003etype \u003d\u003d YAML_SCALAR_EVENT (in an assert)\n\n1/ asserts won\u0027t be compiled in release mode, I believe we might want to not use assert for things that come from user input as that can likely lead to weird behaviour (it\u0027s impressive what stuff you see in exploits....)\n\n2/ I see patterns similar to parse_next_uint32 in quite a ton of places: pretty much all parse_uint32 in this file are prefixed by a if (!yaml_parser_parse(\u0026event, minor)) parser_error(parser), that could also probably use some refactoring... later™\nThere is actually only one case that doesn\u0027t apply, bit of a shame!",
+      "revId": "df84c9a46b87a18d01acda5f3bcb289579c6e6d0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
