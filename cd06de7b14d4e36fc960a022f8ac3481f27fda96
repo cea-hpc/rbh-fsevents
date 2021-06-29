@@ -34,6 +34,24 @@
       "parentUuid": "eb5d5353_ace63f26",
       "revId": "cd06de7b14d4e36fc960a022f8ac3481f27fda96",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "340768db_71537669",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T01:16:49Z",
+      "side": 1,
+      "message": "if there are we should give big warnings for all the u64/i64 handling!\nAs far as I can tell for most libcs (glibc, musl, newlib) uintmax_t will be 64bit on 32bit platforms, but I didn\u0027t go as far as checking any standard to see what the requirements are.\n\nAnyway, I can be convinced with uniformity between functions; compilers should remove the redundant check anyway. I think. Don\u0027t care enough to bother trying :)",
+      "parentUuid": "34e1d86c_81c36cb3",
+      "revId": "cd06de7b14d4e36fc960a022f8ac3481f27fda96",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
