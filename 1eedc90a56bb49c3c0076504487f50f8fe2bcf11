@@ -70,6 +70,24 @@
       "parentUuid": "1a40ed6f_fe6acca4",
       "revId": "1eedc90a56bb49c3c0076504487f50f8fe2bcf11",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a7b437c_5df249f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "Really cool that you\u0027re fuzzing this! This is really what we need! ❤️\n\nI\u0027m un-resolving this comment to remember to check that replacing the switch statement with a memset() fixed that crash.",
+      "parentUuid": "50f8a8df_0d735589",
+      "revId": "1eedc90a56bb49c3c0076504487f50f8fe2bcf11",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
