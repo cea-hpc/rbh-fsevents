@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20f85d85_4042789b",
+        "filename": "src/serialization.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T10:24:53Z",
+      "side": 1,
+      "message": "(for other reviewers: been wondering why there is yaml_emit_integer (miniyaml) and emit_int64 (this file) -- the difference is the later stores a tag that says it\u0027s an int64 or whatever for rbh_values, which I agree we don\u0027t need here. Also, yaml_emit_integer is signed intmax (so s64 in practice), which works here)",
+      "revId": "a04f3d0bac376983d254163872c5ba1c060b1c8b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
