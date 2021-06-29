@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3f849b9_37c7573a",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T10:39:25Z",
+      "side": 1,
+      "message": "(what\u0027s undefined on failure? that you don\u0027t know if it\u0027s been set or not? this is all thrown away with return false anyway...)",
+      "revId": "ef688fd8d78b2eb517ecae7352076fd28c42ccd3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb2b0d03_03f0d8ba",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1565,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T10:39:25Z",
+      "side": 1,
+      "message": "(nitpicks) there seem to be two patterns in the code, either this or\nif (type !\u003d YAML_MAPPING_START_EVENT) { errno\u003dEINVAL; return false; } return parse_whatever();\nMight want to make it uniform at some point later™, but honestly can\u0027t be bothered right now with the volume",
+      "revId": "ef688fd8d78b2eb517ecae7352076fd28c42ccd3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
