@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d848ad43_0a16e308",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1589,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T11:03:41Z",
+      "side": 1,
+      "message": "(typically the kind of things that can use parse_next_uint32)",
+      "revId": "743db4c6e3efcb64d1a1092849bb7ae5ccc24330",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d52f7db_574cb658",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T11:03:41Z",
+      "side": 1,
+      "message": "(... and while we\u0027re making utlity functions like next_uint32, the above also comes many many times and this could be put in its own function so we have here something like:\n\nstatic bool\nparse_device_numbers(...)\n{\n  return parse_start_event(parser) \u0026\u0026 _parse_device_numbers(parser, major, minor)\n}",
+      "revId": "743db4c6e3efcb64d1a1092849bb7ae5ccc24330",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
