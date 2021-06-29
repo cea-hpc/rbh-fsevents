@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17a33948_c16ccaed",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2041,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T11:06:03Z",
+      "side": 1,
+      "message": "(... and while we\u0027re making aliases#2, this is basically parse_next_str; but this only comes up twice... parse_name and parse_symlink are the exact same function)",
+      "revId": "9e957f2c83309cfc7c6b29b8896605260dfeba6e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
