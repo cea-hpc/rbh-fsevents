@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "73bdff6d_1f6a0107",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "Yes, why not.\n\nOTOH, I feel like we caught a lot of small things with this first batch of review.\nLet\u0027s say that I\u0027ll leave a chance to everyone to review as much as they can/want, and once everyone has had enough we merge the whole thing.",
+      "parentUuid": "b26adee3_0169f093",
+      "revId": "181838e103504920296d49323eb1b7619d1d408b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "be8bb3ee_f3299c15",
         "filename": "src/serialization.c",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2021-06-28T21:12:53Z",
       "side": 1,
       "message": "(can\u0027t compilers detect the function is pure nowadays? well it doesn\u0027t hurt I guess; I\u0027m mostly amused this one was worth unrolling in a switch more than others :D)",
+      "revId": "181838e103504920296d49323eb1b7619d1d408b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d736b94d_787405f5",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "I believe I unroll most if not all the *_tokenize() function in this file. The pure attribute is probably a remnant of some old code.\n\nNot everything was written at once, and I seem to remember that I started with regex... For some reason.\n\nI\u0027ll remove it for consistency.",
+      "parentUuid": "be8bb3ee_f3299c15",
       "revId": "181838e103504920296d49323eb1b7619d1d408b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f14b400b_18e7f8bd",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "I don\u0027t understand, which type of check would you want to run?",
+      "parentUuid": "d98c1e38_1a7112fb",
+      "revId": "181838e103504920296d49323eb1b7619d1d408b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a580e84_e03fbdf3",
         "filename": "src/serialization.c",
         "patchSetId": 2
@@ -65,6 +119,24 @@
       "writtenOn": "2021-06-28T21:12:53Z",
       "side": 1,
       "message": "(nitpick) surprising this one would be allowed to continue on parse error after so many asserts - I don\u0027t mind either behaviour but might want to make it consistent?",
+      "revId": "181838e103504920296d49323eb1b7619d1d408b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "296917d9_1be5435d",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "For sure... I feel like there might have been a reason for it, but I can\u0027t remember. It\u0027ll probably jump at me when I try to refactor it...\n\nThat\u0027s for tomorrow.",
+      "parentUuid": "3a580e84_e03fbdf3",
       "revId": "181838e103504920296d49323eb1b7619d1d408b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -82,6 +154,24 @@
       "writtenOn": "2021-06-28T21:12:53Z",
       "side": 1,
       "message": "(ditto)",
+      "revId": "181838e103504920296d49323eb1b7619d1d408b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f0ded21_c5a59948",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "Noted",
+      "parentUuid": "3192eb7c_16d40aa1",
       "revId": "181838e103504920296d49323eb1b7619d1d408b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
