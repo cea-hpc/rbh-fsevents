@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a462e8e6_0cdbe307",
+        "filename": "src/sinks/file.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T21:40:30Z",
+      "side": 1,
+      "message": "man fclose says it can return errnos from any of close, write or fflush -- so not very safe.\nShould either check error or fflush first and check that one at least?",
+      "revId": "33f20edbe9cde61a862c2ba302ab6ea03472d5fc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
