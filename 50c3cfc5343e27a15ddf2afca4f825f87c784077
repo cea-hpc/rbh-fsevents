@@ -34,6 +34,24 @@
       "parentUuid": "0d23c7f0_ce1679fd",
       "revId": "50c3cfc5343e27a15ddf2afca4f825f87c784077",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07074df2_089bb778",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T10:06:40Z",
+      "side": 1,
+      "message": "thanks!",
+      "parentUuid": "5c2f8def_51b7b8da",
+      "revId": "50c3cfc5343e27a15ddf2afca4f825f87c784077",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
