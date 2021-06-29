@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "42934db6_21aabd2f",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T23:26:48Z",
+      "side": 1,
+      "message": "Ah. The comment is misleading, I\u0027d just remove it (the comment).\n(mind you I would probably just have passed \u0026statxbuf-\u003estx_mode as argument and or the value in there, but I can understand wanting to have it return its own value)",
+      "parentUuid": "f3e28afd_2aef21ec",
+      "revId": "ef688fd8d78b2eb517ecae7352076fd28c42ccd3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb2b0d03_03f0d8ba",
         "filename": "src/serialization.c",
         "patchSetId": 4
