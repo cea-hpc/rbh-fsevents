@@ -16,6 +16,24 @@
       "message": "(nitpick) I think it\u0027d make sense wrt the rest of the code to make this and str2statx_attribute return WHATEV_UNKNOWN (set to -1 or ~0?) instead of 0\nwas a bit confused by the if type \u003d\u003d 0 -\u003e error below and it made sense why reviewing later patchset",
       "revId": "6f76a49346e8f6a58aea186220119ebb330678e3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05b982e3_f194f3bc",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T22:43:47Z",
+      "side": 1,
+      "message": "The idea is that we are returning flags from a bitmask, and 0 is actually the only value that cannot be a flag.",
+      "parentUuid": "7ae0cc2b_619ace56",
+      "revId": "6f76a49346e8f6a58aea186220119ebb330678e3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
