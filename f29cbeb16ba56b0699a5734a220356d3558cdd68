@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c755d777_07cc5930",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ca908b8_9ed96c6d",
+      "revId": "f29cbeb16ba56b0699a5734a220356d3558cdd68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a1b2e5a_947c8655",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-06-28T20:27:56Z",
       "side": 1,
       "message": "(nitpick) would it make sense to start with a bit more than 1? e.g. make it something that would fit most of the pairs we expect to parse.",
+      "revId": "f29cbeb16ba56b0699a5734a220356d3558cdd68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d0f8f9a_6eaff4ba",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "Yep, added a TODO comment.",
+      "parentUuid": "0a1b2e5a_947c8655",
       "revId": "f29cbeb16ba56b0699a5734a220356d3558cdd68",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -52,6 +88,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c97cd40e_388f15ae",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "I am not sure I understand.\n\nparser_error() does not return, does that address your comment?",
+      "parentUuid": "407e1f5f_02811829",
+      "revId": "f29cbeb16ba56b0699a5734a220356d3558cdd68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ea38cd56_f32a481b",
@@ -65,6 +119,24 @@
       "writtenOn": "2021-06-28T20:27:56Z",
       "side": 1,
       "message": "(mindless mumbling) continue to exit the loop because we can\u0027t break as the switch would catch it is.... meh",
+      "revId": "f29cbeb16ba56b0699a5734a220356d3558cdd68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70b9153e_a99e8f14",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "Yup, this one is diabolical 🔥\n\n(actually took me a minute to figure out what you meant)",
+      "parentUuid": "ea38cd56_f32a481b",
       "revId": "f29cbeb16ba56b0699a5734a220356d3558cdd68",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
