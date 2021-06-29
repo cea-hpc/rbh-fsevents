@@ -70,6 +70,30 @@
       },
       "revId": "e9dc347b0c16663daee83d1ce9d3dff19fee7690",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8e9f61d_5f9c9676",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-06-29T09:56:09Z",
+      "side": 1,
+      "message": "When I asked, I had not seen the yaml part yet, which indeed answers my question",
+      "parentUuid": "9c56662d_7c000c95",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 15
+      },
+      "revId": "e9dc347b0c16663daee83d1ce9d3dff19fee7690",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
