@@ -16,6 +16,24 @@
       "message": "(for other reviewers: been wondering why there is yaml_emit_integer (miniyaml) and emit_int64 (this file) -- the difference is the later stores a tag that says it\u0027s an int64 or whatever for rbh_values, which I agree we don\u0027t need here. Also, yaml_emit_integer is signed intmax (so s64 in practice), which works here)",
       "revId": "a04f3d0bac376983d254163872c5ba1c060b1c8b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1937e4b5_e65cefd6",
+        "filename": "src/serialization.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T22:25:07Z",
+      "side": 1,
+      "message": "One of the complaints about YAML that I\u0027ve read the most is how it\u0027s so easy to shoot yourself in the foot with it:\n\n supported-locations:\n   - AF  # Afghanistan\n   - AL  # Albania\n   - DZ  # Algeria\n   - ...\n   - NO  # Norway\n   - ...\n\nAnd some python code to parse that:\n\n import yaml\n\n def supported_locations(configuration: PathLike \u003d \"/etc/conf.yaml\"):\n     with open(configuration) as stream:\n         document \u003d yaml.safe_load(stream)\n         return document[\u0027supported-locations\u0027]\n\n def is_supported(location: str):\n     return location in supported_locations()\n\n assert is_supported(\"NO\"), \"there is no(r)way this fails, right?\"\n\nWell, the point is that of course the assert fails, and if you dig long enough you realise that `NO` was parsed as a boolean, not a string. Everyone blames YAML for that and tells you to just quote your strings or use JSON, which is crazy!\n\nThe YAML spec doesn\u0027t say `NO` MUST be parsed as a boolean. In fact, the spec only defines 3 YAML entities:\n- MAPPINGS\n- SEQUENCES\n- SCALARS\n\nThe end of the spec does document a few \"recommended schemas\". [0] But none of those even suggest parsing \"NO\" as a boolean. It\u0027s actually just the python parser trying too hard. (well... PyYAML didn\u0027t get the idea out of nowhere either: https://yaml.org/type/bool.html)\n\nAnyway, when working with YAML, it\u0027s fine to write it like a human, but it\u0027s not fine to parse like a monkey.\n\nWhere was I going with that?... Well, it turns out that most fields of an fsevent are implicitly typed (eg. `fsevent-\u003eupsert.statx-\u003etimestamp-\u003etv_sec` is always a signed int64), so there is no need to put quotes and/or tags everywhere when you write the corresponding YAML, the parser should be able to infer the type of almost everything.\n\nI say \"almost\", because `xattrs` are the exception: the parser cannot guess on its own if \"32\" is signed int32 or an unsigned int64; if \"cm9iaW5ob29kCg\u003d\u003d\" is a string or the base64 representation of \"robinhood\". Therefore, in those cases, the emitter must leave a hint of what is what. My preferred way of doing that, is to use tags.\n\nWhere:\n\n xattrs:\n   integer: 32\n\nIs ambiguous.\n\n xattrs:\n   integer: !int64 32\n\nIs quite explicit.\n\nSo coming back to the first example in this comment, you don\u0027t have to switch to JSON or quote `NO`, you just have to use a parser to which you can tell: everything you find under `supported-locations` is a string, parse it as such.\n\n[0] https://yaml.org/spec/1.2/spec.html#Schema",
+      "parentUuid": "20f85d85_4042789b",
+      "revId": "a04f3d0bac376983d254163872c5ba1c060b1c8b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
