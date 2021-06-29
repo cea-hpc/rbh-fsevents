@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ff58fbe_79a5b61c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T10:51:21Z",
+      "side": 1,
+      "message": "(that doesn\u0027t deserve an independant commit with this kind of review process :D)",
+      "revId": "7c215848694d2162b0eb3acff0ecc159b2f2be88",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
