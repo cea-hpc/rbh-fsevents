@@ -16,6 +16,24 @@
       "message": "I don\u0027t think I\u0027ve ever seen a yaml with regex or sequence, would appreciate if you have one to show as well for completeness.\nI\u0027ll try later if not",
       "revId": "50c3cfc5343e27a15ddf2afca4f825f87c784077",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c2f8def_51b7b8da",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T01:00:07Z",
+      "side": 1,
+      "message": "\u003e would appreciate if you have one to show\n\nSorry, I don\u0027t.\n\nBasically, we support regex in `struct rbh_value` for filters, which in turn means we have to support them in xattrs. Same thing for sequences, but I can imagine a use for it.\n\nEDIT: I can manually generate an fsevent that uses regex/sequences:\n\n--- !upsert\n\"id\": !!binary TQAAAAGnUAAAAAAABQAAAAAAAAA1BgQA\n\"xattrs\":\n  \"key-0\": !regex\n    \"regex\": \"^IaMaReGex$\"\n    \"options\": 1234\n  \"key-1\":\n  - \"5678\"\n  - \"abcd\"\n\"statx\":\n  \"type\": \"directory\"\n  \"mode\": 0755\n  \"nlink\": 1\n  \"uid\": 1000\n  \"gid\": 1000\n  \"atime\":\n    \"sec\": 1624924417\n    \"nsec\": 62325333\n  \"mtime\":\n    \"sec\": 1624925522\n    \"nsec\": 989971643\n  \"ctime\":\n    \"sec\": 1624925522\n    \"nsec\": 989971643\n  \"ino\": 5285633\n  \"size\": 244\n  \"blocks\": 0\n  \"btime\":\n    \"sec\": 1603015523\n    \"nsec\": 356711918\n  \"blksize\": 4096\n  \"attributes\":\n    \"compressed\": n\n    \"immutable\": n\n    \"append\": n\n    \"nodump\": n\n  \"rdev\":\n    \"major\": 0\n    \"minor\": 0\n  \"dev\":\n    \"major\": 0\n    \"minor\": 40\n...\n\n(made me find at least a bug, and I think I don\u0027t support YAML anchors... Another problem for another tomorrow-me)",
+      "parentUuid": "0d23c7f0_ce1679fd",
+      "revId": "50c3cfc5343e27a15ddf2afca4f825f87c784077",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
