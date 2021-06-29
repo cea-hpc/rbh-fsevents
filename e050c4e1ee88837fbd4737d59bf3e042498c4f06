@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c65cbfb_3072d1b7",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T21:21:34Z",
+      "side": 1,
+      "message": "(nitpick) admittedly not very costly but this is parsing uri three times.. I wonder if it\u0027d make senes for rbh_backend_from_uri to take a raw uri instead, then you could just pass it as argument to sink_from_uri?\n\nAnswering myself: other places using rbh_backend_from_uri don\u0027t seem to do quite as many check, this could likely be lazy and just check for \"rbh:\" prefix and pass string as is -- or since it\u0027s last in the function just pass it as is anyway, it checks for RBH_SCHEME itself too and will error out just the same.\n(anyway, doesn\u0027t matter)",
+      "revId": "e050c4e1ee88837fbd4737d59bf3e042498c4f06",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "275483f1_caa73eef",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T21:21:34Z",
+      "side": 1,
+      "message": "(nitpick) slightly more info here? This one will be printed, I tried to output to a file (/dev/null) for fuzzing and got surprised it was either stdout or uri unlike the source :D",
+      "revId": "e050c4e1ee88837fbd4737d59bf3e042498c4f06",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
