@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70df9bb5_ac6f08c8",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T10:44:53Z",
+      "side": 1,
+      "message": "(nitpick) to not modify any of the parameters on error I\u0027d set mask at the end together with *attributes, but it doesn\u0027t really matter since we bail out on error anyway.",
+      "revId": "211b6d6552d6cbb78db3ea909f031365266b43b4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
