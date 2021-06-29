@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10985f8f_790dfae0",
+        "filename": "src/serialization.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-06-29T01:11:29Z",
+      "side": 1,
+      "message": "other way around - this is the check (match the key with RF_REGEX/RF_OPTIONS) that in my opinion should be done before the \"yaml_parser_parse\" above\n\nBut frankly that\u0027s more of a theorical problem, things will fail anyway if there\u0027s a problem; don\u0027t mind me here.",
+      "parentUuid": "f14b400b_18e7f8bd",
+      "revId": "181838e103504920296d49323eb1b7619d1d408b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a580e84_e03fbdf3",
         "filename": "src/serialization.c",
         "patchSetId": 2
