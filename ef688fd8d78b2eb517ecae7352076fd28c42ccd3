@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f3e28afd_2aef21ec",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T22:43:47Z",
+      "side": 1,
+      "message": "It\u0027s about putting the statement under `if (success)` rather than always running it.\n\nIf parse_filetype() fails, `tmp` is uninitialized, and OR-assigning it to `statxbuf-\u003estx_mode` is undefined behaviour.",
+      "parentUuid": "e3f849b9_37c7573a",
+      "revId": "ef688fd8d78b2eb517ecae7352076fd28c42ccd3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb2b0d03_03f0d8ba",
         "filename": "src/serialization.c",
         "patchSetId": 4
@@ -31,6 +49,24 @@
       "writtenOn": "2021-06-29T10:39:25Z",
       "side": 1,
       "message": "(nitpicks) there seem to be two patterns in the code, either this or\nif (type !\u003d YAML_MAPPING_START_EVENT) { errno\u003dEINVAL; return false; } return parse_whatever();\nMight want to make it uniform at some point later™, but honestly can\u0027t be bothered right now with the volume",
+      "revId": "ef688fd8d78b2eb517ecae7352076fd28c42ccd3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78fa7c59_e247e38b",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1565,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-29T22:43:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fb2b0d03_03f0d8ba",
       "revId": "ef688fd8d78b2eb517ecae7352076fd28c42ccd3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
