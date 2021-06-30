@@ -16,6 +16,24 @@
       "message": "(... and while we\u0027re making aliases#2, this is basically parse_next_str; but this only comes up twice... parse_name and parse_symlink are the exact same function)",
       "revId": "9e957f2c83309cfc7c6b29b8896605260dfeba6e",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a07cfc2f_90338e3f",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2041,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T22:16:16Z",
+      "side": 1,
+      "message": "Ack (on the todolist as well)",
+      "parentUuid": "17a33948_c16ccaed",
+      "revId": "9e957f2c83309cfc7c6b29b8896605260dfeba6e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
