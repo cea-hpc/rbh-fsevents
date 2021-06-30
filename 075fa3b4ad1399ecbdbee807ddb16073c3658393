@@ -206,6 +206,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16ade749_4a914a71",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T22:33:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05f4f338_7672af64",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 82,
+        "endChar": 17
+      },
+      "revId": "075fa3b4ad1399ecbdbee807ddb16073c3658393",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0dc4d7b3_9ae697b4",

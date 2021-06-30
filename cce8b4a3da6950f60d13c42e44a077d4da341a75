@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4888d293_11c6a224",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T22:33:11Z",
+      "side": 1,
+      "message": "I made a mistake, pushed a few fixup patches, interrupted the upload, deleted the patch, rebased properly the fixups, pushed again (it failed), then pushed again (it worked), but now all the votes are gone, even on patches that were trivial rebase.\n\nSorry about that.",
+      "revId": "cce8b4a3da6950f60d13c42e44a077d4da341a75",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
