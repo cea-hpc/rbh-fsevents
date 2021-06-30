@@ -33,6 +33,24 @@
       "message": "(defect) if (!seen.nsec), although ultimately it\u0027s caught later on with just errno overwritten",
       "revId": "eac582c1a78b03f2de4f2c30d634877fa97eb631",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd38a50c_766f8f07",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1474,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T22:23:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "390611a0_93e2d0ad",
+      "revId": "eac582c1a78b03f2de4f2c30d634877fa97eb631",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
