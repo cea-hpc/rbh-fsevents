@@ -45,10 +45,8 @@ file_sink_destroy(void *_sink)
     struct file_sink *sink = _sink;
 
     yaml_emitter_delete(&sink->emitter);
-    /* XXX: How safe is it to ignore errors on close knowing we've written
-     *      stuff there?
-     */
-    fclose(sink->file);
+    if (fclose(sink->file))
+        error(EXIT_SUCCESS, errno, "sink: %s: fclose", sink->sink.name);
     free(sink);
 }
 
