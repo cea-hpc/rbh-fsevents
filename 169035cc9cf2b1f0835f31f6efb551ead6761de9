@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f157c6fd_59e8b631",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2581,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T21:57:47Z",
+      "side": 1,
+      "message": "Done. Fixed the same issue for emit_ns_xattr()",
+      "parentUuid": "017fbb5f_d30a6e50",
+      "revId": "169035cc9cf2b1f0835f31f6efb551ead6761de9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "556b070d_a29656de",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-06-29T21:37:20Z",
       "side": 1,
       "message": "(nitpick) if an xattr event has only id set, what does it mean?\niirc, a value-null pair in xattrs means remove value, but an empty map is pointless right? shouldn\u0027t these be skipped/considered invalid?",
+      "revId": "169035cc9cf2b1f0835f31f6efb551ead6761de9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffaffaed_fdce0014",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2617,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T21:57:47Z",
+      "side": 1,
+      "message": "Nothing should generate this kind of event in the first place.\n\nI\u0027d rather not write code to optimize a case that should not happen.",
+      "parentUuid": "556b070d_a29656de",
       "revId": "169035cc9cf2b1f0835f31f6efb551ead6761de9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
