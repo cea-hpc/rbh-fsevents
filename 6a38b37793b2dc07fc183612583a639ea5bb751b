@@ -16,6 +16,24 @@
       "message": "any reason for these asserts -- don\u0027t trust the if statement?",
       "revId": "6a38b37793b2dc07fc183612583a639ea5bb751b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4be0c972_058a83d9",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2536,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T22:02:54Z",
+      "side": 1,
+      "message": "`ns.name` should be NULL if and only if `ns.name` is NULL\n\nIn practice this means I only need to check one to know if the other is NULL or not, but since this is a programmer-enforced invariant, I don\u0027t quite trust it.",
+      "parentUuid": "2d32553f_1eebaf87",
+      "revId": "6a38b37793b2dc07fc183612583a639ea5bb751b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
