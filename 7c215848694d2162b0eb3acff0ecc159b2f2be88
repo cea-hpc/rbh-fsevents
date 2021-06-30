@@ -16,6 +16,24 @@
       "message": "(that doesn\u0027t deserve an independant commit with this kind of review process :D)",
       "revId": "7c215848694d2162b0eb3acff0ecc159b2f2be88",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98594e69_47fcb7cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T22:04:07Z",
+      "side": 1,
+      "message": "I wondered about it, and then I decided that it was easier to squash patches than to split them up. You\u0027re right though.",
+      "parentUuid": "0ff58fbe_79a5b61c",
+      "revId": "7c215848694d2162b0eb3acff0ecc159b2f2be88",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
