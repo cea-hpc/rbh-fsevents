@@ -54,6 +54,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3cf564e_74943375",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T22:27:57Z",
+      "side": 1,
+      "message": "Hmm, well, scan-build seems to reliably notice the bug, so I\u0027d say we can remove the comment without fearing introducing the bug later on...\n\nAlright, done.",
+      "parentUuid": "42934db6_21aabd2f",
+      "revId": "ef688fd8d78b2eb517ecae7352076fd28c42ccd3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb2b0d03_03f0d8ba",
