@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4fb7348_301803c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T22:23:45Z",
+      "side": 1,
+      "message": "\\o/ thanks! 🔥",
+      "parentUuid": "86729e76_04e34838",
+      "revId": "9df1273c3c950a2d1e9b6f5d4206e6745ef8db7b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c9f9664_aa65f363",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e1af440f_0afcf578",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T22:23:45Z",
+      "side": 1,
+      "message": "I used one because currently the deduplicator implementation is so minimal that it can only yield batches of... 1 fsevent at a time. And it doesn\u0027t do any deduplication, but that\u0027s a detail, right?",
+      "parentUuid": "1c9f9664_aa65f363",
+      "revId": "9df1273c3c950a2d1e9b6f5d4206e6745ef8db7b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "05e750a1_96744032",
         "filename": "rbh-fsevents.c",
         "patchSetId": 4
@@ -48,6 +84,24 @@
       "writtenOn": "2021-06-29T21:50:40Z",
       "side": 1,
       "message": "make feed return int and return feed() ?\nor return 0 after this, why don\u0027t we get a \"reaches end of function that returns non-void without return statement\" warning?...",
+      "revId": "9df1273c3c950a2d1e9b6f5d4206e6745ef8db7b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c639ae4_b9b30621",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T22:23:45Z",
+      "side": 1,
+      "message": "Very good point.",
+      "parentUuid": "05e750a1_96744032",
       "revId": "9df1273c3c950a2d1e9b6f5d4206e6745ef8db7b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
