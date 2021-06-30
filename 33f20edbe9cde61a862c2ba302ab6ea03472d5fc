@@ -16,6 +16,24 @@
       "message": "man fclose says it can return errnos from any of close, write or fflush -- so not very safe.\nShould either check error or fflush first and check that one at least?",
       "revId": "33f20edbe9cde61a862c2ba302ab6ea03472d5fc",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46283781_85b4fe0a",
+        "filename": "src/sinks/file.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T22:23:45Z",
+      "side": 1,
+      "message": "I reckon I should be able to error() something here, even if I use EXIT_SUCCESS to not exit immediately.\n\nI am going to integrate this with the change that declares feed() where you wrote that I should return 0/EXIT_SUCCESS or do something but not return nothing from main().",
+      "parentUuid": "a462e8e6_0cdbe307",
+      "revId": "33f20edbe9cde61a862c2ba302ab6ea03472d5fc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
