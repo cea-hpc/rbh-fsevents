@@ -16,6 +16,24 @@
       "message": "remind me, does rbh_backend_update have to consume all fsevents?\nThis will be chunked by the deduplicator iterator but some database might say batches should be up to xyz which isn\u0027t the same setting so this might need looping over until iterator is empty, or is it the responsability of the backend to do that?",
       "revId": "5a5e84b7b109cac79e4faa2e8ea4da99743671cb",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc5a6e5f_36dd3f46",
+        "filename": "src/sinks/backend.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T21:48:17Z",
+      "side": 1,
+      "message": "It\u0027s the responsibility of the backend to split the iterator if it needs to.\n\nWell, at least on paper. MongoDB does not support payloads of more than 16MB, and rbh-sync graciously accomodates for that, but in theory, it should not have too and the work rbh-sync does should really be integrated into the mongo backend.",
+      "parentUuid": "86fb61da_a29277a1",
+      "revId": "5a5e84b7b109cac79e4faa2e8ea4da99743671cb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
