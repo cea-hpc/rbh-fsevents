@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9d099d8_321ec337",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T21:10:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1c65cbfb_3072d1b7",
+      "revId": "e050c4e1ee88837fbd4737d59bf3e042498c4f06",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "275483f1_caa73eef",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-06-29T21:21:34Z",
       "side": 1,
       "message": "(nitpick) slightly more info here? This one will be printed, I tried to output to a file (/dev/null) for fuzzing and got surprised it was either stdout or uri unlike the source :D",
+      "revId": "e050c4e1ee88837fbd4737d59bf3e042498c4f06",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41b856df_f6f51f6e",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T21:10:12Z",
+      "side": 1,
+      "message": "Ah, err, I think there was a good reason for that... It may have been that I decided \u0027-\u0027 (stdout) would be good enough and anyone who wants to write to a file can do:\n\n $ rbh-fsevents - - \u003e /dev/null\n\nThe ~5 lines of parsing code this is going to take are probably worth it. Noting it down in my todolist.",
+      "parentUuid": "275483f1_caa73eef",
       "revId": "e050c4e1ee88837fbd4737d59bf3e042498c4f06",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
