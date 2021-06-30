@@ -224,4 +224,5 @@ main(int argc, char *argv[])
     sink = sink_new(argv[optind++]);
 
     feed(sink, source);
+    return error_message_count == 0 ? EXIT_SUCCESS : EXIT_FAILURE;
 }
