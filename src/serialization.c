@@ -1918,14 +1918,12 @@ parse_statx_mapping(yaml_parser_t *parser, struct statx *statxbuf)
             statxbuf->stx_mask |= STATX_TYPE;
             success = parse_filetype(parser, &tmp);
             if (success)
-                /* To avoid undefined behaviour on failure */
                 statxbuf->stx_mode |= tmp;
             break;
         case SF_MODE:
             statxbuf->stx_mask |= STATX_MODE;
             success = parse_permissions(parser, &tmp);
             if (success)
-                /* To avoid undefined behaviour on failure */
                 statxbuf->stx_mode |= tmp;
             break;
         case SF_NLINK:
