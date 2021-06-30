@@ -1325,7 +1325,7 @@ parse_statx_attributes(yaml_parser_t *parser, uint64_t *mask,
 
     type = event.type;
     yaml_event_delete(&event);
-    
+
     if (type != YAML_MAPPING_START_EVENT) {
         errno = EINVAL;
         return false;
