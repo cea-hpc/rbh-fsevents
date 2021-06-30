@@ -1501,7 +1501,7 @@ _parse_statx_timestamp(yaml_parser_t *parser, struct statx_timestamp *timestamp)
             seen.nsec = parse_uint32(&event, &timestamp->tv_nsec);
             save_errno = errno;
             yaml_event_delete(&event);
-            if (!seen.sec) {
+            if (!seen.nsec) {
                 errno = save_errno;
                 return false;
             }
