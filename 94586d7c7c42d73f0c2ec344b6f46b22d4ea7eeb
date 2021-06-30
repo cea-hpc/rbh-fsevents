@@ -16,6 +16,24 @@
       "message": "(nitpick) so unlink ignores unwanted fields (e.g. xattrs) but delete will error on them, should it just skip other tags or should unlink error on xattrs?",
       "revId": "94586d7c7c42d73f0c2ec344b6f46b22d4ea7eeb",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "749cf57d_0761282e",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2465,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-06-30T21:01:24Z",
+      "side": 1,
+      "message": "Good question, I actually don\u0027t know. I suggest we table that decision for now and only deal with correctness / smaller issues, during this review.\n\nSome of the trade-offs that come to mind:\n\n errorring                         | ignoring\n                                   |\n + catches mistakes/bugs           | + enables forward/backward compatibility\n                                   |\n\nI\u0027m actually coming empty after that.",
+      "parentUuid": "ae4705c0_c944ffd7",
+      "revId": "94586d7c7c42d73f0c2ec344b6f46b22d4ea7eeb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
