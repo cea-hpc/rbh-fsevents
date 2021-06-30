@@ -2520,7 +2520,7 @@ emit_ns_xattr(yaml_emitter_t *emitter, const struct rbh_fsevent *ns_xattr)
     const struct rbh_id *parent = ns_xattr->ns.parent_id;
     const char *name = ns_xattr->ns.name;
 
-    return yaml_emit_mapping_start(emitter, LINK_TAG)
+    return yaml_emit_mapping_start(emitter, NS_XATTR_TAG)
         && YAML_EMIT_STRING(emitter, "id")
         && yaml_emit_binary(emitter, ns_xattr->id.data, ns_xattr->id.size)
         && YAML_EMIT_STRING(emitter, "xattrs")
@@ -2606,7 +2606,7 @@ parse_ns_xattr(yaml_parser_t *parser, struct rbh_fsevent *ns_xattr)
 static bool
 emit_inode_xattr(yaml_emitter_t *emitter, const struct rbh_fsevent *inode_xattr)
 {
-    return yaml_emit_mapping_start(emitter, LINK_TAG)
+    return yaml_emit_mapping_start(emitter, INODE_XATTR_TAG)
         && YAML_EMIT_STRING(emitter, "id")
         && yaml_emit_binary(emitter, inode_xattr->id.data, inode_xattr->id.size)
         && YAML_EMIT_STRING(emitter, "xattrs")
@@ -2810,16 +2810,22 @@ parse_fsevent(yaml_parser_t *parser, struct rbh_fsevent *fsevent)
         errno = save_errno;
         return false;
     case FT_UPSERT:
+        fsevent->type = RBH_FET_UPSERT;
         return parse_upsert(parser, fsevent);
     case FT_DELETE:
+        fsevent->type = RBH_FET_DELETE;
         return parse_delete(parser, fsevent);
     case FT_LINK:
+        fsevent->type = RBH_FET_LINK;
         return parse_link(parser, fsevent);
     case FT_UNLINK:
+        fsevent->type = RBH_FET_UNLINK;
         return parse_unlink(parser, fsevent);
     case FT_NS_XATTR:
+        fsevent->type = RBH_FET_XATTR;
         return parse_ns_xattr(parser, fsevent);
     case FT_INODE_XATTR:
+        fsevent->type = RBH_FET_XATTR;
         return parse_inode_xattr(parser, fsevent);
     default:
         assert(false);
