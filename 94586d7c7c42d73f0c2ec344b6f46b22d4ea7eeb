@@ -52,6 +52,24 @@
       "parentUuid": "749cf57d_0761282e",
       "revId": "94586d7c7c42d73f0c2ec344b6f46b22d4ea7eeb",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba2fe0dc_76715c9a",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2465,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-01T23:22:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "63045e18_635f7687",
+      "revId": "94586d7c7c42d73f0c2ec344b6f46b22d4ea7eeb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
