@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bb6fda7_0a7f7bfa",
+        "filename": "src/serialization.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-07-01T10:24:50Z",
+      "side": 1,
+      "message": "question: I understand the point of this code but I don\u0027t know if this is better than two strcmp in term of performance. There are just two cases here (maybe more are added later).",
+      "range": {
+        "startLine": 630,
+        "startChar": 4,
+        "endLine": 639,
+        "endChar": 5
+      },
+      "revId": "98f63a947194131fd938cc49509370039a9750a5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
