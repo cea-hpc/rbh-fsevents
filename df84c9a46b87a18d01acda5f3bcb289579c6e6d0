@@ -54,6 +54,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "897a3e6b_a31d4f95",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-01T23:01:27Z",
+      "side": 1,
+      "message": "OK, thanks, I put that in the todolist as well.",
+      "parentUuid": "090f612c_febf7ef0",
+      "revId": "df84c9a46b87a18d01acda5f3bcb289579c6e6d0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07a8f59c_ea81cb37",
@@ -67,6 +85,24 @@
       "writtenOn": "2021-07-01T11:45:50Z",
       "side": 1,
       "message": "Are these asserts not based on input?\nI know my early fuzzing hit a few assert failures like that (6-7), can dig these out if required.",
+      "revId": "df84c9a46b87a18d01acda5f3bcb289579c6e6d0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b30a1b8_b9f53078",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-01T23:01:27Z",
+      "side": 1,
+      "message": "That\u0027s my bad, I realized this after writing this comment and wrote so in another review but I didn\u0027t want to go through the whole series to find just this patch, sorry.\n\nYou are right, and I put this in my todolist. Thanks!",
+      "parentUuid": "07a8f59c_ea81cb37",
       "revId": "df84c9a46b87a18d01acda5f3bcb289579c6e6d0",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
