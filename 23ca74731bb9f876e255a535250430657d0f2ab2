@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f552833b_2f06c1d1",
+        "filename": "src/serialization.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-07-01T13:34:26Z",
+      "side": 1,
+      "message": "question: if this condition is true on the first iteration of the loop, it means that there is no attribute in the yaml file. Is this considered a normal behavior?",
+      "range": {
+        "startLine": 1230,
+        "startChar": 8,
+        "endLine": 1233,
+        "endChar": 9
+      },
+      "revId": "23ca74731bb9f876e255a535250430657d0f2ab2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
