@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a69540b0_2ad54904",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-07-01T12:02:10Z",
+      "side": 1,
+      "message": "new nitpick while I\u0027m here after your comment in another issue: this one isn\u0027t checking for event.type either.\nwhile on the topic, there is also:\n - parse_regex_mapping\n - parse_filetype\n - _parse_statx_attributes for the boolean is_set\n - STF_SEC,\n - STF_NSEC (that was the other comment iirc so already in todo)\n - DNF_MAJOR \u0026 DNF_MINOR (already mentioned elsewhere for parse_next_uint32)\n\nand I think that\u0027s it.",
+      "revId": "c656674e0fb44ec567fd1bc07711b4f9cc91af9e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
