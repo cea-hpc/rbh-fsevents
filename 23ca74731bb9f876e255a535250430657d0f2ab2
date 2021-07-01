@@ -22,6 +22,30 @@
       },
       "revId": "23ca74731bb9f876e255a535250430657d0f2ab2",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ff36a7_1d7c0488",
+        "filename": "src/serialization.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-01T23:10:50Z",
+      "side": 1,
+      "message": "Yes, it would mean that statx-\u003estx_attributes is set to 0, which is valid.",
+      "parentUuid": "f552833b_2f06c1d1",
+      "range": {
+        "startLine": 1230,
+        "startChar": 8,
+        "endLine": 1233,
+        "endChar": 9
+      },
+      "revId": "23ca74731bb9f876e255a535250430657d0f2ab2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
