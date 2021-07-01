@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e9c416e_e44588b0",
+        "filename": "src/serialization.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-07-01T07:20:29Z",
+      "side": 1,
+      "message": "question: this function takes ownership of event and frees it, right?",
+      "range": {
+        "startLine": 580,
+        "startChar": 37,
+        "endLine": 580,
+        "endChar": 43
+      },
+      "revId": "b1ec5b2e0f7024a51e057f3fe9c55dc98ae749fb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
