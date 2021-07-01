@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e6948e1_5e28e818",
+        "filename": "src/serialization.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-07-01T13:57:14Z",
+      "side": 1,
+      "message": "question: why use a static_assert above but not here?",
+      "range": {
+        "startLine": 1501,
+        "startChar": 12,
+        "endLine": 1501,
+        "endChar": 66
+      },
+      "revId": "846f730b09e4536e2965f85329a8c9d9d92ea15d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
