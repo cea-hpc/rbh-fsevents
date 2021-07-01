@@ -70,6 +70,24 @@
       "parentUuid": "661f5ddc_2247493b",
       "revId": "6f76a49346e8f6a58aea186220119ebb330678e3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d31ad06_62659e7e",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-07-01T11:51:12Z",
+      "side": 1,
+      "message": "I\u0027m not arguing with the actual code value used (suggested -1 first but said 0 is fine), just that having a an alias for it like #define FT_UNKNOWN 0 or whatever would make the \"if (type \u003d\u003d 0) return false;\" a bit down easier to read.\nIt doesn\u0027t change correctness.\n\nAs for the directory socket I was just pointing out the non-bitmask usage of file type, you\u0027re using a case to emit filetype to string and not bitwise comparisons -- just a way of saying \"anything except the values you explicitly compare with are fine\". But that\u0027s not a problem with robinhood anyway so let\u0027s drop this.",
+      "parentUuid": "95b0f609_3df12192",
+      "revId": "6f76a49346e8f6a58aea186220119ebb330678e3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
