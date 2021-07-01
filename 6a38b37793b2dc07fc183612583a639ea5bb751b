@@ -34,6 +34,24 @@
       "parentUuid": "2d32553f_1eebaf87",
       "revId": "6a38b37793b2dc07fc183612583a639ea5bb751b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9e85264_0e0b68e2",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2536,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-07-01T11:53:46Z",
+      "side": 1,
+      "message": "how the hell did that comment move up here...\nAnyway, I don\u0027t get it -- code says \"ns.parent_id is null iff ns.parent_id is null\", and your comment says \"ns.name is null iff ns.name is null\".\n\nShould it be \"ns.parent_id is null iff ns.name is null\" ? In which case either the if or the asserts need updating",
+      "parentUuid": "4be0c972_058a83d9",
+      "revId": "6a38b37793b2dc07fc183612583a639ea5bb751b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
