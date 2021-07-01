@@ -34,6 +34,24 @@
       "parentUuid": "ae4705c0_c944ffd7",
       "revId": "94586d7c7c42d73f0c2ec344b6f46b22d4ea7eeb",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63045e18_635f7687",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2465,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-07-01T11:39:20Z",
+      "side": 1,
+      "message": "right; I think that pretty much sums it up :)\nThe second advantage to ignoring errors is it makes fuzzing a bit faster :D but honestly doesn\u0027t matter much.\n\nHappy to leave it to later; my opinion is that rbh-fsevents is going to be its own client most of the time and it\u0027s unlikely events will be left on a file for long enough so compatibility won\u0027t often be a problem, and catching problems is important -- but just bailing out will go from having partial updates to not having an update at all so I\u0027m not sure what\u0027s worse.\nGiven the lack of logging infrastructure to signal problems though aborting is probably the best we can have right now, can revisit this later",
+      "parentUuid": "749cf57d_0761282e",
+      "revId": "94586d7c7c42d73f0c2ec344b6f46b22d4ea7eeb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
