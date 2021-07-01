@@ -22,6 +22,30 @@
       },
       "revId": "846f730b09e4536e2965f85329a8c9d9d92ea15d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2f215cd_c55ade36",
+        "filename": "src/serialization.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-01T23:19:11Z",
+      "side": 1,
+      "message": "The static_assert() above checks that the cast from `__s64` to `int64_t` is valid.\n\nThe cast is needed because the gnu library and the kernel have gone different ways to implement 64-bits long integers. I don\u0027t remember which does which, but one does:\n\n #typedef mytype long int\n\nWhile the other does:\n\n #typedef mytype long long int\n\nAnd even though they both refer in practice to a 64-bits long integer, the compiler will complain that they are different types.",
+      "parentUuid": "1e6948e1_5e28e818",
+      "range": {
+        "startLine": 1501,
+        "startChar": 12,
+        "endLine": 1501,
+        "endChar": 66
+      },
+      "revId": "846f730b09e4536e2965f85329a8c9d9d92ea15d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
