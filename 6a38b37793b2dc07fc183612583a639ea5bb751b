@@ -52,6 +52,24 @@
       "parentUuid": "4be0c972_058a83d9",
       "revId": "6a38b37793b2dc07fc183612583a639ea5bb751b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75366658_9a80f488",
+        "filename": "src/serialization.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2536,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-01T23:30:00Z",
+      "side": 1,
+      "message": "Ah, Oh! Good catch. Gerrit now shows context lines next to comments on a patch main\u0027s page, but only like one or two, which is not a lot.\n\nI assumed too much, my bad.\n\nDone",
+      "parentUuid": "d9e85264_0e0b68e2",
+      "revId": "6a38b37793b2dc07fc183612583a639ea5bb751b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
