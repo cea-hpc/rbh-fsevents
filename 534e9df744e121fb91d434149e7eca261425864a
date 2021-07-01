@@ -22,6 +22,30 @@
       },
       "revId": "534e9df744e121fb91d434149e7eca261425864a",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f550f89f_7081ae2b",
+        "filename": "src/serialization.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-01T23:24:53Z",
+      "side": 1,
+      "message": "It\u0027s a mix of readability and strict checking.\n\nThe way we do things we can guarantee we never send a misformatted event that we won\u0027t be able to parse or interpret later on.",
+      "parentUuid": "3f0b7fba_edb51e16",
+      "range": {
+        "startLine": 991,
+        "startChar": 1,
+        "endLine": 991,
+        "endChar": 21
+      },
+      "revId": "534e9df744e121fb91d434149e7eca261425864a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
