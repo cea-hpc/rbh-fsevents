@@ -22,6 +22,30 @@
       },
       "revId": "c9e2998cfdd446e1168d38370cf7e21b17ea6ee4",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e794b66_92e2236a",
+        "filename": "src/serialization.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2317,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-07-02T08:02:31Z",
+      "side": 1,
+      "message": "Good catch.\n\nHe actually needs another level of allocation here, which he why he uses parent as a static variable which will stay accessible after parse_link has finished; but that makes the function also invalidate any next parsed event which is kind of a non-starter when events will start being batched (e.g. it works now, but will likely silently corrupt data later)\n\nmemory allocations go:\n- fsevent (here, link) has been allocated by parse_fsevent called (e.g. src/sources/file.c)\n- parent, static here, which serve as intermediate container for...\n- parent.data, in the yaml event that is kept in rbh sstack for freeing when the next event is parsed --- this actually has the same problem for batching events and I conveniently didn\u0027t think about that :/\n\nreminder on type:\n\n struct rbh_fsevent {\n    ...\n    union {\n        ...\n    \n        struct {\n            /** The fsentry\u0027s parent ID */\n            const struct rbh_id *parent_id;\n            /** The fsentry\u0027s name */\n            const char *name;\n        } link, ns;\n    };\n };\n\n struct rbh_id {\n    const char *data;\n    size_t size;\n };\n\n\nfor the intermediate level, I actually don\u0027t see a good argument why the rbh_id isn\u0027t embed in the struct -- I assume it\u0027s so we can use the id from another fsevent directly? but that leaves lifetime problems so it\u0027d probably just as simple to copy, even if it makes the struct one size_t bigger... Quentin what do you think?\n\nfor the data itself, I think we\u0027ll need to think about it when dedup is implemented -- so off to Quentin\u0027s todo it goes?",
+      "parentUuid": "b5b41a47_2dc9c7fd",
+      "range": {
+        "startLine": 2317,
+        "startChar": 40,
+        "endLine": 2317,
+        "endChar": 46
+      },
+      "revId": "c9e2998cfdd446e1168d38370cf7e21b17ea6ee4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
