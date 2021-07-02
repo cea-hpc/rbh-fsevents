@@ -46,6 +46,30 @@
       },
       "revId": "c9e2998cfdd446e1168d38370cf7e21b17ea6ee4",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efd21abb_4dd7ad1a",
+        "filename": "src/serialization.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2317,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-07-02T14:39:22Z",
+      "side": 1,
+      "message": "Thanks for the explanation!\n\nI understood why this is allocated, but I did not see/understand why this is not processed like the other fields:\n\n success \u003d parse_id(parser, \u0026link-\u003elink.parent_id);\n\nI will think about it again on next week, maybe the week-end will help :)!",
+      "parentUuid": "8e794b66_92e2236a",
+      "range": {
+        "startLine": 2317,
+        "startChar": 40,
+        "endLine": 2317,
+        "endChar": 46
+      },
+      "revId": "c9e2998cfdd446e1168d38370cf7e21b17ea6ee4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
