@@ -70,6 +70,30 @@
       },
       "revId": "c9e2998cfdd446e1168d38370cf7e21b17ea6ee4",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf2a1f59_08b87c2d",
+        "filename": "src/serialization.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2317,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-02T17:54:24Z",
+      "side": 1,
+      "message": "It is all part of the plan! 😎\n\nThe behavior is documented in include/serialization.h:\n\n\u003e /* On success \\p fsevent\u0027s fields may point at static memory.\n\u003e  *\n\u003e  * Therefore, successive calls to parse_fsevents() will invalidate previously\n\u003e  * parsed fsevents. If one needs to eliminate pointers to static memory they\n\u003e  * should clone the fsevent.\n\u003e  */\n\u003e bool\n\u003e parse_fsevent(yaml_parser_t *parser, struct rbh_fsevent *fsevent);\n\nIn the future, when we need to process more than one fsevent at a time, the deduplicator will take care of memory allocations.\n\nI pondered this decision for quite a while, and I believe this is the best way to go about it:\n- the deduplicator and the sources don\u0027t have to cooperate on memory management;\n- makes writing sources much easier;\n- it doesn\u0027t look harder to optimize the source or the deduplicator, and optimizations benefit every source at once.\n\n\u003e for the intermediate level, I actually don\u0027t see a good argument why the rbh_id isn\u0027t embed in the struct -- I assume it\u0027s so we can use the id from another fsevent directly?\n\nIIUC, you mean that the caller of parse_fsevent() could provide a struct rbh_id as an argument?\n\nYou could do that, but `xattrs` can are not bounded in size, so the only way to parse them reliably without a series of:\n- try\n- not enough memory\n- increase buffer sizes\n- retry\n\nis to let parse_fsevent() do memory allocations itself.\n\n\u003e for the data itself, I think we\u0027ll need to think about it when dedup is implemented -- so off to Quentin\u0027s todo it goes?\n\nAh-ah! But I already figured out this part 😊\n\nIt\u0027s actually the last thing that was holding me off after the big yaml serialization thing. You\u0027ll have to wait until I actually start implementing a decent deduplicator to see it though (spoiler: there\u0027s gonna be a few ring buffers, at least one hashmap, and lots and lots of neat little tricks... Alright, maybe not that many tricks).",
+      "parentUuid": "efd21abb_4dd7ad1a",
+      "range": {
+        "startLine": 2317,
+        "startChar": 40,
+        "endLine": 2317,
+        "endChar": 46
+      },
+      "revId": "c9e2998cfdd446e1168d38370cf7e21b17ea6ee4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
