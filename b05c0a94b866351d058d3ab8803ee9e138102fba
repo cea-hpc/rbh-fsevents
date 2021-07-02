@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6499e7c3_9bbd342d",
+        "filename": "src/serialization.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2226,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-07-02T08:24:00Z",
+      "side": 1,
+      "message": "question: sorry if it was already asked in a previous patch, but why are you adding those events in the sstack? to release all of them at once? to synchronize them elsewhere?",
+      "range": {
+        "startLine": 2226,
+        "startChar": 8,
+        "endLine": 2226,
+        "endChar": 70
+      },
+      "revId": "b05c0a94b866351d058d3ab8803ee9e138102fba",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
