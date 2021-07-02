@@ -22,6 +22,30 @@
       },
       "revId": "2b942a93a55bf4aeac27198d9d79e21f9c956995",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10bba70a_59c4efbe",
+        "filename": "src/serialization.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2383,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-07-02T13:48:25Z",
+      "side": 1,
+      "message": "Just because two variables share the same name doesn\u0027t mean they share their content.\n\nYou don\u0027t have to take my word for it, if you build rbh-fsevents you can check yourself:\n\n $ nm rbh-fsevents | grep parent\n000000000040e380 b parent.3\n000000000040e370 b parent.4\n000000000040e360 b parent.5\n$ gdb --ex \u0027disass parse_unlink\" --ex quit rbh-fsevents\n...\n   0x0000000000408018 \u003c+370\u003e:\tmov    $0x40e370,%esi\n   0x000000000040801d \u003c+375\u003e:\tmov    %rax,%rdi\n   0x0000000000408020 \u003c+378\u003e:\tcall   0x403d63 \u003cparse_id\u003e\n$ gdb --ex \u0027disass parse_link\u0027 --ex quit rbh-fsevents\n   0x0000000000407cfa \u003c+358\u003e:\tmov    $0x40e360,%esi\n   0x0000000000407cff \u003c+363\u003e:\tmov    %rax,%rdi\n   0x0000000000407d02 \u003c+366\u003e:\tcall   0x403d63 \u003cparse_id\u003e\n\n\n(this 5 minutes trivia was brought to you by a very bored guy)\n\nAnyway, even if they were this isn\u0027t more a problem than it is right now as both functions won\u0027t ever be called on same fsevent, and Sébastien brought to attention that there is a lifetime problem with pretty much all allocations if we want to push in more than one event in a dedup stack somewhere, so these static variables are likely going to need to go away whenever deduplication is implemented",
+      "parentUuid": "f3055d90_2a6980dd",
+      "range": {
+        "startLine": 2383,
+        "startChar": 25,
+        "endLine": 2383,
+        "endChar": 31
+      },
+      "revId": "2b942a93a55bf4aeac27198d9d79e21f9c956995",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
