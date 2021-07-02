@@ -22,6 +22,30 @@
       },
       "revId": "b05c0a94b866351d058d3ab8803ee9e138102fba",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46c614ee_b52be191",
+        "filename": "src/serialization.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2226,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-07-02T08:26:51Z",
+      "side": 1,
+      "message": "was briefly mentioned don\u0027t know where, it\u0027s just memory retention e.g. the string is actually not copied in yaml_parse_string -- it still lives in the event, so we need to keep that event alive until we free the fsevent, at which point we can yaml_event_delete() it which will free the string.\n\n(Currently parsing a new event will free all the stacks, as will a destructor function, that\u0027s what I called a problem in the other thread I just replied to)",
+      "parentUuid": "6499e7c3_9bbd342d",
+      "range": {
+        "startLine": 2226,
+        "startChar": 8,
+        "endLine": 2226,
+        "endChar": 70
+      },
+      "revId": "b05c0a94b866351d058d3ab8803ee9e138102fba",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
