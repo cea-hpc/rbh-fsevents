@@ -118,6 +118,30 @@
       },
       "revId": "c9e2998cfdd446e1168d38370cf7e21b17ea6ee4",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70b8717f_c613c218",
+        "filename": "src/serialization.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2317,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-04T10:02:08Z",
+      "side": 1,
+      "message": "\u003e That\u0027s basically doing allocations twice, with \"deep copy\" at dedup level?\n\nThe parser doesn\u0027t do a lot of memory allocations. It does one for sequence xattrs and map xattrs, and then if there are a lot of xattrs, maybe it has to do a few more (but this can be fine-tuned).\n\n\u003e I actually think the opposite that it\u0027s much easier to do \"proper\" allocations here and just say all fields must be freed when the fsevent is freed...\n\nIt\u0027s doable, but we would have to cast \"const\"s away. Also, to keep things simple, we would have to allocate lots of small memory chunks instead of a single block per fsevent (which is what rbh_fsevent_*_new() do).\n\n\u003e The problem is made worse by your sstack allocations magic, because much of the memory pointed by the fsevents will still stay valid (from a C point of view) after the next event is parsed so asan/msan/valgrind won\u0027t detect anything if we forget to copy something and we\u0027ll just get silent corruption. And I\u0027ll need tons of tests to convince me it works, reviews don\u0027t replace tests. (thanksfully just doing a simple yaml-\u003eyaml dedup, no enrich phase of test should be trivial to add)\n\nI think this concern is addressed by the code already living/being tested/used in librobinhood.\n\n\u003e\u003e no, I meant in general why was this field made a pointer\n\n\u003e no, I meant in general why was this field made a pointer\n\nI remember having this conversation when it was merged at the time. It\u0027s about consistency in the API (all the other fields in the union are pointers) and performance (as the field is in a union and would grow increase the whole struct size).\n\n\u003e it\u0027s more efficient to make all allocations slightly bigger (+8 bytes) even if it means copying a bit more (16 bytes instead of setting a 8 bytes pointer), rather than make another tiny (16 bytes) allocation half the time.\n\nI agree. The reasoning applied better for `fsevent-\u003eupsert.statx`.\n\n---------\n\nBottom line, I can\u0027t guarantee that performance will be better this way, and there might be a simple way to implement the deduplicator while having the parser do the memory allocations, but I\u0027m not seeing it. Hopefully, the code will convince everyone. :)",
+      "parentUuid": "9bd7c7f3_8bade70b",
+      "range": {
+        "startLine": 2317,
+        "startChar": 40,
+        "endLine": 2317,
+        "endChar": 46
+      },
+      "revId": "c9e2998cfdd446e1168d38370cf7e21b17ea6ee4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
