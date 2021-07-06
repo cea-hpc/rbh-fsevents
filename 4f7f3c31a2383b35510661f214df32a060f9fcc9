@@ -46,6 +46,30 @@
       },
       "revId": "4f7f3c31a2383b35510661f214df32a060f9fcc9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9913f9fc_a5d7ce89",
+        "filename": "src/sinks/file.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-07-06T12:05:24Z",
+      "side": 1,
+      "message": "OK I understand, thanks for the clarification. I also agree that a comment would help.",
+      "parentUuid": "dd5ef746_9309999a",
+      "range": {
+        "startLine": 49,
+        "startChar": 14,
+        "endLine": 49,
+        "endChar": 26
+      },
+      "revId": "4f7f3c31a2383b35510661f214df32a060f9fcc9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
