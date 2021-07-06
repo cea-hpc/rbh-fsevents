@@ -22,6 +22,30 @@
       },
       "revId": "4f7f3c31a2383b35510661f214df32a060f9fcc9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd5ef746_9309999a",
+        "filename": "src/sinks/file.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-07-06T12:01:02Z",
+      "side": 1,
+      "message": "Pretty sure he actually meant that given the use of error_message_count in main() -- error(0, ...) will just print the error message without exiting and increase error_message_count, whereas it would exit right away with a non-zero exit status.\n\nI agree it\u0027s not obvious though -- add a comment saying we continue anyway?",
+      "parentUuid": "cb73c064_0146d8f3",
+      "range": {
+        "startLine": 49,
+        "startChar": 14,
+        "endLine": 49,
+        "endChar": 26
+      },
+      "revId": "4f7f3c31a2383b35510661f214df32a060f9fcc9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
