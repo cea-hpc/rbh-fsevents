@@ -46,6 +46,30 @@
       },
       "revId": "2b942a93a55bf4aeac27198d9d79e21f9c956995",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a65002c_92bd0f22",
+        "filename": "src/serialization.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2383,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-07-06T09:57:29Z",
+      "side": 1,
+      "message": "I was wondering because they are static but thanks for this detailed reply.",
+      "parentUuid": "10bba70a_59c4efbe",
+      "range": {
+        "startLine": 2383,
+        "startChar": 25,
+        "endLine": 2383,
+        "endChar": 31
+      },
+      "revId": "2b942a93a55bf4aeac27198d9d79e21f9c956995",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
