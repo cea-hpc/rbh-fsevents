@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb73c064_0146d8f3",
+        "filename": "src/sinks/file.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2021-07-06T11:57:26Z",
+      "side": 1,
+      "message": "defect : EXIT_FAILURE ?",
+      "range": {
+        "startLine": 49,
+        "startChar": 14,
+        "endLine": 49,
+        "endChar": 26
+      },
+      "revId": "4f7f3c31a2383b35510661f214df32a060f9fcc9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
