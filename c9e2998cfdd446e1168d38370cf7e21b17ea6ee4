@@ -142,6 +142,30 @@
       },
       "revId": "c9e2998cfdd446e1168d38370cf7e21b17ea6ee4",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e626661_171de4d1",
+        "filename": "src/serialization.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 2317,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2021-07-07T08:49:16Z",
+      "side": 1,
+      "message": "Ok, thanks for all the explanations!",
+      "parentUuid": "70b8717f_c613c218",
+      "range": {
+        "startLine": 2317,
+        "startChar": 40,
+        "endLine": 2317,
+        "endChar": 46
+      },
+      "revId": "c9e2998cfdd446e1168d38370cf7e21b17ea6ee4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
