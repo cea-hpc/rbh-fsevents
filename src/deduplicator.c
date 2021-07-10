@@ -11,11 +11,13 @@
 #include <robinhood/ring.h>
 
 #include "deduplicator.h"
+#include "record.h"
 
 struct deduplicator {
     struct rbh_mut_iterator batches;
 
     struct source *source;
+    struct record record;
 };
 
 /*----------------------------------------------------------------------------*
@@ -32,7 +34,11 @@ deduplicator_iter_next(void *iterator)
     if (fsevent == NULL)
         return NULL;
 
-    return rbh_iter_array(fsevent, sizeof(fsevent), 1);
+    // FIXME: we only cast the const away for brevity's sake, to ease reviews
+    deduplicator->record.fsevent = (struct rbh_fsevent *)fsevent;
+
+    return rbh_iter_array(&deduplicator->record, sizeof(deduplicator->record),
+                          1);
 }
 
 static void

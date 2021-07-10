@@ -19,6 +19,7 @@
 #include <robinhood/utils.h>
 
 #include "deduplicator.h"
+#include "record.h"
 #include "source.h"
 #include "sink.h"
 
@@ -144,6 +145,64 @@ sink_exit(void)
 
 static const char *mountpoint;
 
+/*----------------------------------------------------------------------------*
+ |                                   feed()                                   |
+ *----------------------------------------------------------------------------*/
+
+    /*--------------------------------------------------------------------*
+     |                         records2fsevents()                         |
+     *--------------------------------------------------------------------*/
+
+struct records2fsevents_iterator {
+    struct rbh_iterator iterator;
+    struct rbh_iterator *records;
+};
+
+static const void *
+records2fsevents_iter_next(void *iterator)
+{
+    struct records2fsevents_iterator *iter = iterator;
+    const struct record *record;
+
+    record = rbh_iter_next(iter->records);
+    if (record == NULL)
+        return NULL;
+
+    return record->fsevent;
+}
+
+static void
+records2fsevents_iter_destroy(void *iterator)
+{
+    struct records2fsevents_iterator *iter = iterator;
+
+    rbh_iter_destroy(iter->records);
+    free(iter);
+}
+
+static const struct rbh_iterator_operations RECORDS2FSEVENTS_ITER_OPS = {
+    .next = records2fsevents_iter_next,
+    .destroy = records2fsevents_iter_destroy,
+};
+
+static const struct rbh_iterator RECORDS2FSEVENTS_ITERATOR = {
+    .ops = &RECORDS2FSEVENTS_ITER_OPS,
+};
+
+static struct rbh_iterator *
+records2fsevents(struct rbh_iterator *records)
+{
+    struct records2fsevents_iterator *fsevents;
+
+    fsevents = malloc(sizeof(*fsevents));
+    if (fsevents == NULL)
+        return NULL;
+
+    fsevents->iterator = RECORDS2FSEVENTS_ITERATOR;
+    fsevents->records = records;
+    return &fsevents->iterator;
+}
+
 static const size_t BATCH_SIZE = 1;
 
 static void
@@ -157,11 +216,16 @@ feed(struct sink *sink, struct source *source)
 
     while (true) {
         struct rbh_iterator *fsevents;
+        struct rbh_iterator *records;
 
         errno = 0;
-        fsevents = rbh_mut_iter_next(deduplicator);
-        if (fsevents == NULL)
+        records = rbh_mut_iter_next(deduplicator);
+        if (records == NULL)
             break;
+
+        fsevents = records2fsevents(records);
+        if (fsevents == NULL)
+            error(EXIT_FAILURE, errno, "records2fsevents");
 
         if (sink_process(sink, fsevents))
             error(EXIT_FAILURE, errno, "sink_process");
