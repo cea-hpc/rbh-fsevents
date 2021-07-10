@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8cf6908_cfcdc209",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-10T21:09:48Z",
+      "side": 1,
+      "message": "Please disregard the CI, until this",
+      "revId": "b17ac057bc51c7d0c0ca2ea9e5bec92b59306707",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
