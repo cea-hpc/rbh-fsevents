@@ -203,7 +203,8 @@ records2fsevents(struct rbh_iterator *records)
     return &fsevents->iterator;
 }
 
-static const size_t BATCH_SIZE = 1;
+ // TODO: tune this finely or make it configurable
+static const size_t BATCH_SIZE = 1 << 10;
 
 static void
 feed(struct sink *sink, struct source *source)
