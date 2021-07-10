@@ -18,6 +18,23 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42474e04_2c4db81a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-10T22:44:01Z",
+      "side": 1,
+      "message": "I jumped the gun too fast, this is not ready for review yet.",
+      "revId": "b17ac057bc51c7d0c0ca2ea9e5bec92b59306707",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "861aa0cf_60b59333",
@@ -32,6 +49,30 @@
       "side": 1,
       "message": "\u003e implicit declaration of function ‘rbh_mut_iter_ring’; did you mean ‘rbh_mut_iter_chain’?\n\nI guess that\u0027s coming in a new librobinhood patch?",
       "parentUuid": "e88fa6aa_b5394c2d",
+      "range": {
+        "startLine": 83,
+        "startChar": 15,
+        "endLine": 83,
+        "endChar": 32
+      },
+      "revId": "b17ac057bc51c7d0c0ca2ea9e5bec92b59306707",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6096ea00_5aba18c9",
+        "filename": "src/deduplicator.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-10T22:44:01Z",
+      "side": 1,
+      "message": "Yep, I fixed it by installing a version with the patch on my CI host.",
+      "parentUuid": "861aa0cf_60b59333",
       "range": {
         "startLine": 83,
         "startChar": 15,
@@ -59,6 +100,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c5bdbd1_9b6fb560",
+        "filename": "src/deduplicator.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-10T22:44:01Z",
+      "side": 1,
+      "message": "I\u0027m writing a follow-up patch to encapsulate fsevents in a \"struct record\" that looks like:\n\n struct record {\n     struct rbh_fsevent *fsevent;\n     // TODO\n     //\n     // timespec created_on;\n     // size_t index;\n };\n\nThe dereference iterator will be obsolete then.\nI am considering squashing both patches into one.",
+      "parentUuid": "baf42347_e8bdce2f",
+      "revId": "b17ac057bc51c7d0c0ca2ea9e5bec92b59306707",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61c84e96_fd4ef266",
@@ -76,6 +135,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec335973_b2e7a381",
+        "filename": "src/deduplicator.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-10T22:44:01Z",
+      "side": 1,
+      "message": "Yes I do, fixing it.",
+      "parentUuid": "61c84e96_fd4ef266",
+      "revId": "b17ac057bc51c7d0c0ca2ea9e5bec92b59306707",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "173e2978_6a139b77",
@@ -89,6 +166,24 @@
       "writtenOn": "2021-07-10T21:49:33Z",
       "side": 1,
       "message": "(if using deduplicator-\u003efsevent for remembering: not inited)",
+      "revId": "b17ac057bc51c7d0c0ca2ea9e5bec92b59306707",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03e264ac_ebb98205",
+        "filename": "src/deduplicator.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-07-10T22:44:01Z",
+      "side": 1,
+      "message": "Good point. Fixed it.",
+      "parentUuid": "173e2978_6a139b77",
       "revId": "b17ac057bc51c7d0c0ca2ea9e5bec92b59306707",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
