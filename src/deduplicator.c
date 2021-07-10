@@ -154,6 +154,7 @@ struct deduplicator {
 
     struct source *source;
     struct rbh_ring *ring;
+    size_t index;
     bool exhausted;
 
     const struct rbh_fsevent *fsevent;
@@ -187,12 +188,15 @@ record_fsevent:
         record.fsevent = fsevent_clone(deduplicator->fsevent);
         if (record.fsevent == NULL)
             return NULL;
+        record.index = deduplicator->index;
 
         if (!rbh_ring_push(deduplicator->ring, &record, sizeof(record))) {
             assert(errno == ENOBUFS);
             free(record.fsevent);
             return ring_iter_new(deduplicator->ring, sizeof(record));
         }
+
+        deduplicator->index++;
     }
 
     errno = ENODATA;
@@ -251,6 +255,7 @@ deduplicator_new(size_t count, struct source *source)
 
     deduplicator->batches = DEDUPLICATOR_ITERATOR;
     deduplicator->source = source;
+    deduplicator->index = 0;
     deduplicator->exhausted = false;
     deduplicator->fsevent = NULL;
     return &deduplicator->batches;

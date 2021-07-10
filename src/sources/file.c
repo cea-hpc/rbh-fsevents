@@ -142,11 +142,14 @@ static const struct rbh_iterator_operations SOURCE_ITER_OPS = {
     .destroy = source_iter_destroy,
 };
 
+static struct source_operations FILE_SOURCE_OPS;
+
 static const struct source FILE_SOURCE = {
     .name = "file",
     .fsevents = {
         .ops = &SOURCE_ITER_OPS,
     },
+    .ops = &FILE_SOURCE_OPS,
 };
 
 struct source *

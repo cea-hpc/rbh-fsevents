@@ -5,6 +5,7 @@
 
 struct record {
     struct rbh_fsevent *fsevent;
+    size_t index;
 };
 
 #endif

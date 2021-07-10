@@ -203,6 +203,56 @@ records2fsevents(struct rbh_iterator *records)
     return &fsevents->iterator;
 }
 
+    /*--------------------------------------------------------------------*
+     |                          last_iter_new()                           |
+     *--------------------------------------------------------------------*/
+
+struct last_iterator {
+    struct rbh_iterator iterator;
+
+    struct rbh_iterator *subiter;
+    const void *last;
+};
+
+static const void *
+last_iter_next(void *iterator)
+{
+    struct last_iterator *iter = iterator;
+    const void *element;
+
+    element = rbh_iter_next(iter->subiter);
+    if (element == NULL && errno == ENODATA)
+        return NULL;
+
+    iter->last = element;
+    return element;
+}
+
+static void
+last_iter_destroy(void *iterator)
+{
+    struct last_iterator *iter = iterator;
+
+    rbh_iter_destroy(iter->subiter);
+}
+
+static const struct rbh_iterator_operations LAST_ITER_OPS = {
+    .next = last_iter_next,
+    .destroy = last_iter_destroy,
+};
+
+static const struct rbh_iterator LAST_ITERATOR = {
+    .ops = &LAST_ITER_OPS,
+};
+
+static void
+last_iter_init(struct last_iterator *last, struct rbh_iterator *iterator)
+{
+    last->iterator = LAST_ITERATOR;
+    last->subiter = iterator;
+    last->last = NULL;
+}
+
 /*---------------------------------- feed() ----------------------------------*/
 
  // TODO: tune this finely or make it configurable
@@ -220,6 +270,8 @@ feed(struct sink *sink, struct source *source)
     while (true) {
         struct rbh_iterator *fsevents;
         struct rbh_iterator *records;
+        struct last_iterator wrapper;
+        const struct record *last;
 
         errno = 0;
         records = rbh_mut_iter_next(deduplicator);
@@ -230,8 +282,14 @@ feed(struct sink *sink, struct source *source)
         if (fsevents == NULL)
             error(EXIT_FAILURE, errno, "records2fsevents");
 
-        if (sink_process(sink, fsevents))
+        last_iter_init(&wrapper, fsevents);
+
+        if (sink_process(sink, &wrapper.iterator))
             error(EXIT_FAILURE, errno, "sink_process");
+
+        last = wrapper.last;
+        if (source_acknowledge(source, last->index) && errno != ENOTSUP)
+            error(EXIT_FAILURE, errno, "source_acknowledge");
 
         rbh_iter_destroy(fsevents);
     }
