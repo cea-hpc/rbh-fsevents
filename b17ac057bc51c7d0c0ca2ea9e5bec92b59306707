@@ -16,6 +16,81 @@
       "message": "Please disregard the CI, until this",
       "revId": "b17ac057bc51c7d0c0ca2ea9e5bec92b59306707",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "861aa0cf_60b59333",
+        "filename": "src/deduplicator.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-07-10T21:49:33Z",
+      "side": 1,
+      "message": "\u003e implicit declaration of function ‘rbh_mut_iter_ring’; did you mean ‘rbh_mut_iter_chain’?\n\nI guess that\u0027s coming in a new librobinhood patch?",
+      "parentUuid": "e88fa6aa_b5394c2d",
+      "range": {
+        "startLine": 83,
+        "startChar": 15,
+        "endLine": 83,
+        "endChar": 32
+      },
+      "revId": "b17ac057bc51c7d0c0ca2ea9e5bec92b59306707",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baf42347_e8bdce2f",
+        "filename": "src/deduplicator.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-07-10T21:49:33Z",
+      "side": 1,
+      "message": "I don\u0027t understand why you pass \u0026fsevent when pushing and go through this new dereference iterator.\n(Note to self if the explanation convinces me: check when the dereferences actually happens (e.g. push or when it gets poped later))",
+      "revId": "b17ac057bc51c7d0c0ca2ea9e5bec92b59306707",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61c84e96_fd4ef266",
+        "filename": "src/deduplicator.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-07-10T21:49:33Z",
+      "side": 1,
+      "message": "don\u0027t you lose track of that cloned fsevent you failed to push when you return here?\n(given you like weird functions with states like python yield, making it static and using on next run would work :P But here you seem to have wanted to do that with deduplicator-\u003efsevent but it remembers the pre-clone one and isn\u0027t used as a remembering value)",
+      "revId": "b17ac057bc51c7d0c0ca2ea9e5bec92b59306707",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "173e2978_6a139b77",
+        "filename": "src/deduplicator.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-07-10T21:49:33Z",
+      "side": 1,
+      "message": "(if using deduplicator-\u003efsevent for remembering: not inited)",
+      "revId": "b17ac057bc51c7d0c0ca2ea9e5bec92b59306707",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
