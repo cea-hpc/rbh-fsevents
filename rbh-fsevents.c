@@ -203,6 +203,8 @@ records2fsevents(struct rbh_iterator *records)
     return &fsevents->iterator;
 }
 
+/*---------------------------------- feed() ----------------------------------*/
+
 static const size_t BATCH_SIZE = 1;
 
 static void
