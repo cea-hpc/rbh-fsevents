@@ -16,6 +16,91 @@
       "message": "I recommend reading the file on github: https://github.com/cea-hpc/rbh-fsevents/blob/b862d5254eeaec129fbdcb2af03d92087bbbddc3/doc/adr/partial-fsevents.rst",
       "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "106ee703_2693d1b8",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-21T22:46:32Z",
+      "side": 1,
+      "message": "missing rbh-fsevents key?",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdd2aa47_5a5d242e",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-21T22:46:32Z",
+      "side": 1,
+      "message": "(nit) trailing space",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "181d7520_0e7ea062",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-21T22:46:32Z",
+      "side": 1,
+      "message": "(slightly off-topic) iirc there is a distinction for ns xattr and inode xattr, how is that represented for fsevents again? xattrs: ns: path?",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e6d696c_e73d36b8",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-21T22:46:32Z",
+      "side": 1,
+      "message": "What are cases where entry is type S_IFLNK and we don\u0027t want to enrich symlink data for upsert?\nNote symlinks are immutable in content, so we only actually need that data on creation, but depending on the event source we might not be able to determine if it is a new one (possible for lustre changelog, probably not for fanotify?)",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77c16f0a_78134579",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-21T22:46:32Z",
+      "side": 1,
+      "message": "So the point is to partially fill a struct statx from the event source, and let a further enrich only statx missing fields?\nsentinels or relying on statx mask (extending it for mandatory values, which are an implementation detail and not really mandatory to robinhood) sounds simpler than having to imlpement a \"look in xattr tree and merge\" thing to me, but as long as performances are OK I\u0027d say just do whatever is easier for you at this point. This can be further worked on later on if it turns out to be a bottleneck.",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
