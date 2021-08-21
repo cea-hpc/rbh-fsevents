@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9370174_c28d24d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-21T21:32:49Z",
+      "side": 1,
+      "message": "I recommend reading the file on github: https://github.com/cea-hpc/rbh-fsevents/blob/b862d5254eeaec129fbdcb2af03d92087bbbddc3/doc/adr/partial-fsevents.rst",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
