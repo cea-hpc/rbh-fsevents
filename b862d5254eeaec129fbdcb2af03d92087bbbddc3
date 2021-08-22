@@ -35,6 +35,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fdc966c_b3346473",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-22T19:24:52Z",
+      "side": 1,
+      "message": "Yes, done",
+      "parentUuid": "106ee703_2693d1b8",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdd2aa47_5a5d242e",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-08-21T22:46:32Z",
       "side": 1,
       "message": "(nit) trailing space",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "604df21a_15341652",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-22T19:24:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdd2aa47_5a5d242e",
       "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -71,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "06524f94_eb0752ed",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-22T19:24:52Z",
+      "side": 1,
+      "message": "To distinguish whether an RBH_FET_XATTR fsevent is an inode_xattr or an ns_xattr, one has to check whether `fsevent-\u003ens.parent` and `fsevent-\u003ens.name` are set or not.\n\nref: https://github.com/cea-hpc/librobinhood/blob/main/include/robinhood/fsevent.h#L66\n\nIn practice, namespace xattrs are stored under a special `ns` xattr in the mongodb backend, but this is an implementation detail.",
+      "parentUuid": "181d7520_0e7ea062",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4e6d696c_e73d36b8",
         "filename": "doc/adr/partial-fsevents.rst",
         "patchSetId": 5
@@ -88,6 +142,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d45ba07e_d0582734",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-22T19:24:52Z",
+      "side": 1,
+      "message": "\u003e What are cases where entry is type S_IFLNK and we don\u0027t want to enrich symlink data for upsert?\n\nWhen the content of the symlink is known from the event emitted by the filesystem. I don\u0027t know if any filesystem supports this, but I can imagine that being a thing. With possibly weird variations where only small symlink contents are emitted while larger symlinks still need to be queried (as a performance optimization).\n\n\u003e Note symlinks are immutable in content, so we only actually need that data on creation, but depending on the event source we might not be able to determine if it is a new one?\n\nI consider this to be the responsibility of the \"source\". If it sets `xattr.rbh-fsevents.symlink`, the enricher will query the FS, if not, we assume everything is already in the backend.",
+      "parentUuid": "4e6d696c_e73d36b8",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77c16f0a_78134579",
         "filename": "doc/adr/partial-fsevents.rst",
         "patchSetId": 5
@@ -99,6 +171,24 @@
       "writtenOn": "2021-08-21T22:46:32Z",
       "side": 1,
       "message": "So the point is to partially fill a struct statx from the event source, and let a further enrich only statx missing fields?\nsentinels or relying on statx mask (extending it for mandatory values, which are an implementation detail and not really mandatory to robinhood) sounds simpler than having to imlpement a \"look in xattr tree and merge\" thing to me, but as long as performances are OK I\u0027d say just do whatever is easier for you at this point. This can be further worked on later on if it turns out to be a bottleneck.",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97e8b917_45041b01",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-22T19:24:52Z",
+      "side": 1,
+      "message": "\u003e So the point is to partially fill a struct statx from the event source, and let a further enrich only statx missing fields?\n\nYes, mostly.\n\n\u003e sentinels or relying on statx mask (extending it for mandatory values, which are an implementation detail and not really mandatory to robinhood) sounds simpler than having to imlpement a \"look in xattr tree and merge\"\n\nI don\u0027t necessarily agree with the \"simpler\" qualifier, the approach I describe in this document requires no changes on the YAML source and sink (they could do with a couple optimization, like making sure the first xattr in the `struct rbh_value_map` is always `rbh-fsevents`, so we don\u0027t have to traverse the whole map looking for it, but it\u0027s not a requirement).\n\nBut most importantly, how do you define a sentinel on `statx.stx_size` for example? In YAML, it\u0027s super easy, but as soon as you load stuff in memory, it becomes a pain to make defined/undefined values coexist.\n\nIf `statx.stx_mask` contains `STX_SIZE`, does it mean the size is known and set, or should it be queried from the filesystem? You could say `stx_size \u003d\u003d SIZE_MAX` implies the size is unknown, but anyone could `truncate -s SIZE_MAX file` (not the end of the world, we just query the filesystem for nothing in this case). The point is, most fields in `struct statx` cannot define a sentinel value.\n\nThe exception is `stx_mask` (32 bits, only 12 currently used), we could shift the bit flags 16 bits to the left and use this to mean \"field \u0027\u003cbitflag\u003e \u003e\u003e 16\u0027 is undefined\". But this is not portable and 12 is dangerously close to 16 IMO.\n\nAll in all, the xattr overload looked more appealing to me.\n\n\u003e as long as performances are OK I\u0027d say just do whatever is easier for you at this point\n\nAgreed. For the record, `rbh-fsevents - - \u003e /dev/null` clocks at about 7k events per second on my 1.6GHz machine. That is without deduplication. 😊\n\nSerialization is quite fast as well, with about 18k events per seconds.",
+      "parentUuid": "77c16f0a_78134579",
       "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
