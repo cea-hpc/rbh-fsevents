@@ -209,6 +209,24 @@
       "parentUuid": "97e8b917_45041b01",
       "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6370bb6b_59e1043c",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-23T18:55:21Z",
+      "side": 1,
+      "message": "If by bit field you mean something like:\n\n    xattrs:\n        rbh-fsevents:\n            statx: 0b00001101011\n\nNo, because some exotic architecture may define STATX_SIZE to be 0x1 where another will define it as 0x2. Also, I prefer to keep the YAML serialization format as human readable as possible.\n\nAnyway, there isn\u0027t that much complexity involved in parsing this:\n\n    xattrs:\n        rbh-fsevents:\n            statx:\n              - size\n              - mode\n\nInto:\n\n    stx_mask \u003d STATX_SIZE | STATX_MODE;\n\nWhat\u0027s maybe unclear is why we need to support the map format in addition to the sequence format. Couldn\u0027t we always store the \"known\" fields in `upsert.statx` and the unknown fields in `xattrs.rbh-fsevent.statx`?\n\nThe answer is no, because there are fields in `struct statx` which are not covered by `stx_mask` (eg. `stx_rdev_major`, `stx_rdev_minor`, ...).\n\nThis means that if I know the size of an inode but not its device number and I send something like:\n\n    upsert.statx \u003d {\n        .stx_mask \u003d STATX_SIZE,\n        .stx_size \u003d 1024,\n    }\n\nTo a robinhood backend, the device numbers of the inode will be set to 0.\n\nIs this a design flaw in robinhood? Maybe. Maybe we should define our own `struct statx` with some additional flags like `STATX_RDEV_MAJOR`, `STATX_RDEV_MINOR`, ... But fixing this is definitely not a priority for me.",
+      "parentUuid": "81555d9e_475129b2",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }

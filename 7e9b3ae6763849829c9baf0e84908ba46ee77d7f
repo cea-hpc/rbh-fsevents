@@ -22,6 +22,30 @@
       },
       "revId": "7e9b3ae6763849829c9baf0e84908ba46ee77d7f",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a75855f3_9b9667b2",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-23T18:55:21Z",
+      "side": 1,
+      "message": "Given the following two consecutive fsevents:\n\n    ---!upsert\n    id: !!binary aS1hbS1hLWZpbGUtaGFuZGxlLXRvbwo\u003d\n    xattrs:\n        rbh-fsevents:\n            statx:\n                type: ~\n                mode: 0644\n                size: ~\n                uid: 0\n    ...\n    ---!upsert\n    id: !!binary aS1hbS1hLWZpbGUtaGFuZGxlLXRvbwo\u003d\n    xattrs:\n        rbh-fsevents:\n            statx:\n                type: file\n                mode: ~\n                size: ~\n                gid: 0\n    ...\n\nThe deduplicator could produce:\n\n    ---!upsert\n    id: !!binary aS1hbS1hLWZpbGUtaGFuZGxlLXRvbwo\u003d\n    xattrs:\n        rbh-fsevents:\n            statx:\n                type: file\n                mode: ~\n                size: ~\n                uid: 0\n                gid: 0\n    ...",
+      "parentUuid": "faa6de88_d0959168",
+      "range": {
+        "startLine": 123,
+        "startChar": 3,
+        "endLine": 124,
+        "endChar": 10
+      },
+      "revId": "7e9b3ae6763849829c9baf0e84908ba46ee77d7f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
