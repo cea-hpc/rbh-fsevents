@@ -191,6 +191,24 @@
       "parentUuid": "77c16f0a_78134579",
       "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81555d9e_475129b2",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-08-23T07:21:38Z",
+      "side": 1,
+      "message": "This may be a weird solution but wouldn\u0027t it be simpler (not necessarily in terms of implementation) to have the missing information stored as a bit field. Either by having a seperate integer somewhere linked to an entry or by setting an xattr.rbh-fsevents.statx (or something like that).\n\nSo that when querying information, you look at this field and do the appropriate queries. This would solve the issue you mentioned with the `stx_mask` and the difficulty of defining `undefined` values for each field without relying on the YAML format which seams a bit overkill in my opinion.",
+      "parentUuid": "97e8b917_45041b01",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faa6de88_d0959168",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-08-23T07:21:38Z",
+      "side": 1,
+      "message": "question: what do you mean by that? What would this partial merge look like?",
+      "range": {
+        "startLine": 123,
+        "startChar": 3,
+        "endLine": 124,
+        "endChar": 10
+      },
+      "revId": "7e9b3ae6763849829c9baf0e84908ba46ee77d7f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
