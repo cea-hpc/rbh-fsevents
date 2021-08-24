@@ -46,6 +46,30 @@
       },
       "revId": "7e9b3ae6763849829c9baf0e84908ba46ee77d7f",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c07ab287_2a489823",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-08-24T06:58:06Z",
+      "side": 1,
+      "message": "Oh I see. Maybe you can add \"merge partial data of related events such that ...\" to make it clearer?",
+      "parentUuid": "a75855f3_9b9667b2",
+      "range": {
+        "startLine": 123,
+        "startChar": 3,
+        "endLine": 124,
+        "endChar": 10
+      },
+      "revId": "7e9b3ae6763849829c9baf0e84908ba46ee77d7f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }

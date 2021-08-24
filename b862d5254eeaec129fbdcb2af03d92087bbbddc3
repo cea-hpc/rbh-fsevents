@@ -227,6 +227,24 @@
       "parentUuid": "81555d9e_475129b2",
       "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71901bbf_af4ff0b8",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2021-08-24T06:58:06Z",
+      "side": 1,
+      "message": "Yes, that\u0027s what I meant bit field. Regarding the possible value of STATX_SIZE and other fields, I was thinking that the value of each bit is controlled by robinhood, not the statx\u0027s values (e.g. by creating RBH_STATX_SIZE, ...). And again, if understand the issue with device numbers correctly, you could define them as well.\n\nI don\u0027t know enough about robinhood but if the \u0027sender\u0027 and the \u0027receiver\u0027 have access to robinhood\u0027s header files, it seems much easier to me. You could then just send the bit mask and the values?\n\nRegarding the fact that you need a map because of device numbers for example. If, as I said, you define your own RBH_STAX_... values you can then just send the sequence?",
+      "parentUuid": "6370bb6b_59e1043c",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
