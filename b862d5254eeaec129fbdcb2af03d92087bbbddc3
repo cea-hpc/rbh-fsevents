@@ -245,6 +245,24 @@
       "parentUuid": "6370bb6b_59e1043c",
       "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97686eaf_40e2a4ff",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-24T19:33:10Z",
+      "side": 1,
+      "message": "\u003e If, as I said, you define your own RBH_STAX_... values\n\nWell, I said it first:\n\n\u003e \u003e Maybe we should define our own `struct statx` with some additional flags like `STATX_RDEV_MAJOR`, `STATX_RDEV_MINOR`, ...\n\nAnd I also added:\n\n\u003e \u003e But fixing this is definitely not a priority for me.\n\n😜\n\nBut alright, let\u0027s try and get to the root of this then: why do you think we should define our own `struct statx`, or at least our own flags, and use a bit field rather than a sequence of strings?\n\nAre you worried about having to implement a \"source\" for Lustre changelog records and this decision making it hard for you?\n\nOtherwise, is there an advantage to your approach that makes it superior enough that mine is not worth implementing?\n\nBoth valid reason to push back, but I would appreciate it if you could explicit why you believe your suggestion is better.\n\nIMO your approach would be marginally more performant, but would incur a cost in readability, and time to implement the feature.",
+      "parentUuid": "71901bbf_af4ff0b8",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }

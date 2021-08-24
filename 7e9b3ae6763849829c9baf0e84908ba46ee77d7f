@@ -70,6 +70,30 @@
       },
       "revId": "7e9b3ae6763849829c9baf0e84908ba46ee77d7f",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19a1b347_bff58e5b",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-24T19:33:10Z",
+      "side": 1,
+      "message": "Edited to: merge partial data of compatible fsevents such that...",
+      "parentUuid": "c07ab287_2a489823",
+      "range": {
+        "startLine": 123,
+        "startChar": 3,
+        "endLine": 124,
+        "endChar": 10
+      },
+      "revId": "7e9b3ae6763849829c9baf0e84908ba46ee77d7f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
