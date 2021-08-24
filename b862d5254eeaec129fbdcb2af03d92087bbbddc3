@@ -263,6 +263,24 @@
       "parentUuid": "71901bbf_af4ff0b8",
       "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c728159_d885b127",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-24T21:45:13Z",
+      "side": 1,
+      "message": "The main advantage of having our own statx mask (which is what I had suggested as well if there\u0027s any doubt, might not have been clear) for me is that we might have cases where we don\u0027t need to issue any statx at all.\n\nWith the current code and your design, if an event partially fills some of the statx fields for update (e.g. we know the new file size), then we must issue a statx to fill the mandatory fields before updating the info in the db (otherwise mandatory fields will be zeroed out and made invalid)\nIf we have our own statx mask then we can just say only size is valid and only update that field. Am I wrong?\n\nImplementation wise also really seems simpler to me.\nIt doesn\u0027t require dupliating the 14 bits, just adding four more bits towards the unused end (blksize, attributes, dev and rdev are the only four?) -- so it\u0027s really just adding a few extra flags in our statx header that would get defined unconditionally, and extending the parsing code to check/set the bits, we\u0027re talking ~50 lines of code added that look like the rest of the code in total...",
+      "parentUuid": "97686eaf_40e2a4ff",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
