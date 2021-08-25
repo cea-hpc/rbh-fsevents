@@ -299,6 +299,24 @@
       "parentUuid": "2c728159_d885b127",
       "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cea118aa_222b2a92",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-25T00:15:31Z",
+      "side": 1,
+      "message": "Oh, and I assume that if we get these new flags for fsevents, fsentries have to be updated as well...\n\n...\n\n...\n\nGreat.",
+      "parentUuid": "9d07ffb2_d971b8f7",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
