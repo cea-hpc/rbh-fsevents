@@ -317,6 +317,24 @@
       "parentUuid": "9d07ffb2_d971b8f7",
       "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02c8e84a_33f17ea3",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-08-25T00:26:38Z",
+      "side": 1,
+      "message": "Yes, if we want the flags eventually then we need them in the librobinhood defines first, then yaml parser as you say.\nUpdating backend and tools can come later (err I think that ~50 lines estimate was just for librobinhood core + backends and didn\u0027t include the existing tools, can\u0027t remember where I did my grep on another flag)\n\nI don\u0027t think it\u0027s that big of a change, and I think it\u0027s better done now than later if that\u0027s what we want, but it is a change of priority as you say.\n\n\nRe-what it means for the rest:\n - symlinks still need a flag to request enriching vs. tell enricher it\u0027s already in backend; we can\u0027t really store it in a statx mask can we? I don\u0027t have any better idea than your xattr suggestion... sentinel value? a symlink cannot be empty, so differentiate between NULL and \"\" ?\n - partial xattrs (e.g. difference between \"just one xattr has been set/delete\" and \"this is the full list of xattrs of the inode, any xattr not listed is to be deleted\") -- how do we represent that?",
+      "parentUuid": "cea118aa_222b2a92",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
