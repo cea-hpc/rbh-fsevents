@@ -281,6 +281,24 @@
       "parentUuid": "97686eaf_40e2a4ff",
       "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d07ffb2_d971b8f7",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-08-25T00:12:02Z",
+      "side": 1,
+      "message": "\u003e which is what I had suggested as well if there\u0027s any doubt\n\nI did not understand, but my bad, I should have asked about it.\n\n\u003e If we have our own statx mask then we can just say only size is valid and only update that field. Am I wrong?\n\nNo, that sounds correct to me.\n\n\u003e we\u0027re talking ~50 lines of code added that look like the rest of the code in total...\n\nThe mongo backends needs updating as well, otherwise the flags won\u0027t be taken into account... And then we need to update rbh-sync to use the flags or data will be missing from the mongo backend... Damn! I knew this was going to come back and haunt me. 😞\n\nAlright, let\u0027s assume we\u0027ll implement things that way _eventually_. What does it mean for the design _right now_?\n\nWe can give up the map syntax and only support the sequence of string that acts as a bit field (I am still not sold on using an actual bit field rather than text).\nThe rest pretty much still holds, right?\n\n----------\n\nI really don\u0027t want to deal with the refactoring of defining new flags right now, but do we absolutely need them at day-1?\n\nWe can pay the extra statx calls for a while, and once we define the flags, the refactoring will look like:\n- add the parsing/emitting code for the flags;\n- skip the call to statx unless it\u0027s needed.\n\nSold for ~50 lines! 😄\n\nThe goal of this document is to give developers guidelines on the input `rbh-fsevents` expects so people from other projects can start contributing \"sources\". I\u0027m fine with us cutting some _internal_ corners and sacrificing performance here and there, so long as we can smooth things out later.\n\nEDIT: Oh shoot! We need the flags for sources to be able to use them... #@#$\"!#$\n\n... Alright, lazy me says:\n- we add a patch to librobinhood to define the flags but we don\u0027t update the backends;\n- we edit the YAML source/sink to parse/emit them in textual form;\n- and once we code the enricher we always call statx and we filter out the rbh-specific flags.\n\nStill... That makes the refactoring a priority. 😞",
+      "parentUuid": "2c728159_d885b127",
+      "revId": "b862d5254eeaec129fbdcb2af03d92087bbbddc3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
