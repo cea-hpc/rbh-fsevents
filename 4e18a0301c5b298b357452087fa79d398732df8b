@@ -34,6 +34,24 @@
       "parentUuid": "c6c6952d_a39dab48",
       "revId": "4e18a0301c5b298b357452087fa79d398732df8b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7ea7f81_c88c990f",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-04T13:21:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3ef7c1ff_21bc9d53",
+      "revId": "4e18a0301c5b298b357452087fa79d398732df8b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
