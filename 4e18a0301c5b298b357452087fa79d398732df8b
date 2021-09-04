@@ -16,6 +16,24 @@
       "message": "To make sure I understand:\n - fields listed here are fields that must be enriched before being passed on to the db\n - any field not present here and not having been previously filled in will just be left untouched in the db\n\nIf so I don\u0027t think it\u0027s explicitely written in the document, but I might have missed something. I\u0027m only assuming this is how you intended to use it from the discussion we had on symlink.",
       "revId": "4e18a0301c5b298b357452087fa79d398732df8b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ef7c1ff_21bc9d53",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-09-04T12:47:06Z",
+      "side": 1,
+      "message": "\u003e fields listed here are fields that must be enriched before being passed on to the db\n\nYes, added a few more words in the document to clarify.\n\n\u003e any field not present here and not having been previously filled in will just be left untouched in the db\n\nAlso yes. Did not update the document as I feel this is rather part of how fsevents work.",
+      "parentUuid": "c6c6952d_a39dab48",
+      "revId": "4e18a0301c5b298b357452087fa79d398732df8b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
