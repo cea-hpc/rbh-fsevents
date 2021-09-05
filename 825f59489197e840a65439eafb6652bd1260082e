@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cc7d46b_e78195b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2021-09-05T01:15:44Z",
+      "side": 1,
+      "message": "This has the side effect of no longer erroringout if we see empty timestamp/dev fields for parsing, but the final statx struct will have coherent flags so this is ok for me.",
+      "revId": "825f59489197e840a65439eafb6652bd1260082e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
