@@ -16,6 +16,23 @@
       "message": "Updated librobinhood on the CI server.",
       "revId": "9958dba5c8161e60bcd25b67e4ec5713de2b6c2e",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bed15ca3_7e0881de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018755
+      },
+      "writtenOn": "2021-10-24T20:36:18Z",
+      "side": 1,
+      "message": "Again (but properly this time)",
+      "revId": "9958dba5c8161e60bcd25b67e4ec5713de2b6c2e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
