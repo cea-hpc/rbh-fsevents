@@ -58,6 +58,7 @@ static struct source *
 source_new(const char *arg)
 {
     FILE *file;
+    char *delim;
 
     if (strcmp(arg, "-") == 0)
         /* SOURCE is '-' (stdin) */
@@ -73,7 +74,18 @@ source_new(const char *arg)
          */
         error(EXIT_FAILURE, errno, "%s", arg);
 
-    /* TODO: parse SOURCE as an MDT name (ie. <fsname>-MDT<index>) */
+    delim = strstr(arg, "-MDT");
+    if (delim != NULL) {
+        /* SOURCE is an MDT name (ie. <fsname>-MDT<index>) */
+        if (arg == delim)
+            error(EX_USAGE, EINVAL, "fsname of MDT source is empty");
+        if (strlen(delim) == strlen("-MDT"))
+            error(EX_USAGE, EINVAL, "index of MDT source is empty");
+
+        error(EX_USAGE, ENOTSUP,
+              "MDT source is not supported yet -- '%s'", arg);
+    }
+
     error(EX_USAGE, EINVAL, "%s", arg);
     __builtin_unreachable();
 }
