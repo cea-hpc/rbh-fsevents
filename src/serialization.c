@@ -1195,21 +1195,21 @@ emit_statx_attributes(yaml_emitter_t *emitter, uint64_t mask,
             return false;
     }
 
-    if (mask & STATX_ATTR_MOUNT_ROOT) {
+    if (mask & RBH_STATX_ATTR_MOUNT_ROOT) {
         if (!YAML_EMIT_STRING(emitter, "mount-root")
-         || !yaml_emit_boolean(emitter, attributes & STATX_ATTR_MOUNT_ROOT))
+         || !yaml_emit_boolean(emitter, attributes & RBH_STATX_ATTR_MOUNT_ROOT))
             return false;
     }
 
-    if (mask & STATX_ATTR_VERITY) {
+    if (mask & RBH_STATX_ATTR_VERITY) {
         if (!YAML_EMIT_STRING(emitter, "verity")
-         || !yaml_emit_boolean(emitter, attributes & STATX_ATTR_VERITY))
+         || !yaml_emit_boolean(emitter, attributes & RBH_STATX_ATTR_VERITY))
             return false;
     }
 
-    if (mask & STATX_ATTR_DAX) {
+    if (mask & RBH_STATX_ATTR_DAX) {
         if (!YAML_EMIT_STRING(emitter, "dax")
-         || !yaml_emit_boolean(emitter, attributes & STATX_ATTR_DAX))
+         || !yaml_emit_boolean(emitter, attributes & RBH_STATX_ATTR_DAX))
             return false;
     }
 
@@ -1239,7 +1239,7 @@ str2statx_attribute(const char *string)
     case 'd': /* dax */
         if (strcmp(string, "ax"))
             break;
-        return STATX_ATTR_DAX;
+        return RBH_STATX_ATTR_DAX;
     case 'e': /* encrypted */
         if (strcmp(string, "ncrypted"))
             break;
@@ -1251,7 +1251,7 @@ str2statx_attribute(const char *string)
     case 'm': /* mount-root */
         if (strcmp(string, "ount-root"))
             break;
-        return STATX_ATTR_MOUNT_ROOT;
+        return RBH_STATX_ATTR_MOUNT_ROOT;
     case 'n': /* nodump */
         if (strcmp(string, "odump"))
             break;
@@ -1259,7 +1259,7 @@ str2statx_attribute(const char *string)
     case 'v': /* verity */
         if (strcmp(string, "erity"))
             break;
-        return STATX_ATTR_VERITY;
+        return RBH_STATX_ATTR_VERITY;
     }
 
     errno = EINVAL;
