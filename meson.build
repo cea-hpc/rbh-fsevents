@@ -29,7 +29,7 @@ add_project_arguments(['-DHAVE_CONFIG_H',], language: 'c')
 
 # Dependencies
 librobinhood = dependency('robinhood', version: '>=0.0.0')
-libyaml = dependency('yaml-0.1', version: '>=0.2.5')
+libyaml = dependency('yaml-0.1', version: '>=0.1.7')
 miniyaml = dependency('miniyaml', version: '>=0.0.0')
 
 includes = include_directories('.', 'include')
