@@ -82,8 +82,7 @@ source_new(const char *arg)
         if (strlen(del) == strlen("-MDT"))
             error(EX_USAGE, EINVAL, "index of MDT source is empty");
 
-        error(EX_USAGE, ENOTSUP,
-              "MDT source is not supported yet -- '%s'", arg);
+        return source_from_lustre_changelog(arg);
     }
 
     error(EX_USAGE, EINVAL, "%s", arg);

@@ -31,6 +31,7 @@ add_project_arguments(['-DHAVE_CONFIG_H',], language: 'c')
 librobinhood = dependency('robinhood', version: '>=0.0.0')
 libyaml = dependency('yaml-0.1', version: '>=0.1.7')
 miniyaml = dependency('miniyaml', version: '>=0.0.0')
+liblustre = dependency('lustre')
 
 includes = include_directories('.', 'include')
 
@@ -42,10 +43,11 @@ executable(
         'src/enricher.c',
         'src/serialization.c',
         'src/sources/file.c',
+        'src/sources/lustre.c',
         'src/sinks/backend.c',
         'src/sinks/file.c',
     ],
     include_directories: includes,
-    dependencies: [librobinhood, libyaml, miniyaml],
+    dependencies: [librobinhood, libyaml, miniyaml, liblustre],
     install: true,
 )
