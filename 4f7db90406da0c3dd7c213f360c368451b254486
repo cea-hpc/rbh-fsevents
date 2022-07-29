@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "451b2496_494ae1c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-07-29T14:50:42Z",
+      "side": 1,
+      "message": "The three first patchs of the stack are ready, the last one still lacks two fixes.",
+      "revId": "4f7db90406da0c3dd7c213f360c368451b254486",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
