@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "947879fd_37f27f12",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-08-02T09:29:56Z",
+      "side": 1,
+      "message": "(nit) Not explanatory. What \"del\" stands for?",
+      "range": {
+        "startLine": 61,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 14
+      },
+      "revId": "3c8a41c0674537c6206491d4c14d4df707ea2dc9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
