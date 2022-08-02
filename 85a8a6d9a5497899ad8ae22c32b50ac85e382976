@@ -1,6 +1,69 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a481caf_d238891c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-08-02T11:17:19Z",
+      "side": 1,
+      "message": "Code looks good to me. But I think the meson must be fixed.",
+      "revId": "85a8a6d9a5497899ad8ae22c32b50ac85e382976",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71f5e421_bb299afb",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-08-02T11:17:19Z",
+      "side": 1,
+      "message": "(defact) Actually it requires lustre-client package, which is provided either by lustre or lustre-client RPMs.",
+      "range": {
+        "startLine": 34,
+        "startChar": 12,
+        "endLine": 34,
+        "endChar": 32
+      },
+      "revId": "85a8a6d9a5497899ad8ae22c32b50ac85e382976",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86a2f539_debcf1b1",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-08-02T11:17:19Z",
+      "side": 1,
+      "message": "I guess you meant liblustreapi?",
+      "range": {
+        "startLine": 51,
+        "startChar": 52,
+        "endLine": 51,
+        "endChar": 61
+      },
+      "revId": "85a8a6d9a5497899ad8ae22c32b50ac85e382976",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be6441d3_e75a7806",
@@ -19,6 +82,29 @@
         "startChar": 24,
         "endLine": 27,
         "endChar": 27
+      },
+      "revId": "85a8a6d9a5497899ad8ae22c32b50ac85e382976",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95224a50_1c93549d",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-08-02T11:17:19Z",
+      "side": 1,
+      "message": "It\u0027s OK of the command is one-shot (read log once then exit).\nOtherwise, it would need to handle multiple error codes here:\nEINTR: process was interrupted\nEINVAL: filesystem was unmounted\nEPROTO: shift in message passing channel\n...",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 55
       },
       "revId": "85a8a6d9a5497899ad8ae22c32b50ac85e382976",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
