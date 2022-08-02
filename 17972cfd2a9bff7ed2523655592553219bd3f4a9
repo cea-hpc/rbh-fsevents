@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8f68995_1fbfbd2e",
+        "filename": "src/serialization.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1003874
+      },
+      "writtenOn": "2022-08-02T09:06:41Z",
+      "side": 1,
+      "message": "How could it land in the first place? Isn\u0027t there any build test run before landing?",
+      "range": {
+        "startLine": 1198,
+        "startChar": 15,
+        "endLine": 1198,
+        "endChar": 40
+      },
+      "revId": "17972cfd2a9bff7ed2523655592553219bd3f4a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
