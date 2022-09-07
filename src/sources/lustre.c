@@ -97,11 +97,17 @@ static void fill_uidgid(struct changelog_rec *record, struct rbh_statx *statx)
     statx->stx_gid = uidgid->cr_gid;
 }
 
-static void fill_open_time(struct changelog_rec *record, struct rbh_statx *statx)
+static inline
+void fill_access_time(struct changelog_rec *record, struct rbh_statx *statx)
 {
     statx->stx_mask |= RBH_STATX_ATIME_SEC | RBH_STATX_ATIME_NSEC;
     statx->stx_atime.tv_sec = record->cr_time >> 30;
     statx->stx_atime.tv_nsec = 0;
+}
+
+static void fill_open_time(struct changelog_rec *record, struct rbh_statx *statx)
+{
+    fill_access_time(record, statx);
 
     statx->stx_mask |= RBH_STATX_BTIME_SEC | RBH_STATX_BTIME_NSEC;
     statx->stx_btime.tv_sec = record->cr_time >> 30;
@@ -201,6 +207,11 @@ retry:
         fill_ns_xattrs(record, &NS_XATTRS_MAP.map);
         llapi_changelog_free(&record);
         return rbh_fsevent_upsert_new(id, &LOLILOL, rec_statx, NULL);
+    case CL_CLOSE:
+        id = rbh_id_from_lu_fid(&record->cr_tfid);
+        fill_access_time(record, rec_statx);
+        llapi_changelog_free(&record);
+        return rbh_fsevent_upsert_new(id, NULL, rec_statx, NULL);
     case CL_MKDIR:      /* RBH_FET_UPSERT */
         id = rbh_id_from_lu_fid(&record->cr_tfid);
         llapi_changelog_free(&record);
@@ -213,11 +224,6 @@ retry:
     case CL_RENAME:     /* RBH_FET_UPSERT */
     case CL_EXT:
     case CL_OPEN:
-        break;
-    case CL_CLOSE:
-        id = rbh_id_from_lu_fid(&record->cr_tfid);
-        llapi_changelog_free(&record);
-        return rbh_fsevent_upsert_new(id, NULL, NULL, NULL);
     case CL_LAYOUT:
     case CL_TRUNC:
     case CL_SETATTR:    /* RBH_FET_XATTR? */
