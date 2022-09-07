@@ -327,17 +327,22 @@ parse_statx_mask(uint32_t *mask, const struct rbh_value *value)
 {
     *mask = 0;
 
-    if (value->type != RBH_VT_SEQUENCE) {
+    if (value->type != RBH_VT_SEQUENCE && value->type != RBH_VT_BINARY) {
         errno = EINVAL;
         return -1;
     }
 
-    for (size_t i = 0; i < value->sequence.count; i++) {
-        uint64_t field;
+    if (value->type == RBH_VT_SEQUENCE) {
+        for (size_t i = 0; i < value->sequence.count; i++) {
+            uint64_t field;
 
-        if (parse_statx_field(&field, &value->sequence.values[i]))
-            return -1;
-        *mask |= field;
+            if (parse_statx_field(&field, &value->sequence.values[i]))
+                return -1;
+            *mask |= field;
+        }
+    } else {
+        for (size_t i = 0; i < value->binary.size; i++)
+            *mask |= value->binary.data[i];
     }
 
     return 0;
