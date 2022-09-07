@@ -102,6 +102,24 @@ Example:
     ...
 
 
+Another possibility is have the value associated be a uint32 number. In this,
+case, it should correspond to a bitwise OR of the ``RBH_STATX`` macros defined
+in ``librobinhood/include/robinhood/statx.h``.
+
+Example:
+
+.. code:: YAML
+
+    --- !upsert
+    id: !!binary aS1hbS1hLWZpbGUtaGFuZGxlCg==
+    xattrs:
+        rbh-fsevents:
+            statx: RBH_STATX_TYPE | RBH_STATX_MODE | RBH_STATX_NLINK |
+                   RBH_STATX_UID | RBH_STATX_GID
+
+    ...
+
+
 Note that upsert fsevents may already bear a ``struct statx`` which enrichers
 are expected to use and merge with the more up-to-date information they collect.
 
