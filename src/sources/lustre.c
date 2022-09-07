@@ -42,11 +42,14 @@ fsevent_from_record(struct changelog_rec *record)
     return bad;
 }
 
+static const int blob = RBH_STATX_RDEV_MAJOR | RBH_STATX_DEV_MAJOR |
+                        RBH_STATX_DEV_MINOR;
+
 static const struct rbh_value GUILLAUME_PLEASE = {
-    .type = RBH_VT_SEQUENCE,
-    .sequence = {
-        .values = NULL,
-        .count = 0,
+    .type = RBH_VT_BINARY,
+    .binary = {
+        .data = (const char *)&blob,
+        .size = sizeof(int),
     },
 };
 
