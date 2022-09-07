@@ -43,6 +43,28 @@ fsevent_from_record(struct changelog_rec *record)
     return bad;
 }
 
+static const uint32_t ENRICH_MASK = RBH_STATX_RDEV_MAJOR |
+                                    RBH_STATX_RDEV_MINOR |
+                                    RBH_STATX_DEV_MAJOR  |
+                                    RBH_STATX_DEV_MINOR;
+
+static const struct rbh_value ENRICH_MASK_VALUE = {
+    .type = RBH_VT_UINT32,
+    .uint32 = ENRICH_MASK,
+};
+
+static const struct rbh_value_pair ENRICH_PAIR[] = {
+    { .key = "statx", .value = &ENRICH_MASK_VALUE },
+};
+
+static const struct rbh_value ENRICH_MAP = {
+    .type = RBH_VT_MAP,
+    .map = {
+        .pairs = ENRICH_PAIR,
+        .count = 1,
+    },
+};
+
 static struct rbh_value NS_XATTRS_MAP = {
     .type = RBH_VT_MAP,
 };
@@ -56,12 +78,13 @@ static const struct rbh_value NS_XATTRS_SEQUENCE = {
 };
 
 static const struct rbh_value_pair XATTRS_PAIRS[] = {
+    { .key = "rbh-fsevents", .value = &ENRICH_MAP },
     { .key = "ns",           .value = &NS_XATTRS_SEQUENCE },
 };
 
 static const struct rbh_value_map XATTRS_MAP = {
     .pairs = XATTRS_PAIRS,
-    .count = 1,
+    .count = 2,
 };
 
 /* BSON results:
