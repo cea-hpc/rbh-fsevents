@@ -42,6 +42,26 @@ fsevent_from_record(struct changelog_rec *record)
     return bad;
 }
 
+static const struct rbh_value GUILLAUME_PLEASE = {
+    .type = RBH_VT_SEQUENCE,
+    .sequence = {
+        .values = NULL,
+        .count = 0,
+    },
+};
+
+static const struct rbh_value_pair LOL_TRUE_PAIR[] = {
+    { .key = "statx", .value = &GUILLAUME_PLEASE },
+};
+
+static const struct rbh_value LOL_TRUE_MAP = {
+    .type = RBH_VT_MAP,
+    .map = {
+        .pairs = LOL_TRUE_PAIR,
+        .count = 1,
+    },
+};
+
 static struct rbh_value NS_XATTRS_MAP = {
     .type = RBH_VT_MAP,
 };
@@ -55,12 +75,13 @@ static const struct rbh_value NS_XATTRS_SEQUENCE = {
 };
 
 static const struct rbh_value_pair LOL_PAIR[] = {
+    { .key = "rbh-fsevents", .value = &LOL_TRUE_MAP },
     { .key = "ns",           .value = &NS_XATTRS_SEQUENCE },
 };
 
 static const struct rbh_value_map LOLILOL = {
     .pairs = LOL_PAIR,
-    .count = 1,
+    .count = 2,
 };
 
 static void fill_uidgid(struct changelog_rec *record, struct rbh_statx *statx)
