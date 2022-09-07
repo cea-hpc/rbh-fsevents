@@ -103,7 +103,18 @@ fill_uidgid(struct changelog_rec *record, struct rbh_statx *statx)
 }
 
 /* BSON results:
- * { "statx" : { "atime" : { "sec" : x1, "nsec" : y1 } },
+ * { "statx" : { "atime" : { "sec" : x, "nsec" : y } } }
+ */
+static inline void
+fill_access_time(struct changelog_rec *record, struct rbh_statx *statx)
+{
+    statx->stx_mask |= RBH_STATX_ATIME_SEC | RBH_STATX_ATIME_NSEC;
+    statx->stx_atime.tv_sec = record->cr_time >> 30;
+    statx->stx_atime.tv_nsec = 0;
+}
+
+/* BSON results:
+ * { "statx" : { "atime" : x },
  *             { "btime" : { "sec" : x2, "nsec" : y2 } },
  *             { "ctime" : { "sec" : x3, "nsec" : y3 } },
  *             { "mtime" : { "sec" : x4, "nsec" : y4 } } }
@@ -111,9 +122,7 @@ fill_uidgid(struct changelog_rec *record, struct rbh_statx *statx)
 static void
 fill_open_time(struct changelog_rec *record, struct rbh_statx *statx)
 {
-    statx->stx_mask |= RBH_STATX_ATIME_SEC | RBH_STATX_ATIME_NSEC;
-    statx->stx_atime.tv_sec = record->cr_time >> 30;
-    statx->stx_atime.tv_nsec = 0;
+    fill_access_time(record, statx);
 
     statx->stx_mask |= RBH_STATX_BTIME_SEC | RBH_STATX_BTIME_NSEC;
     statx->stx_btime.tv_sec = record->cr_time >> 30;
@@ -286,7 +295,10 @@ retry:
                                                NULL);
         goto end_event;
     case CL_CLOSE:
-        partial_event = rbh_fsevent_upsert_new(id, NULL, NULL, NULL);
+        fill_access_time(record, &rec_statx);
+        upsert_statx = rbh_sstack_push(records->values, &rec_statx,
+                                       sizeof(rec_statx));
+        partial_event = rbh_fsevent_upsert_new(id, NULL, upsert_statx, NULL);
         goto end_event;
     case CL_MKDIR:      /* RBH_FET_UPSERT */
         partial_event = rbh_fsevent_upsert_new(id, NULL, NULL, NULL);
