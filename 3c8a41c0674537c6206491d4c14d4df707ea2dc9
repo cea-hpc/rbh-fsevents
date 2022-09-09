@@ -22,6 +22,30 @@
       },
       "revId": "3c8a41c0674537c6206491d4c14d4df707ea2dc9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a9d0dc2_9e963810",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-09T08:11:25Z",
+      "side": 1,
+      "message": "Okay, changed for `delim`, as named in `strtok` manpage.",
+      "parentUuid": "947879fd_37f27f12",
+      "range": {
+        "startLine": 61,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 14
+      },
+      "revId": "3c8a41c0674537c6206491d4c14d4df707ea2dc9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
