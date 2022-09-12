@@ -72,6 +72,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2b48f10_902d5e1e",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-09-12T14:42:52Z",
+      "side": 1,
+      "message": "suggest: it would maybe make things more readable if a comment above the function showed the JSON structure you are building here.",
+      "range": {
+        "startLine": 95,
+        "startChar": 12,
+        "endLine": 95,
+        "endChar": 26
+      },
+      "revId": "a1ab459db9bb438a49c77715035979f56be8599b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "341a3dc3_7323a4e7",
         "filename": "src/sources/lustre.c",
         "patchSetId": 1
