@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53be011a_4948192a",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-09-12T14:17:39Z",
+      "side": 1,
+      "message": "question: is this right? I don\u0027t think lustre provides a pkg-config file for lustre-client:\n\n```\n$ pkg-config --cflags lustre\n-I/usr/include/lustre \n$ pkg-config --cflags lustre-client\nPackage lustre-client was not found in the pkg-config search path.\nPerhaps you should add the directory containing `lustre-client.pc\u0027\nto the PKG_CONFIG_PATH environment variable\nPackage \u0027lustre-client\u0027, required by \u0027virtual:world\u0027, not found\n```",
+      "range": {
+        "startLine": 34,
+        "startChar": 24,
+        "endLine": 34,
+        "endChar": 37
+      },
+      "revId": "af602fe54fc657a4660dfd97cdbbd6933ad7af47",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12550fa6_b90efe08",
         "filename": "src/sources/lustre.c",
         "patchSetId": 2
