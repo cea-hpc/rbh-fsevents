@@ -44,8 +44,10 @@ lustre_changelog_iter_next(void *iterator)
 {
     struct lustre_changelog_iterator *records = iterator;
     struct changelog_rec *record;
+    struct rbh_id *id = NULL;
     int rc;
 
+retry:
     rc = llapi_changelog_recv(records->reader, &record);
     if (rc < 0) {
         errno = -rc;
@@ -56,7 +58,50 @@ lustre_changelog_iter_next(void *iterator)
         return NULL;
     }
 
-    return fsevent_from_record(record);
+/** check chglog_reader.c:758 */
+    switch(record->cr_type) {
+    case CL_CREATE:     /* RBH_FET_UPSERT */
+        printf("new create\n");
+        id = rbh_id_from_lu_fid(&record->cr_tfid);
+        llapi_changelog_free(&record);
+        return rbh_fsevent_upsert_new(id, NULL, NULL, NULL);
+    case CL_MKDIR:      /* RBH_FET_UPSERT */
+        id = rbh_id_from_lu_fid(&record->cr_tfid);
+        llapi_changelog_free(&record);
+        return rbh_fsevent_upsert_new(id, NULL, NULL, NULL);
+    case CL_HARDLINK:   /* RBH_FET_LINK? */
+    case CL_SOFTLINK:   /* RBH_FET_UPSERT + symlink */
+    case CL_MKNOD:
+    case CL_UNLINK:     /* RBH_FET_UNLINK or RBH_FET_DELETE */
+    case CL_RMDIR:      /* RBH_FET_UNLINK or RBH_FET_DELETE */
+    case CL_RENAME:     /* RBH_FET_UPSERT */
+    case CL_EXT:
+    case CL_OPEN:
+        break;
+    case CL_CLOSE:
+        printf("new close\n");
+        id = rbh_id_from_lu_fid(&record->cr_tfid);
+        llapi_changelog_free(&record);
+        return rbh_fsevent_upsert_new(id, NULL, NULL, NULL);
+    case CL_LAYOUT:
+    case CL_TRUNC:
+    case CL_SETATTR:    /* RBH_FET_XATTR? */
+    case CL_SETXATTR:   /* RBH_FET_XATTR */
+    case CL_HSM:
+    case CL_MTIME:
+    case CL_ATIME:
+    case CL_CTIME:
+    case CL_MIGRATE:
+    case CL_FLRW:
+    case CL_RESYNC:
+    case CL_GETXATTR:
+    case CL_DN_OPEN:
+        return fsevent_from_record(record);
+    default: /* CL_MARK */
+        goto retry;
+    }
+
+    __builtin_unreachable();
 }
 
 static void
