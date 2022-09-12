@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6b0c95a_cbccc050",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-12T13:32:13Z",
+      "side": 1,
+      "message": "major: already discussed IRL, move it to the right patch",
+      "range": {
+        "startLine": 23,
+        "startChar": 3,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "a1ab459db9bb438a49c77715035979f56be8599b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e60e175_0f87a231",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-12T13:32:13Z",
+      "side": 1,
+      "message": "minor: bad name",
+      "range": {
+        "startLine": 57,
+        "startChar": 35,
+        "endLine": 57,
+        "endChar": 43
+      },
+      "revId": "a1ab459db9bb438a49c77715035979f56be8599b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c110c5d8_a9c97459",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-12T13:32:13Z",
+      "side": 1,
+      "message": "minor: bad name",
+      "range": {
+        "startLine": 61,
+        "startChar": 34,
+        "endLine": 61,
+        "endChar": 41
+      },
+      "revId": "a1ab459db9bb438a49c77715035979f56be8599b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "341a3dc3_7323a4e7",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-12T13:32:13Z",
+      "side": 1,
+      "message": "question: why mallocs are not checked?",
+      "range": {
+        "startLine": 108,
+        "startChar": 12,
+        "endLine": 108,
+        "endChar": 18
+      },
+      "revId": "a1ab459db9bb438a49c77715035979f56be8599b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f157f34_516b94ca",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-12T13:32:13Z",
+      "side": 1,
+      "message": "defect? some of those allocations are not freed (when not sent to `rbh_fsevent_upsert_new`)",
+      "range": {
+        "startLine": 153,
+        "startChar": 22,
+        "endLine": 153,
+        "endChar": 31
+      },
+      "revId": "a1ab459db9bb438a49c77715035979f56be8599b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
