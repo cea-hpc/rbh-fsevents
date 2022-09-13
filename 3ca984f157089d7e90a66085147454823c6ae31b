@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01d3dec8_a316d6a6",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-13T11:19:24Z",
+      "side": 1,
+      "message": "(nitpick) doc/adr/partial-fsevents.rst probably needs updating to say it allows a bitmap as binary... But in this case actually what\u0027s the advantage of binary over RBH_VT_INT32?\nIf you store the value as binary you\u0027ll need to start worrying about endianness (because yes why not run an enricher on a remote machine with a different architecture, what could possibly go wrong!), whereas int meaning stays stable when serialized",
+      "revId": "3ca984f157089d7e90a66085147454823c6ae31b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
