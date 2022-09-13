@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "edd06d87_7b7bc6c5",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-09-13T09:14:34Z",
+      "side": 1,
+      "message": "Where did you find it?\n\n$ find -name chglog_reader.c\n$\n\nThis is what I got on the latest commit on master.\n\nIf it is indeed in Lustre, you should mention it as well as the full path in the repository.",
+      "parentUuid": "029ceab9_c56dd7d4",
+      "range": {
+        "startLine": 61,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 25
+      },
+      "revId": "49dd5dfcf9a0f55e047c3f24259fad710582a0e3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8e724e4_16ff47c9",
         "filename": "src/sources/lustre.c",
         "patchSetId": 1
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "It\u0027s just that these correspond to events that are not managed yet, so we just go through to the next event",
       "parentUuid": "1ab6421c_c33ab93d",
+      "range": {
+        "startLine": 101,
+        "startChar": 13,
+        "endLine": 101,
+        "endChar": 18
+      },
+      "revId": "49dd5dfcf9a0f55e047c3f24259fad710582a0e3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb4473ed_99a0370e",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-09-13T09:14:34Z",
+      "side": 1,
+      "message": "But this is just for CL_MARK, right?",
+      "parentUuid": "095a5d0c_0efce7b3",
       "range": {
         "startLine": 101,
         "startChar": 13,
