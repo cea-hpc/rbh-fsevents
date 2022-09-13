@@ -26,6 +26,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f6456d6a_db9078d1",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-13T11:00:08Z",
+      "side": 1,
+      "message": "note this makes lustre mandatory -- I\u0027d still like for it to be optional in an ideal world (e.g. would use it with fanotify fsevents at some point), if it\u0027s not too much work I\u0027d appreciate to keep this optional and only build the src/sources/lustre if it is available.\n\nThe dependencies can stay unconditionally, it\u0027s noop if it wasn\u0027t found -- meson is nice ;)",
+      "revId": "af602fe54fc657a4660dfd97cdbbd6933ad7af47",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d50e534d_ebf2bea3",
         "filename": "src/sources/lustre.c",
         "patchSetId": 2
