@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50c3f686_b85b7136",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-13T10:41:16Z",
+      "side": 1,
+      "message": "It\u0027s in robinhood v3\u0027s repo: robinhood-v3/src/chglog_reader/chglog_reader.c\n\nBut yes, the coment should mention robinhood v3, or not be there at all? I\u0027m not sure what we\u0027re meant to check really.\n\nLine numbers also aren\u0027t reliable in time, but I guess it\u0027s the record_filters struct and what we want to handle?",
+      "parentUuid": "edd06d87_7b7bc6c5",
+      "range": {
+        "startLine": 61,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 25
+      },
+      "revId": "49dd5dfcf9a0f55e047c3f24259fad710582a0e3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8e724e4_16ff47c9",
         "filename": "src/sources/lustre.c",
         "patchSetId": 1
