@@ -41,6 +41,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d045d01_a466cc53",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-13T10:41:53Z",
+      "side": 1,
+      "message": "I see they\u0027re freed in https://review.gerrithub.io/c/cea-hpc/rbh-fsevents/+/543336/2",
+      "parentUuid": "d50e534d_ebf2bea3",
+      "revId": "af602fe54fc657a4660dfd97cdbbd6933ad7af47",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12550fa6_b90efe08",
