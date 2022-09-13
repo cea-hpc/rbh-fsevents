@@ -16,6 +16,23 @@
       "message": "The three first patchs of the stack are ready, the last one still lacks two fixes.",
       "revId": "4f7db90406da0c3dd7c213f360c368451b254486",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a100333_6bd09ec3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-13T10:09:56Z",
+      "side": 1,
+      "message": "note unless you use libyaml directly in the later patches, you don\u0027t actually need libyaml at all here. (I tried removing the dependency on main branch)",
+      "revId": "4f7db90406da0c3dd7c213f360c368451b254486",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
