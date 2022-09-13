@@ -26,6 +26,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d50e534d_ebf2bea3",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-13T10:26:13Z",
+      "side": 1,
+      "message": "(not here, but seeing fini made me think of free) I see no llapi_changelog_free() anywhere.\nIt\u0027s ultimately just a free() call so I could have missed it (didn\u0027t see any likely match though), but I never understood whose responsability it is to free things with iterators anyway...",
+      "revId": "af602fe54fc657a4660dfd97cdbbd6933ad7af47",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12550fa6_b90efe08",
         "filename": "src/sources/lustre.c",
         "patchSetId": 2
@@ -37,6 +54,30 @@
       "writtenOn": "2022-09-12T14:15:50Z",
       "side": 1,
       "message": "question: shouldn\u0027t you pass rc or errno here to display which error occured? It seems to me that these call can fail and the error should be reported to the user (same question for the next call).",
+      "range": {
+        "startLine": 90,
+        "startChar": 28,
+        "endLine": 90,
+        "endChar": 29
+      },
+      "revId": "af602fe54fc657a4660dfd97cdbbd6933ad7af47",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "233046f2_5c3a829f",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-13T10:26:13Z",
+      "side": 1,
+      "message": "for a lib I\u0027d agree we should try to report the error code, but this is a program -- exiting as soon as there is an error is a valid design pattern (so systemd or whatever can restart the program instead of trying to recover badly)\n\nWe should obviously keep things coherent with the rest of the program though. Looking at src/sources/file.c it also calls error with EXIT_FAILURE on any problem, so I think this is ok.\n\n\nAh, but yes, this 0 should be errno-like -- it\u0027s printed as per strerror(errnum) according to man page.",
+      "parentUuid": "12550fa6_b90efe08",
       "range": {
         "startLine": 90,
         "startChar": 28,
