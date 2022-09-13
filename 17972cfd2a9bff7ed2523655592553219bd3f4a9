@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2dc9ac9a_9246fc5a",
+        "filename": "src/serialization.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-13T10:13:14Z",
+      "side": 1,
+      "message": "RBH_STATX_ATTR_AUTOMOUNT ? (and plenty of others, they are defined in include/robinhood/statx.h)\n\nOr do you only care about what isn\u0027t defined on rhel kernels, as some got added later?",
+      "revId": "17972cfd2a9bff7ed2523655592553219bd3f4a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8f68995_1fbfbd2e",
         "filename": "src/serialization.c",
         "patchSetId": 1
@@ -38,6 +55,30 @@
       "side": 1,
       "message": "I suppose there was, but the problem comes from older kernel versions which do not have those attributes, so only those can detect the error, so it\u0027s easy to miss",
       "parentUuid": "e8f68995_1fbfbd2e",
+      "range": {
+        "startLine": 1198,
+        "startChar": 15,
+        "endLine": 1198,
+        "endChar": 40
+      },
+      "revId": "17972cfd2a9bff7ed2523655592553219bd3f4a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6400a969_26bc7ea1",
+        "filename": "src/serialization.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-13T10:13:14Z",
+      "side": 1,
+      "message": "Yes, Quentin\u0027s CI runs (used to run) on his archlinux machine afaiu so it would have had the normal symbols",
+      "parentUuid": "1344e3d0_c1c32b48",
       "range": {
         "startLine": 1198,
         "startChar": 15,
