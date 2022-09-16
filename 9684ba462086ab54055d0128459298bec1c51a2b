@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7ef2808f_ea196024",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-16T10:21:03Z",
+      "side": 1,
+      "message": "The tests will come later, but I have tested all the patches with Valgrind to ensure there are no issue introduced in them.",
+      "parentUuid": "c1412062_42c58dae",
+      "revId": "9684ba462086ab54055d0128459298bec1c51a2b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4aa1ed5b_f94b8d69",
         "filename": "src/sources/lustre.c",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-13T11:07:37Z",
       "side": 1,
       "message": "(On a very loaded server it should be possible to have a different changelog date vs. date of file? if the second mark passed between the two; but I guess as a first approx this is more than good enough and better than querying the server if we don\u0027t have to. If we do have an enrich step though I\u0027d request it to get a fresh timestamp for principle, I don\u0027t think that costs any extra work for the client/servers)",
+      "revId": "9684ba462086ab54055d0128459298bec1c51a2b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4437aac_268f7b54",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-16T10:21:03Z",
+      "side": 1,
+      "message": "Indeed I was mistaken, the time shown in the record is just its timestamp, not any of the actual times. So yes, we can use the timestamp have a pseudo-time for the files, but we always have to enrich them when able.",
+      "parentUuid": "4aa1ed5b_f94b8d69",
       "revId": "9684ba462086ab54055d0128459298bec1c51a2b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -52,6 +88,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13b86289_74f07089",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-16T10:21:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52adc2a8_e3546eb9",
+      "revId": "9684ba462086ab54055d0128459298bec1c51a2b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b247aa6_e70953de",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-09-13T11:07:37Z",
       "side": 1,
       "message": "the record-\u003evalues sstack should be freed after upsert is handled? that calls fsevent_clone() so it should copy all the buffers we pass it.\n\nas things stand you\u0027re leaking memory at record speed 😊",
+      "revId": "9684ba462086ab54055d0128459298bec1c51a2b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b95376_db12fd28",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-16T10:21:03Z",
+      "side": 1,
+      "message": "Oupsie, forgot to put partial_event onto the stack aswell...\nBut I decided to directly modify rbh_fsevent_upsert_new in librobinhood so that it can use a sstack if provided, and we don\u0027t waste time on unnecessary copy/allocation.",
+      "parentUuid": "4b247aa6_e70953de",
       "revId": "9684ba462086ab54055d0128459298bec1c51a2b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
