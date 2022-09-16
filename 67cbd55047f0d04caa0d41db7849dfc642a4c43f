@@ -22,6 +22,30 @@
       },
       "revId": "67cbd55047f0d04caa0d41db7849dfc642a4c43f",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1b14dcb_7d7137fd",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-16T10:20:58Z",
+      "side": 1,
+      "message": "We\u0027re not sure yet, maybe we\u0027ll need a new kind of event or maybe the current one is enough.",
+      "parentUuid": "d3d9db58_70cc9b28",
+      "range": {
+        "startLine": 80,
+        "startChar": 39,
+        "endLine": 80,
+        "endChar": 40
+      },
+      "revId": "67cbd55047f0d04caa0d41db7849dfc642a4c43f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }

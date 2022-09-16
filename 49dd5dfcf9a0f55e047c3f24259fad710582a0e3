@@ -96,6 +96,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67db33e9_bcb322d8",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-16T10:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50c3f686_b85b7136",
+      "range": {
+        "startLine": 61,
+        "startChar": 10,
+        "endLine": 61,
+        "endChar": 25
+      },
+      "revId": "49dd5dfcf9a0f55e047c3f24259fad710582a0e3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8e724e4_16ff47c9",
@@ -298,6 +322,30 @@
       "side": 1,
       "message": "But this is just for CL_MARK, right?",
       "parentUuid": "095a5d0c_0efce7b3",
+      "range": {
+        "startLine": 101,
+        "startChar": 13,
+        "endLine": 101,
+        "endChar": 18
+      },
+      "revId": "49dd5dfcf9a0f55e047c3f24259fad710582a0e3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4ac446c_d40b0191",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-16T10:20:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb4473ed_99a0370e",
       "range": {
         "startLine": 101,
         "startChar": 13,
