@@ -68,6 +68,24 @@
       "parentUuid": "ae655f33_8c0d0f8b",
       "revId": "e96b0e49b3d1ae815d2afa036a47276e6a2a071b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d324b43e_796bf763",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-16T21:01:53Z",
+      "side": 1,
+      "message": "I was thinking the later (just try to open the changelog and fail if it doesn\u0027t exist); there might be problems when multiple match (e.g. a filename exists with same name but you wanted the changelog) though.\nThe usual \"solution\" for that is to try to open everything (file, changelog etc) and decide based on result, emitting a warning if multiple existed. That\u0027s a bit more work though, probably not needed if everyhing is clear.\n\nNow I\u0027m thinking back about it the processing itself is quite different if it\u0027s lustre, so having --lustre probably makes more sense. What lustre does and what reading a file does is quite different... I\u0027ll also eventually want (Quentin planned to do it before he got overworked :P) a fanotify backend for rbh-fsevents and that\u0027ll take a directory in parameter... I think making it clear what we\u0027re trying to do is probably better?\nWe can always add heuristics (trying to guess) later if that turns out to be annoying to use.",
+      "parentUuid": "cba9d367_e7173da3",
+      "revId": "e96b0e49b3d1ae815d2afa036a47276e6a2a071b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
