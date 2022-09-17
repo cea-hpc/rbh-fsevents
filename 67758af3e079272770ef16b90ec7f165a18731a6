@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "689d6843_927f6ab4",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-17T12:52:51Z",
+      "side": 1,
+      "message": "the example would be more like `statx: 14` (arbitrary value) here?\nI doubt you\u0027ll want to intepret the macros in yaml parser/emit them in emitter",
+      "revId": "67758af3e079272770ef16b90ec7f165a18731a6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
