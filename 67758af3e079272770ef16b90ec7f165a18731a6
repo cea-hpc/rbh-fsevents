@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "741fcacb_9cb644b3",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-20T15:32:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c089bb29_5941844d",
+      "range": {
+        "startLine": 105,
+        "startChar": 20,
+        "endLine": 105,
+        "endChar": 67
+      },
+      "revId": "67758af3e079272770ef16b90ec7f165a18731a6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "689d6843_927f6ab4",
@@ -55,6 +79,24 @@
       "side": 1,
       "message": "I agree. For demonstration purposes maybe you could write:\n\nstatx: 0x18000820 (e.g. RBH_STATX_ATIME | RBH_STATX_BTIME)",
       "parentUuid": "689d6843_927f6ab4",
+      "revId": "67758af3e079272770ef16b90ec7f165a18731a6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d805ab3_2bb13390",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-20T15:32:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d21dbc2_75f04323",
       "revId": "67758af3e079272770ef16b90ec7f165a18731a6",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
