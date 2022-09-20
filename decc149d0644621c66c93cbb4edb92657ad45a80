@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d6de160_afaa2db6",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-20T15:32:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09dbed63_fc8dbf02",
+      "range": {
+        "startLine": 64,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 23
+      },
+      "revId": "decc149d0644621c66c93cbb4edb92657ad45a80",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91f9f434_bdc3ead5",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-20T11:27:08Z",
       "side": 1,
       "message": "defect: as for the free above, I think partial_event can be NULL here which means that errno may be overwritten.",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 34
+      },
+      "revId": "decc149d0644621c66c93cbb4edb92657ad45a80",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "875423b5_a341b62b",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-20T15:32:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91f9f434_bdc3ead5",
       "range": {
         "startLine": 111,
         "startChar": 4,
