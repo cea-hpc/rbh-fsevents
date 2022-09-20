@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c089bb29_5941844d",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-09-20T12:08:16Z",
+      "side": 1,
+      "message": "suggest: I find this sentence a bit strange. I would prefer something like:\nAnother possibility is to have a uint32 value instead of a sequence.",
+      "range": {
+        "startLine": 105,
+        "startChar": 20,
+        "endLine": 105,
+        "endChar": 67
+      },
+      "revId": "67758af3e079272770ef16b90ec7f165a18731a6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "689d6843_927f6ab4",
         "filename": "doc/adr/partial-fsevents.rst",
         "patchSetId": 3
@@ -14,6 +37,24 @@
       "writtenOn": "2022-09-17T12:52:51Z",
       "side": 1,
       "message": "the example would be more like `statx: 14` (arbitrary value) here?\nI doubt you\u0027ll want to intepret the macros in yaml parser/emit them in emitter",
+      "revId": "67758af3e079272770ef16b90ec7f165a18731a6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d21dbc2_75f04323",
+        "filename": "doc/adr/partial-fsevents.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-09-20T12:08:16Z",
+      "side": 1,
+      "message": "I agree. For demonstration purposes maybe you could write:\n\nstatx: 0x18000820 (e.g. RBH_STATX_ATIME | RBH_STATX_BTIME)",
+      "parentUuid": "689d6843_927f6ab4",
       "revId": "67758af3e079272770ef16b90ec7f165a18731a6",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
