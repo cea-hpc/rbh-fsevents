@@ -33,6 +33,24 @@
       "message": "note unless you use libyaml directly in the later patches, you don\u0027t actually need libyaml at all here. (I tried removing the dependency on main branch)",
       "revId": "4f7db90406da0c3dd7c213f360c368451b254486",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efd0888f_f530ce05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-21T14:18:54Z",
+      "side": 1,
+      "message": "You are right, thanks! I removed it.",
+      "parentUuid": "9a100333_6bd09ec3",
+      "revId": "4f7db90406da0c3dd7c213f360c368451b254486",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
