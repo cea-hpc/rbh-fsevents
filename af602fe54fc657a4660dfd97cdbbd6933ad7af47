@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "efbcbeaa_f2e4ac60",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-21T14:21:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53be011a_4948192a",
+      "range": {
+        "startLine": 34,
+        "startChar": 24,
+        "endLine": 34,
+        "endChar": 37
+      },
+      "revId": "af602fe54fc657a4660dfd97cdbbd6933ad7af47",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6456d6a_db9078d1",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-09-13T11:00:08Z",
       "side": 1,
       "message": "note this makes lustre mandatory -- I\u0027d still like for it to be optional in an ideal world (e.g. would use it with fanotify fsevents at some point), if it\u0027s not too much work I\u0027d appreciate to keep this optional and only build the src/sources/lustre if it is available.\n\nThe dependencies can stay unconditionally, it\u0027s noop if it wasn\u0027t found -- meson is nice ;)",
+      "revId": "af602fe54fc657a4660dfd97cdbbd6933ad7af47",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fb729aa_1af1fba4",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-21T14:21:03Z",
+      "side": 1,
+      "message": "That\u0027s our goal too to let lustre be optional!\n\nI will see if this is easily possible.\n\nEDIT: done",
+      "parentUuid": "f6456d6a_db9078d1",
       "revId": "af602fe54fc657a4660dfd97cdbbd6933ad7af47",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
@@ -113,6 +155,30 @@
       "side": 1,
       "message": "for a lib I\u0027d agree we should try to report the error code, but this is a program -- exiting as soon as there is an error is a valid design pattern (so systemd or whatever can restart the program instead of trying to recover badly)\n\nWe should obviously keep things coherent with the rest of the program though. Looking at src/sources/file.c it also calls error with EXIT_FAILURE on any problem, so I think this is ok.\n\n\nAh, but yes, this 0 should be errno-like -- it\u0027s printed as per strerror(errnum) according to man page.",
       "parentUuid": "12550fa6_b90efe08",
+      "range": {
+        "startLine": 90,
+        "startChar": 28,
+        "endLine": 90,
+        "endChar": 29
+      },
+      "revId": "af602fe54fc657a4660dfd97cdbbd6933ad7af47",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05bfa0c6_7fea8c4f",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-21T14:21:03Z",
+      "side": 1,
+      "message": "I added the errnum.",
+      "parentUuid": "233046f2_5c3a829f",
       "range": {
         "startLine": 90,
         "startChar": 28,
