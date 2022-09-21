@@ -86,6 +86,24 @@
       "parentUuid": "cba9d367_e7173da3",
       "revId": "e96b0e49b3d1ae815d2afa036a47276e6a2a071b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "409830e4_f4d644a3",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-21T14:19:46Z",
+      "side": 1,
+      "message": "I added a `--lustre` option in the CLI to indicate the source is an MDT name.",
+      "parentUuid": "d324b43e_796bf763",
+      "revId": "e96b0e49b3d1ae815d2afa036a47276e6a2a071b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
