@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75590c1a_5d077715",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-22T12:24:47Z",
+      "side": 1,
+      "message": "(for later) you probably want to make that a meson_option: https://mesonbuild.com/Build-options.html#features\n\nSo e.g. the rpm spec file can ensure this is found and we\u0027re not building a rpm without lustre support somewhere.",
+      "range": {
+        "startLine": 35,
+        "startChar": 43,
+        "endLine": 35,
+        "endChar": 48
+      },
+      "revId": "080ce451e745de98e3d50cc79cf9207c162d2e9d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
