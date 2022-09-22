@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4dc4241_02d5a561",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-22T07:28:54Z",
+      "side": 1,
+      "message": "major: same thing as in a previous patch, remove the time set and modify the right bitmask (the enrich one)",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 33
+      },
+      "revId": "db0efe06bcce3596d3cd60ca5a0200da49687914",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
