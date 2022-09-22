@@ -36,6 +36,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16bf0fbb_64deeb00",
+        "filename": "src/serialization.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-09-22T12:18:38Z",
+      "side": 1,
+      "message": "thanks!",
+      "parentUuid": "3fb91150_bb0816e3",
+      "revId": "17972cfd2a9bff7ed2523655592553219bd3f4a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8f68995_1fbfbd2e",
