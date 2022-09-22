@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e386395e_8e958d88",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-22T07:18:45Z",
+      "side": 1,
+      "message": "minor: remind you to remove that",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 119,
+        "endChar": 33
+      },
+      "revId": "6fb294f9618103ad482e6348c6a1297a8b5bae68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "598070fe_665302c4",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-22T07:18:45Z",
+      "side": 1,
+      "message": "minor: it seems this part can be mutualized between some functions\n\nAlso `fill_ns_xattrs_name()` and `fill_ns_xattrs_path()` are almost the same.",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 18
+      },
+      "revId": "6fb294f9618103ad482e6348c6a1297a8b5bae68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2af5eb07_3f170d2a",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-22T07:18:45Z",
+      "side": 1,
+      "message": "style: empty line",
+      "revId": "6fb294f9618103ad482e6348c6a1297a8b5bae68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caafa181_83683601",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-22T07:18:45Z",
+      "side": 1,
+      "message": "style: empty line",
+      "revId": "6fb294f9618103ad482e6348c6a1297a8b5bae68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
