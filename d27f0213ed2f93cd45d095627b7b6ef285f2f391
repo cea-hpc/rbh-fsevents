@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ab2547e_b67f939a",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-27T14:25:12Z",
+      "side": 1,
+      "message": "defect: I think the assumption of the index of the file system is not good, having multiple lustre file systems will lead to a bad behavior",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 187,
+        "endChar": 52
+      },
+      "revId": "d27f0213ed2f93cd45d095627b7b6ef285f2f391",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce757602_7e6887de",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-09-27T14:25:12Z",
+      "side": 1,
+      "message": "for later? maybe add this behavior to the enricher instead?",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 197,
+        "endChar": 18
+      },
+      "revId": "d27f0213ed2f93cd45d095627b7b6ef285f2f391",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
