@@ -48,6 +48,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58ea77da_229fe4a3",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-29T07:46:35Z",
+      "side": 1,
+      "message": "Turns out you can\"t properly do this without the mount point, which is only available in the enricher... Removed this from here, we will have to implement it later when we add the management of xattrs to the enricher.",
+      "parentUuid": "05d7a2b3_9cf1cf2e",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 187,
+        "endChar": 52
+      },
+      "revId": "d27f0213ed2f93cd45d095627b7b6ef285f2f391",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce757602_7e6887de",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "(not sure if this points to the failure mode, or the llapi_fid2path() altogether -- if we do it now a failure should be a hard failure imo)\nWe also might to differentiate failure modes e.g. ENOENT is safe to ignore but e.g. other errors could be system errors that mean we\u0027re not able to process changelogs and we should stop trying until an admin looks in my opinion ; or at the very least log a big fat warning.\nThe lack of logging in rbh v4 is a real problem for production...",
       "parentUuid": "ce757602_7e6887de",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 197,
+        "endChar": 18
+      },
+      "revId": "d27f0213ed2f93cd45d095627b7b6ef285f2f391",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f14b332c_1a8ab298",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-09-29T07:46:35Z",
+      "side": 1,
+      "message": "Removed this from here, will be added later with the management of xattrs by the enricher.",
+      "parentUuid": "57fe118f_d6f2e4da",
       "range": {
         "startLine": 187,
         "startChar": 4,
