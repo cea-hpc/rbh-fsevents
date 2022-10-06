@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1621b92b_8e30f8e3",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-10-06T13:43:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5f5df93_192ce66e",
+      "revId": "c12375fa8228a8026bb13a04441b59074c2f81db",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b81ec6cf_dc3f3efe",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-10-06T11:59:13Z",
       "side": 1,
       "message": "defect: if this function fails, the xattrs won\u0027t be initialized properly. You should set fsevent to NULL before the goto.",
+      "range": {
+        "startLine": 314,
+        "startChar": 12,
+        "endLine": 314,
+        "endChar": 26
+      },
+      "revId": "c12375fa8228a8026bb13a04441b59074c2f81db",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ba113c7_7fc05860",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-10-06T13:43:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b81ec6cf_dc3f3efe",
       "range": {
         "startLine": 314,
         "startChar": 12,
