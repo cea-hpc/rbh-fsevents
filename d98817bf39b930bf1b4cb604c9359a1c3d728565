@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4445563c_28957efb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-10-14T19:42:24Z",
+      "side": 1,
+      "message": "I\u0027m surprised this didn\u0027t trip on any test?",
+      "revId": "d98817bf39b930bf1b4cb604c9359a1c3d728565",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e93c9939_deb84041",
+        "filename": "src/serialization.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-10-14T19:42:24Z",
+      "side": 1,
+      "message": "(nitpick) check this before the malloc, so you won\u0027t need that free?",
+      "revId": "d98817bf39b930bf1b4cb604c9359a1c3d728565",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
