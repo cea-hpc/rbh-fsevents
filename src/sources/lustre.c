@@ -38,6 +38,8 @@ struct lustre_changelog_iterator {
 
     struct rbh_sstack *values;
     void *reader;
+    struct changelog_rec *prev_record;
+    unsigned int process_step;
 };
 
 static void *
@@ -59,7 +61,7 @@ fsevent_from_record(struct changelog_rec *record)
 }
 
 static struct rbh_value_pair ENRICH_PAIR[] = {
-    { .key = "statx" }
+    { .key = "statx" },
 };
 
 static const struct rbh_value ENRICH_MAP = {
@@ -70,26 +72,43 @@ static const struct rbh_value ENRICH_MAP = {
     },
 };
 
-static struct rbh_value NS_XATTRS_MAP = {
-    .type = RBH_VT_MAP,
+static struct rbh_value_pair NS_XATTRS_ENRICH_PAIR[] = {
+    { .key = "xattrs" },
 };
 
-static const struct rbh_value NS_XATTRS_SEQUENCE = {
-    .type = RBH_VT_SEQUENCE,
-    .sequence = {
-        .values = &NS_XATTRS_MAP,
+static const struct rbh_value NS_XATTRS_ENRICH_MAP = {
+    .type = RBH_VT_MAP,
+    .map = {
+        .pairs = NS_XATTRS_ENRICH_PAIR,
         .count = 1,
     },
 };
 
+static struct rbh_value_pair NS_XATTRS_PAIRS[] = {
+    { .key = "rbh-fsevents", .value = &NS_XATTRS_ENRICH_MAP },
+};
+
+static const struct rbh_value_map NS_XATTRS_MAP = {
+    .pairs = NS_XATTRS_PAIRS,
+    .count = 1,
+};
+
+static struct rbh_value_pair FID_XATTRS_PAIRS[] = {
+    { .key = "fid" },
+ };
+
+static const struct rbh_value_map FID_XATTRS_MAP = {
+    .pairs = FID_XATTRS_PAIRS,
+    .count = 1,
+};
+
 static const struct rbh_value_pair XATTRS_PAIRS[] = {
     { .key = "rbh-fsevents", .value = &ENRICH_MAP },
-    { .key = "ns",           .value = &NS_XATTRS_SEQUENCE },
 };
 
 static const struct rbh_value_map XATTRS_MAP = {
     .pairs = XATTRS_PAIRS,
-    .count = 2,
+    .count = 1,
 };
 
 /* BSON results:
@@ -107,57 +126,7 @@ fill_uidgid(struct changelog_rec *record, struct rbh_statx *statx)
 }
 
 /* BSON results:
- * { "xattrs" : { "ns" : [ { "parent": x } ] } }
- */
-static int
-fill_ns_xattrs_parent(struct rbh_sstack *values, struct changelog_rec *record,
-                      struct rbh_value_pair *pair)
-{
-    struct rbh_id *parent_id = NULL;
-    struct rbh_value parent_value;
-
-    parent_id = rbh_id_from_lu_fid(&record->cr_pfid);
-    parent_value.type = RBH_VT_BINARY;
-    parent_value.binary.size = parent_id->size;
-    parent_value.binary.data = rbh_sstack_push(values, parent_id->data,
-                                               parent_id->size);
-    free(parent_id);
-    if (parent_value.binary.data == NULL)
-        return -1;
-
-    pair->key = "parent";
-    pair->value = rbh_sstack_push(values, &parent_value, sizeof(parent_value));
-    if (pair->value == NULL)
-        return -1;
-
-    return 0;
-}
-
-/* BSON results:
- * { "xattrs" : { "ns" : [ { "name": x } ] } }
- */
-static int
-fill_ns_xattrs_name(struct rbh_sstack *values, struct changelog_rec *record,
-                    struct rbh_value_pair *pair)
-{
-    struct rbh_value name_value;
-
-    name_value.type = RBH_VT_STRING;
-    name_value.string = rbh_sstack_push(values, changelog_rec_name(record),
-                                        strlen(changelog_rec_name(record)) + 1);
-    if (name_value.string == NULL)
-        return -1;
-
-    pair->key = "name";
-    pair->value = rbh_sstack_push(values, &name_value, sizeof(name_value));
-    if (pair->value == NULL)
-        return -1;
-
-    return 0;
-}
-
-/* BSON results:
- * { "xattrs" : { "ns" : [ { "xattrs": { "fid" : x } } ] } }
+ * { "ns" : [ { "xattrs": { "fid" : x } } ] }
  */
 static int
 fill_ns_xattrs_fid(struct rbh_sstack *values, struct changelog_rec *record,
@@ -173,7 +142,6 @@ fill_ns_xattrs_fid(struct rbh_sstack *values, struct changelog_rec *record,
     if (lu_fid_value.binary.data == NULL)
         return -1;
 
-    pair->key = "fid";
     pair->value = rbh_sstack_push(values, &lu_fid_value, sizeof(lu_fid_value));
     if (pair->value == NULL)
         return -1;
@@ -181,65 +149,9 @@ fill_ns_xattrs_fid(struct rbh_sstack *values, struct changelog_rec *record,
     return 0;
 }
 
-/* BSON results:
- * { "xattrs" : { "ns" : [ { "xattrs": x } ] } }
- */
 static int
-fill_ns_xattrs_xattrs(struct rbh_sstack *values, struct changelog_rec *record,
-                      struct rbh_value_pair *pair)
-{
-    struct rbh_value_pair submap_pairs;
-    struct rbh_value_map submap_value;
-    struct rbh_value map_value;
-
-    if (fill_ns_xattrs_fid(values, record, &submap_pairs))
-        return -1;
-
-    submap_value.count = 1;
-    submap_value.pairs = rbh_sstack_push(values, &submap_pairs,
-                                         sizeof(submap_pairs));
-    if (submap_value.pairs == NULL)
-        return -1;
-
-    map_value.type = RBH_VT_MAP;
-    map_value.map = submap_value;
-
-    pair->key = "xattrs";
-    pair->value = rbh_sstack_push(values, &map_value, sizeof(map_value));
-    if (pair->value == NULL)
-        return -1;
-
-    return 0;
-}
-
-/* BSON results:
- * { "xattrs" : { "ns" : [ x, y, z, ... ] } }
- */
-static int
-fill_ns_xattrs(struct changelog_rec *record, struct rbh_value_map *map,
-               struct rbh_sstack *values)
-{
-    struct rbh_value_pair pairs[3];
-
-    if (fill_ns_xattrs_parent(values, record, &pairs[0]))
-        return -1;
-
-    if (fill_ns_xattrs_name(values, record, &pairs[1]))
-        return -1;
-
-    if (fill_ns_xattrs_xattrs(values, record, &pairs[2]))
-        return -1;
-
-    map->count = 3;
-    map->pairs = rbh_sstack_push(values, pairs, sizeof(pairs));
-    if (map->pairs == NULL)
-        return -1;
-
-    return 0;
-}
-
-static int
-fill_enrich_mask(uint32_t enrich_mask, struct rbh_sstack *values)
+fill_enrich_mask(uint32_t enrich_mask, struct rbh_sstack *values,
+                 struct rbh_value_pair *pair)
 {
     struct rbh_value *enrich_mask_value =
         rbh_sstack_push(values, NULL, sizeof(*enrich_mask_value));
@@ -250,7 +162,7 @@ fill_enrich_mask(uint32_t enrich_mask, struct rbh_sstack *values)
     enrich_mask_value->type = RBH_VT_UINT32;
     enrich_mask_value->uint32 = enrich_mask;
 
-    ENRICH_PAIR[0].value = enrich_mask_value;
+    pair->value = enrich_mask_value;
 
     return 0;
 }
@@ -258,10 +170,9 @@ fill_enrich_mask(uint32_t enrich_mask, struct rbh_sstack *values)
 static const void *
 lustre_changelog_iter_next(void *iterator)
 {
-    uint32_t enrich_mask = RBH_STATX_RDEV_MAJOR | RBH_STATX_RDEV_MINOR |
-                           RBH_STATX_DEV_MAJOR | RBH_STATX_DEV_MINOR;
     struct lustre_changelog_iterator *records = iterator;
     struct rbh_fsevent *fsevent = NULL;
+    uint32_t statx_enrich_mask = 0;
     struct changelog_rec *record;
     struct rbh_statx *rec_statx;
     struct rbh_id *tmp_id;
@@ -274,14 +185,19 @@ lustre_changelog_iter_next(void *iterator)
     values_flush(records->values);
 
 retry:
-    rc = llapi_changelog_recv(records->reader, &record);
-    if (rc < 0) {
-        errno = -rc;
-        return NULL;
-    }
-    if (rc > 0) {
-        errno = ENODATA;
-        return NULL;
+    if (records->prev_record == NULL) {
+        rc = llapi_changelog_recv(records->reader, &record);
+        if (rc < 0) {
+            errno = -rc;
+            return NULL;
+        }
+        if (rc > 0) {
+            errno = ENODATA;
+            return NULL;
+        }
+    } else {
+        record = records->prev_record;
+        records->prev_record = NULL;
     }
 
     tmp_id = rbh_id_from_lu_fid(&record->cr_tfid);
@@ -309,32 +225,57 @@ retry:
     fsevent = rbh_sstack_push(records->values, NULL, sizeof(*fsevent));
     if (fsevent == NULL)
         goto end_event;
+    memset(fsevent, 0, sizeof(*fsevent));
     fsevent->id.data = id->data;
     fsevent->id.size = id->size;
 
     switch(record->cr_type) {
-    case CL_CREATE:     /* RBH_FET_UPSERT */
-        fill_uidgid(record, rec_statx);
-        if (fill_ns_xattrs(record, &NS_XATTRS_MAP.map, records->values)) {
-            fsevent = NULL;
-            goto end_event;
-        }
+    case CL_CREATE:
+        assert(records->process_step < 2);
+        switch(records->process_step) {
+            case 0:
+                fill_uidgid(record, rec_statx);
 
-        enrich_mask |= RBH_STATX_ATIME_SEC | RBH_STATX_ATIME_NSEC |
-                       RBH_STATX_BTIME_SEC | RBH_STATX_BTIME_NSEC |
-                       RBH_STATX_CTIME_SEC | RBH_STATX_CTIME_NSEC |
-                       RBH_STATX_MTIME_SEC | RBH_STATX_MTIME_NSEC;
-        fsevent->type = RBH_FET_UPSERT;
-        fsevent->xattrs = XATTRS_MAP;
-        fsevent->upsert.statx = rec_statx;
-        goto end_event;
+                fsevent->type = RBH_FET_LINK;
+                fsevent->xattrs = NS_XATTRS_MAP;
+
+                if (fill_enrich_mask(RBH_XATTRS_PATH, records->values,
+                                     &NS_XATTRS_ENRICH_PAIR[0]))
+                    goto err;
+
+                tmp_id = rbh_id_from_lu_fid(&record->cr_pfid);
+                if (tmp_id == NULL)
+                    goto err;
+
+                fsevent->link.parent_id = tmp_id;
+                fsevent->link.name = changelog_rec_name(record);
+                goto save_event;
+            case 1:
+                fsevent->type = RBH_FET_XATTR;
+                fsevent->xattrs = FID_XATTRS_MAP;
+                if (fill_ns_xattrs_fid(records->values, record,
+                                       &FID_XATTRS_PAIRS[0]))
+                    goto err;
+
+                records->process_step = 0;
+                goto end_event;
+        }
+        __builtin_unreachable();
     case CL_CLOSE:
         enrich_mask |= RBH_STATX_ATIME_SEC | RBH_STATX_ATIME_NSEC;
+        if (fill_enrich_mask(statx_enrich_mask, records->values,
+                             &ENRICH_PAIR[0]))
+            goto err;
 
         fsevent->type = RBH_FET_UPSERT;
         goto end_event;
     case CL_MKDIR:      /* RBH_FET_UPSERT */
         fsevent->type = RBH_FET_UPSERT;
+
+        if (fill_enrich_mask(statx_enrich_mask, records->values,
+                             &ENRICH_PAIR[0]))
+            goto err;
+
         goto end_event;
     case CL_HARDLINK:   /* RBH_FET_LINK? */
     case CL_SOFTLINK:   /* RBH_FET_UPSERT + symlink */
@@ -367,13 +308,19 @@ retry:
 
     __builtin_unreachable();
 
+err:
+    fsevent = NULL;
+
 end_event:
     save_errno = errno;
     llapi_changelog_free(&record);
     errno = save_errno;
 
-    if (fill_enrich_mask(enrich_mask, records->values))
-        return NULL;
+    return fsevent;
+
+save_event:
+    records->prev_record = record;
+    ++records->process_step;
 
     return fsevent;
 }
