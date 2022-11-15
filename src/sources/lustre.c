@@ -262,13 +262,31 @@ retry:
         }
         __builtin_unreachable();
     case CL_CLOSE:
-        enrich_mask |= RBH_STATX_ATIME_SEC | RBH_STATX_ATIME_NSEC;
-        if (fill_enrich_mask(statx_enrich_mask, records->values,
-                             &ENRICH_PAIR[0]))
-            goto err;
+        assert(records->process_step < 2);
+        switch(records->process_step) {
+            case 0:
+                fsevent->type = RBH_FET_XATTR;
+                fsevent->xattrs = NS_XATTRS_MAP;
 
-        fsevent->type = RBH_FET_UPSERT;
-        goto end_event;
+                if (fill_enrich_mask(RBH_XATTRS_LUSTRE, records->values,
+                                     &NS_XATTRS_ENRICH_PAIR[0]))
+                    goto err;
+
+                goto save_event;
+            case 1:
+                statx_enrich_mask = RBH_STATX_ALL;
+
+                fsevent->type = RBH_FET_UPSERT;
+                fsevent->xattrs = XATTRS_MAP;
+
+                if (fill_enrich_mask(RBH_STATX_ALL, records->values,
+                                     &ENRICH_PAIR[0]))
+                    goto err;
+
+                records->process_step = 0;
+                goto end_event;
+        }
+        __builtin_unreachable();
     case CL_MKDIR:      /* RBH_FET_UPSERT */
         fsevent->type = RBH_FET_UPSERT;
 
