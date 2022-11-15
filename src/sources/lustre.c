@@ -38,6 +38,8 @@ struct lustre_changelog_iterator {
 
     struct rbh_sstack *values;
     void *reader;
+    struct changelog_rec *prev_record;
+    unsigned int process_step;
 };
 
 static void *
@@ -183,14 +185,19 @@ lustre_changelog_iter_next(void *iterator)
     values_flush(records->values);
 
 retry:
-    rc = llapi_changelog_recv(records->reader, &record);
-    if (rc < 0) {
-        errno = -rc;
-        return NULL;
-    }
-    if (rc > 0) {
-        errno = ENODATA;
-        return NULL;
+    if (records->prev_record == NULL) {
+        rc = llapi_changelog_recv(records->reader, &record);
+        if (rc < 0) {
+            errno = -rc;
+            return NULL;
+        }
+        if (rc > 0) {
+            errno = ENODATA;
+            return NULL;
+        }
+    } else {
+        record = records->prev_record;
+        records->prev_record = NULL;
     }
 
     tmp_id = rbh_id_from_lu_fid(&record->cr_tfid);
@@ -255,13 +262,31 @@ retry:
         }
         __builtin_unreachable();
     case CL_CLOSE:
-        enrich_mask |= RBH_STATX_ATIME_SEC | RBH_STATX_ATIME_NSEC;
-        if (fill_enrich_mask(statx_enrich_mask, records->values,
-                             &ENRICH_PAIR[0]))
-            goto err;
+        assert(records->process_step < 2);
+        switch(records->process_step) {
+            case 0:
+                fsevent->type = RBH_FET_XATTR;
+                fsevent->xattrs = NS_XATTRS_MAP;
 
-        fsevent->type = RBH_FET_UPSERT;
-        goto end_event;
+                if (fill_enrich_mask(RBH_XATTRS_LUSTRE, records->values,
+                                     &NS_XATTRS_ENRICH_PAIR[0]))
+                    goto err;
+
+                goto save_event;
+            case 1:
+                statx_enrich_mask = RBH_STATX_ALL;
+
+                fsevent->type = RBH_FET_UPSERT;
+                fsevent->xattrs = XATTRS_MAP;
+
+                if (fill_enrich_mask(RBH_STATX_ALL, records->values,
+                                     &ENRICH_PAIR[0]))
+                    goto err;
+
+                records->process_step = 0;
+                goto end_event;
+        }
+        __builtin_unreachable();
     case CL_MKDIR:      /* RBH_FET_UPSERT */
         fsevent->type = RBH_FET_UPSERT;
 
@@ -308,6 +333,12 @@ end_event:
     save_errno = errno;
     llapi_changelog_free(&record);
     errno = save_errno;
+
+    return fsevent;
+
+save_event:
+    records->prev_record = record;
+    ++records->process_step;
 
     return fsevent;
 }
@@ -402,6 +433,7 @@ source_from_lustre_changelog(const char *mdtname)
 
     source->events.values = rbh_sstack_new(sizeof(struct rbh_value_pair) *
                                            (1 << 7));
+    source->events.prev_record = NULL;
     source->source = LUSTRE_SOURCE;
     return &source->source;
 }
