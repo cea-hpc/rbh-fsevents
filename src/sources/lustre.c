@@ -295,6 +295,9 @@ retry:
             goto err;
 
         goto end_event;
+    case CL_SETATTR:
+        statx_enrich_mask = RBH_STATX_ALL;
+        /* fall through */
     case CL_MTIME:
         statx_enrich_mask |= RBH_STATX_MTIME_SEC | RBH_STATX_MTIME_NSEC |
                              RBH_STATX_SIZE | RBH_STATX_BLOCKS;
@@ -321,7 +324,6 @@ retry:
     case CL_OPEN:
     case CL_LAYOUT:
     case CL_TRUNC:
-    case CL_SETATTR:    /* RBH_FET_XATTR? */
     case CL_SETXATTR:   /* RBH_FET_XATTR */
     case CL_HSM:
     case CL_MIGRATE:
