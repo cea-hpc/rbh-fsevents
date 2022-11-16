@@ -11,8 +11,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdio.h>
 
 #include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/xattr.h>
 
 #include <robinhood.h>
 
@@ -513,6 +516,94 @@ enrich_statx(struct rbh_statx *dest, const struct rbh_id *id, int mount_fd,
     return 0;
 }
 
+/* The Linux VFS does not allow values of more than 64KiB */
+static const size_t XATTR_VALUE_MAX_VFS_SIZE = 1 << 16;
+
+static __thread struct rbh_sstack *xattrs_values;
+
+static void __attribute__((constructor))
+init_xattrs_values(void)
+{
+    const int MIN_XATTR_VALUES_ALLOC = 32;
+
+    xattrs_values = rbh_sstack_new(MIN_XATTR_VALUES_ALLOC * sizeof(struct rbh_value *));
+    if (xattrs_values == NULL)
+        error(EXIT_FAILURE, errno, "rbh_sstack_new");
+}
+
+static void __attribute__((destructor))
+exit_xattrs_values(void)
+{
+    rbh_sstack_destroy(xattrs_values);
+}
+
+static int
+enrich_xattrs(const struct rbh_value *xattrs_to_enrich,
+              struct rbh_value_pair **pairs, size_t *pair_count,
+              struct rbh_fsevent *enriched,
+              const struct rbh_id *id, int mount_fd)
+{
+    char buffer[XATTR_VALUE_MAX_VFS_SIZE];
+    const struct rbh_value *xattrs_seq;
+    struct rbh_value *value;
+    size_t xattrs_count;
+    ssize_t length;
+    int save_errno;
+    int fd;
+
+    if (xattrs_to_enrich->type != RBH_VT_SEQUENCE) {
+        errno = EINVAL;
+        return -1;
+    }
+
+    xattrs_seq = xattrs_to_enrich->sequence.values;
+    xattrs_count = xattrs_to_enrich->sequence.count;
+
+    fd = open_by_id(mount_fd, id, O_RDONLY | O_CLOEXEC | O_NOFOLLOW);
+    if (fd < 0 && errno == ELOOP)
+        /* If the file to open is a symlink, reopen it with O_PATH set */
+        fd = open_by_id(mount_fd, id, O_RDONLY | O_CLOEXEC | O_NOFOLLOW |
+                        O_PATH);
+
+    if (fd < 0)
+        return -1;
+
+    if (enriched->xattrs.count + xattrs_count >= *pair_count) {
+        void *tmp;
+
+        tmp = reallocarray(*pairs, *pair_count + xattrs_count, sizeof(**pairs));
+        if (tmp == NULL)
+            return -1;
+        *pairs = tmp;
+        *pair_count = *pair_count + xattrs_count;
+    }
+
+    for (size_t i = 0; i < xattrs_count; i++) {
+        const char *key = xattrs_seq[i].string;
+
+        length = fgetxattr(fd, key, &buffer, sizeof(buffer));
+        if (length == -1) {
+            value = NULL;
+        } else {
+            value = rbh_sstack_push(xattrs_values, NULL, sizeof(*value));
+            value->type = RBH_VT_BINARY;
+            value->binary.data = rbh_sstack_push(xattrs_values, buffer, length);
+            value->binary.size = length;
+        }
+
+        assert(length <= (ssize_t) sizeof(buffer));
+
+        (*pairs)[enriched->xattrs.count].key = xattrs_seq[i].string;
+        (*pairs)[enriched->xattrs.count++].value = value;
+    }
+
+    save_errno = errno;
+    /* Ignore errors on close */
+    close(fd);
+    errno = save_errno;
+    return 0;
+}
+
 /* The Linux VFS doesn't allow for symlinks of more than 64KiB */
 #define SYMLINK_MAX_SIZE (1 << 16)
 
@@ -537,7 +628,8 @@ enrich_symlink(char symlink[SYMLINK_MAX_SIZE], const struct rbh_id *id,
 }
 
 static int
-_enrich(const struct rbh_value_pair *partial, struct rbh_fsevent *enriched,
+_enrich(const struct rbh_value_pair *partial, struct rbh_value_pair **pairs,
+        size_t *pair_count, struct rbh_fsevent *enriched,
         const struct rbh_fsevent *original, int mount_fd,
         struct rbh_statx *statxbuf, char symlink[SYMLINK_MAX_SIZE])
 {
@@ -562,9 +654,16 @@ _enrich(const struct rbh_value_pair *partial, struct rbh_fsevent *enriched,
         enriched->upsert.statx = statxbuf;
         break;
     case PF_XATTRS:
-        // TODO: support enriching missing inode xattrs
-        errno = ENOTSUP;
-        return -1;
+        if (original->type != RBH_FET_XATTR) {
+            errno = EINVAL;
+            return -1;
+        }
+
+        if (enrich_xattrs(partial->value, pairs, pair_count, enriched,
+                          &original->id, mount_fd))
+            return -1;
+
+        break;
     case PF_SYMLINK:
         if (original->type != RBH_FET_UPSERT) {
             errno = EINVAL;
@@ -618,8 +717,8 @@ enrich(struct enricher *enricher, const struct rbh_fsevent *original)
         partials = &pair->value->map;
 
         for (size_t i = 0; i < partials->count; i++) {
-            if (_enrich(&partials->pairs[i], enriched, original,
-                        enricher->mount_fd, &enricher->statx,
+            if (_enrich(&partials->pairs[i], &pairs, &pair_count, enriched,
+                        original, enricher->mount_fd, &enricher->statx,
                         enricher->symlink))
                 return -1;
         }
