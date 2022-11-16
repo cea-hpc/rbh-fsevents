@@ -295,6 +295,22 @@ retry:
             goto err;
 
         goto end_event;
+    case CL_MTIME:
+        statx_enrich_mask |= RBH_STATX_MTIME_SEC | RBH_STATX_MTIME_NSEC |
+                             RBH_STATX_SIZE | RBH_STATX_BLOCKS;
+        /* fall through */
+    case CL_ATIME:
+        statx_enrich_mask |= RBH_STATX_ATIME_SEC | RBH_STATX_ATIME_NSEC;
+        /* fall through */
+    case CL_CTIME:
+        statx_enrich_mask |= RBH_STATX_CTIME_SEC | RBH_STATX_CTIME_NSEC;
+
+        fsevent->type = RBH_FET_UPSERT;
+        fsevent->xattrs = XATTRS_MAP;
+        if (fill_enrich_mask(statx_enrich_mask, records->values,
+                             &ENRICH_PAIR[0]))
+            goto err;
+        goto end_event;
     case CL_HARDLINK:   /* RBH_FET_LINK? */
     case CL_SOFTLINK:   /* RBH_FET_UPSERT + symlink */
     case CL_MKNOD:
@@ -308,9 +324,6 @@ retry:
     case CL_SETATTR:    /* RBH_FET_XATTR? */
     case CL_SETXATTR:   /* RBH_FET_XATTR */
     case CL_HSM:
-    case CL_MTIME:
-    case CL_ATIME:
-    case CL_CTIME:
     case CL_MIGRATE:
     case CL_FLRW:
     case CL_RESYNC:
