@@ -414,7 +414,8 @@ retry:
         fsevent->xattrs.count = 1;
         fsevent->ns.name = NULL;
         fsevent->ns.parent_id = NULL;
-        enrich_mask = RBH_STATX_CTIME_SEC | RBH_STATX_CTIME_NSEC;
+        enrich_mask = 0; // TODO
+        //enrich_mask = RBH_STATX_CTIME_SEC | RBH_STATX_CTIME_NSEC;
         goto end_event;
     case CL_HARDLINK:   /* RBH_FET_LINK? */
     case CL_SOFTLINK:   /* RBH_FET_UPSERT + symlink */
