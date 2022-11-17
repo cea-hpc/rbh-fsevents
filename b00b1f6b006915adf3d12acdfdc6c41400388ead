@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2439f425_eb93682d",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-11-17T15:37:59Z",
+      "side": 1,
+      "message": "comment: as we already discussed, we need to refactor this part of the code (both in this stack and in mine)\n\nIt may be sufficient enough for now but need to be located in the main parsing function if multithreading is implemented.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 2
+      },
+      "revId": "b00b1f6b006915adf3d12acdfdc6c41400388ead",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c576ed15_280a1e01",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-11-17T15:37:59Z",
+      "side": 1,
+      "message": "minor: I think we can remove this comment once the event is implemented",
+      "range": {
+        "startLine": 403,
+        "startChar": 24,
+        "endLine": 403,
+        "endChar": 43
+      },
+      "revId": "b00b1f6b006915adf3d12acdfdc6c41400388ead",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c1ad320_25353aeb",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-11-17T15:37:59Z",
+      "side": 1,
+      "message": "minor: as some events do not need to enrich the mask, I proposed in my stack to do this call in the switch cases\n\nWe may also have a call that set the enrich mask and the fsevent type to upsert if we want to mutualize the code.",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 452,
+        "endChar": 68
+      },
+      "revId": "b00b1f6b006915adf3d12acdfdc6c41400388ead",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
