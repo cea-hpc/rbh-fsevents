@@ -58,15 +58,10 @@ fsevent_from_record(struct changelog_rec *record)
     return bad;
 }
 
-static struct rbh_value_pair ENRICH_PAIR[] = {
-    { .key = "statx" }
-};
-
-static const struct rbh_value ENRICH_MAP = {
+static struct rbh_value ENRICH_MAP = {
     .type = RBH_VT_MAP,
     .map = {
-        .pairs = ENRICH_PAIR,
-        .count = 1,
+        .count = 0,
     },
 };
 
@@ -87,7 +82,7 @@ static const struct rbh_value_pair XATTRS_PAIRS[] = {
     { .key = "ns",           .value = &NS_XATTRS_SEQUENCE },
 };
 
-static const struct rbh_value_map XATTRS_MAP = {
+static struct rbh_value_map XATTRS_MAP = {
     .pairs = XATTRS_PAIRS,
     .count = 2,
 };
@@ -238,19 +233,84 @@ fill_ns_xattrs(struct changelog_rec *record, struct rbh_value_map *map,
     return 0;
 }
 
+/* BSON results:
+ * { "xattrs" : { "rbh-fsevents" : { "xattrs" : [ a, b, c, ... ] } } }
+ */
 static int
-fill_enrich_mask(uint32_t enrich_mask, struct rbh_sstack *values)
+fill_inode_xattrs(struct changelog_rec *record, struct rbh_value *xattr_map,
+                  struct rbh_sstack *values)
 {
-    struct rbh_value *enrich_mask_value =
-        rbh_sstack_push(values, NULL, sizeof(*enrich_mask_value));
+    struct changelog_ext_xattr *xattr;
+    struct rbh_value *xattr_sequence;
+    struct rbh_value *xattr_value;
+    struct rbh_value_pair *pairs;
 
+    xattr = changelog_rec_xattr(record);
+
+    xattr_value = rbh_sstack_push(values, NULL, sizeof(*xattr_value));
+    if (xattr_value == NULL)
+        return -1;
+
+    xattr_value->type = RBH_VT_STRING;
+    xattr_value->string = rbh_sstack_push(values, xattr->cr_xattr,
+                                          strlen(xattr->cr_xattr) + 1);
+    if (xattr_value->string == NULL)
+        return -1;
+
+    xattr_sequence = rbh_sstack_push(values, NULL, sizeof(*xattr_sequence));
+    if (xattr_sequence == NULL)
+        return -1;
+
+    xattr_sequence->type = RBH_VT_SEQUENCE;
+    xattr_sequence->sequence.count = 1;
+    xattr_sequence->sequence.values = xattr_value;
+
+    pairs = rbh_sstack_push(values, NULL,
+                            (xattr_map->map.count + 1) * sizeof(*pairs));
+    if (pairs == NULL)
+        return -1;
+
+    memcpy(pairs, xattr_map->map.pairs, xattr_map->map.count * sizeof(*pairs));
+
+    pairs[xattr_map->map.count].key = "xattrs";
+    pairs[xattr_map->map.count++].value = xattr_sequence;
+
+    xattr_map->map.pairs = pairs;
+
+    return 0;
+}
+
+/* BSON results:
+ * { "xattrs" : { "rbh-fsevents" : { "statx" : 12345 } } }
+ */
+static int
+fill_enrich_mask(uint32_t enrich_mask, struct rbh_value *enrich_map,
+                 struct rbh_sstack *values)
+{
+    struct rbh_value *enrich_mask_value;
+    struct rbh_value_pair *pairs;
+
+    enrich_mask_value = rbh_sstack_push(values, NULL,
+                                        sizeof(*enrich_mask_value));
     if (enrich_mask_value == NULL)
         return -1;
 
     enrich_mask_value->type = RBH_VT_UINT32;
     enrich_mask_value->uint32 = enrich_mask;
 
-    ENRICH_PAIR[0].value = enrich_mask_value;
+    pairs = rbh_sstack_push(values, NULL,
+                            (enrich_map->map.count + 1) * sizeof(*pairs));
+    if (pairs == NULL)
+        return -1;
+
+    memcpy(pairs, enrich_map->map.pairs,
+           enrich_map->map.count * sizeof(*pairs));
+
+    pairs[enrich_map->map.count].key = "statx";
+    pairs[enrich_map->map.count].value = enrich_mask_value;
+
+    enrich_map->map.pairs = pairs;
+    enrich_map->map.count++;
 
     return 0;
 }
@@ -312,6 +372,8 @@ retry:
     fsevent->id.data = id->data;
     fsevent->id.size = id->size;
 
+    ENRICH_MAP.map.count = 0;
+
     switch(record->cr_type) {
     case CL_CREATE:     /* RBH_FET_UPSERT */
         fill_uidgid(record, rec_statx);
@@ -332,9 +394,24 @@ retry:
         enrich_mask |= RBH_STATX_ATIME_SEC | RBH_STATX_ATIME_NSEC;
 
         fsevent->type = RBH_FET_UPSERT;
+        fsevent->xattrs = XATTRS_MAP;
+        fsevent->xattrs.count--;
         goto end_event;
     case CL_MKDIR:      /* RBH_FET_UPSERT */
         fsevent->type = RBH_FET_UPSERT;
+        goto end_event;
+    case CL_SETXATTR:   /* RBH_FET_XATTR */
+        if (fill_inode_xattrs(record, &ENRICH_MAP, records->values)) {
+            fsevent = NULL;
+            goto end_event;
+        }
+
+        fsevent->type = RBH_FET_XATTR;
+        fsevent->xattrs = XATTRS_MAP;
+        fsevent->xattrs.count--;
+        fsevent->ns.name = NULL;
+        fsevent->ns.parent_id = NULL;
+        enrich_mask = 0;
         goto end_event;
     case CL_HARDLINK:   /* RBH_FET_LINK? */
     case CL_SOFTLINK:   /* RBH_FET_UPSERT + symlink */
@@ -347,7 +424,6 @@ retry:
     case CL_LAYOUT:
     case CL_TRUNC:
     case CL_SETATTR:    /* RBH_FET_XATTR? */
-    case CL_SETXATTR:   /* RBH_FET_XATTR */
     case CL_HSM:
     case CL_MTIME:
     case CL_ATIME:
@@ -372,7 +448,8 @@ end_event:
     llapi_changelog_free(&record);
     errno = save_errno;
 
-    if (fill_enrich_mask(enrich_mask, records->values))
+    if (enrich_mask != 0 &&
+        fill_enrich_mask(enrich_mask, &ENRICH_MAP, records->values))
         return NULL;
 
     return fsevent;
