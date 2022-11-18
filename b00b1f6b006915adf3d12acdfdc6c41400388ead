@@ -26,6 +26,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ad306ca_9e2be447",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-18T15:09:59Z",
+      "side": 1,
+      "message": "minor: rename to FSEVENT_MAP_FIELDS",
+      "range": {
+        "startLine": 80,
+        "startChar": 35,
+        "endLine": 80,
+        "endChar": 47
+      },
+      "revId": "b00b1f6b006915adf3d12acdfdc6c41400388ead",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f935c87_3f602059",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-18T15:09:59Z",
+      "side": 1,
+      "message": "minor: I think you should rename this for example ENTRY_MAP",
+      "range": {
+        "startLine": 85,
+        "startChar": 28,
+        "endLine": 85,
+        "endChar": 38
+      },
+      "revId": "b00b1f6b006915adf3d12acdfdc6c41400388ead",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8f0778e_b6b39e28",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-18T15:09:59Z",
+      "side": 1,
+      "message": "minor: you should add a comment to explain why. Also, setting it to 1 would be more explicit.",
+      "range": {
+        "startLine": 398,
+        "startChar": 8,
+        "endLine": 398,
+        "endChar": 32
+      },
+      "revId": "b00b1f6b006915adf3d12acdfdc6c41400388ead",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c576ed15_280a1e01",
         "filename": "src/sources/lustre.c",
         "patchSetId": 1
@@ -42,6 +111,29 @@
         "startChar": 24,
         "endLine": 403,
         "endChar": 43
+      },
+      "revId": "b00b1f6b006915adf3d12acdfdc6c41400388ead",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fda46969_2cda2594",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-18T15:09:59Z",
+      "side": 1,
+      "message": "defect: you need to fetch the new ctime",
+      "range": {
+        "startLine": 414,
+        "startChar": 8,
+        "endLine": 414,
+        "endChar": 21
       },
       "revId": "b00b1f6b006915adf3d12acdfdc6c41400388ead",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
