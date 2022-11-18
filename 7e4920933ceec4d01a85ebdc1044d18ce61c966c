@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ead3aec7_e1803c6b",
+        "filename": "src/enricher.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-18T15:27:36Z",
+      "side": 1,
+      "message": "to remove",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 7
+      },
+      "revId": "7e4920933ceec4d01a85ebdc1044d18ce61c966c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6344173e_c28089cd",
         "filename": "src/enricher.c",
         "patchSetId": 1
@@ -19,6 +42,75 @@
         "startChar": 0,
         "endLine": 525,
         "endChar": 24
+      },
+      "revId": "7e4920933ceec4d01a85ebdc1044d18ce61c966c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c18a2a7_14056248",
+        "filename": "src/enricher.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-18T15:27:36Z",
+      "side": 1,
+      "message": "minor: you could avoid this open if you keep the file descriptor outside the function call.\n\nfd \u003d open\n\nenrich_statx(fd, ...\nenrich_xattrs(fd, ...",
+      "range": {
+        "startLine": 562,
+        "startChar": 9,
+        "endLine": 562,
+        "endChar": 19
+      },
+      "revId": "7e4920933ceec4d01a85ebdc1044d18ce61c966c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a0c72c6_53ff9865",
+        "filename": "src/enricher.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-18T15:27:36Z",
+      "side": 1,
+      "message": "defect: you should check if value is null",
+      "range": {
+        "startLine": 589,
+        "startChar": 12,
+        "endLine": 589,
+        "endChar": 17
+      },
+      "revId": "7e4920933ceec4d01a85ebdc1044d18ce61c966c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19b7e3e0_ae24b78f",
+        "filename": "src/enricher.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-18T15:27:36Z",
+      "side": 1,
+      "message": "nit: to make the code a bit more clear, you could to the increment on the next line",
+      "range": {
+        "startLine": 597,
+        "startChar": 17,
+        "endLine": 597,
+        "endChar": 41
       },
       "revId": "7e4920933ceec4d01a85ebdc1044d18ce61c966c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
