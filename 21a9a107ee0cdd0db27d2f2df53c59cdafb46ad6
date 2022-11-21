@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5e19ec4_84bb506f",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-11-21T10:14:27Z",
+      "side": 1,
+      "message": "defect: need to backport the switch between retrieving the previous record or getting a new one",
+      "range": {
+        "startLine": 186,
+        "startChar": 4,
+        "endLine": 194,
+        "endChar": 5
+      },
+      "revId": "21a9a107ee0cdd0db27d2f2df53c59cdafb46ad6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a22be913_5cc19435",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-11-21T10:14:27Z",
+      "side": 1,
+      "message": "defect: this and prev_record are not defined yet, need to backport those definitions from the next patch",
+      "range": {
+        "startLine": 227,
+        "startChar": 15,
+        "endLine": 227,
+        "endChar": 36
+      },
+      "revId": "21a9a107ee0cdd0db27d2f2df53c59cdafb46ad6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e29f633d_c0a822f4",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-11-21T10:14:27Z",
+      "side": 1,
+      "message": "defect: save_event is not defined yet, it will also set the previous record in the iterator structure, need to backport it",
+      "range": {
+        "startLine": 245,
+        "startChar": 22,
+        "endLine": 245,
+        "endChar": 31
+      },
+      "revId": "21a9a107ee0cdd0db27d2f2df53c59cdafb46ad6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
