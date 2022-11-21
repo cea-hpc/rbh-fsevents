@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01fc06e8_e4f07a3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-11-21T13:12:48Z",
+      "side": 1,
+      "message": "let\u0027s write \u0027SETATTR\u0027?\n\nAnd you can ignore the part of my comment about SETATTR in the previous commit, I wouldn\u0027t have said that if this had had a proper commit message ;P",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "17f2d9477c9c3000771717b7f3e315faded4b071",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
