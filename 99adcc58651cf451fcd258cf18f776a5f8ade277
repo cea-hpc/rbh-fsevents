@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "752bf428_f1b08fa9",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-11-21T13:25:28Z",
+      "side": 1,
+      "message": "close is probably same as mtime from later patch? I don\u0027t understand why it\u0027d need to update xattrs, and we can probably do a bit more subtle than STATX_ALL (although to be honest with that last point I\u0027m sure sure lustre optimizes partial statx calls, and getting size is the most expansive thing we need that is required here as well)",
+      "range": {
+        "startLine": 282,
+        "startChar": 37,
+        "endLine": 282,
+        "endChar": 50
+      },
+      "revId": "99adcc58651cf451fcd258cf18f776a5f8ade277",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
