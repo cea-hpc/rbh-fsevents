@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "efaabb27_6aa71881",
+        "filename": "src/enricher.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-21T11:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ead3aec7_e1803c6b",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 7
+      },
+      "revId": "7e4920933ceec4d01a85ebdc1044d18ce61c966c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6344173e_c28089cd",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-17T16:09:02Z",
       "side": 1,
       "message": "question: it means this will be allocated even if we will not use the enricher?",
+      "range": {
+        "startLine": 524,
+        "startChar": 0,
+        "endLine": 525,
+        "endChar": 24
+      },
+      "revId": "7e4920933ceec4d01a85ebdc1044d18ce61c966c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aec7315_7665336d",
+        "filename": "src/enricher.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-21T11:32:33Z",
+      "side": 1,
+      "message": "Yes, moved it to only be initialized if we encounter a XATTRS event",
+      "parentUuid": "6344173e_c28089cd",
       "range": {
         "startLine": 524,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c788ef1e_12ad3a93",
+        "filename": "src/enricher.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-21T11:32:33Z",
+      "side": 1,
+      "message": "Unfortunately the open flags used for xattrs are different from the ones used for symlink and statx, so we still have to check which event is to be enriched before opening the file...",
+      "parentUuid": "7c18a2a7_14056248",
+      "range": {
+        "startLine": 562,
+        "startChar": 9,
+        "endLine": 562,
+        "endChar": 19
+      },
+      "revId": "7e4920933ceec4d01a85ebdc1044d18ce61c966c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a0c72c6_53ff9865",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-18T15:27:36Z",
       "side": 1,
       "message": "defect: you should check if value is null",
+      "range": {
+        "startLine": 589,
+        "startChar": 12,
+        "endLine": 589,
+        "endChar": 17
+      },
+      "revId": "7e4920933ceec4d01a85ebdc1044d18ce61c966c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "093c2888_d0d59c97",
+        "filename": "src/enricher.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-21T11:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a0c72c6_53ff9865",
       "range": {
         "startLine": 589,
         "startChar": 12,
@@ -116,6 +212,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddd48bca_153f0815",
+        "filename": "src/enricher.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-21T11:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19b7e3e0_ae24b78f",
+      "range": {
+        "startLine": 597,
+        "startChar": 17,
+        "endLine": 597,
+        "endChar": 41
+      },
+      "revId": "7e4920933ceec4d01a85ebdc1044d18ce61c966c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e96bda4_b84664ae",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-11-17T16:09:02Z",
       "side": 1,
       "message": "question: do you think this call will be made for inode xattrs which are not extended attributes? for namespace attributes?",
+      "range": {
+        "startLine": 662,
+        "startChar": 8,
+        "endLine": 664,
+        "endChar": 22
+      },
+      "revId": "7e4920933ceec4d01a85ebdc1044d18ce61c966c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c26e417_dbb78c81",
+        "filename": "src/enricher.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-21T11:32:33Z",
+      "side": 1,
+      "message": "Yes I think so, the difference will be when we get the key of the xattr, if it is something like \"user.\", \"security.\", ... we retrieve it as an inode xattr, if it is \"lustre\" then we retrieve the lustre attributes, if it is \"path\" ...",
+      "parentUuid": "3e96bda4_b84664ae",
       "range": {
         "startLine": 662,
         "startChar": 8,
