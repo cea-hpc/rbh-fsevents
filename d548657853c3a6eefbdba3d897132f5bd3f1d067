@@ -16,6 +16,24 @@
       "message": "can be dropped as part of https://review.gerrithub.io/c/cea-hpc/rbh-fsevents/+/546281 ?",
       "revId": "d548657853c3a6eefbdba3d897132f5bd3f1d067",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb657f06_516076ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-11-21T15:38:00Z",
+      "side": 1,
+      "message": "Instead, we decided to split the 546281 in two parts. Here is the first patch :).\n\nI will update the 546281, but there is still one thing to do before (dropping the mask for xattrs, and setting a sequence instead).",
+      "parentUuid": "65e5e96d_0d76802d",
+      "revId": "d548657853c3a6eefbdba3d897132f5bd3f1d067",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
