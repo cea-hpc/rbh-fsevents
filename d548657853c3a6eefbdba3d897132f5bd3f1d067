@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65e5e96d_0d76802d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-11-21T13:26:56Z",
+      "side": 1,
+      "message": "can be dropped as part of https://review.gerrithub.io/c/cea-hpc/rbh-fsevents/+/546281 ?",
+      "revId": "d548657853c3a6eefbdba3d897132f5bd3f1d067",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
