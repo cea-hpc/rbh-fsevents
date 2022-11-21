@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c193594_dc6c644b",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-11-21T13:21:57Z",
+      "side": 1,
+      "message": "I guess this needs two steps because we cannot have FET_LINK and FET_XATTR in a single return?",
+      "revId": "c7bc67512b6684be1e966e2490cefe2cfac6ca4a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db00d258_15ce3dd5",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2022-11-21T13:21:57Z",
+      "side": 1,
+      "message": "(style) I don\u0027t think that goto helps understanding, setting process_step to 1 here and returning directly is probably easier to follow as nothing else points to save_event.\nOr will there be more multistep events with other changelogs? in which case we should set process_step\u003d0 after end_event. It\u0027s just not really coherent to have one here and the other at the bottom.",
+      "revId": "c7bc67512b6684be1e966e2490cefe2cfac6ca4a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
