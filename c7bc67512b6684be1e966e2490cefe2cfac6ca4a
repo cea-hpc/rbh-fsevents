@@ -18,6 +18,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df37196d_87c0e2a6",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-11-23T12:54:26Z",
+      "side": 1,
+      "message": "You are right, that\u0027s the point.",
+      "parentUuid": "5c193594_dc6c644b",
+      "revId": "c7bc67512b6684be1e966e2490cefe2cfac6ca4a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db00d258_15ce3dd5",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-11-21T13:21:57Z",
       "side": 1,
       "message": "(style) I don\u0027t think that goto helps understanding, setting process_step to 1 here and returning directly is probably easier to follow as nothing else points to save_event.\nOr will there be more multistep events with other changelogs? in which case we should set process_step\u003d0 after end_event. It\u0027s just not really coherent to have one here and the other at the bottom.",
+      "revId": "c7bc67512b6684be1e966e2490cefe2cfac6ca4a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c122bdd4_e5bc06df",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-11-23T12:54:26Z",
+      "side": 1,
+      "message": "There will be more multistep events.\n\nI totally agree with the process_step set to 0, so I moved it to the beginning instead (when we check that there is no previous record saved, so we know this is the first time w will manage the new one). I can, as you suggested, move it to the bottom, but that means I will need to initialize it when building the iterator (which is not an issue at all). As you wish :).",
+      "parentUuid": "db00d258_15ce3dd5",
       "revId": "c7bc67512b6684be1e966e2490cefe2cfac6ca4a",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
