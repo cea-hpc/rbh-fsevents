@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ce7e9e7_959c3ad7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-24T08:48:06Z",
+      "side": 1,
+      "message": "suggest: maybe for future patches but it would be nice to know what was broken in the commit message",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 31
+      },
+      "revId": "c7bc67512b6684be1e966e2490cefe2cfac6ca4a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5c193594_dc6c644b",
@@ -32,6 +55,29 @@
       "side": 1,
       "message": "You are right, that\u0027s the point.",
       "parentUuid": "5c193594_dc6c644b",
+      "revId": "c7bc67512b6684be1e966e2490cefe2cfac6ca4a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1bafcca_a6601d45",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-24T08:48:06Z",
+      "side": 1,
+      "message": "question: will this pointer still be valid when the changelog record is freed?\n\nIs this assuming that since the record is saved the caller will still be able to access this pointer and the fsevent generated in the first step will be freed before the second step (so before the record is actually freed)?\n\nIf so a small comment indicating that fsevent has a smaller lifetime than the record would be nice.",
+      "range": {
+        "startLine": 251,
+        "startChar": 37,
+        "endLine": 251,
+        "endChar": 55
+      },
       "revId": "c7bc67512b6684be1e966e2490cefe2cfac6ca4a",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
