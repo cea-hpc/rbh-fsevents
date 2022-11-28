@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72512c77_391dafc9",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-11-28T08:50:26Z",
+      "side": 1,
+      "message": "question: does the STATX can be enriched in a FET_XATTR event?",
+      "range": {
+        "startLine": 417,
+        "startChar": 22,
+        "endLine": 417,
+        "endChar": 64
+      },
+      "revId": "bc938cce6f907b082322880235509b71eeb77736",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
