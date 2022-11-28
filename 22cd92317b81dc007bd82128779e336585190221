@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0926b385_7266149c",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-28T08:17:29Z",
+      "side": 1,
+      "message": "major: I don\u0027t know how fsevent is supposed to work but this seem a bit dangerous to me to stop the execution as soon as an error occures. On error we should simply go to the next fsevent.\n\nIf robinhood is too slow while handling changelogs, it is possible (an have happened in production) that files are removed before robinhood can integrate them into its database. In this case, you would expect the open to fail but still continue to handle events.",
+      "range": {
+        "startLine": 568,
+        "startChar": 8,
+        "endLine": 568,
+        "endChar": 16
+      },
+      "revId": "22cd92317b81dc007bd82128779e336585190221",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4236331f_208c7d71",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-28T08:17:29Z",
+      "side": 1,
+      "message": "minor: this is not necessary",
+      "range": {
+        "startLine": 588,
+        "startChar": 36,
+        "endLine": 588,
+        "endChar": 37
+      },
+      "revId": "22cd92317b81dc007bd82128779e336585190221",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ede5f12_831e42fc",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-28T08:17:29Z",
+      "side": 1,
+      "message": "question: is this intentional to set value to NULL if you fail to retrieve the xattr? Will it be removed from the DB?",
+      "range": {
+        "startLine": 611,
+        "startChar": 49,
+        "endLine": 611,
+        "endChar": 54
+      },
+      "revId": "22cd92317b81dc007bd82128779e336585190221",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
