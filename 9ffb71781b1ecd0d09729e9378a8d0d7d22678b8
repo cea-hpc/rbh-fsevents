@@ -22,6 +22,30 @@
       },
       "revId": "9ffb71781b1ecd0d09729e9378a8d0d7d22678b8",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6abe0d43_064cfbf8",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-11-28T10:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5faa7d2_f8789e59",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 13
+      },
+      "revId": "9ffb71781b1ecd0d09729e9378a8d0d7d22678b8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
