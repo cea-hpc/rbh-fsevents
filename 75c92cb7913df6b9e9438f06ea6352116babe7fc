@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12230e4a_b1b6457a",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-28T09:17:43Z",
+      "side": 1,
+      "message": "defect: you are copying cr_tfid in build id and not ct_pfid. You should add a pointer to a lu_fid à a second argument.",
+      "range": {
+        "startLine": 315,
+        "startChar": 42,
+        "endLine": 315,
+        "endChar": 50
+      },
+      "revId": "75c92cb7913df6b9e9438f06ea6352116babe7fc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ac5c16f_d475a453",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-28T09:17:43Z",
+      "side": 1,
+      "message": "style: I don\u0027t know if that\u0027s in robinhood\u0027s style guide but we usually put spaces around operators.",
+      "range": {
+        "startLine": 319,
+        "startChar": 72,
+        "endLine": 319,
+        "endChar": 73
+      },
+      "revId": "75c92cb7913df6b9e9438f06ea6352116babe7fc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
