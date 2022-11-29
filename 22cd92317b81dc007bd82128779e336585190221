@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf52f919_3f089958",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-29T11:32:21Z",
+      "side": 1,
+      "message": "Makes sense, but that\u0027s not how it is done in the rest of the enricher, so I\u0027d rather stick to the current policy, and if we decide to change it, do a specific patch.\n\nBut I do agree this idea behaviour seems better",
+      "parentUuid": "0926b385_7266149c",
+      "range": {
+        "startLine": 568,
+        "startChar": 8,
+        "endLine": 568,
+        "endChar": 16
+      },
+      "revId": "22cd92317b81dc007bd82128779e336585190221",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4236331f_208c7d71",
         "filename": "src/enricher.c",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-28T08:17:29Z",
       "side": 1,
       "message": "minor: this is not necessary",
+      "range": {
+        "startLine": 588,
+        "startChar": 36,
+        "endLine": 588,
+        "endChar": 37
+      },
+      "revId": "22cd92317b81dc007bd82128779e336585190221",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a9f74d4_f4dab379",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-29T11:32:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4236331f_208c7d71",
       "range": {
         "startLine": 588,
         "startChar": 36,
@@ -60,6 +108,30 @@
       "writtenOn": "2022-11-28T08:17:29Z",
       "side": 1,
       "message": "question: is this intentional to set value to NULL if you fail to retrieve the xattr? Will it be removed from the DB?",
+      "range": {
+        "startLine": 611,
+        "startChar": 49,
+        "endLine": 611,
+        "endChar": 54
+      },
+      "revId": "22cd92317b81dc007bd82128779e336585190221",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d118798_d4191f28",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-29T11:32:21Z",
+      "side": 1,
+      "message": "Yes, Lustre doesn\u0027t differentiate adding/modifying/removing a xattr, so the only way to knowing what happened is to actually retrieve the xattr, and if we get NULL, that means the xattr was removed, and to translate that in the DB, we have to set the value of the pair to NULL, which will unset the attribute.",
+      "parentUuid": "0ede5f12_831e42fc",
       "range": {
         "startLine": 611,
         "startChar": 49,
