@@ -22,6 +22,30 @@
       },
       "revId": "bc938cce6f907b082322880235509b71eeb77736",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d78d285_4fbe5d68",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-29T11:32:16Z",
+      "side": 1,
+      "message": "Nope, used your stack to generate two events here, one upsert and one xattr",
+      "parentUuid": "72512c77_391dafc9",
+      "range": {
+        "startLine": 417,
+        "startChar": 22,
+        "endLine": 417,
+        "endChar": 64
+      },
+      "revId": "bc938cce6f907b082322880235509b71eeb77736",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
