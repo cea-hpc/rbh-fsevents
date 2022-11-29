@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "158f04a3_dc46d837",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-11-29T15:25:51Z",
+      "side": 1,
+      "message": "nit/suggest:\n\n if (rc \u003d\u003d 1) // record is partially parsed\n     goto save_event\n else if (rc \u003d\u003d 0) // record is fully parsed\n     goto end_event\n // blank line but I can\u0027t left it blank or the code will be split\n err:\n     fsevent \u003d NULL;",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 416,
+        "endChar": 23
+      },
+      "revId": "fb142c07deac04355e12d13421cb2e01054d5d68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
