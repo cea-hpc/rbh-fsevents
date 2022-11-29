@@ -48,6 +48,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a71575cc_dc136635",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-29T12:31:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bf52f919_3f089958",
+      "range": {
+        "startLine": 568,
+        "startChar": 8,
+        "endLine": 568,
+        "endChar": 16
+      },
+      "revId": "22cd92317b81dc007bd82128779e336585190221",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4236331f_208c7d71",

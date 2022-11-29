@@ -305,6 +305,30 @@
       },
       "revId": "7e4920933ceec4d01a85ebdc1044d18ce61c966c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c2b9064_1c87b1e5",
+        "filename": "src/enricher.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2022-11-29T12:31:24Z",
+      "side": 1,
+      "message": "I guess I should have checked before writting this comment. In case of a migration, a CL_LAYOUT event is emitted not a xattr one. But my point remains the same, one event can lead to a lot of attributes to fetch on the file: stripe count, size, mirror ids, OSTs, ... I wasn\u0027t sure how you would handle this but it seems to be a discussion for later.",
+      "parentUuid": "3adb26bb_159214fd",
+      "range": {
+        "startLine": 662,
+        "startChar": 8,
+        "endLine": 664,
+        "endChar": 22
+      },
+      "revId": "7e4920933ceec4d01a85ebdc1044d18ce61c966c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
