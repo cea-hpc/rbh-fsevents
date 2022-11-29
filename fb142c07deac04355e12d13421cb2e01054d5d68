@@ -22,6 +22,30 @@
       },
       "revId": "fb142c07deac04355e12d13421cb2e01054d5d68",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86bc2c47_69fd0dd0",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-11-29T15:37:19Z",
+      "side": 1,
+      "message": "Done for the comments, I prefer to keep the \"goto err\" just to be clearer on the different output of the build_*_event functions",
+      "parentUuid": "158f04a3_dc46d837",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 416,
+        "endChar": 23
+      },
+      "revId": "fb142c07deac04355e12d13421cb2e01054d5d68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
