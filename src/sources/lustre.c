@@ -252,6 +252,35 @@ build_id(const struct lu_fid *fid)
     return id;
 }
 
+static int
+build_setxattr_event(unsigned int process_step, struct changelog_rec *record,
+                     struct rbh_fsevent *fsevent)
+{
+    uint32_t statx_enrich_mask = 0;
+
+    assert(process_step < 2);
+    switch(process_step) {
+    case 0:
+        fsevent->type = RBH_FET_UPSERT;
+
+        statx_enrich_mask = RBH_STATX_CTIME_SEC | RBH_STATX_CTIME_NSEC;
+        fsevent->xattrs = build_enrich_map(fill_statx, &statx_enrich_mask);
+        if (fsevent->xattrs.pairs == NULL)
+            return -1;
+
+        return 0;
+    case 1:
+        fsevent->type = RBH_FET_XATTR;
+        fsevent->xattrs = build_enrich_map(fill_inode_xattrs,
+                                           changelog_rec_xattr(record)->cr_xattr);
+        if (fsevent->xattrs.pairs == NULL)
+            return -1;
+
+        return 1;
+    }
+    __builtin_unreachable();
+}
+
 static const void *
 lustre_changelog_iter_next(void *iterator)
 {
@@ -346,6 +375,14 @@ retry:
                 goto end_event;
         }
         __builtin_unreachable();
+    case CL_SETXATTR:
+        rc = build_setxattr_event(records->process_step, record, fsevent);
+        if (rc == -1)
+            goto err;
+        else if (rc == 0)
+            goto save_event;
+        else
+            goto end_event;
     case CL_CLOSE:
     case CL_MKDIR:      /* RBH_FET_UPSERT */
     case CL_HARDLINK:   /* RBH_FET_LINK? */
@@ -359,7 +396,6 @@ retry:
     case CL_LAYOUT:
     case CL_TRUNC:
     case CL_SETATTR:    /* RBH_FET_XATTR? */
-    case CL_SETXATTR:   /* RBH_FET_XATTR */
     case CL_HSM:
     case CL_MTIME:
     case CL_ATIME:
