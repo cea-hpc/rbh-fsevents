@@ -22,6 +22,30 @@
       },
       "revId": "17f2d9477c9c3000771717b7f3e315faded4b071",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01a9a07b_55416e7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-02T15:33:53Z",
+      "side": 1,
+      "message": "Okay, I will write SETATTR :p.\n\nI used the type written in the changelog, and not the one written in the source code, my bad!",
+      "parentUuid": "01fc06e8_e4f07a3c",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "17f2d9477c9c3000771717b7f3e315faded4b071",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
