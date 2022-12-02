@@ -22,6 +22,30 @@
       },
       "revId": "99adcc58651cf451fcd258cf18f776a5f8ade277",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23f1e62c_759477a2",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-02T15:35:56Z",
+      "side": 1,
+      "message": "I made the requested modifications. You are right about being subtle.\n\nAbout xattrs, the point is we wanted to say to the enricher that it may need to update some lustre attributes, such as the layout. But we think of another way now. If really needed, we will add the event here later.",
+      "parentUuid": "752bf428_f1b08fa9",
+      "range": {
+        "startLine": 282,
+        "startChar": 37,
+        "endLine": 282,
+        "endChar": 50
+      },
+      "revId": "99adcc58651cf451fcd258cf18f776a5f8ade277",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
