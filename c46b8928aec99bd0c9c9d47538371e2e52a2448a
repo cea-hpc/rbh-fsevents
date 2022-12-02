@@ -16,6 +16,24 @@
       "message": "I don\u0027t understand why ctime would be a fallthrough of atime?\nctime only changes if something in the inode changes, and atime isn\u0027t part of that, otherwise you\u0027d have ctime \u003d max(atime,mtime) which would be convenient but doesn\u0027t seem to be true.\n\nThe lustre code has a comment that place the two the other way around:\n```\n/* Precedence for choosing record type when multiple\n * attributes change: setattr \u003e mtime \u003e ctime \u003e atime\n```\n\nso setattr could change any time, mtime could change ctime/atime, ctime could change ctime/atime, and atime would only change atime.\n\n(so while we are here, let\u0027s also add setattr up here before mtime :))",
       "revId": "c46b8928aec99bd0c9c9d47538371e2e52a2448a",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9cb64ca_4936c26c",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-02T15:31:36Z",
+      "side": 1,
+      "message": "There was a way where ctime may be modified without updating atime, and this is described in lustre sources (chmod for instance). But this may be not important enough here.\n\nI followed your and lustre\u0027s recommendations. Also, I will abandon this patch to merge it with setattr and close.\n\nThanks!",
+      "parentUuid": "ad0736a0_6e5119a7",
+      "revId": "c46b8928aec99bd0c9c9d47538371e2e52a2448a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
