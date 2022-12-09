@@ -7,6 +7,7 @@
 #include <errno.h>
 #include <error.h>
 #include <fcntl.h>
+#include <linux/limits.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
@@ -15,6 +16,8 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/xattr.h>
+
+#include <lustre/lustreapi.h>
 
 #include <robinhood.h>
 
@@ -518,7 +521,8 @@ enrich_statx(struct rbh_statx *dest, const struct rbh_id *id, int mount_fd,
 /* The Linux VFS does not allow values of more than 64KiB */
 static const size_t XATTR_VALUE_MAX_VFS_SIZE = 1 << 16;
 
-#define MIN_XATTR_VALUES_ALLOC 32
+/* Create a stack of 16Ko to be able to manages path retrieval on it */
+#define XATTRS_VALUES_STACK_LENGTH (1 << 14)
 static __thread struct rbh_sstack *xattrs_values;
 
 static void __attribute__((destructor))
@@ -528,20 +532,115 @@ exit_xattrs_values(void)
         rbh_sstack_destroy(xattrs_values);
 }
 
+/* To retrieve the path of the file, we cannot use the rbh_id of the file
+ * because we have no way of differentiating between hardlinks, since they all
+ * refer to the same rbh_id. Therefore, we will instead use the rbh_id of the
+ * parent directory, and append the name of the file to it.
+ */
 static int
-enrich_xattrs(const struct rbh_value *xattrs_to_enrich,
-              struct rbh_value_pair **pairs, size_t *pair_count,
-              struct rbh_fsevent *enriched,
-              const struct rbh_id *id, int mount_fd)
+enrich_path(const struct rbh_id *id, const int mount_fd, const char *name,
+            struct rbh_value **_value)
+{
+    const struct lu_fid *fid = rbh_lu_fid_from_id(id);
+    struct rbh_value *value;
+    long long recno;
+    int linkno = 0;
+    char *path;
+    int rc;
+
+    path = rbh_sstack_push(xattrs_values, NULL, PATH_MAX);
+    if (path == NULL)
+        return -1;
+
+    /* Only retrieve the stack size allocated minus the length of the name to
+     * preprare the append.
+     */
+    rc = llapi_fid2path_at(mount_fd, fid, path, PATH_MAX - 1 - strlen(name),
+                           &recno, &linkno);
+    if (rc)
+        return -1;
+
+    /* remove the extra space left in the sstack */
+    rc = rbh_sstack_pop(xattrs_values, PATH_MAX - (strlen(path) + 1));
+    if (rc)
+        return -1;
+
+    strcat(path, name);
+
+    value = rbh_sstack_push(xattrs_values, NULL, sizeof(*value));
+    if (value == NULL)
+        return -1;
+
+    value->type = RBH_VT_STRING;
+    value->string = path;
+
+    *_value = value;
+
+    return 0;
+}
+
+static int
+enrich_xattr(const struct rbh_id *id, const int mount_fd, const char *key,
+             int *fd, struct rbh_value **_value)
 {
     char buffer[XATTR_VALUE_MAX_VFS_SIZE];
+    struct rbh_value *value;
+    ssize_t length;
+    int save_errno;
+
+    if (*fd == -1) {
+        *fd = open_by_id(mount_fd, id, O_RDONLY | O_CLOEXEC | O_NOFOLLOW);
+        if (*fd < 0 && errno == ELOOP)
+            /* If the file to open is a symlink, reopen it with O_PATH set */
+            *fd = open_by_id(mount_fd, id, O_RDONLY | O_CLOEXEC | O_NOFOLLOW |
+                             O_PATH);
+
+        if (*fd < 0)
+            return -1;
+    }
+
+    length = fgetxattr(*fd, key, buffer, sizeof(buffer));
+    if (length == -1) {
+        value = NULL;
+    } else {
+        value = rbh_sstack_push(xattrs_values, NULL, sizeof(*value));
+        if (value == NULL)
+            goto err;
+
+        value->type = RBH_VT_BINARY;
+        value->binary.data = rbh_sstack_push(xattrs_values, buffer, length);
+        if (value->binary.data == NULL)
+            goto err;
+
+        value->binary.size = length;
+    }
+
+    assert(length <= (ssize_t) sizeof(buffer));
+
+    *_value = value;
+
+    return 0;
+
+err:
+    save_errno = errno;
+    close(*fd);
+    errno = save_errno;
+
+    return -1;
+}
+
+static int
+enrich_xattrs(const struct rbh_fsevent *original,
+              const struct rbh_value *xattrs_to_enrich, const int mount_fd,
+              struct rbh_value_pair **pairs, size_t *pair_count,
+              struct rbh_fsevent *enriched)
+{
+    const struct rbh_id *id = &original->id;
     const struct rbh_value *xattrs_seq;
     struct rbh_value *value;
     size_t xattrs_count;
-    ssize_t length;
-    int save_errno;
+    int fd = -1;
     int rc = 0;
-    int fd;
 
     if (xattrs_to_enrich->type != RBH_VT_SEQUENCE) {
         errno = EINVAL;
@@ -549,8 +648,7 @@ enrich_xattrs(const struct rbh_value *xattrs_to_enrich,
     }
 
     if (xattrs_values == NULL) {
-        xattrs_values = rbh_sstack_new(MIN_XATTR_VALUES_ALLOC *
-                                       sizeof(struct rbh_value *));
+        xattrs_values = rbh_sstack_new(XATTRS_VALUES_STACK_LENGTH);
         if (xattrs_values == NULL)
             return -1;
     }
@@ -558,25 +656,12 @@ enrich_xattrs(const struct rbh_value *xattrs_to_enrich,
     xattrs_seq = xattrs_to_enrich->sequence.values;
     xattrs_count = xattrs_to_enrich->sequence.count;
 
-    fd = open_by_id(mount_fd, id, O_RDONLY | O_CLOEXEC | O_NOFOLLOW);
-    if (fd < 0 && errno == ELOOP)
-        /* If the file to open is a symlink, reopen it with O_PATH set */
-        fd = open_by_id(mount_fd, id, O_RDONLY | O_CLOEXEC | O_NOFOLLOW |
-                        O_PATH);
-
-    if (fd < 0) {
-        rc = -1;
-        goto err;
-    }
-
     if (enriched->xattrs.count + xattrs_count >= *pair_count) {
         void *tmp;
 
         tmp = reallocarray(*pairs, *pair_count + xattrs_count, sizeof(**pairs));
-        if (tmp == NULL) {
-            rc = -1;
-            goto err;
-        }
+        if (tmp == NULL)
+            return -1;
 
         *pairs = tmp;
         *pair_count = *pair_count + xattrs_count;
@@ -585,38 +670,24 @@ enrich_xattrs(const struct rbh_value *xattrs_to_enrich,
     for (size_t i = 0; i < xattrs_count; i++) {
         const char *key = xattrs_seq[i].string;
 
-        length = fgetxattr(fd, key, buffer, sizeof(buffer));
-        if (length == -1) {
-            value = NULL;
-        } else {
-            value = rbh_sstack_push(xattrs_values, NULL, sizeof(*value));
-            if (value == NULL) {
-                rc = -1;
-                goto err;
-            }
+        if (!strcmp(key, "path"))
+            rc = enrich_path(original->link.parent_id, mount_fd,
+                             original->link.name, &value);
+        else
+            rc = enrich_xattr(id, mount_fd, key, &fd, &value);
 
-            value->type = RBH_VT_BINARY;
-            value->binary.data = rbh_sstack_push(xattrs_values, buffer, length);
-            if (value->binary.data == NULL) {
-                rc = -1;
-                goto err;
-            }
-
-            value->binary.size = length;
-        }
-
-        assert(length <= (ssize_t) sizeof(buffer));
+        if (rc)
+            goto end;
 
         (*pairs)[enriched->xattrs.count].key = xattrs_seq[i].string;
         (*pairs)[enriched->xattrs.count].value = value;
         enriched->xattrs.count++;
     }
 
-err:
-    save_errno = errno;
-    /* Ignore errors on close */
-    close(fd);
-    errno = save_errno;
+end:
+    if (fd >= 0)
+        close(fd);
+
     return rc;
 }
 
@@ -644,11 +715,14 @@ enrich_symlink(char symlink[SYMLINK_MAX_SIZE], const struct rbh_id *id,
 }
 
 static int
-_enrich(const struct rbh_value_pair *partial, struct rbh_value_pair **pairs,
-        size_t *pair_count, struct rbh_fsevent *enriched,
-        const struct rbh_fsevent *original, int mount_fd,
-        struct rbh_statx *statxbuf, char symlink[SYMLINK_MAX_SIZE])
+_enrich(const struct rbh_fsevent *original,
+        const struct rbh_value_pair *partial,
+        struct rbh_value_pair **pairs, size_t *pair_count,
+        struct enricher *enricher, struct rbh_fsevent *enriched)
 {
+    struct rbh_statx *statxbuf = &enricher->statx;
+    const int mount_fd = enricher->mount_fd;
+    char *symlink = enricher->symlink;
     uint32_t statx_mask;
 
     switch (str2partial_field(partial->key)) {
@@ -670,13 +744,13 @@ _enrich(const struct rbh_value_pair *partial, struct rbh_value_pair **pairs,
         enriched->upsert.statx = statxbuf;
         break;
     case PF_XATTRS:
-        if (original->type != RBH_FET_XATTR) {
+        if (original->type != RBH_FET_XATTR && original->type != RBH_FET_LINK) {
             errno = EINVAL;
             return -1;
         }
 
-        if (enrich_xattrs(partial->value, pairs, pair_count, enriched,
-                          &original->id, mount_fd))
+        if (enrich_xattrs(original, partial->value, mount_fd, pairs, pair_count,
+                          enriched))
             return -1;
 
         break;
@@ -733,9 +807,8 @@ enrich(struct enricher *enricher, const struct rbh_fsevent *original)
         partials = &pair->value->map;
 
         for (size_t i = 0; i < partials->count; i++) {
-            if (_enrich(&partials->pairs[i], &pairs, &pair_count, enriched,
-                        original, enricher->mount_fd, &enricher->statx,
-                        enricher->symlink))
+            if (_enrich(original, &partials->pairs[i], &pairs, &pair_count,
+                        enricher, enriched))
                 return -1;
         }
 
@@ -762,6 +835,23 @@ enricher_iter_next(void *iterator)
 }
 
 static void
+sstack_clear(struct rbh_sstack *sstack)
+{
+    size_t readable;
+
+    while (true) {
+        int rc;
+
+        rbh_sstack_peek(sstack, &readable);
+        if (readable == 0)
+            break;
+
+        rc = rbh_sstack_pop(sstack, readable);
+        assert(rc == 0);
+    }
+}
+
+static void
 enricher_iter_destroy(void *iterator)
 {
     struct enricher *enricher = iterator;
@@ -770,6 +860,9 @@ enricher_iter_destroy(void *iterator)
     free(enricher->symlink);
     free(enricher->pairs);
     free(enricher);
+
+    if (xattrs_values != NULL)
+        sstack_clear(xattrs_values);
 }
 
 static const struct rbh_iterator_operations ENRICHER_ITER_OPS = {
