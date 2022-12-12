@@ -12,12 +12,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdio.h>
 
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/xattr.h>
-
-#include <lustre/lustreapi.h>
 
 #include <robinhood.h>
 
@@ -538,30 +537,35 @@ exit_xattrs_values(void)
  * parent directory, and append the name of the file to it.
  */
 static int
-enrich_path(const struct rbh_id *id, const int mount_fd, const char *name,
-            struct rbh_value **_value)
+enrich_path(const int mount_fd, const struct rbh_id *id, const char *name,
+            struct rbh_sstack *xattrs_values, struct rbh_value **_value)
 {
-    const struct lu_fid *fid = rbh_lu_fid_from_id(id);
+    size_t name_length = strlen(name);
+    size_t path_max_length = PATH_MAX;
     struct rbh_value *value;
-    long long recno;
-    int linkno = 0;
     char *path;
     int rc;
 
-    path = rbh_sstack_push(xattrs_values, NULL, PATH_MAX);
+    path = rbh_sstack_push(xattrs_values, NULL, path_max_length);
     if (path == NULL)
         return -1;
 
-    /* Only retrieve the stack size allocated minus the length of the name to
-     * preprare the append.
-     */
-    rc = llapi_fid2path_at(mount_fd, fid, path, PATH_MAX - 1 - strlen(name),
-                           &recno, &linkno);
+#ifdef HAVE_LUSTRE
+    rc = enrich_lustre_path(mount_fd, id, path,
+                            path_max_length - 1 - name_length);
+#else
+    fprintf(stderr,
+            "%s: path enrichment is not available for anything but Lustre",
+            strerror(EINVAL));
+    rbh_sstack_pop(xattrs_values, PATH_MAX);
+    errno = EINVAL;
+    rc = -1;
+#endif
     if (rc)
         return -1;
 
     /* remove the extra space left in the sstack */
-    rc = rbh_sstack_pop(xattrs_values, PATH_MAX - (strlen(path) + 1));
+    rc = rbh_sstack_pop(xattrs_values, path_max_length - (name_length + 1));
     if (rc)
         return -1;
 
@@ -671,11 +675,12 @@ enrich_xattrs(const struct rbh_fsevent *original,
     for (size_t i = 0; i < xattrs_count; i++) {
         const char *key = xattrs_seq[i].string;
 
-        if (!strcmp(key, "path"))
-            rc = enrich_path(original->link.parent_id, mount_fd,
-                             original->link.name, &value);
-        else
+        if (!strcmp(key, "path")) {
+            rc = enrich_path(mount_fd, original->link.parent_id,
+                             original->link.name, xattrs_values, &value);
+        } else {
             rc = enrich_xattr(id, mount_fd, key, &fd, &value);
+        }
 
         if (rc)
             goto err;
