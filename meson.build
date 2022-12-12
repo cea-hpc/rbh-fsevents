@@ -34,7 +34,7 @@ librobinhood = dependency('robinhood', version: '>=0.0.0')
 miniyaml = dependency('miniyaml', version: '>=0.0.0')
 liblustre = dependency('lustre', required: false)
 if liblustre.found()
-    extra_sources += 'src/sources/lustre.c'
+    extra_sources += ['src/sources/lustre.c', 'src/enrichers/lustre.c']
     add_project_arguments(['-DHAVE_LUSTRE',], language: 'c')
 endif
 
