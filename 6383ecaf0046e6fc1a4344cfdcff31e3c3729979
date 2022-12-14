@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cae2dcff_5d8bbfa6",
+        "filename": "src/enricher.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-14T08:56:09Z",
+      "side": 1,
+      "message": "typo: manage",
+      "range": {
+        "startLine": 524,
+        "startChar": 40,
+        "endLine": 524,
+        "endChar": 47
+      },
+      "revId": "6383ecaf0046e6fc1a4344cfdcff31e3c3729979",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09bf996b_1e504d33",
+        "filename": "src/enricher.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-14T08:56:09Z",
+      "side": 1,
+      "message": "minor: you can still have errors even if `fd` is greater than 0",
+      "range": {
+        "startLine": 688,
+        "startChar": 0,
+        "endLine": 689,
+        "endChar": 18
+      },
+      "revId": "6383ecaf0046e6fc1a4344cfdcff31e3c3729979",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6022f49c_81193df1",
+        "filename": "src/enricher.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2022-12-14T08:56:09Z",
+      "side": 1,
+      "message": "question: why a `while(true)` ? it manages the `pop()` one stack after another?",
+      "range": {
+        "startLine": 842,
+        "startChar": 4,
+        "endLine": 842,
+        "endChar": 18
+      },
+      "revId": "6383ecaf0046e6fc1a4344cfdcff31e3c3729979",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
