@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2579412_4bb7f526",
+        "filename": "src/enricher.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-15T09:31:19Z",
+      "side": 1,
+      "message": "That\u0027s hard to properly do because the type of ID isn\u0027t exactly the same as the backend which filled the ID, it\u0027s more like \"Lustre or anything else\".\n\nAs discussed, we went with something more generic, but it\u0027s still not completely generic, even though I\u0027m not sure it really is possible considering the rbh_id are only managed in a single backend, so the backend already knows how to read and write rbh_id, and there is no need to allow one backend to read ids from another yet.",
+      "parentUuid": "c625a8c4_07ce7d35",
+      "range": {
+        "startLine": 626,
+        "startChar": 17,
+        "endLine": 626,
+        "endChar": 35
+      },
+      "revId": "9bd7e70df273859e303802a458f5dda96a8f58bc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41f253b1_0951a3ee",
@@ -47,6 +71,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98c1931a_f5f11ad2",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-15T09:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41f253b1_0951a3ee",
+      "range": {
+        "startLine": 23,
+        "startChar": 14,
+        "endLine": 23,
+        "endChar": 19
+      },
+      "revId": "9bd7e70df273859e303802a458f5dda96a8f58bc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1319679_bce193bd",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-12-13T15:05:12Z",
       "side": 1,
       "message": "typo: prepare",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 15
+      },
+      "revId": "9bd7e70df273859e303802a458f5dda96a8f58bc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bf2cb98_251dad96",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-15T09:31:19Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c1319679_bce193bd",
       "range": {
         "startLine": 33,
         "startChar": 7,
