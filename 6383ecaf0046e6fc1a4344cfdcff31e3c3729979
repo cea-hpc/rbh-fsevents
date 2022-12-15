@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9dcdc7b_3acb909c",
+        "filename": "src/enricher.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-15T09:31:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cae2dcff_5d8bbfa6",
+      "range": {
+        "startLine": 524,
+        "startChar": 40,
+        "endLine": 524,
+        "endChar": 47
+      },
+      "revId": "6383ecaf0046e6fc1a4344cfdcff31e3c3729979",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09bf996b_1e504d33",
@@ -47,6 +71,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e9d307f_d89225f7",
+        "filename": "src/enricher.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-15T09:31:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09bf996b_1e504d33",
+      "range": {
+        "startLine": 688,
+        "startChar": 0,
+        "endLine": 689,
+        "endChar": 18
+      },
+      "revId": "6383ecaf0046e6fc1a4344cfdcff31e3c3729979",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6022f49c_81193df1",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-12-14T08:56:09Z",
       "side": 1,
       "message": "question: why a `while(true)` ? it manages the `pop()` one stack after another?",
+      "range": {
+        "startLine": 842,
+        "startChar": 4,
+        "endLine": 842,
+        "endChar": 18
+      },
+      "revId": "6383ecaf0046e6fc1a4344cfdcff31e3c3729979",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfece1b5_465e97ac",
+        "filename": "src/enricher.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2022-12-15T09:31:14Z",
+      "side": 1,
+      "message": "Yes, we peek on the current stack, then pop the data, and if the amount of data on the current stack becomes 0, we decrese the \"current\" counter, switching to another stack. This will clear all the stacks until there is no data left to pop.",
+      "parentUuid": "6022f49c_81193df1",
       "range": {
         "startLine": 842,
         "startChar": 4,
