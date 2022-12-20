@@ -9,10 +9,14 @@ integration_tests = []
 liblustre = dependency('lustre', disabler: true, required: false)
 
 if liblustre.found()
-    integration_tests += ['test_creat_close']
+    integration_tests += ['test_creat_close', 'test_setxattr']
 endif
 
 foreach t: integration_tests
     e = find_program(t + '.bash')
-    test(t, e)
+    # Meson by default runs all tests is parallel, and since they all add data
+    # to the same changelog reader, it may lead to unintentionnal consequences
+    # on the test results. To prevent this, we forbid Meson from running tests
+    # in parallel.
+    test(t, e, is_parallel : false)
 endforeach
