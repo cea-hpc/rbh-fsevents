@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "827db8d1_78238a70",
+        "filename": "src/enricher.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-01-03T09:01:44Z",
+      "side": 1,
+      "message": "question: why use this as a variable?",
+      "range": {
+        "startLine": 544,
+        "startChar": 11,
+        "endLine": 544,
+        "endChar": 26
+      },
+      "revId": "bc8a771ce5e62476273c6afd472b8d7d215a79c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cd7ef58_89700eaf",
+        "filename": "src/enricher.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-01-03T09:01:44Z",
+      "side": 1,
+      "message": "question: why do you need the extra / ? It would be better if enrich_lustre_path handled this case internally by always returning a valid path.",
+      "range": {
+        "startLine": 553,
+        "startChar": 4,
+        "endLine": 553,
+        "endChar": 18
+      },
+      "revId": "bc8a771ce5e62476273c6afd472b8d7d215a79c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a31262ae_f64a7d9f",
+        "filename": "src/enricher.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-01-03T09:01:44Z",
+      "side": 1,
+      "message": "question: why not simply return from the function and do nothing?",
+      "range": {
+        "startLine": 559,
+        "startChar": 4,
+        "endLine": 564,
+        "endChar": 12
+      },
+      "revId": "bc8a771ce5e62476273c6afd472b8d7d215a79c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f2b2447_281cca1d",
+        "filename": "src/enricher.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-01-03T09:01:44Z",
+      "side": 1,
+      "message": "nit: you could store this in a variable since you compute it several times.",
+      "range": {
+        "startLine": 578,
+        "startChar": 13,
+        "endLine": 578,
+        "endChar": 24
+      },
+      "revId": "bc8a771ce5e62476273c6afd472b8d7d215a79c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd3986de_66a6aec8",
+        "filename": "src/enricher.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-01-03T09:01:44Z",
+      "side": 1,
+      "message": "nit: you can avoid traversing the path to the end if you precompute the size as suggested above and use strcpy",
+      "range": {
+        "startLine": 579,
+        "startChar": 8,
+        "endLine": 579,
+        "endChar": 14
+      },
+      "revId": "bc8a771ce5e62476273c6afd472b8d7d215a79c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "273a9751_6926124f",
+        "filename": "src/enricher.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-01-03T09:01:44Z",
+      "side": 1,
+      "message": "nit: same as above",
+      "range": {
+        "startLine": 581,
+        "startChar": 4,
+        "endLine": 581,
+        "endChar": 10
+      },
+      "revId": "bc8a771ce5e62476273c6afd472b8d7d215a79c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af92accd_82befc82",
+        "filename": "src/enricher.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-01-03T09:01:44Z",
+      "side": 1,
+      "message": "nit: I don\u0027t think you need to have a temporary variable here, you can do:\n\n*_value \u003d rbh_stack_push();\n\n(*_value)-\u003etype \u003d ...\n(*_value)-\u003estring \u003d ...",
+      "range": {
+        "startLine": 587,
+        "startChar": 4,
+        "endLine": 587,
+        "endChar": 9
+      },
+      "revId": "bc8a771ce5e62476273c6afd472b8d7d215a79c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c02b8748_d14726eb",
+        "filename": "src/enricher.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-01-03T09:01:44Z",
+      "side": 1,
+      "message": "major: I think you need to check if errno is ENOATTR here. You only want to remove the attribute if it doesn\u0027t exists not if another error occurs.",
+      "range": {
+        "startLine": 616,
+        "startChar": 8,
+        "endLine": 616,
+        "endChar": 20
+      },
+      "revId": "bc8a771ce5e62476273c6afd472b8d7d215a79c9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
