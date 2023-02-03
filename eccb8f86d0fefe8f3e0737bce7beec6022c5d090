@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b36f293b_014c8688",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-03T08:02:26Z",
+      "side": 1,
+      "message": "suggest: it seems you can give NULL for recno and linkno arguments",
+      "revId": "eccb8f86d0fefe8f3e0737bce7beec6022c5d090",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
