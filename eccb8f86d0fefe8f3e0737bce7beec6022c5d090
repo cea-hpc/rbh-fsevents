@@ -34,6 +34,24 @@
       "parentUuid": "b36f293b_014c8688",
       "revId": "eccb8f86d0fefe8f3e0737bce7beec6022c5d090",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d2a5400_abf8ddfa",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-03T09:04:47Z",
+      "side": 1,
+      "message": "Unfortunatly, no we can\u0027t. Older version of Lustre do not check for NULL (I think it\u0027s the case for 2.12). Since rbh4 can be used on this version of Lustre we have to pass these arguments.",
+      "parentUuid": "570b6038_57690dc9",
+      "revId": "eccb8f86d0fefe8f3e0737bce7beec6022c5d090",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
