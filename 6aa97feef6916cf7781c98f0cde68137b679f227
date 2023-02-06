@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e78cba10_4ec503e4",
+        "filename": "tests/meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T14:15:15Z",
+      "side": 1,
+      "message": "you can mount one client per test to prevent this.",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6c7609f_30179968",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T14:15:15Z",
+      "side": 1,
+      "message": "If CREAT/CLOSE are not managed, this test will fail. So I think this is fine.",
+      "range": {
+        "startLine": 20,
+        "startChar": 50,
+        "endLine": 20,
+        "endChar": 61
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51fee8c2_9fa58f60",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T14:15:15Z",
+      "side": 1,
+      "message": "this is the second time you use this function, you should put it in utils",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 1
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cb20558_55673a5c",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T14:15:15Z",
+      "side": 1,
+      "message": "I don\u0027t think it necessary to repeat this",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 58
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7edecdd9_2403d09a",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T14:15:15Z",
+      "side": 1,
+      "message": "style: wrong identation",
+      "range": {
+        "startLine": 96,
+        "startChar": 3,
+        "endLine": 96,
+        "endChar": 8
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "395e2a55_7d97585e",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T14:15:15Z",
+      "side": 1,
+      "message": "minor: isn\u0027t there a way to remove this?",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 53
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "372f9d61_765a5361",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T14:15:15Z",
+      "side": 1,
+      "message": "suggest: check_last_setxattr_is_inserted",
+      "range": {
+        "startLine": 103,
+        "startChar": 5,
+        "endLine": 103,
+        "endChar": 22
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d031dbd_1e9be967",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T14:15:15Z",
+      "side": 1,
+      "message": "major: I don\u0027t think you have tested that rbh-fsevents is capable of handling both the touch and the sefattr in one go.",
+      "range": {
+        "startLine": 132,
+        "startChar": 3,
+        "endLine": 139,
+        "endChar": 27
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
