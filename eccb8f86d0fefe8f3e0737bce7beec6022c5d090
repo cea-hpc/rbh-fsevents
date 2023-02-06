@@ -3,6 +3,184 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a2c1554_9de97830",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T13:39:26Z",
+      "side": 1,
+      "message": "nit: enriching functions.",
+      "range": {
+        "startLine": 14,
+        "startChar": 25,
+        "endLine": 14,
+        "endChar": 34
+      },
+      "revId": "eccb8f86d0fefe8f3e0737bce7beec6022c5d090",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b52f5c60_e25d1f4c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T13:39:26Z",
+      "side": 1,
+      "message": "major: this is not clear to someone who hasn\u0027t read the patch. Maybe you could say something like this:\n\nAlso, add the \"src/enrichers/\" directory to contain backend-specific enriching functions.",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 34
+      },
+      "revId": "eccb8f86d0fefe8f3e0737bce7beec6022c5d090",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13a1503c_43067197",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T13:39:26Z",
+      "side": 1,
+      "message": "Why is the check for Lustre specific behavior done at runtime? It is the case for the reader, I don\u0027t this it\u0027s that hard to do the same for the enricher.",
+      "revId": "eccb8f86d0fefe8f3e0737bce7beec6022c5d090",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a696bf3d_2d2fe1e0",
+        "filename": "include/enricher.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T13:39:26Z",
+      "side": 1,
+      "message": "minor: I don\u0027t think you need this include. You may need id.h.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 9
+      },
+      "revId": "eccb8f86d0fefe8f3e0737bce7beec6022c5d090",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6386850d_e8dd7f21",
+        "filename": "src/enricher.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T13:39:26Z",
+      "side": 1,
+      "message": "major: this decision should be made at runtime, not compile time.",
+      "range": {
+        "startLine": 548,
+        "startChar": 0,
+        "endLine": 550,
+        "endChar": 6
+      },
+      "revId": "eccb8f86d0fefe8f3e0737bce7beec6022c5d090",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8252e32_159947ea",
+        "filename": "src/enricher.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T13:39:26Z",
+      "side": 1,
+      "message": "major: I think this function is poorly named. It\u0027s only job is to get the fullname of the parent of this id. Something like: parent_path_from_id would be better. And I think this function should work differently depending on the backend. Have you considered adding a function in the backend that would allow you to query specific attributes from them?\n\nHaving something like backend_get_attr(backend, RBH_BACKEND_PARENT_PATH, id) would be easy to use and to extend. But you still need to know which backend you need to use at runtime which is missing from this patch.",
+      "range": {
+        "startLine": 556,
+        "startChar": 9,
+        "endLine": 556,
+        "endChar": 27
+      },
+      "revId": "eccb8f86d0fefe8f3e0737bce7beec6022c5d090",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "547a6724_4572f761",
+        "filename": "src/enricher.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T13:39:26Z",
+      "side": 1,
+      "message": "style: I think\n```\nrbh_sstack_pop(xattrs_value,\n               PATH_MAX ...);\n```\nwould be more readable;",
+      "range": {
+        "startLine": 564,
+        "startChar": 39,
+        "endLine": 564,
+        "endChar": 49
+      },
+      "revId": "eccb8f86d0fefe8f3e0737bce7beec6022c5d090",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2813e61_cf39c399",
+        "filename": "src/enricher.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-06T13:39:26Z",
+      "side": 1,
+      "message": "major: I\u0027d rather be posix compliant and include one more header file.",
+      "range": {
+        "startLine": 603,
+        "startChar": 4,
+        "endLine": 605,
+        "endChar": 7
+      },
+      "revId": "eccb8f86d0fefe8f3e0737bce7beec6022c5d090",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b36f293b_014c8688",
         "filename": "src/enrichers/lustre.c",
         "patchSetId": 7
