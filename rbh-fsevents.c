@@ -35,7 +35,8 @@ static void
 usage(void)
 {
     const char *message =
-        "usage: %s [-h] [--raw] [--enrich MOUNTPOINT] [--lustre] SOURCE DESTINATION\n"
+        "usage: %s [-h] [--raw] [[--enricher ENRICHER] --enrich MOUNTPOINT] [--lustre]\n"
+        "          SOURCE DESTINATION\n"
         "\n"
         "Collect changelog records from SOURCE, optionally enrich them with data\n"
         "collected from MOUNTPOINT and send them to DESTINATION.\n"
@@ -53,6 +54,8 @@ usage(void)
         "    -r, --raw       do not enrich changelog records (default)\n"
         "    -e, --enrich MOUNTPOINT\n"
         "                    enrich changelog records by querying MOUNTPOINT as needed\n"
+        "    -E, --enricher ENRICHER\n"
+        "                    use ENRICHER enricher (default is posix)\n"
         "    -l, --lustre    consider SOURCE is an MDT name\n"
         "\n"
         "Note that uploading raw records to a RobinHood backend will fail, they have to\n"
@@ -222,6 +225,11 @@ main(int argc, char *argv[])
             .val = 'e',
         },
         {
+            .name = "enricher",
+            .has_arg = required_argument,
+            .val = 'E',
+        },
+        {
             .name = "help",
             .val = 'h',
         },
@@ -239,12 +247,15 @@ main(int argc, char *argv[])
     char c;
 
     /* Parse the command line */
-    while ((c = getopt_long(argc, argv, "e:hlr", LONG_OPTIONS, NULL)) != -1) {
+    while ((c = getopt_long(argc, argv, "e:E:hlr", LONG_OPTIONS, NULL)) != -1) {
         switch (c) {
         case 'e':
             mount_fd = open(optarg, O_RDONLY | O_CLOEXEC);
             if (mount_fd == -1)
                 error(EXIT_FAILURE, errno, "open: %s", optarg);
+            break;
+        case 'E':
+            parse_enricher_type(optarg);
             break;
         case 'h':
             usage();
