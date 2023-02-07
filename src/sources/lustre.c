@@ -61,16 +61,6 @@ fsevent_from_record(struct changelog_rec *record)
     return bad;
 }
 
-
-static struct rbh_value_pair FID_XATTRS_PAIRS[] = {
-    { .key = "fid" },
- };
-
-static const struct rbh_value_map FID_XATTRS_MAP = {
-    .pairs = FID_XATTRS_PAIRS,
-    .count = 1,
-};
-
 /* BSON results:
  * { "statx" : { "uid" : x, "gid" : y } }
  */
@@ -88,10 +78,12 @@ fill_uidgid(struct changelog_rec *record, struct rbh_statx *statx)
 /* BSON results:
  * { "ns" : [ { "xattrs": { "fid" : x } } ] }
  */
-static int
-fill_ns_xattrs_fid(struct changelog_rec *record, struct rbh_value_pair *pair)
+static struct rbh_value *
+fill_ns_xattrs_fid(void *arg)
 {
+    struct changelog_rec *record = (struct changelog_rec *)arg;
     struct rbh_value lu_fid_value;
+    struct rbh_value *value;
 
     lu_fid_value.type = RBH_VT_BINARY;
     lu_fid_value.binary.size = sizeof(record->cr_tfid);
@@ -99,14 +91,13 @@ fill_ns_xattrs_fid(struct changelog_rec *record, struct rbh_value_pair *pair)
                                                (const char *)&record->cr_tfid,
                                                sizeof(record->cr_tfid));
     if (lu_fid_value.binary.data == NULL)
-        return -1;
+        return NULL;
 
-    pair->key = "fid";
-    pair->value = rbh_sstack_push(_values, &lu_fid_value, sizeof(lu_fid_value));
-    if (pair->value == NULL)
-        return -1;
+    value = rbh_sstack_push(_values, &lu_fid_value, sizeof(lu_fid_value));
+    if (value == NULL)
+        return NULL;
 
-    return 0;
+    return value;
 }
 
 static struct rbh_value *
@@ -172,6 +163,28 @@ build_pair(const char *key, struct rbh_value *(*part_builder)(void *),
     return pair;
 }
 
+static struct rbh_value_pair *
+build_2_pairs(const char *key, struct rbh_value *(*part_builder)(void *),
+              void *part_builder_arg, const char *key_2, struct rbh_value *(*part_builder_2)(void *),
+              void *part_builder_arg_2)
+{
+    const struct rbh_value_pair PAIRS[] = {
+        { .key = key, .value = part_builder(part_builder_arg) },
+        { .key = key_2, .value = part_builder_2(part_builder_arg_2) },
+    };
+    struct rbh_value_pair *pairs;
+
+    if (PAIRS[0].value == NULL || PAIRS[1].value == NULL)
+        return NULL;
+
+    pairs = rbh_sstack_push(_values, NULL, 2 * sizeof(*pairs));
+    if (pairs == NULL)
+        return NULL;
+    memcpy(pairs, PAIRS, 2 * sizeof(*pairs));
+
+    return pairs;
+}
+
 static struct rbh_value *
 _fill_enrich(const char *key, struct rbh_value *(*builder)(void *),
              void *arg)
@@ -219,6 +232,20 @@ build_enrich_map(struct rbh_value *(*part_builder)(void *),
     const struct rbh_value_map ENRICH = {
         .count = 1,
         .pairs = build_pair("rbh-fsevents", part_builder, part_builder_arg),
+    };
+
+    return ENRICH;
+}
+
+static struct rbh_value_map
+build_enrich_map_with_fid(struct rbh_value *(*part_builder)(void *),
+                          void *part_builder_arg, struct changelog_rec *record)
+{
+    const struct rbh_value_map ENRICH = {
+        .count = 2,
+        .pairs = build_2_pairs(
+            "fid", fill_ns_xattrs_fid, record,
+            "rbh-fsevents", part_builder, part_builder_arg),
     };
 
     return ENRICH;
@@ -283,8 +310,8 @@ build_create_event(unsigned int process_step, struct changelog_rec *record,
             return 1;
         case 1:
             fsevent->type = RBH_FET_XATTR;
-            fsevent->xattrs = FID_XATTRS_MAP;
-            if (fill_ns_xattrs_fid(record, &FID_XATTRS_PAIRS[0]))
+            fsevent->xattrs = build_enrich_map_with_fid(fill_inode_xattrs, "lustre", record);
+            if (fsevent->xattrs.pairs == NULL)
                 return -1;
 
             return 1;

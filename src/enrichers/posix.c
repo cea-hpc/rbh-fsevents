@@ -19,20 +19,7 @@
 #include <robinhood.h>
 
 #include "enricher.h"
-
-struct enricher {
-    struct rbh_iterator iterator;
-
-    struct rbh_iterator *fsevents;
-    int mount_fd;
-
-    struct rbh_value_pair *pairs;
-    size_t pair_count;
-
-    struct rbh_fsevent fsevent;
-    struct rbh_statx statx;
-    char *symlink;
-};
+#include "posix_internals.h"
 
 enum statx_field {
     SF_UNKNOWN,
@@ -464,7 +451,7 @@ merge_statx(struct rbh_statx *original, const struct rbh_statx *override)
         original->stx_dev_minor = override->stx_dev_minor;
 }
 
-static int
+int
 open_by_id(int mount_fd, const struct rbh_id *id, int flags)
 {
     struct file_handle *handle;
@@ -670,7 +657,7 @@ _enrich(const struct rbh_value_pair *partial, struct rbh_value_pair **pairs,
         enriched->upsert.statx = statxbuf;
         break;
     case PF_XATTRS:
-        if (original->type != RBH_FET_XATTR) {
+        if (original->type != RBH_FET_XATTR && original->type != RBH_FET_LINK) {
             errno = EINVAL;
             return -1;
         }
@@ -758,6 +745,9 @@ enricher_iter_next(void *iterator)
     if (enrich(enricher, fsevent))
         return NULL;
 
+    if (enricher->callback != NULL && enricher->callback(enricher, fsevent) == -1)
+        return NULL;
+
     return &enricher->fsevent;
 }
 
@@ -784,7 +774,7 @@ static const struct rbh_iterator ENRICHER_ITERATOR = {
 #define INITIAL_PAIR_COUNT (1 << 7)
 
 struct rbh_iterator *
-iter_enrich(struct rbh_iterator *fsevents, int mount_fd)
+posix_iter_enrich(struct rbh_iterator *fsevents, int mount_fd)
 {
     struct rbh_value_pair *pairs;
     struct enricher *enricher;
@@ -819,6 +809,8 @@ iter_enrich(struct rbh_iterator *fsevents, int mount_fd)
     enricher->pairs = pairs;
     enricher->pair_count = INITIAL_PAIR_COUNT;
     enricher->symlink = symlink;
+
+    enricher->callback = NULL;
 
     return &enricher->iterator;
 }

@@ -31,11 +31,19 @@ enum rbh_source_t {
     SRC_LUSTRE,
 };
 
+enum rbh_enricher_t {
+    ENR_POSIX = 0,
+#ifdef HAVE_LUSTRE
+    ENR_LUSTRE,
+#endif
+};
+
 static void
 usage(void)
 {
     const char *message =
-        "usage: %s [-h] [--raw] [--enrich MOUNTPOINT] [--lustre] SOURCE DESTINATION\n"
+        "usage: %s [-h] [--raw] [[--enricher ENRICHER] --enrich MOUNTPOINT] [--lustre]\n"
+        "          SOURCE DESTINATION\n"
         "\n"
         "Collect changelog records from SOURCE, optionally enrich them with data\n"
         "collected from MOUNTPOINT and send them to DESTINATION.\n"
@@ -53,6 +61,8 @@ usage(void)
         "    -r, --raw       do not enrich changelog records (default)\n"
         "    -e, --enrich MOUNTPOINT\n"
         "                    enrich changelog records by querying MOUNTPOINT as needed\n"
+        "    -E, --enricher ENRICHER\n"
+        "                    use ENRICHER enricher (default is posix)\n"
         "    -l, --lustre    consider SOURCE is an MDT name\n"
         "\n"
         "Note that uploading raw records to a RobinHood backend will fail, they have to\n"
@@ -164,6 +174,7 @@ sink_exit(void)
         sink_destroy(sink);
 }
 
+static enum rbh_enricher_t enricher_type = ENR_POSIX;
 static int mount_fd = -1;
 
 static void __attribute__((destructor))
@@ -194,7 +205,15 @@ feed(struct sink *sink, struct source *source, bool enrich, bool allow_partials)
             break;
 
         if (enrich)
-            fsevents = iter_enrich(fsevents, mount_fd);
+            switch (enricher_type) {
+#ifdef HAVE_LUSTRE
+            case ENR_LUSTRE:
+                fsevents = lustre_iter_enrich(fsevents, mount_fd);
+                break;
+#endif
+            case ENR_POSIX:
+                fsevents = posix_iter_enrich(fsevents, mount_fd);
+            }
         else if (!allow_partials)
             fsevents = iter_no_partial(fsevents);
         if (fsevents == NULL)
@@ -222,6 +241,11 @@ main(int argc, char *argv[])
             .val = 'e',
         },
         {
+            .name = "enricher",
+            .has_arg = required_argument,
+            .val = 'E',
+        },
+        {
             .name = "help",
             .val = 'h',
         },
@@ -239,12 +263,22 @@ main(int argc, char *argv[])
     char c;
 
     /* Parse the command line */
-    while ((c = getopt_long(argc, argv, "e:hlr", LONG_OPTIONS, NULL)) != -1) {
+    while ((c = getopt_long(argc, argv, "e:E:hlr", LONG_OPTIONS, NULL)) != -1) {
         switch (c) {
         case 'e':
             mount_fd = open(optarg, O_RDONLY | O_CLOEXEC);
             if (mount_fd == -1)
                 error(EXIT_FAILURE, errno, "open: %s", optarg);
+            break;
+        case 'E':
+            if (strcmp(optarg, "posix") == 0)
+                enricher_type = ENR_POSIX;
+#ifdef HAVE_LUSTRE
+            else if (strcmp(optarg, "lustre") == 0)
+                enricher_type = ENR_LUSTRE;
+#endif
+            else
+                error(EX_USAGE, EINVAL, "enricher type not allowed");
             break;
         case 'h':
             usage();
