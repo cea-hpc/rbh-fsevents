@@ -29,13 +29,23 @@ add_project_arguments(['-DHAVE_CONFIG_H',], language: 'c')
 
 # Dependencies
 extra_sources = []
+extra_dependencies = []
 
 librobinhood = dependency('robinhood', version: '>=0.0.0')
 miniyaml = dependency('miniyaml', version: '>=0.0.0')
-liblustre = dependency('lustre', required: false)
+liblustre = dependency('lustre', disabler: true, required: false)
+if not liblustre.found()
+    liblustre = cc.find_library('lustreapi', disabler: true, required: false)
+endif
 if liblustre.found()
-    extra_sources += 'src/sources/lustre.c'
+    extra_sources += [
+        'src/sources/lustre.c',
+        'src/enrichers/lustre.c',
+    ]
     add_project_arguments(['-DHAVE_LUSTRE',], language: 'c')
+    extra_dependencies += [
+        liblustre,
+    ]
 endif
 
 includes = include_directories('.', 'include')
@@ -45,6 +55,7 @@ executable(
     sources: [
         'rbh-fsevents.c',
         'src/deduplicator.c',
+        'src/enricher.c',
         'src/enrichers/posix.c',
         'src/serialization.c',
         'src/sources/file.c',
@@ -52,6 +63,6 @@ executable(
         'src/sinks/file.c',
     ] + extra_sources,
     include_directories: includes,
-    dependencies: [librobinhood, miniyaml, liblustre],
+    dependencies: [librobinhood, miniyaml] + extra_dependencies,
     install: true,
 )

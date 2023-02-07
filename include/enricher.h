@@ -3,6 +3,7 @@
 #ifndef ENRICHER_H
 #define ENRICHER_H
 
+#include <robinhood/backend.h>
 #include <robinhood/iterator.h>
 
 struct enrich;
