@@ -34,6 +34,7 @@ enum rbh_source_t {
 static void
 usage(void)
 {
+    /* TODO: accept source as a URI or a '-', like src:lustre:lustre-MDT0000. */
     const char *message =
         "usage: %s [-h] [--raw] [--enrich MOUNTPOINT] [--lustre] SOURCE DESTINATION\n"
         "\n"
@@ -177,6 +178,15 @@ mount_fd_exit(void)
 
 static const size_t BATCH_SIZE = 1;
 
+static struct rbh_backend *enrich_point;
+
+static void __attribute__((destructor))
+destroy_enrich_point(void)
+{
+    if (enrich_point)
+        rbh_backend_destroy(enrich_point);
+}
+
 static void
 feed(struct sink *sink, struct source *source, bool enrich,
      const char *backend_uri, bool allow_partials)
@@ -196,10 +206,14 @@ feed(struct sink *sink, struct source *source, bool enrich,
             break;
 
         if (enrich) {
-            enum rbh_enricher_t enricher_type;
+            enum rbh_enricher_t enrich_type;
             struct rbh_raw_uri *raw_uri;
             struct rbh_uri *rbh_uri;
             int save_errno;
+
+            enrich_point = rbh_backend_from_uri(backend_uri);
+            if (enrich_point == NULL)
+                error(EXIT_FAILURE, errno, "rbh_backend_from_uri");
 
             raw_uri = rbh_raw_uri_from_string(backend_uri);
             if (raw_uri == NULL)
@@ -213,7 +227,7 @@ feed(struct sink *sink, struct source *source, bool enrich,
                 error(EXIT_FAILURE, errno, "rbh_uri_from_raw_uri: %s",
                       backend_uri);
 
-            enricher_type = parse_enricher_type(rbh_uri->backend);
+            enrich_type = parse_enricher_type(rbh_uri->backend);
             mount_fd = open(rbh_uri->fsname, O_RDONLY | O_CLOEXEC);
             save_errno = errno;
             free(rbh_uri);
@@ -221,7 +235,8 @@ feed(struct sink *sink, struct source *source, bool enrich,
             if (mount_fd == -1)
                 error(EXIT_FAILURE, errno, "open: %s", rbh_uri->fsname);
 
-            fsevents = iter_enrich(fsevents, enricher_type, mount_fd);
+            fsevents = iter_enrich(fsevents, enrich_point, enrich_type,
+                                   mount_fd);
         }
         else if (!allow_partials) {
             fsevents = iter_no_partial(fsevents);
