@@ -5,10 +5,19 @@
 
 #include <robinhood/iterator.h>
 
+enum rbh_enricher_t {
+    ENR_POSIX = 0,
+    ENR_LUSTRE
+};
+
 struct rbh_iterator *
-iter_enrich(struct rbh_iterator *fsevents, int mount_fd);
+iter_enrich(struct rbh_iterator *fsevents, enum rbh_enricher_t enricher_type,
+            int mount_fd);
 
 struct rbh_iterator *
 iter_no_partial(struct rbh_iterator *fsevents);
+
+enum rbh_enricher_t
+parse_enricher_type(const char *arg);
 
 #endif
