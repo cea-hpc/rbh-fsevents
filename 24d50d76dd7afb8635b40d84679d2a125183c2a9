@@ -1,0 +1,274 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06dcddae_512f4f52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T15:38:31Z",
+      "side": 1,
+      "message": "If needed, I can split this patch in two/three parts. Just ask ;).",
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12d70f85_f5cc2aa0",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T15:38:31Z",
+      "side": 1,
+      "message": "question: not sure this is the right way to do this, also we may consider the enricher is by default related to the source\n\nWhat I am sure about is we cannot rely on the YAML content to select the right enricher without deeply modifying the existing code.",
+      "range": {
+        "startLine": 45,
+        "startChar": 33,
+        "endLine": 45,
+        "endChar": 54
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5270b37f_c971c97e",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T15:38:31Z",
+      "side": 1,
+      "message": "minor: to remove, and check if the include is necessary",
+      "range": {
+        "startLine": 6,
+        "startChar": 20,
+        "endLine": 6,
+        "endChar": 31
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90914e1d_b4c8686d",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T15:38:31Z",
+      "side": 1,
+      "message": "defect: lustre_attrs.h",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62d1b6d8_f31d2c73",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T15:38:31Z",
+      "side": 1,
+      "message": "minor: to remove",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 11
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ead5b85_831a7f63",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T15:38:31Z",
+      "side": 1,
+      "message": "minor: to remove",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 9
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a015771_e521b0ff",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T15:38:31Z",
+      "side": 1,
+      "message": "style: width \u003e80",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 54,
+        "endChar": 96
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ad7f0e8_317356fd",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T15:38:31Z",
+      "side": 1,
+      "message": "style: width \u003e80",
+      "range": {
+        "startLine": 59,
+        "startChar": 16,
+        "endLine": 59,
+        "endChar": 82
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf7926e2_accb6056",
+        "filename": "src/enrichers/posix.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T15:38:31Z",
+      "side": 1,
+      "message": "style: width \u003e80",
+      "range": {
+        "startLine": 748,
+        "startChar": 4,
+        "endLine": 748,
+        "endChar": 82
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a984e81f_2302ee83",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T15:38:31Z",
+      "side": 1,
+      "message": "minor? may need to change this helper",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 3
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "520b823e_00620757",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T15:38:31Z",
+      "side": 1,
+      "message": "suggest: not okay with this, want to have a variadic `build_pairs()`\n\n static struct _pair_arg {\n     const char *key;\n     struct rbh_value *(*part_builder)(void *);\n     void *part_builder_arg;\n };\n \n static struct rbh_value_pair *\n build_pairs(struct _pair_arg arg, ...) { }",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 1
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b67a2c00_7d28c870",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T15:38:31Z",
+      "side": 1,
+      "message": "style: width \u003e80",
+      "range": {
+        "startLine": 313,
+        "startChar": 12,
+        "endLine": 313,
+        "endChar": 93
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
