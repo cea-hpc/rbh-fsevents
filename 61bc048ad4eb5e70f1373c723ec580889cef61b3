@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa018eac_fe4c4d34",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T16:32:52Z",
+      "side": 1,
+      "message": "typo: 2023 :p",
+      "range": {
+        "startLine": 4,
+        "startChar": 16,
+        "endLine": 4,
+        "endChar": 20
+      },
+      "revId": "61bc048ad4eb5e70f1373c723ec580889cef61b3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}

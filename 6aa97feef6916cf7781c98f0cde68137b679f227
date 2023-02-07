@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7694084f_449cb085",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-02-07T16:32:52Z",
+      "side": 1,
+      "message": "I would say it is better to use rbh-sync for setting the database, to only test the desired feature of rbh-fsevents. But I clearly see your point about rbh-sync availabity..",
+      "parentUuid": "a6c7609f_30179968",
+      "range": {
+        "startLine": 20,
+        "startChar": 50,
+        "endLine": 20,
+        "endChar": 61
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51fee8c2_9fa58f60",
         "filename": "tests/test_setxattr.bash",
         "patchSetId": 2
