@@ -43,6 +43,76 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8dd2583e_b93c72b5",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T11:17:50Z",
+      "side": 1,
+      "message": "An improvement could be that if the command line contains --enrich and the source (here, --lustre), the type of enricher is automatically assumed to be lustre. But if we do the commands in separate lines, specifying the type of enricher and the mountpoint seems okay to me.\n\nAnother thing, which I\u0027m not really sure is a code improvement, but I think could be a readability improvement, is to also have the source type specified as a proper optional argument, i.e. `--src-type lustre`. That would align the enricher options and the source ones, but extend the command line a bit, which is a counterpoint:\n`rbh-fsevents --src-type lustre --enricher lustre --enrich /mnt/lustre src dest`",
+      "parentUuid": "12d70f85_f5cc2aa0",
+      "range": {
+        "startLine": 45,
+        "startChar": 33,
+        "endLine": 45,
+        "endChar": 54
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1f6e5fc_7decede8",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T11:17:50Z",
+      "side": 1,
+      "message": "suggest: keep the enricher.c file, and the iter_enrich function in it, but it would just do this switch",
+      "range": {
+        "startLine": 208,
+        "startChar": 12,
+        "endLine": 208,
+        "endChar": 36
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb611894_30904777",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T11:17:50Z",
+      "side": 1,
+      "message": "suggest: if you keep the enricher.c file, this could also be put in it.\n`enricher_type \u003d parse_enricher_type(optarg)` and define `parse_enricher_type` in enricher.c",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 18
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5270b37f_c971c97e",
         "filename": "src/enrichers/lustre.c",
         "patchSetId": 1
@@ -158,6 +228,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f44233b0_bc0159e9",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T11:17:50Z",
+      "side": 1,
+      "message": "comment: maybe it\u0027s time we remove this layer, and keep the info to enrich directly in rbh-fsevents",
+      "range": {
+        "startLine": 54,
+        "startChar": 16,
+        "endLine": 54,
+        "endChar": 49
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ad7f0e8_317356fd",
         "filename": "src/enrichers/lustre.c",
         "patchSetId": 1
@@ -174,6 +267,98 @@
         "startChar": 16,
         "endLine": 59,
         "endChar": 82
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42a68fb2_cf2d5f30",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T11:17:50Z",
+      "side": 1,
+      "message": "comment: for now this is good enough, but for future events, we may have to retrieve only a subset of information (e.g. an archival event only requires retrieving the hsm info for instance, not other stuff)",
+      "range": {
+        "startLine": 61,
+        "startChar": 16,
+        "endLine": 62,
+        "endChar": 61
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e456b098_3425bc69",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T11:17:50Z",
+      "side": 1,
+      "message": "style: alignment",
+      "range": {
+        "startLine": 78,
+        "startChar": 16,
+        "endLine": 78,
+        "endChar": 44
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02660cad_d4a577b6",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T11:17:50Z",
+      "side": 1,
+      "message": "minor: should be in the if, before the close (or if rc \u003d\u003d -1, set size to rc, and add a goto to line 105",
+      "range": {
+        "startLine": 93,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 23
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f378b4d_da523472",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T11:17:50Z",
+      "side": 1,
+      "message": "minor: errno not reset before/after",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 14
       },
       "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
@@ -204,6 +389,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec9bcbcc_f3e839d7",
+        "filename": "src/enrichers/posix.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T11:17:50Z",
+      "side": 1,
+      "message": "major: I don\u0027t think this file should be called posix.c, because everything done in it is not specific to POSIX, but rather the enriching process in general. Per RBH specification, you can only enrich statx values in an upsert for instance, that is the behaviour of the enriching process in RBH, and not a behaviour specific to POSIX.",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 777,
+        "endChar": 17
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecb7b391_0d4226a0",
+        "filename": "src/enrichers/posix_internals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T11:17:50Z",
+      "side": 1,
+      "message": "major: idem, I don\u0027t think any of this is specific to POSIX",
+      "range": {
+        "startLine": 3,
+        "startChar": 8,
+        "endLine": 3,
+        "endChar": 25
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a984e81f_2302ee83",
         "filename": "src/sources/lustre.c",
         "patchSetId": 1
@@ -215,6 +446,30 @@
       "writtenOn": "2023-02-07T15:38:31Z",
       "side": 1,
       "message": "minor? may need to change this helper",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 3
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12936208_898d65a1",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-02-09T11:17:50Z",
+      "side": 1,
+      "message": "No I think it\u0027s the same, the fid is still kept at the same place",
+      "parentUuid": "a984e81f_2302ee83",
       "range": {
         "startLine": 78,
         "startChar": 0,
