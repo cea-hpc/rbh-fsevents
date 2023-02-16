@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ded8faa_d523e829",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-02-16T09:18:17Z",
+      "side": 1,
+      "message": "I think its easier to avoid dependencies between projects as much as possible. Otherwise, we will have to make sure that we have the right version of each project.",
+      "parentUuid": "7694084f_449cb085",
+      "range": {
+        "startLine": 20,
+        "startChar": 50,
+        "endLine": 20,
+        "endChar": 61
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51fee8c2_9fa58f60",
         "filename": "tests/test_setxattr.bash",
         "patchSetId": 2
