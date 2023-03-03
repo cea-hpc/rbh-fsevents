@@ -18,6 +18,46 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5ea0f3e_6737b2b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-03T10:55:12Z",
+      "side": 1,
+      "message": "I didn\u0027t do a full review since there is are lot of comments already.",
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00c54af0_9bff42d2",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-03T10:55:12Z",
+      "side": 1,
+      "message": "comment: it seems dangerous to me to have enums changing their value depending on the build configuration. It doesn\u0027t hurt to have Lustre specific values even when we don\u0027t use it.",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12d70f85_f5cc2aa0",
@@ -55,6 +95,30 @@
       "side": 1,
       "message": "An improvement could be that if the command line contains --enrich and the source (here, --lustre), the type of enricher is automatically assumed to be lustre. But if we do the commands in separate lines, specifying the type of enricher and the mountpoint seems okay to me.\n\nAnother thing, which I\u0027m not really sure is a code improvement, but I think could be a readability improvement, is to also have the source type specified as a proper optional argument, i.e. `--src-type lustre`. That would align the enricher options and the source ones, but extend the command line a bit, which is a counterpoint:\n`rbh-fsevents --src-type lustre --enricher lustre --enrich /mnt/lustre src dest`",
       "parentUuid": "12d70f85_f5cc2aa0",
+      "range": {
+        "startLine": 45,
+        "startChar": 33,
+        "endLine": 45,
+        "endChar": 54
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dc64ecd_f4778f69",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-03T10:55:12Z",
+      "side": 1,
+      "message": "An alternative suggestion: we could use an URI for the --enrich (that I would rename --enricher):\n\n```\nrbh-fsevents --lustre lustre-MDT000 - |\n    rbh-fsevents --enricher rbh:lustre:/mnt/lustre - rbh:mongo:store\n```\n\nLike this, we know the path and type of backend to use for the enricher. Also, we could add a --posix for the source to be consistent with Lustre.\n\n```\nrbh-fsevents --posix /mnt/myfs - |\n    rbh-fsevents --enricher rbh:posix:/mnt/myfs - rbh:mongo:myfs\n```\n\nAnd the one liner would look like this (and similarly for lustre):\n```\nrbh-fsevents --posix --enricher rbh:posix:/mnt/myfs /mnt/myfs rbh:mongo:myfs\n```\n\nMaybe we could make it simpler for the one liner with a --enrich flag and assume that both the enricher and the source will use the same backend:\n```\nrbh-fsevents --enrich rbh:posix:/mnt/myfs rbh:mongo:myfs\n```\n\nBut in the case of Lustre we might want to use something like `rbh:lustre:lustre-MDT000` which breaks the current URI definition and would maybe confuse the users. I don\u0027t know that it would work for lustre since the source and enricher require different information (lustre-MDT000 for the source and /mnt/lustre for the enricher). Although, it may be possible to get the mount point from the MDT name. Thanks to the mdt name, we have the name of the filesystem so we can retrive the mount point.\n\nSomething like this would probably work:\n```\nrbh-fsevents --enrich rbh:lustre:lustre-MDT000 rbh:mongo:lustre\n```\n\nThis would not prevent a user to do something like this:\n```\nrbh-fsevents --enricher rbh:lustre:/mnt/lustre --posix /mnt/lustre rbh:mongo:lustre\n```\n\nWhich seems weird to do but it would still be possible.",
+      "parentUuid": "8dd2583e_b93c72b5",
       "range": {
         "startLine": 45,
         "startChar": 33,
@@ -400,6 +464,30 @@
       "writtenOn": "2023-02-09T11:17:50Z",
       "side": 1,
       "message": "major: I don\u0027t think this file should be called posix.c, because everything done in it is not specific to POSIX, but rather the enriching process in general. Per RBH specification, you can only enrich statx values in an upsert for instance, that is the behaviour of the enriching process in RBH, and not a behaviour specific to POSIX.",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 777,
+        "endChar": 17
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "225ca168_e301c46e",
+        "filename": "src/enrichers/posix.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-03T10:55:12Z",
+      "side": 1,
+      "message": "I don\u0027t agree with you that statx should be enforced by RBH\u0027s specification. Otherwise, we will have trouble integrating non POSIX backends such as Hestia.",
+      "parentUuid": "ec9bcbcc_f3e839d7",
       "range": {
         "startLine": 777,
         "startChar": 0,
