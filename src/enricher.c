@@ -488,7 +488,7 @@ enrich_statx(struct rbh_statx *dest, const struct rbh_id *id, int mount_fd,
 {
     static const int STATX_FLAGS = AT_STATX_FORCE_SYNC | AT_EMPTY_PATH
                                  | AT_NO_AUTOMOUNT | AT_SYMLINK_NOFOLLOW;
-    struct rbh_statx statxbuf;
+    struct rbh_statx statxbuf = {0};
     int save_errno;
     int rc;
     int fd;
@@ -507,10 +507,13 @@ enrich_statx(struct rbh_statx *dest, const struct rbh_id *id, int mount_fd,
         return -1;
     }
 
-    if (original)
+    if (original) {
         *dest = *original;
-    else
+    } else {
         dest->stx_mask = 0;
+        dest->stx_mode = 0;
+    }
+
     merge_statx(dest, &statxbuf);
     return 0;
 }
