@@ -555,6 +555,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9b68969_90f6b1a4",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-17T09:27:58Z",
+      "side": 1,
+      "message": "This can wait till the whole stack is done, it\u0027s not that big of a deal since the code is already there, and it\u0027s not that problematic per say",
+      "parentUuid": "dc1b4e98_ed13c026",
+      "range": {
+        "startLine": 54,
+        "startChar": 16,
+        "endLine": 54,
+        "endChar": 49
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ad7f0e8_317356fd",
         "filename": "src/enrichers/lustre.c",
         "patchSetId": 1
@@ -906,6 +930,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f84a2084_0d78530e",
+        "filename": "src/enrichers/posix.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-17T09:27:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c596b2a1_ada20046",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 777,
+        "endChar": 17
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecb7b391_0d4226a0",
@@ -1037,6 +1085,30 @@
       "writtenOn": "2023-02-07T15:38:31Z",
       "side": 1,
       "message": "suggest: not okay with this, want to have a variadic `build_pairs()`\n\n static struct _pair_arg {\n     const char *key;\n     struct rbh_value *(*part_builder)(void *);\n     void *part_builder_arg;\n };\n \n static struct rbh_value_pair *\n build_pairs(struct _pair_arg arg, ...) { }",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 1
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed15e080_5102363a",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-17T09:27:58Z",
+      "side": 1,
+      "message": "Will this be done in a later patch or this one ?",
+      "parentUuid": "520b823e_00620757",
       "range": {
         "startLine": 166,
         "startChar": 0,
