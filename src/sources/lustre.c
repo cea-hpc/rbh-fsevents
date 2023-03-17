@@ -286,9 +286,10 @@ build_create_event(unsigned int process_step, struct changelog_rec *record,
 {
     struct rbh_statx *rec_statx;
     uint32_t statx_enrich_mask;
+    struct rbh_id *id;
     char *data;
 
-    assert(process_step < 3);
+    assert(process_step < 4);
     switch(process_step) {
         case 0:
             fsevent->type = RBH_FET_LINK;
@@ -323,6 +324,18 @@ build_create_event(unsigned int process_step, struct changelog_rec *record,
             statx_enrich_mask = RBH_STATX_ALL ^ RBH_STATX_UID ^ RBH_STATX_GID;
 
             if (build_statx_event(statx_enrich_mask, fsevent, rec_statx))
+                return -1;
+
+            return 1;
+        case 3: /* Update the parent information after creating a new entry */
+            id = build_id(&record->cr_pfid);
+            if (id == NULL)
+                return -1;
+
+            fsevent->id.data = id->data;
+            fsevent->id.size = id->size;
+
+            if (build_statx_event(RBH_STATX_ALL, fsevent, NULL))
                 return -1;
 
             return 0;
