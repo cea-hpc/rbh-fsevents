@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72fbcc7d_21b3beaf",
+        "filename": "tests/test_creat_close.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-17T13:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dcfd7b2_41ff17ee",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 23
+      },
+      "revId": "7eaf28e54ba2601d0b4d6ca683bf295a314b6bec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad038363_2160cf0c",
@@ -47,6 +71,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "702af217_35459550",
+        "filename": "tests/test_creat_close.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-17T13:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad038363_2160cf0c",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "7eaf28e54ba2601d0b4d6ca683bf295a314b6bec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c12018f9_e2d70498",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-02-06T13:56:00Z",
       "side": 1,
       "message": "test_check_statx_attr",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 22
+      },
+      "revId": "7eaf28e54ba2601d0b4d6ca683bf295a314b6bec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcf5b1d8_049a354c",
+        "filename": "tests/test_creat_close.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-17T13:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c12018f9_e2d70498",
       "range": {
         "startLine": 67,
         "startChar": 0,
@@ -116,6 +188,54 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "245966ab_9acd4f50",
+        "filename": "tests/test_creat_close.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-17T13:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d455d5f6_c1e4b18b",
+      "range": {
+        "startLine": 92,
+        "startChar": 59,
+        "endLine": 92,
+        "endChar": 63
+      },
+      "revId": "7eaf28e54ba2601d0b4d6ca683bf295a314b6bec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f3742ee_acaac863",
+        "filename": "tests/test_creat_close.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-17T13:02:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d5331f2_fc8b2290",
+      "range": {
+        "startLine": 92,
+        "startChar": 73,
+        "endLine": 92,
+        "endChar": 77
+      },
+      "revId": "7eaf28e54ba2601d0b4d6ca683bf295a314b6bec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7c114a0_99dfac4d",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-02-06T13:56:00Z",
       "side": 1,
       "message": "question: where is userid defined?",
+      "range": {
+        "startLine": 30,
+        "startChar": 23,
+        "endLine": 30,
+        "endChar": 29
+      },
+      "revId": "7eaf28e54ba2601d0b4d6ca683bf295a314b6bec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8aacd030_09833a46",
+        "filename": "tests/test_utils.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-17T13:02:02Z",
+      "side": 1,
+      "message": "It is defined in the source test files, added a function above to register a changelog reader that will also set this userid.",
+      "parentUuid": "b7c114a0_99dfac4d",
       "range": {
         "startLine": 30,
         "startChar": 23,
