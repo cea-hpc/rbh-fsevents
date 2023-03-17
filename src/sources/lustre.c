@@ -281,8 +281,9 @@ create_statx_uid_gid(struct changelog_rec *record, struct rbh_statx **rec_statx)
 }
 
 static int
-build_create_event(unsigned int process_step, struct changelog_rec *record,
-                   struct rbh_fsevent *fsevent)
+build_create_inode_event(unsigned int process_step,
+                         struct changelog_rec *record,
+                         struct rbh_fsevent *fsevent)
 {
     struct rbh_statx *rec_statx;
     uint32_t statx_enrich_mask;
@@ -416,7 +417,8 @@ retry:
 
     switch(record->cr_type) {
     case CL_CREATE:
-        rc = build_create_event(records->process_step, record, fsevent);
+    case CL_MKDIR:
+        rc = build_create_inode_event(records->process_step, record, fsevent);
         break;
     case CL_SETXATTR:
         rc = build_setxattr_event(records->process_step, record, fsevent);
@@ -436,7 +438,6 @@ retry:
         statx_enrich_mask |= RBH_STATX_ATIME_SEC | RBH_STATX_ATIME_NSEC;
         rc = build_statx_event(statx_enrich_mask, fsevent, NULL);
         break;
-    case CL_MKDIR:      /* RBH_FET_UPSERT */
     case CL_HARDLINK:   /* RBH_FET_LINK? */
     case CL_SOFTLINK:   /* RBH_FET_UPSERT + symlink */
     case CL_MKNOD:
