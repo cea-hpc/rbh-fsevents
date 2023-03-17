@@ -15,25 +15,25 @@ test_dir=$(dirname $(readlink -e $0))
 
 creat_entry()
 {
-    touch $1
+    mkdir $1
 }
 
 creat_filled_entry()
 {
-    echo "blob" > $1
+    mkdir -p $1/tmp_test_dir
 }
 
-test_creat_file()
+test_creat_dir()
 {
     test_creat_entry
 }
 
-test_creat_two_files()
+test_creat_two_dirs()
 {
     test_creat_two_entries
 }
 
-test_creat_file_check_statx_attr()
+test_creat_dir_check_statx_attr()
 {
     test_creat_entry_check_statx_attr
 }
@@ -44,8 +44,8 @@ test_creat_file_check_statx_attr()
 
 source $test_dir/test_create_inode.bash
 
-declare -a tests=(test_creat_file test_creat_two_files
-                  test_creat_file_check_statx_attr)
+declare -a tests=(test_creat_dir test_creat_two_dirs
+                  test_creat_dir_check_statx_attr)
 
 LUSTRE_DIR=/mnt/lustre/
 cd "$LUSTRE_DIR"
