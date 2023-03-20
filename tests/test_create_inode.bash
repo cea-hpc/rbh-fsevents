@@ -15,8 +15,13 @@ test_creat_entry()
         "rbh:mongo:$testdb"
 
     local entries=$(mongo "$testdb" --eval "db.entries.find()" | wc -l)
-    if [[ $entries -ne 2 ]]; then
-        error "There should be only two entries in the database"
+    # ls -l will also print "total n", which should be discarded, but since
+    # we add to the DB the Lustre mount point which will not be referenced by
+    # ls -l, the DB will have more entry, so it cancels out
+    local count=$(ls -l | wc -l)
+    count=$((count))
+    if [[ $entries -ne $count ]]; then
+        error "There should be only $count entries in the database"
     fi
 
     find_attribute "\"ns.name\":\"$entry\""
