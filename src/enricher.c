@@ -638,7 +638,10 @@ enrich_symlink(char symlink[SYMLINK_MAX_SIZE], const struct rbh_id *id,
     if (fd == -1)
         return -1;
 
-    rc = readlinkat(fd, "", symlink, SYMLINK_MAX_SIZE);
+    rc = readlinkat(fd, "", symlink, SYMLINK_MAX_SIZE - 1);
+    if (rc != -1)
+        symlink[rc] = 0;
+
     save_errno = errno;
     /* Ignore errors on close */
     close(fd);
