@@ -152,6 +152,25 @@ build_xattrs(void *arg)
     return xattr_sequence;
 }
 
+static struct rbh_value *
+build_symlink(void *arg)
+{
+    const struct rbh_value SYMLINK = {
+        .type = RBH_VT_STRING,
+        .string = "symlink",
+    };
+    struct rbh_value *symlink;
+
+    (void) arg;
+
+    symlink = rbh_sstack_push(_values, NULL, sizeof(*symlink));
+    if (symlink == NULL)
+        return NULL;
+    *symlink = SYMLINK;
+
+    return symlink;
+}
+
 static struct rbh_value_pair *
 build_pair(const char *key, struct rbh_value *(*part_builder)(void *),
            void *part_builder_arg)
@@ -198,18 +217,30 @@ _fill_enrich(const char *key, struct rbh_value *(*builder)(void *),
 }
 
 /* BSON results:
- *  * { "xattrs" : { "rbh-fsevents" : { "xattrs" : [ a, b, c, ... ] } } }
- *   */
+ * { "xattrs" : { "rbh-fsevents" : { "xattrs" : [ a, b, c, ... ] } } }
+ */
 static struct rbh_value *
 fill_inode_xattrs(void *arg)
 {
     return _fill_enrich("xattrs", build_xattrs, arg);
 }
 
+/* BSON results:
+ * { "xattrs" : { "rbh-fsevents" : { "statx" : 1234567 } } }
+ */
 static struct rbh_value *
 fill_statx(void *arg)
 {
     return _fill_enrich("statx", build_statx_mask, arg);
+}
+
+/* BSON results:
+ * { "xattrs" : { "rbh-fsevents" : { "symlink" : "symlink" } } }
+ */
+static struct rbh_value *
+fill_symlink(void *arg)
+{
+    return _fill_enrich("symlink", build_symlink, arg);
 }
 
 static struct rbh_value_map
@@ -290,7 +321,7 @@ build_create_inode_event(unsigned int process_step,
     struct rbh_id *id;
     char *data;
 
-    assert(process_step < 4);
+    assert(process_step < 5);
     switch(process_step) {
         case 0:
             fsevent->type = RBH_FET_LINK;
@@ -337,6 +368,15 @@ build_create_inode_event(unsigned int process_step,
             fsevent->id.size = id->size;
 
             if (build_statx_event(RBH_STATX_ALL, fsevent, NULL))
+                return -1;
+
+            return record->cr_type == CL_SOFTLINK ? 1 : 0;
+        case 4: /* Mark the event for enrichment of the symlink target */
+            fsevent->type = RBH_FET_UPSERT;
+            fsevent->upsert.statx = NULL;
+
+            fsevent->xattrs = build_enrich_map(fill_symlink, NULL);
+            if (fsevent->xattrs.pairs == NULL)
                 return -1;
 
             return 0;
@@ -418,6 +458,7 @@ retry:
     switch(record->cr_type) {
     case CL_CREATE:
     case CL_MKDIR:
+    case CL_SOFTLINK:
         rc = build_create_inode_event(records->process_step, record, fsevent);
         break;
     case CL_SETXATTR:
@@ -439,7 +480,6 @@ retry:
         rc = build_statx_event(statx_enrich_mask, fsevent, NULL);
         break;
     case CL_HARDLINK:   /* RBH_FET_LINK? */
-    case CL_SOFTLINK:   /* RBH_FET_UPSERT + symlink */
     case CL_MKNOD:
     case CL_UNLINK:     /* RBH_FET_UNLINK or RBH_FET_DELETE */
     case CL_RMDIR:      /* RBH_FET_UNLINK or RBH_FET_DELETE */
