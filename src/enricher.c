@@ -627,8 +627,7 @@ err:
 #define SYMLINK_MAX_SIZE (1 << 16)
 
 static int
-enrich_symlink(char symlink[SYMLINK_MAX_SIZE], const struct rbh_id *id,
-               int mount_fd)
+enrich_symlink(char *symlink, const struct rbh_id *id, int mount_fd)
 {
     int save_errno;
     ssize_t rc;
@@ -638,7 +637,10 @@ enrich_symlink(char symlink[SYMLINK_MAX_SIZE], const struct rbh_id *id,
     if (fd == -1)
         return -1;
 
-    rc = readlinkat(fd, "", symlink, SYMLINK_MAX_SIZE);
+    rc = readlinkat(fd, "", symlink, SYMLINK_MAX_SIZE - 1);
+    if (rc != -1)
+        symlink[rc] = 0;
+
     save_errno = errno;
     /* Ignore errors on close */
     close(fd);
@@ -650,7 +652,7 @@ static int
 _enrich(const struct rbh_value_pair *partial, struct rbh_value_pair **pairs,
         size_t *pair_count, struct rbh_fsevent *enriched,
         const struct rbh_fsevent *original, int mount_fd,
-        struct rbh_statx *statxbuf, char symlink[SYMLINK_MAX_SIZE])
+        struct rbh_statx *statxbuf, char *symlink)
 {
     uint32_t statx_mask;
 
