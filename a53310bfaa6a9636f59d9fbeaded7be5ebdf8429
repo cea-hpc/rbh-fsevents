@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67e517c4_3ff98525",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-20T15:40:55Z",
+      "side": 1,
+      "message": "question: what are the modified metadata here? access/modified for sure, other things?",
+      "range": {
+        "startLine": 338,
+        "startChar": 12,
+        "endLine": 338,
+        "endChar": 64
+      },
+      "revId": "a53310bfaa6a9636f59d9fbeaded7be5ebdf8429",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
