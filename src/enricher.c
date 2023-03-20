@@ -493,7 +493,8 @@ enrich_statx(struct rbh_statx *dest, const struct rbh_id *id, int mount_fd,
     int rc;
     int fd;
 
-    fd = open_by_id(mount_fd, id, O_RDONLY | O_CLOEXEC | O_NOFOLLOW | O_PATH);
+    fd = open_by_id(mount_fd, id,
+                    O_RDONLY | O_CLOEXEC | O_NOFOLLOW | O_PATH | O_NONBLOCK);
     if (fd == -1)
         return -1;
 
@@ -561,11 +562,13 @@ enrich_xattrs(const struct rbh_value *xattrs_to_enrich,
     xattrs_seq = xattrs_to_enrich->sequence.values;
     xattrs_count = xattrs_to_enrich->sequence.count;
 
-    fd = open_by_id(mount_fd, id, O_RDONLY | O_CLOEXEC | O_NOFOLLOW);
+    fd = open_by_id(mount_fd, id,
+                    O_RDONLY | O_CLOEXEC | O_NOFOLLOW | O_NONBLOCK);
     if (fd < 0 && errno == ELOOP)
         /* If the file to open is a symlink, reopen it with O_PATH set */
-        fd = open_by_id(mount_fd, id, O_RDONLY | O_CLOEXEC | O_NOFOLLOW |
-                        O_PATH);
+        fd = open_by_id(mount_fd, id,
+                        O_RDONLY | O_CLOEXEC | O_NOFOLLOW | O_PATH |
+                        O_NONBLOCK);
 
     if (fd < 0) {
         rc = -1;
