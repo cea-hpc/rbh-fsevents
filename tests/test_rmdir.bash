@@ -15,20 +15,20 @@ test_dir=$(dirname $(readlink -e $0))
 
 creat_entry()
 {
-    touch $1
+    mkdir $1
 }
 
 rm_entry()
 {
-    rm -f $1
+    rm -rf $1
 }
 
-test_unlink_same_batch()
+test_rmdir_same_batch()
 {
     test_rm_same_batch
 }
 
-test_unlink_different_batch()
+test_rmdir_different_batch()
 {
     test_rm_different_batch
 }
@@ -39,7 +39,7 @@ test_unlink_different_batch()
 
 source $test_dir/test_rm_inode.bash
 
-declare -a tests=(test_unlink_same_batch test_unlink_different_batch)
+declare -a tests=(test_rmdir_same_batch test_rmdir_different_batch)
 
 LUSTRE_DIR=/mnt/lustre/
 cd "$LUSTRE_DIR"
