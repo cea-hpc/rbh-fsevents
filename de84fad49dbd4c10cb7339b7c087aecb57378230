@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb14fd9e_7ea7baec",
+        "filename": "tests/test_creat_close.bash",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-21T14:33:39Z",
+      "side": 1,
+      "message": "typo: not know how",
+      "range": {
+        "startLine": 99,
+        "startChar": 17,
+        "endLine": 99,
+        "endChar": 24
+      },
+      "revId": "de84fad49dbd4c10cb7339b7c087aecb57378230",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0025328a_c7d5feb0",
+        "filename": "tests/test_creat_close.bash",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-21T14:33:39Z",
+      "side": 1,
+      "message": "comment: I was wondering if this was a Lustre behavior to consider a different birth time; maybe you can check using a lustre command?",
+      "range": {
+        "startLine": 102,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 78
+      },
+      "revId": "de84fad49dbd4c10cb7339b7c087aecb57378230",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
