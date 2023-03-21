@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da346ff7_6e0c04ca",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-21T15:45:22Z",
+      "side": 1,
+      "message": "Okay, I added the default case and go on error in this case.",
+      "parentUuid": "fd676061_ac8291b5",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "4c4e255b20836dd2c4a526b94ffd472c56bdcb45",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7db528b_ca7bdb48",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-17T09:27:58Z",
       "side": 1,
       "message": "nit: I\u0027d be tempted to remove this ifdef, since ENR_LUSTRE is always defined,and let the function above decide whether or not Lustre is a valid enricher type",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 18
+      },
+      "revId": "4c4e255b20836dd2c4a526b94ffd472c56bdcb45",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "890f05f3_cd5e2601",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-21T15:45:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7db528b_ca7bdb48",
       "range": {
         "startLine": 37,
         "startChar": 0,

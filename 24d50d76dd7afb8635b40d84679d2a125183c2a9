@@ -179,6 +179,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ebb8276c_5cadf19b",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-21T15:45:22Z",
+      "side": 1,
+      "message": "I added a TODO in the code, if you agree I will create the ticket.",
+      "parentUuid": "cf85ed2a_aa0fcbaa",
+      "range": {
+        "startLine": 45,
+        "startChar": 33,
+        "endLine": 45,
+        "endChar": 54
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1f6e5fc_7decede8",
         "filename": "rbh-fsevents.c",
         "patchSetId": 1
@@ -567,6 +591,30 @@
       "side": 1,
       "message": "This can wait till the whole stack is done, it\u0027s not that big of a deal since the code is already there, and it\u0027s not that problematic per say",
       "parentUuid": "dc1b4e98_ed13c026",
+      "range": {
+        "startLine": 54,
+        "startChar": 16,
+        "endLine": 54,
+        "endChar": 49
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c11dc665_396d9678",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-21T15:45:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c9b68969_90f6b1a4",
       "range": {
         "startLine": 54,
         "startChar": 16,
@@ -1109,6 +1157,30 @@
       "side": 1,
       "message": "Will this be done in a later patch or this one ?",
       "parentUuid": "520b823e_00620757",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 1
+      },
+      "revId": "24d50d76dd7afb8635b40d84679d2a125183c2a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "080299d2_bab5f6ff",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-21T15:45:22Z",
+      "side": 1,
+      "message": "I think so, just to finish this patch here. If you are okay with this.",
+      "parentUuid": "ed15e080_5102363a",
       "range": {
         "startLine": 166,
         "startChar": 0,
