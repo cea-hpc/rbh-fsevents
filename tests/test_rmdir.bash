@@ -15,12 +15,12 @@ test_dir=$(dirname $(readlink -e $0))
 
 create_entry()
 {
-    touch $1
+    mkdir $1
 }
 
 rm_entry()
 {
-    rm -f $1
+    rmdir $1
 }
 
 ################################################################################
