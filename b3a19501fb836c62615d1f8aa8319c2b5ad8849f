@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6daf4d0e_71616ecc",
+        "filename": "include/enricher.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-22T15:31:36Z",
+      "side": 1,
+      "message": "question: why include id.h? I don\u0027t see anything that is in this header file added here.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 25
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faad048b_249ab946",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-22T15:31:36Z",
+      "side": 1,
+      "message": "comment: I think I\u0027ve already discussed this but this will not work on Lustre 2.12 and maybe some later versions as well. The .pc file was added later. So a find_library is necessary if the dependency is not found here. But this is for another patch.",
+      "range": {
+        "startLine": 36,
+        "startChar": 12,
+        "endLine": 36,
+        "endChar": 22
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e2a1cbd_0c87b57e",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-22T15:31:36Z",
+      "side": 1,
+      "message": "suggest: to avoid confusions, this library could be renamed rbh-lustre-backend.",
+      "range": {
+        "startLine": 43,
+        "startChar": 32,
+        "endLine": 43,
+        "endChar": 42
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf1758e0_b520ed9f",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-22T15:31:36Z",
+      "side": 1,
+      "message": "question: so you have both options now? What is the difference? I think this will be confusing to users.",
+      "range": {
+        "startLine": 60,
+        "startChar": 19,
+        "endLine": 60,
+        "endChar": 27
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f79a36b_0cbc7636",
+        "filename": "src/enricher.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-22T15:31:36Z",
+      "side": 1,
+      "message": "minor: I would prefer avoiding globals as much as possible. It can make the code harder to understand. I think you only need to pass it to iter_enrich and feed so this is not too much work.",
+      "range": {
+        "startLine": 20,
+        "startChar": 12,
+        "endLine": 20,
+        "endChar": 25
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaa414ef_311d3e89",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-22T15:31:36Z",
+      "side": 1,
+      "message": "suggest: you could create a function:\n\n`rbh_value *value \u003d rbh_value_map_get_value(\u0026original-\u003exattrs, \"rbh-fsevents\");`\n\nand also the same for the xattrs element:\n`rbh_value *xattrs \u003d rbh_value_map_get_value(value-\u003emap, \"xattrs\");`\n\nAlso, line 47 assumes that the value associated to rbh-fsevents is a map. You should add a check.\n\nAs for searching in the sequence goes, you can leave the loop but reverse the logic a bit I think. Once you have the sequence of xattrs, you can do a while loop:\n\n```\nrbh_value_pair *inner_value \u003d \u0026partials-\u003epairs[i];\nrbh_value_pari *end \u003d partials-\u003epairs + partials-\u003ecount;\n\nwhile (inner_value-\u003etype !\u003d RBH_VT_SEQUENCE \u0026\u0026\n       strcmp(inner_value-\u003estring, \"lustre\"))\n       inner_value++;\n       \nif (inner_value \u003d\u003d end)\n    return 0;\n    \n...\n```",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c4152b6_842d6443",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-22T15:31:36Z",
+      "side": 1,
+      "message": "suggest: !lustre_to_process",
+      "range": {
+        "startLine": 73,
+        "startChar": 25,
+        "endLine": 73,
+        "endChar": 35
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "878ea510_c9ea5324",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-22T15:31:36Z",
+      "side": 1,
+      "message": "suggest: to avoid such complex callback system you could build the sub elements inside the \"rbh-fsevents\" key before building the outer map with \"fid\" and \"rbh-fsevents\". You could have something like this:\n\nbuild_enrich_map_with_fid(record, fill_inode_xattrs(...));\n\nif build_enrich_map_with_fid handles NULL from fill_inode_xattrs, you can simply call them like this. This won\u0027t make the code that much more complex but will avoid all these callbacks. I don\u0027t mind doing the modification myself in another patch if you want.\n\nAlso, I would rename build_enrich_map_with_fid to build_enrich_xattr_fsevent(record, content)",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 13
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01ed96b6_400b4da6",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-22T15:31:36Z",
+      "side": 1,
+      "message": "suggest: I think you can put PAIRS instead of NULL as the second argument of rbh_sstack_push.",
+      "range": {
+        "startLine": 185,
+        "startChar": 18,
+        "endLine": 185,
+        "endChar": 23
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
