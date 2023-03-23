@@ -62,6 +62,30 @@
       },
       "revId": "6fb2f3fa4f50d0d2b13ce988d93f02f52b32d20e",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df83745d_6ff02e0c",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-23T12:32:10Z",
+      "side": 1,
+      "message": "I don\u0027t really understand what you are asking, could you give an code example of the result of this modification ?",
+      "parentUuid": "b977147b_4702c25c",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 29
+      },
+      "revId": "6fb2f3fa4f50d0d2b13ce988d93f02f52b32d20e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
