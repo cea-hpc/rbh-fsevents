@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fa388fb_ad95b9f0",
+        "filename": "tests/test_creat_close.bash",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-23T12:31:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb14fd9e_7ea7baec",
+      "range": {
+        "startLine": 99,
+        "startChar": 17,
+        "endLine": 99,
+        "endChar": 24
+      },
+      "revId": "de84fad49dbd4c10cb7339b7c087aecb57378230",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0025328a_c7d5feb0",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-21T14:33:39Z",
       "side": 1,
       "message": "comment: I was wondering if this was a Lustre behavior to consider a different birth time; maybe you can check using a lustre command?",
+      "range": {
+        "startLine": 102,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 78
+      },
+      "revId": "de84fad49dbd4c10cb7339b7c087aecb57378230",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48704c14_5fae2838",
+        "filename": "tests/test_creat_close.bash",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-23T12:31:33Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand what you are asking. stat on a lustre file or posix file both return 0 on my system",
+      "parentUuid": "0025328a_c7d5feb0",
       "range": {
         "startLine": 102,
         "startChar": 4,
