@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa812cd2_c6ce830e",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-23T08:51:56Z",
+      "side": 1,
+      "message": "minor: I don\u0027t mind keeping the size as the argument even though this is useless in C but at least we know by reading the signature the expected size.",
+      "range": {
+        "startLine": 630,
+        "startChar": 20,
+        "endLine": 630,
+        "endChar": 28
+      },
+      "revId": "01106f83b60f855ae792bb8fc7fef8babeead8bc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c635139a_49898cdb",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-23T08:51:56Z",
+      "side": 1,
+      "message": "minor: same here",
+      "range": {
+        "startLine": 655,
+        "startChar": 41,
+        "endLine": 655,
+        "endChar": 42
+      },
+      "revId": "01106f83b60f855ae792bb8fc7fef8babeead8bc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78152128_79c08cfe",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-23T08:51:56Z",
+      "side": 1,
+      "message": "suggest: build_symlink_string",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 13
+      },
+      "revId": "01106f83b60f855ae792bb8fc7fef8babeead8bc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0be3a3dc_a2b0f163",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-23T08:51:56Z",
+      "side": 1,
+      "message": "suggest: I think you can pass \u0026SYMLINK instead of NULL. So simply:\n\n```\nreturn rbh_sstack_push(_values, \u0026SYMLINK, sizeof(*symlink));\n```",
+      "range": {
+        "startLine": 166,
+        "startChar": 39,
+        "endLine": 166,
+        "endChar": 43
+      },
+      "revId": "01106f83b60f855ae792bb8fc7fef8babeead8bc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5494add1_28015869",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-23T08:51:56Z",
+      "side": 1,
+      "message": "minor: the name of this function is missleading. It doesn\u0027t actually fill anything. It juste creates a string \"symlink\" inside the map. You could name it build_symlink_enrich_map",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 12
+      },
+      "revId": "01106f83b60f855ae792bb8fc7fef8babeead8bc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30ef0c08_d8ccf968",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-23T08:51:56Z",
+      "side": 1,
+      "message": "suggest: build_create_inode_events",
+      "range": {
+        "startLine": 428,
+        "startChar": 17,
+        "endLine": 428,
+        "endChar": 41
+      },
+      "revId": "01106f83b60f855ae792bb8fc7fef8babeead8bc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
