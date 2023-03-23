@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "480fec28_a9303fc2",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-23T12:32:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f34a71ce_75cbccfc",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 20
+      },
+      "revId": "32c5fab18f62663b1cf23742da96fda3e631e220",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e6dca57_dc8c2ba7",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-23T09:06:03Z",
       "side": 1,
       "message": "major: I am starting to dislike this pattern. If you use the function build_create_inode_event to generate all the events necessary for an inode creation (as for symlink events), it is fine.\n\nBut you are starting to use it as a way of building a partial list of events. In essence you are calling the same function to perform 3 different tasks here. Which makes the code less readable. You should extract the functionalities of the build_create_inode_event function into separate functions and call them here. And the worst part here is that you don\u0027t call build_create_inode_event with the same process step number.\n\nInstead of trying to have one big function that does everything and is called everywhere, you should strive to identify small recurring step that can be isolated into simple functions that can be called easily.\n\nYou could do something like:\n\n```\ncase 0:\n    return link_new_inode_event(record, fsevent);\ncase 1:\n    return update_uid_gid_event(record, fsevent);\ncase 2:\n    return update_parent_statx_event(record, fsevent);\n```\n\nYes, you will repeat this code in a few of functions. But I don\u0027t think DRY should prevail over readability.\n\nAlso, you can make the code a bit simpler by using rbh\u0027s coding standards and returning an fsevent pointer instead of an integer.\n\n```\ncase 0:\n    return link_new_inode_event(record);\ncase 1:\n    return update_uid_gid_event(record);\ncase 2:\n    return update_parent_statx_event(record);\n```",
+      "range": {
+        "startLine": 452,
+        "startChar": 19,
+        "endLine": 452,
+        "endChar": 43
+      },
+      "revId": "32c5fab18f62663b1cf23742da96fda3e631e220",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aeac4a6_09ccea89",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-23T12:32:01Z",
+      "side": 1,
+      "message": "Done for the first part in an earlier patch, for the second to return a fsevent, I\u0027ll do it in a later patch, as the rest of the code builds on the premise we fill the fsevent and not create it in the events",
+      "parentUuid": "6e6dca57_dc8c2ba7",
       "range": {
         "startLine": 452,
         "startChar": 19,
