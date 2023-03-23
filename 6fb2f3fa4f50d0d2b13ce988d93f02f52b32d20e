@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52c3a786_a3936829",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-23T09:32:57Z",
+      "side": 1,
+      "message": "Nothing against this patch but I\u0027ll wait for the hardlink patch.",
+      "revId": "6fb2f3fa4f50d0d2b13ce988d93f02f52b32d20e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1601987f_0d13b28b",
+        "filename": "src/enricher.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-23T09:32:57Z",
+      "side": 1,
+      "message": "comment: this is for later but I think we can infer the type of file we are dealing with from the changelog record. This information should be passed to the enricher to avoid all these open calls. I don\u0027t think robinhood3 needs them. So I don\u0027t see we robinhood 4 does.",
+      "range": {
+        "startLine": 496,
+        "startChar": 9,
+        "endLine": 496,
+        "endChar": 19
+      },
+      "revId": "6fb2f3fa4f50d0d2b13ce988d93f02f52b32d20e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b977147b_4702c25c",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-23T09:32:57Z",
+      "side": 1,
+      "message": "suggest: to elaborate a bit on the naming of functions. This function could be called inode_creation_events. That function could be called for mkdir, create, hardlink, mknod. Then for create and mkdir, you could add, outside of the function call, a update_posix_xattrs_event function.",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 29
+      },
+      "revId": "6fb2f3fa4f50d0d2b13ce988d93f02f52b32d20e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
