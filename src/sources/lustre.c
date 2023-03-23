@@ -358,13 +358,12 @@ update_uid_gid_event(struct changelog_rec *record, struct rbh_fsevent *fsevent)
 }
 
 static int
-update_parent_statx_event(struct changelog_rec *record,
-                          struct rbh_fsevent *fsevent)
+update_parent_statx_event(struct lu_fid *parent_id, struct rbh_fsevent *fsevent)
 {
     uint32_t statx_enrich_mask;
     struct rbh_id *id;
 
-    id = build_id(&record->cr_pfid);
+    id = build_id(parent_id);
     if (id == NULL)
         return -1;
 
@@ -401,7 +400,7 @@ build_create_inode_events(unsigned int process_step,
 
         break;
     case 3: /* Update the parent information after creating a new entry */
-        if (update_parent_statx_event(record, fsevent))
+        if (update_parent_statx_event(&record->cr_pfid, fsevent))
             return -1;
 
         break;
@@ -464,7 +463,7 @@ build_softlink_events(unsigned int process_step, struct changelog_rec *record,
 
         break;
     case 3:
-        if (update_parent_statx_event(record, fsevent))
+        if (update_parent_statx_event(&record->cr_pfid, fsevent))
             return -1;
 
         break;
@@ -509,13 +508,35 @@ build_hardlink_or_mknod_events(unsigned int process_step,
 
         break;
     case 2: /* update link's parent statx */
-        if (update_parent_statx_event(record, fsevent))
+        if (update_parent_statx_event(&record->cr_pfid, fsevent))
             return -1;
-
-        break;
     }
 
     return process_step != 2 ? 1 : 0;
+}
+
+static int
+unlink_inode_event(struct lu_fid *parent_id, char *name, size_t namelen,
+                   struct rbh_fsevent *fsevent)
+{
+    char *data;
+
+    fsevent->type = RBH_FET_UNLINK;
+
+    fsevent->xattrs.count = 0;
+
+    fsevent->link.parent_id = build_id(parent_id);
+    if (fsevent->link.parent_id == NULL)
+        return -1;
+
+    data = rbh_sstack_push(_values, NULL, namelen + 1);
+    if (data == NULL)
+        return -1;
+    memcpy(data, name, namelen);
+    data[namelen] = '\0';
+    fsevent->link.name = data;
+
+    return 0;
 }
 
 static int
@@ -523,33 +544,75 @@ build_unlink_or_rmdir_events(unsigned int process_step,
                              struct changelog_rec *record,
                              struct rbh_fsevent *fsevent)
 {
-    char *data;
-
     assert(process_step < 2);
     switch(process_step) {
     case 0:
-        fsevent->type = RBH_FET_UNLINK;
-
-        fsevent->xattrs.count = 0;
-
-        fsevent->link.parent_id = build_id(&record->cr_pfid);
-        if (fsevent->link.parent_id == NULL)
+        if (unlink_inode_event(&record->cr_pfid, changelog_rec_name(record),
+                               record->cr_namelen, fsevent))
             return -1;
-
-        data = rbh_sstack_push(_values, NULL, record->cr_namelen + 1);
-        if (data == NULL)
-            return -1;
-        memcpy(data, changelog_rec_name(record), record->cr_namelen);
-        data[record->cr_namelen] = '\0';
-        fsevent->link.name = data;
 
         break;
     case 1: /* update parent statx */
-        if (update_parent_statx_event(record, fsevent))
+        if (update_parent_statx_event(&record->cr_pfid, fsevent))
             return -1;
     }
 
     return process_step != 1 ? 1 : 0;
+}
+
+/* Renames are a combination of 6 values :
+ * source fid, source parent fid, source name
+ * target fid, target parent fid, target name
+ *
+ * Since we have no way with fsevents to modify a current link
+ * parent/name/path, we instead unlink the current link using the source
+ * values, and create a new link for the target, but they all share the same
+ * inodes.
+ */
+static int
+build_rename_events(unsigned int process_step, struct changelog_rec *record,
+                    struct rbh_fsevent *fsevent)
+{
+    struct changelog_ext_rename *rename_log = changelog_rec_rename(record);
+    struct rbh_id *id;
+
+    id = build_id(&rename_log->cr_sfid);
+    if (id == NULL)
+        return -1;
+
+    fsevent->id.data = id->data;
+    fsevent->id.size = id->size;
+
+    assert(process_step < 5);
+    switch (process_step) {
+    case 0: /* create new link */
+        if (link_new_inode_event(record, fsevent))
+            return -1;
+
+        break;
+    case 1: /* update target statx */
+        if (update_uid_gid_event(record, fsevent))
+            return -1;
+
+        break;
+    case 2: /* update target's parent statx */
+        if (update_parent_statx_event(&record->cr_pfid, fsevent))
+            return -1;
+
+        break;
+    case 3: /* unlink source link */
+        if (unlink_inode_event(&rename_log->cr_spfid,
+                               changelog_rec_sname(record),
+                               changelog_rec_snamelen(record), fsevent))
+            return -1;
+
+        break;
+    case 4: /* update source's parent statx */
+        if (update_parent_statx_event(&rename_log->cr_spfid, fsevent))
+            return -1;
+    }
+
+    return process_step != 4 ? 1 : 0;
 }
 
 static const void *
@@ -630,7 +693,9 @@ retry:
         rc = build_unlink_or_rmdir_events(records->process_step, record,
                                           fsevent);
         break;
-    case CL_RENAME:     /* RBH_FET_UPSERT */
+    case CL_RENAME:
+        rc = build_rename_events(records->process_step, record, fsevent);
+        break;
     case CL_EXT:
     case CL_OPEN:
     case CL_LAYOUT:
