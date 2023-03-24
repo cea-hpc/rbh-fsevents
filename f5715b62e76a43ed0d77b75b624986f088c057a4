@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b1cdbe3_d558b816",
+        "filename": "tests/meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-24T08:25:42Z",
+      "side": 1,
+      "message": "typo: in",
+      "range": {
+        "startLine": 17,
+        "startChar": 38,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "f5715b62e76a43ed0d77b75b624986f088c057a4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6699f728_0c897e5d",
+        "filename": "tests/test_mkdir.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-24T08:25:42Z",
+      "side": 1,
+      "message": "typo: create",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 5
+      },
+      "revId": "f5715b62e76a43ed0d77b75b624986f088c057a4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a4ff157_d76fbe1d",
+        "filename": "tests/test_mkdir.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-24T08:25:42Z",
+      "side": 1,
+      "message": "minor: you should add quotes around $1 (in creat_filled_entry) as well.",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 12
+      },
+      "revId": "f5715b62e76a43ed0d77b75b624986f088c057a4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
