@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cbcfcfa_5db5c778",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-24T13:36:13Z",
+      "side": 1,
+      "message": "No idea, I probably had a reason, but I forgot it...",
+      "parentUuid": "322f2383_e896f633",
+      "range": {
+        "startLine": 270,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 17
+      },
+      "revId": "6e41ad16329a0b02f1e9c82b480a53beaf5b8456",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68e32c7f_84e8aeed",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-24T08:18:04Z",
       "side": 1,
       "message": "nit: you could set this directly with build_id:\n\n```\nfsevent-\u003eid \u003d build_id(...);\nif (!fsevent-\u003eid)\n    return -1;\n```",
+      "range": {
+        "startLine": 346,
+        "startChar": 4,
+        "endLine": 347,
+        "endChar": 32
+      },
+      "revId": "6e41ad16329a0b02f1e9c82b480a53beaf5b8456",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9e4fb57_184b1b80",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-24T13:36:13Z",
+      "side": 1,
+      "message": "Can\u0027t do that because fsevent-\u003eid is not a pointer, while build_id returns one.",
+      "parentUuid": "68e32c7f_84e8aeed",
       "range": {
         "startLine": 346,
         "startChar": 4,
