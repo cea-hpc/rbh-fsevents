@@ -581,39 +581,66 @@ build_unlink_or_rmdir_events(unsigned int process_step,
  * parent/name/path, we instead unlink the current link using the source
  * values, and create a new link for the target, but they all share the same
  * inodes.
+ *
+ * If the rename overwrote data, we must also unlink that link from the DB. This
+ * information is recored in the target fid of the record, so if it is not 0,
+ * that means data was overwriten.
  */
 static int
 build_rename_events(unsigned int process_step, struct changelog_rec *record,
                     struct rbh_fsevent *fsevent)
 {
     struct changelog_ext_rename *rename_log = changelog_rec_rename(record);
+    /* If the overwriten link is the last one and it has no HSM copy */
+    bool last_copy = (record->cr_flags & CLF_RENAME_LAST) &&
+                     !(record->cr_flags & CLF_RENAME_LAST_EXISTS);
     struct rbh_id *id;
 
-    id = build_id(&rename_log->cr_sfid);
-    if (id == NULL)
-        return -1;
+    /* Unlink of the overwriten link is the first step done, but if the target
+     * fid is 0, we can skip that step instead. To prevent any issue NULL
+     * fsevents issue, we simply increment the process_step and manage the rest
+     * of the event normally.
+     */
+    if (fid_is_zero(&record->cr_tfid))
+        process_step += 1;
 
-    fsevent->id.data = id->data;
-    fsevent->id.size = id->size;
+    /* If the process step is 0, don't change the affected id, as at this point
+     * it is target fid, which is the one we want to unlink for that first step.
+     * For every other step however, we will act of the rename's source fid.
+     */
+    if (process_step != 0) {
+        id = build_id(&rename_log->cr_sfid);
+        if (id == NULL)
+            return -1;
 
-    assert(process_step < 5);
+        fsevent->id.data = id->data;
+        fsevent->id.size = id->size;
+    }
+
+    assert(process_step < 6);
     switch (process_step) {
-    case 0: /* create new link */
+    case 0: /* unlink overwriten inode */
+        if (unlink_inode_event(&record->cr_pfid, changelog_rec_name(record),
+                               record->cr_namelen, last_copy, fsevent))
+            return -1;
+
+        break;
+    case 1: /* create new link */
         if (link_new_inode_event(record, fsevent))
             return -1;
 
         break;
-    case 1: /* update target statx */
+    case 2: /* update target statx */
         if (update_uid_gid_event(record, fsevent))
             return -1;
 
         break;
-    case 2: /* update target's parent statx */
+    case 3: /* update target's parent statx */
         if (update_parent_statx_event(&record->cr_pfid, fsevent))
             return -1;
 
         break;
-    case 3: /* unlink source link */
+    case 4: /* unlink source link */
         if (unlink_inode_event(&rename_log->cr_spfid,
                                changelog_rec_sname(record),
                                changelog_rec_snamelen(record),
@@ -621,14 +648,14 @@ build_rename_events(unsigned int process_step, struct changelog_rec *record,
             return -1;
 
         break;
-    case 4: /* update source's parent statx */
+    case 5: /* update source's parent statx */
         if (update_parent_statx_event(&rename_log->cr_spfid, fsevent))
             return -1;
 
         break;
     }
 
-    return process_step != 4 ? 1 : 0;
+    return process_step != 5 ? 1 : 0;
 }
 
 static const void *
