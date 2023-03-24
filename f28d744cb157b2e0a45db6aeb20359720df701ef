@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "123527c1_875166f7",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-24T08:54:44Z",
+      "side": 1,
+      "message": "suggest: I suppose this will be reused for rename? Maybe it should be in its own function?",
+      "range": {
+        "startLine": 530,
+        "startChar": 8,
+        "endLine": 543,
+        "endChar": 34
+      },
+      "revId": "f28d744cb157b2e0a45db6aeb20359720df701ef",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}

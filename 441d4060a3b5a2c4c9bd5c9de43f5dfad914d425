@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0028550a_fd364048",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-24T08:54:44Z",
+      "side": 1,
+      "message": "What I was suggesting was that this commit message is misleading. What it should say is that when an unlink occures, any unmanaged event prior to it will fail. This is not specific to creation events and the fix you provided is not either. So instead of \"another batch\" or \"the same batch\", it is more approriate to say \"managed/unmanaged changelogs\" and instead of talking about creation event, you should say \"any event priori to the unlink\". You could make a test were you do:\n\n```\ntouch f\nrbh-fsevent ...\nsetfattr ... f\nrm f\nrbh-fsevent ...\n```\n\nThe first rbh-fsevent call will succeed but the second one will fail due to the getxattr after the rm.",
+      "parentUuid": "d3cb2ae1_041c25f6",
+      "range": {
+        "startLine": 10,
+        "startChar": 42,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "441d4060a3b5a2c4c9bd5c9de43f5dfad914d425",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "53c5b2b3_4706b981",
         "filename": "src/sources/lustre.c",
         "patchSetId": 1
