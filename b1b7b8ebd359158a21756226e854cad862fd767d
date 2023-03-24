@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "011775ed_e061719d",
+        "filename": "tests/test_hardlink.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-24T08:44:46Z",
+      "side": 1,
+      "message": "question: why not call create_entry?",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "b1b7b8ebd359158a21756226e854cad862fd767d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
