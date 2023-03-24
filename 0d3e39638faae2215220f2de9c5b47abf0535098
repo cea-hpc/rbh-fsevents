@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "761dc368_29db6ef5",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-24T09:07:47Z",
+      "side": 0,
+      "message": "nit: you should leave it here. It doesn\u0027t harm and may prevent simple mistakes.",
+      "range": {
+        "startLine": 515,
+        "startChar": 8,
+        "endLine": 515,
+        "endChar": 13
+      },
+      "revId": "0d3e39638faae2215220f2de9c5b47abf0535098",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
