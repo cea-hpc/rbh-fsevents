@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d12e1d59_e6cc83f0",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-24T08:58:01Z",
+      "side": 1,
+      "message": "suggest: you could add a setxattr before the rm for example.",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 16
+      },
+      "revId": "8d8c3e9da35c86a3ca68716eeb2c0060aba88a51",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd1a6427_ff92188e",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-03-24T08:58:01Z",
+      "side": 1,
+      "message": "question: why isn\u0027t the entry removed?",
+      "range": {
+        "startLine": 48,
+        "startChar": 35,
+        "endLine": 48,
+        "endChar": 69
+      },
+      "revId": "8d8c3e9da35c86a3ca68716eeb2c0060aba88a51",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
