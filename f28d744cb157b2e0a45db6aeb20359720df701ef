@@ -22,6 +22,30 @@
       },
       "revId": "f28d744cb157b2e0a45db6aeb20359720df701ef",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a80f1e24_77cca2f6",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-27T07:17:28Z",
+      "side": 1,
+      "message": "It is moved in the rename patch exactly.",
+      "parentUuid": "123527c1_875166f7",
+      "range": {
+        "startLine": 530,
+        "startChar": 8,
+        "endLine": 543,
+        "endChar": 34
+      },
+      "revId": "f28d744cb157b2e0a45db6aeb20359720df701ef",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
