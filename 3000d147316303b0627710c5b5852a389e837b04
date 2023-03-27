@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdd2929a_905dbd98",
+        "filename": "tests/test_create_inode.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-27T07:17:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7f785f44_3ac3b5d6",
+      "range": {
+        "startLine": 20,
+        "startChar": 35,
+        "endLine": 20,
+        "endChar": 40
+      },
+      "revId": "3000d147316303b0627710c5b5852a389e837b04",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dfeed8a_7af1425a",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-24T08:37:48Z",
       "side": 1,
       "message": "suggest: this is a bit tricky. Maybe you should add a comment to say that the functions test_creat_two_entries and test_creat_entry_check_statx_attr will only check for the values corresponding to $1 in the DB. So the fact that we create two entries here is not an issue.",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 16
+      },
+      "revId": "3000d147316303b0627710c5b5852a389e837b04",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc36f94e_c449a5da",
+        "filename": "tests/test_symlink.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-27T07:17:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dfeed8a_7af1425a",
       "range": {
         "startLine": 18,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d297ee53_2e5f50c9",
+        "filename": "tests/test_symlink.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-27T07:17:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ec2ba87_13637b6d",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 20
+      },
+      "revId": "3000d147316303b0627710c5b5852a389e837b04",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cddaa156_c6bf2470",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-03-24T08:37:48Z",
       "side": 1,
       "message": "major: $count",
+      "range": {
+        "startLine": 40,
+        "startChar": 36,
+        "endLine": 40,
+        "endChar": 39
+      },
+      "revId": "3000d147316303b0627710c5b5852a389e837b04",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcd41e45_d7c0ab1c",
+        "filename": "tests/test_symlink.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-27T07:17:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cddaa156_c6bf2470",
       "range": {
         "startLine": 40,
         "startChar": 36,
