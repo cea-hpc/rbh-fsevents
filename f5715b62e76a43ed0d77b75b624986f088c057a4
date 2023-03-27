@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d5f410f_b0f54a1a",
+        "filename": "tests/meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-27T07:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b1cdbe3_d558b816",
+      "range": {
+        "startLine": 17,
+        "startChar": 38,
+        "endLine": 17,
+        "endChar": 40
+      },
+      "revId": "f5715b62e76a43ed0d77b75b624986f088c057a4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6699f728_0c897e5d",
@@ -47,6 +71,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16a914bb_963ba80e",
+        "filename": "tests/test_mkdir.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-27T07:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6699f728_0c897e5d",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 5
+      },
+      "revId": "f5715b62e76a43ed0d77b75b624986f088c057a4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a4ff157_d76fbe1d",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-03-24T08:25:42Z",
       "side": 1,
       "message": "minor: you should add quotes around $1 (in creat_filled_entry) as well.",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 12
+      },
+      "revId": "f5715b62e76a43ed0d77b75b624986f088c057a4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24ff8f47_7da1c221",
+        "filename": "tests/test_mkdir.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-27T07:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4ff157_d76fbe1d",
       "range": {
         "startLine": 18,
         "startChar": 10,
