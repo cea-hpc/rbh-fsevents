@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e11b5aa_68540d71",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-27T07:17:33Z",
+      "side": 1,
+      "message": "No, that\u0027s the point of the test, to show that after every change about the inode has been comitted, if we unlink the inode, it will still be in the database, but without any link.",
+      "parentUuid": "d12e1d59_e6cc83f0",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 16
+      },
+      "revId": "8d8c3e9da35c86a3ca68716eeb2c0060aba88a51",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd1a6427_ff92188e",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-24T08:58:01Z",
       "side": 1,
       "message": "question: why isn\u0027t the entry removed?",
+      "range": {
+        "startLine": 48,
+        "startChar": 35,
+        "endLine": 48,
+        "endChar": 69
+      },
+      "revId": "8d8c3e9da35c86a3ca68716eeb2c0060aba88a51",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6c1eff5_d127563f",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-27T07:17:33Z",
+      "side": 1,
+      "message": "Because we have no way of knowing if it is the last link to that inode, that can only be known by the mongo database, and it cannot be done in a single request because of how mongo works",
+      "parentUuid": "bd1a6427_ff92188e",
       "range": {
         "startLine": 48,
         "startChar": 35,
