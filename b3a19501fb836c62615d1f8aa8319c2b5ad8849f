@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "268437a5_4c381906",
+        "filename": "include/enricher.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-27T14:02:40Z",
+      "side": 1,
+      "message": "There was a use of an ID argument in a previous version. I remove it.",
+      "parentUuid": "6daf4d0e_71616ecc",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 25
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "faad048b_249ab946",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-22T15:31:36Z",
       "side": 1,
       "message": "comment: I think I\u0027ve already discussed this but this will not work on Lustre 2.12 and maybe some later versions as well. The .pc file was added later. So a find_library is necessary if the dependency is not found here. But this is for another patch.",
+      "range": {
+        "startLine": 36,
+        "startChar": 12,
+        "endLine": 36,
+        "endChar": 22
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5cfc953_62890f3e",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-27T14:02:40Z",
+      "side": 1,
+      "message": "I tried something.",
+      "parentUuid": "faad048b_249ab946",
       "range": {
         "startLine": 36,
         "startChar": 12,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd9f332d_922718f0",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-27T14:02:40Z",
+      "side": 1,
+      "message": "Okay, this will need a set of patch among our tools.",
+      "parentUuid": "9e2a1cbd_0c87b57e",
+      "range": {
+        "startLine": 43,
+        "startChar": 32,
+        "endLine": 43,
+        "endChar": 42
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf1758e0_b520ed9f",
         "filename": "rbh-fsevents.c",
         "patchSetId": 3
@@ -83,6 +155,30 @@
       "writtenOn": "2023-03-22T15:31:36Z",
       "side": 1,
       "message": "question: so you have both options now? What is the difference? I think this will be confusing to users.",
+      "range": {
+        "startLine": 60,
+        "startChar": 19,
+        "endLine": 60,
+        "endChar": 27
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c3b2f7f_7a53ac2b",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-27T14:02:40Z",
+      "side": 1,
+      "message": "I agree, that\u0027s why changing the option `--enrich` to accept a rbh URI is mandatory.\n\nWe needed both because we can not suppose which enricher we need to use with only a mount point. We may imagine having a lustre mount point as an argument but we do not want to enrich it in a lustre way.\n\nIn case you are talking of why we have `--enricher` and `--lustre`, that\u0027s because they define the type of two different things: the source and the enricher. This option ambiguity will also be removed as we define a URI for the source as well.",
+      "parentUuid": "cf1758e0_b520ed9f",
       "range": {
         "startLine": 60,
         "startChar": 19,
@@ -116,6 +212,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f894160_46e09ebd",
+        "filename": "src/enricher.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-27T14:02:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f79a36b_0cbc7636",
+      "range": {
+        "startLine": 20,
+        "startChar": 12,
+        "endLine": 20,
+        "endChar": 25
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aaa414ef_311d3e89",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-03-22T15:31:36Z",
       "side": 1,
       "message": "suggest: you could create a function:\n\n`rbh_value *value \u003d rbh_value_map_get_value(\u0026original-\u003exattrs, \"rbh-fsevents\");`\n\nand also the same for the xattrs element:\n`rbh_value *xattrs \u003d rbh_value_map_get_value(value-\u003emap, \"xattrs\");`\n\nAlso, line 47 assumes that the value associated to rbh-fsevents is a map. You should add a check.\n\nAs for searching in the sequence goes, you can leave the loop but reverse the logic a bit I think. Once you have the sequence of xattrs, you can do a while loop:\n\n```\nrbh_value_pair *inner_value \u003d \u0026partials-\u003epairs[i];\nrbh_value_pari *end \u003d partials-\u003epairs + partials-\u003ecount;\n\nwhile (inner_value-\u003etype !\u003d RBH_VT_SEQUENCE \u0026\u0026\n       strcmp(inner_value-\u003estring, \"lustre\"))\n       inner_value++;\n       \nif (inner_value \u003d\u003d end)\n    return 0;\n    \n...\n```",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f47da00_6393cab3",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-27T14:02:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaa414ef_311d3e89",
       "range": {
         "startLine": 40,
         "startChar": 4,
@@ -162,6 +306,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00b29890_fd421901",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-27T14:02:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c4152b6_842d6443",
+      "range": {
+        "startLine": 73,
+        "startChar": 25,
+        "endLine": 73,
+        "endChar": 35
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "878ea510_c9ea5324",
@@ -185,6 +353,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "631c6831_fbbe50c9",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-27T14:02:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "878ea510_c9ea5324",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 13
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01ed96b6_400b4da6",
@@ -198,6 +390,30 @@
       "writtenOn": "2023-03-22T15:31:36Z",
       "side": 1,
       "message": "suggest: I think you can put PAIRS instead of NULL as the second argument of rbh_sstack_push.",
+      "range": {
+        "startLine": 185,
+        "startChar": 18,
+        "endLine": 185,
+        "endChar": 23
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "800cd8e1_638cb84a",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-27T14:02:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01ed96b6_400b4da6",
       "range": {
         "startLine": 185,
         "startChar": 18,
