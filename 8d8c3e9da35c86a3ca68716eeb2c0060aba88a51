@@ -93,6 +93,30 @@
       },
       "revId": "8d8c3e9da35c86a3ca68716eeb2c0060aba88a51",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc0bceda_4fb99957",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-27T15:10:24Z",
+      "side": 1,
+      "message": "Nevermind I saw there was a specific flag for this operation for unlinks...",
+      "parentUuid": "c6c1eff5_d127563f",
+      "range": {
+        "startLine": 48,
+        "startChar": 35,
+        "endLine": 48,
+        "endChar": 69
+      },
+      "revId": "8d8c3e9da35c86a3ca68716eeb2c0060aba88a51",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
