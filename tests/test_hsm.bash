@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
-# This file is part of rbh-find-lustre
+# This file is part of rbh-fsevents
 # Copyright (C) 2023 Commissariat a l'energie atomique et aux energies
 #                    alternatives
 #
 # SPDX-License-Identifer: LGPL-3.0-or-later
+
+if ! lctl get_param mdt.*.hsm_control | grep "enabled"; then
+    echo "At least 1 MDT needs to have HSM control enabled" >&2
+    exit 77
+fi
 
 test_dir=$(dirname $(readlink -e $0))
 . $test_dir/test_utils.bash
@@ -13,27 +18,14 @@ test_dir=$(dirname $(readlink -e $0))
 #                                    TESTS                                     #
 ################################################################################
 
-create_entry()
+# There is no test for releases and restores because these events both trigger a
+# layout changelog, and release also trigger a truncate changelog, so this test
+# will have to be enriched when these two types of changelogs will be managed
+
+test_hsm()
 {
-    touch "$1"
-}
-
-rm_entry()
-{
-    rm -f "$1"
-}
-
-test_rm_with_hsm_copy()
-{
-    local entry="test_entry"
-    create_entry $entry
-
-    rbh_fsevents --enrich "$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
-        "rbh:mongo:$testdb"
-
-    hsm_archive_file $entry
-    clear_changelogs
-    rm_entry $entry
+    local entry="$1"
+    local state="$2"
 
     rbh_fsevents --enrich "$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
         "rbh:mongo:$testdb"
@@ -41,27 +33,41 @@ test_rm_with_hsm_copy()
     # Since an archived copy of $entry still exists, the DB should contain two
     # entries
     local entries=$(mongo "$testdb" --eval "db.entries.find()" | wc -l)
-    mongo "$testdb" --eval "db.entries.find()"
     local count=$(find . | wc -l)
-    count=$((count + 1))
     if [[ $entries -ne $count ]]; then
         error "There should be only $count entries in the database"
     fi
 
-    find_attribute '"ns": { $exists : true }' '"ns": { $size : 0 }'
+    local id=$(lfs hsm_state "$entry" | cut -d ':' -f3)
+    find_attribute '"ns.name":"'$entry'"' \
+                   '"ns.xattrs.hsm_archive_id":'$id \
+                   '"ns.xattrs.hsm_state":'$(get_hsm_state "$entry")
+}
+
+test_hsm_archive()
+{
+    local entry="test_entry"
+    touch $entry
+    hsm_archive_file $entry
+
+    test_hsm $entry "released"
+}
+
+test_hsm_remove()
+{
+    local entry="test_entry"
+    touch $entry
+    hsm_archive_file $entry
+    hsm_remove_file $entry
+
+    test_hsm $entry "none"
 }
 
 ################################################################################
 #                                     MAIN                                     #
 ################################################################################
 
-source $test_dir/test_rm_inode.bash
-
-declare -a tests=(test_rm_same_batch test_rm_different_batch)
-
-if lctl get_param mdt.*.hsm_control | grep "enabled"; then
-    tests+=(test_rm_with_hsm_copy)
-fi
+declare -a tests=(test_hsm_archive test_hsm_remove)
 
 LUSTRE_DIR=/mnt/lustre/
 cd "$LUSTRE_DIR"
