@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2c821f2_4d98ca08",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-29T11:59:24Z",
+      "side": 1,
+      "message": "style: style",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "a4404bad75c3172acacd74b017e959c45d6ee464",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0994d999_0afaa521",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-29T11:59:24Z",
+      "side": 1,
+      "message": "suggest: you could create a patch for librobinhood that would add the \"_get_value_from_map\" function and a \"_get_value_from_sequence\" function, and use this \"_get_value_from_sequence\" here function",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 49
+      },
+      "revId": "a4404bad75c3172acacd74b017e959c45d6ee464",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e48381e_79528974",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-29T11:59:24Z",
+      "side": 1,
+      "message": "suggest: a comment to explain this is mandatory for the va_list usage to know the number of values would be nice",
+      "range": {
+        "startLine": 228,
+        "startChar": 5,
+        "endLine": 228,
+        "endChar": 59
+      },
+      "revId": "a4404bad75c3172acacd74b017e959c45d6ee464",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77b507ce_e167e26f",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-29T11:59:24Z",
+      "side": 1,
+      "message": "minor: dissociate the check from the value set\nminor: isn\u0027t calling this function without any argument or with an odd number of arguments an error ? If so, maybe we should either not check for it, as it is defensive programming",
+      "range": {
+        "startLine": 231,
+        "startChar": 4,
+        "endLine": 233,
+        "endChar": 22
+      },
+      "revId": "a4404bad75c3172acacd74b017e959c45d6ee464",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2244522_032acc06",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-29T11:59:24Z",
+      "side": 1,
+      "message": "question: why do you need to set this ?",
+      "range": {
+        "startLine": 238,
+        "startChar": 8,
+        "endLine": 238,
+        "endChar": 26
+      },
+      "revId": "a4404bad75c3172acacd74b017e959c45d6ee464",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9819d1f5_2cbec1fd",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-03-29T11:59:24Z",
+      "side": 1,
+      "message": "suggest: instead of this phantom value, you could simply pass the fsevents-\u003exattrs as argument no ?",
+      "range": {
+        "startLine": 255,
+        "startChar": 32,
+        "endLine": 255,
+        "endChar": 33
+      },
+      "revId": "a4404bad75c3172acacd74b017e959c45d6ee464",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
