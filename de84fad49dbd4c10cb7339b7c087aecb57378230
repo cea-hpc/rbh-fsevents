@@ -93,6 +93,30 @@
       },
       "revId": "de84fad49dbd4c10cb7339b7c087aecb57378230",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6c7a525_2415e4eb",
+        "filename": "tests/test_creat_close.bash",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-03-31T10:00:28Z",
+      "side": 1,
+      "message": "Answered IRL, the goal was not to stat a lustre/posix file, but to find a way to retrieve btime without using the stat command. A process was found, but not obvious.",
+      "parentUuid": "48704c14_5fae2838",
+      "range": {
+        "startLine": 102,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 78
+      },
+      "revId": "de84fad49dbd4c10cb7339b7c087aecb57378230",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
