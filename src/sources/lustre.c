@@ -886,6 +886,45 @@ build_resync_events(unsigned int process_step, struct rbh_fsevent *fsevent)
     return process_step != 1 ? 1 : 0;
 }
 
+/* Migrate events only correspond to metadata changes, meaning we only have to
+ * change the target and target's parent striping information.
+ */
+static int
+build_migrate_events(unsigned int process_step, struct changelog_rec *record,
+                     struct rbh_fsevent *fsevent)
+{
+    struct rbh_id *id;
+
+    assert(process_step < 2);
+    switch (process_step) {
+    case 0: /* update target striping info */
+        fsevent->type = RBH_FET_XATTR;
+
+        fsevent->xattrs = build_enrich_map(fill_inode_xattrs, "lustre");
+        if (fsevent->xattrs.pairs == NULL)
+            return -1;
+
+        break;
+    case 1: /* update target's parent striping info */
+        id = build_id(&record->cr_pfid);
+        if (id == NULL)
+            return -1;
+
+        fsevent->id.data = id->data;
+        fsevent->id.size = id->size;
+
+        fsevent->type = RBH_FET_XATTR;
+
+        fsevent->xattrs = build_enrich_map(fill_inode_xattrs, "lustre");
+        if (fsevent->xattrs.pairs == NULL)
+            return -1;
+
+        break;
+    }
+
+    return process_step != 1 ? 1 : 0;
+}
+
 static const void *
 lustre_changelog_iter_next(void *iterator)
 {
@@ -986,6 +1025,8 @@ retry:
         rc = build_resync_events(records->process_step, fsevent);
         break;
     case CL_MIGRATE:
+        rc = build_migrate_events(records->process_step, record, fsevent);
+        break;
     case CL_EXT:
     case CL_OPEN:
     case CL_GETXATTR:
