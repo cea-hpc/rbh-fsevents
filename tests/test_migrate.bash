@@ -9,31 +9,26 @@
 test_dir=$(dirname $(readlink -e $0))
 . $test_dir/test_utils.bash
 
+mdt_count=$(lfs mdts | wc -l)
+if [[ $mdt_count -lt 2 ]]; then
+    exit 77
+fi
+
+# Remove this line when the Lustre enricher is available
+exit 77
+
 ################################################################################
 #                                    TESTS                                     #
 ################################################################################
 
-create_entry()
-{
-    # test_create_two_entries and test_create_entry_check_statx_attr will only
-    # check for the symlink itself, and not other entries, so creating two
-    # entries here is not an issue
-    touch "$1.tmp"
-    ln -s "$1.tmp" "$1"
-}
-
-create_filled_entry()
-{
-    echo "test" > "$1.tmp"
-    ln -s "$1.tmp" "$1"
-}
-
-test_create_symlink()
+test_migrate()
 {
     local entry="test_entry"
-    create_entry "$entry"
+    lfs setdirstripe -i 1 $entry
+    lfs migrate -m 0 $entry
 
-    invoke_rbh-fsevents
+    rbh_fsevents --enrich "$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
+        "rbh:mongo:$testdb"
 
     local entries=$(mongo "$testdb" --eval "db.entries.find()" | wc -l)
     local count=$(find . | wc -l)
@@ -41,18 +36,15 @@ test_create_symlink()
         error "There should be only $count entries in the database"
     fi
 
-    verify_statx "$entry"
-    verify_statx "$entry.tmp"
-    find_attribute "\"ns.name\":\"$entry\"" "\"symlink\":\"$entry.tmp\""
+    #TODO: verify the MDT is the correct one when the Lustre enricher is added
+    find_attribute '"mdt_idx": [0]' '"mdt_count": 1' '"ns.name":"'$entry'"'
 }
 
 ################################################################################
 #                                     MAIN                                     #
 ################################################################################
 
-source $test_dir/test_create_inode.bash
-
-declare -a tests=(test_create_symlink test_create_two_entries)
+declare -a tests=(test_migrate)
 
 LUSTRE_DIR=/mnt/lustre/
 cd "$LUSTRE_DIR"
