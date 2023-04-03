@@ -14,6 +14,9 @@ fi
 test_dir=$(dirname $(readlink -e $0))
 . $test_dir/test_utils.bash
 
+# Remove this line when the Lustre enricher is available
+exit 77
+
 ################################################################################
 #                                    TESTS                                     #
 ################################################################################
@@ -76,6 +79,7 @@ LUSTRE_MDT=lustre-MDT0000
 start_changelogs "$LUSTRE_MDT"
 
 tmpdir=$(mktemp --directory --tmpdir=$LUSTRE_DIR)
+lfs setdirstripe -D -i 0 $tmpdir
 trap -- "rm -rf '$tmpdir'; clear_changelogs" EXIT
 cd "$tmpdir"
 

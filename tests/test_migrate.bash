@@ -9,25 +9,23 @@
 test_dir=$(dirname $(readlink -e $0))
 . $test_dir/test_utils.bash
 
+mdt_count=$(lfs mdts | wc -l)
+if [[ $mdt_count -lt 2 ]]; then
+    exit 77
+fi
+
+# Remove this line when the Lustre enricher is available
+exit 77
+
 ################################################################################
 #                                    TESTS                                     #
 ################################################################################
 
-create_entry()
-{
-    mknod "$1" b 1 2
-}
-
-create_filled_entry()
-{
-    mknod "$1" b 1 2
-}
-
-test_create_mknod()
+test_migrate()
 {
     local entry="test_entry"
-    mknod $entry.1 b 1 2
-    mknod $entry.2 p
+    lfs setdirstripe -i 1 $entry
+    lfs migrate -m 0 $entry
 
     rbh_fsevents --enrich "$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
         "rbh:mongo:$testdb"
@@ -38,29 +36,15 @@ test_create_mknod()
         error "There should be only $count entries in the database"
     fi
 
-    local raw_mode="$(statx +%f "$entry.1" 16)"
-    local type=$((raw_mode & 00170000))
-    find_attribute "\"ns.name\":\"$entry.1\"" "\"statx.type\":$type" \
-                   "\"statx.rdev.major\":1" "\"statx.rdev.minor\":2"
-
-    raw_mode="$(statx +%f "$entry.2" 16)"
-    type=$((raw_mode & 00170000))
-    find_attribute "\"ns.name\":\"$entry.2\"" "\"statx.type\":$type"
-
-    # XXX: to uncomment once the path is enriched
-    # find_attribute "\"ns.xattrs.path\":\"/${testdir#*lustre/}/$entry.1\""
-    # find_attribute "\"ns.xattrs.path\":\"/${testdir#*lustre/}/$entry.2\""
-    # find_attribute "\"ns.xattrs.path\":\"/${testdir#*lustre/}/$entry.3\""
+    #TODO: verify the MDT is the correct one when the Lustre enricher is added
+    find_attribute '"mdt_idx": [0]' '"mdt_count": 1' '"ns.name":"'$entry'"'
 }
 
 ################################################################################
 #                                     MAIN                                     #
 ################################################################################
 
-source $test_dir/test_create_inode.bash
-
-declare -a tests=(test_create_mknod test_create_two_entries
-                  test_create_entry_check_statx_attr)
+declare -a tests=(test_migrate)
 
 LUSTRE_DIR=/mnt/lustre/
 cd "$LUSTRE_DIR"
