@@ -6,13 +6,13 @@
 #
 # SPDX-License-Identifer: LGPL-3.0-or-later
 
-if ! lctl get_param mdt.*.hsm_control | grep "enabled"; then
-    echo "At least 1 MDT needs to have HSM control enabled" >&2
-    exit 77
-fi
-
 test_dir=$(dirname $(readlink -e $0))
 . $test_dir/test_utils.bash
+
+mdt_count=$(lfs mdts | wc -l)
+if [[ $mdt_count -lt 2 ]]; then
+    exit 77
+fi
 
 # Remove this line when the Lustre enricher is available
 exit 77
@@ -21,56 +21,30 @@ exit 77
 #                                    TESTS                                     #
 ################################################################################
 
-# There is no test for releases and restores because these events both trigger a
-# layout changelog, and release also trigger a truncate changelog, so this test
-# will have to be enriched when these two types of changelogs will be managed
-
-test_hsm()
+test_migrate()
 {
-    local entry="$1"
-    local state="$2"
+    local entry="test_entry"
+    lfs setdirstripe -i 1 $entry
+    lfs migrate -m 0 $entry
 
     rbh_fsevents --enrich "$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
         "rbh:mongo:$testdb"
 
-    # Since an archived copy of $entry still exists, the DB should contain two
-    # entries
     local entries=$(mongo "$testdb" --eval "db.entries.find()" | wc -l)
     local count=$(find . | wc -l)
     if [[ $entries -ne $count ]]; then
         error "There should be only $count entries in the database"
     fi
 
-    local id=$(lfs hsm_state "$entry" | cut -d ':' -f3)
-    find_attribute '"ns.name":"'$entry'"' \
-                   '"ns.xattrs.hsm_archive_id":'$id \
-                   '"ns.xattrs.hsm_state":'$(get_hsm_state "$entry")
-}
-
-test_hsm_archive()
-{
-    local entry="test_entry"
-    touch $entry
-    hsm_archive_file $entry
-
-    test_hsm $entry "released"
-}
-
-test_hsm_remove()
-{
-    local entry="test_entry"
-    touch $entry
-    hsm_archive_file $entry
-    hsm_remove_file $entry
-
-    test_hsm $entry "none"
+    #TODO: verify the MDT is the correct one when the Lustre enricher is added
+    find_attribute '"mdt_idx": [0]' '"mdt_count": 1' '"ns.name":"'$entry'"'
 }
 
 ################################################################################
 #                                     MAIN                                     #
 ################################################################################
 
-declare -a tests=(test_hsm_archive test_hsm_remove)
+declare -a tests=(test_migrate)
 
 LUSTRE_DIR=/mnt/lustre/
 cd "$LUSTRE_DIR"
