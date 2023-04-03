@@ -771,6 +771,67 @@ build_layout_events(unsigned int process_step, struct rbh_fsevent *fsevent)
     return process_step != 1 ? 1 : 0;
 }
 
+/* Migrate events are managed very similarly to rename events. In Lustre, a
+ * migrate events can only happen on directories, and will do two things:
+ *  - create a new inode on the target MDT
+ *  - unlink the old inode of the source MDT
+ * Therefore, we do the same operations as a rename, except for the removal of
+ * potentially overwritten data, as it cannot happen with this type of event.
+ */
+static int
+build_migrate_events(unsigned int process_step, struct changelog_rec *record,
+                     struct rbh_fsevent *fsevent)
+{
+    struct changelog_ext_rename *migrate_log = changelog_rec_rename(record);
+    struct rbh_id *id;
+
+    /* If the process step is 3, we change the targeted id to the source so that
+     * we can unlink it properly.
+     */
+    if (process_step == 3) {
+        id = build_id(&migrate_log->cr_sfid);
+        if (id == NULL)
+            return -1;
+
+        fsevent->id.data = id->data;
+        fsevent->id.size = id->size;
+    }
+
+    assert(process_step < 5);
+    switch (process_step) {
+    case 0: /* create new link */
+        if (link_new_inode_event(record, fsevent))
+            return -1;
+
+        break;
+    case 1: /* update target statx */
+        if (update_uid_gid_event(record, fsevent))
+            return -1;
+
+        break;
+    case 2: /* update target's parent statx */
+        if (update_parent_statx_event(&record->cr_pfid, fsevent))
+            return -1;
+
+        break;
+    case 3: /* unlink source link */
+        if (unlink_inode_event(&migrate_log->cr_spfid,
+                               changelog_rec_sname(record),
+                               changelog_rec_snamelen(record),
+                               false, fsevent))
+            return -1;
+
+        break;
+    case 4: /* update source's parent statx */
+        if (update_parent_statx_event(&migrate_log->cr_spfid, fsevent))
+            return -1;
+
+        break;
+    }
+
+    return process_step != 4 ? 1 : 0;
+}
+
 static const void *
 lustre_changelog_iter_next(void *iterator)
 {
@@ -864,9 +925,11 @@ retry:
     case CL_LAYOUT:
         rc = build_layout_events(records->process_step, fsevent);
         break;
+    case CL_MIGRATE:
+        rc = build_migrate_events(records->process_step, record, fsevent);
+        break;
     case CL_EXT:
     case CL_OPEN:
-    case CL_MIGRATE:
     case CL_FLRW:
     case CL_RESYNC:
     case CL_GETXATTR:
