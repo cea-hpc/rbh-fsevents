@@ -946,6 +946,7 @@ build_migrate_events(unsigned int process_step, struct changelog_rec *record,
         break;
     case 5: /* update target striping info */
         fsevent->type = RBH_FET_XATTR;
+        fprintf(stderr, "here\n");
 
         if (build_enrich_xattr_fsevent(&fsevent->xattrs,
                                        "rbh-fsevents",
