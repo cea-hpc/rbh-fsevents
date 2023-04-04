@@ -2,11 +2,12 @@
 
 #include <errno.h>
 #include <fcntl.h>
+#include <linux/limits.h>
+#include <lustre/lustreapi.h>
 #include <string.h>
-#include <unistd.h>
-
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <unistd.h>
 
 #include <robinhood.h>
 #include <robinhood/backends/lustre_attrs.h>
@@ -14,7 +15,7 @@
 #include "enricher.h"
 #include "internals.h"
 
-#define MIN_XATTR_VALUES_ALLOC 32
+#define MIN_XATTR_VALUES_ALLOC (1 << 14)
 static __thread struct rbh_sstack *xattrs_values;
 
 static void __attribute__((destructor))
@@ -38,6 +39,52 @@ _fetch_value_from_map(const struct rbh_value_map *map, const char *key,
     }
 
     return -1;
+}
+
+static int
+enrich_path(const int mount_fd, const struct rbh_id *id, const char *name,
+            struct rbh_sstack *xattrs_values, struct rbh_value **_value)
+{
+    const struct lu_fid *fid = rbh_lu_fid_from_id(id);
+    size_t name_length = strlen(name);
+    long long recno = 0;
+    size_t path_length;
+    int linkno = 0;
+    char *path;
+    int rc;
+
+    path = rbh_sstack_push(xattrs_values, NULL, PATH_MAX);
+    if (path == NULL)
+        return -1;
+
+    /* lustre path */
+    path[0] = '/';
+    rc = llapi_fid2path_at(mount_fd, fid, path + 1, PATH_MAX - name_length - 2,
+                           &recno, &linkno);
+    if (rc)
+        return rc;
+
+    if (path[1] == '/' && path[2] == 0)
+        path[0] = 0;
+
+    path_length = strlen(path);
+    /* remove the extra space left in the sstack */
+    rc = rbh_sstack_pop(xattrs_values,
+                        PATH_MAX - (path_length + name_length + 2));
+    if (rc)
+        return -1;
+
+    path[path_length] = '/';
+    strcpy(&path[path_length + 1], name);
+
+    *_value = rbh_sstack_push(xattrs_values, NULL, sizeof(**_value));
+    if (*_value == NULL)
+        return -1;
+
+    (*_value)->type = RBH_VT_STRING;
+    (*_value)->string = path;
+
+    return 1;
 }
 
 static int
@@ -98,6 +145,22 @@ lustre_callback(struct enricher *enricher, const struct rbh_fsevent *original)
                                            sizeof(struct rbh_value *));
         if (xattrs_values == NULL)
             return -1;
+    }
+
+    rc = _fetch_value_from_map(&fsevents->map, "path", NULL);
+    if (!rc) {
+        struct rbh_value *value;
+
+        size = enrich_path(enricher->mount_fd, original->link.parent_id,
+                           original->link.name, xattrs_values, &value);
+        if (size == -1)
+            return -1;
+
+        pairs[enricher->fsevent.xattrs.count].key = "path";
+        pairs[enricher->fsevent.xattrs.count].value = value;
+        enricher->fsevent.xattrs.count += size;
+
+        return size;
     }
 
     rc = _fetch_value_from_map(&fsevents->map, "lustre", NULL);
