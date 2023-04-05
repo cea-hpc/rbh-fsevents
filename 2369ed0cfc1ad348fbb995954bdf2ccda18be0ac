@@ -22,6 +22,30 @@
       },
       "revId": "2369ed0cfc1ad348fbb995954bdf2ccda18be0ac",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e10b6bc_a01a4db8",
+        "filename": "tests/test_symlink.bash",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-04-05T10:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d00e10a_c90a9608",
+      "range": {
+        "startLine": 3,
+        "startChar": 23,
+        "endLine": 3,
+        "endChar": 38
+      },
+      "revId": "2369ed0cfc1ad348fbb995954bdf2ccda18be0ac",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
