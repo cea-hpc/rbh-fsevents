@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc1eac8d_323a65b0",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-05T09:47:58Z",
+      "side": 1,
+      "message": "question: you don\u0027t need to specify the parent when doing an delete?",
+      "range": {
+        "startLine": 538,
+        "startChar": 28,
+        "endLine": 538,
+        "endChar": 42
+      },
+      "revId": "1b84b62f26555465f922975485a8f0e75a32f036",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
