@@ -22,6 +22,30 @@
       },
       "revId": "1b84b62f26555465f922975485a8f0e75a32f036",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "977ba8ea_f306740a",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-04-05T10:44:19Z",
+      "side": 1,
+      "message": "No, for a delete, only the id of the entry counts",
+      "parentUuid": "dc1eac8d_323a65b0",
+      "range": {
+        "startLine": 538,
+        "startChar": 28,
+        "endLine": 538,
+        "endChar": 42
+      },
+      "revId": "1b84b62f26555465f922975485a8f0e75a32f036",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
