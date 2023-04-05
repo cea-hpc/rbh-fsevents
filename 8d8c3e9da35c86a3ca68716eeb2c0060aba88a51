@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a545db05_2d3d7f3b",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-05T09:45:58Z",
+      "side": 1,
+      "message": "Yes, but you do not test the fact that there is an event between the create and unlink. If you do a setxattr, rbh-fsevents will try to open the file to do a getxattr but will fail.",
+      "parentUuid": "8e11b5aa_68540d71",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 16
+      },
+      "revId": "8d8c3e9da35c86a3ca68716eeb2c0060aba88a51",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd1a6427_ff92188e",
         "filename": "tests/test_unlink.bash",
         "patchSetId": 2
