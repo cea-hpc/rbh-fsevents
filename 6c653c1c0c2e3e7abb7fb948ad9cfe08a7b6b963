@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a8d3fd9_98140194",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-05T09:41:43Z",
+      "side": 1,
+      "message": "minor: not necessarily. You are not guarantied to have the open/setxattr and unlock for example events in the same batch of deduplication.",
+      "range": {
+        "startLine": 16,
+        "startChar": 30,
+        "endLine": 17,
+        "endChar": 34
+      },
+      "revId": "6c653c1c0c2e3e7abb7fb948ad9cfe08a7b6b963",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "087f50ba_7f914c36",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-05T09:41:43Z",
+      "side": 1,
+      "message": "question: are you sure this is valid? You are checking the UNLINK_LAST flag and issuing a delete in the patch? Also, rbh-gc may not be necessary. I think you should avoid making design decisions in the commit message.",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 23,
+        "endChar": 50
+      },
+      "revId": "6c653c1c0c2e3e7abb7fb948ad9cfe08a7b6b963",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
