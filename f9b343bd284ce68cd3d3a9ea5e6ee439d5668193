@@ -22,6 +22,30 @@
       },
       "revId": "f9b343bd284ce68cd3d3a9ea5e6ee439d5668193",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68e7d2d7_364992dc",
+        "filename": "tests/test_mknod.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-04-05T10:43:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c3df5de_8d2b641d",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 12
+      },
+      "revId": "f9b343bd284ce68cd3d3a9ea5e6ee439d5668193",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
