@@ -53,6 +53,7 @@ usage(void)
         "    -r, --raw       do not enrich changelog records (default)\n"
         "    -e, --enrich MOUNTPOINT\n"
         "                    enrich changelog records by querying MOUNTPOINT as needed\n"
+        "                    MOUNTPOINT is a RobinHood URI (eg. rbh:lustre:/mnt/lustre)\n"
         "    -l, --lustre    consider SOURCE is an MDT name\n"
         "\n"
         "Note that uploading raw records to a RobinHood backend will fail, they have to\n"
@@ -177,7 +178,8 @@ mount_fd_exit(void)
 static const size_t BATCH_SIZE = 1;
 
 static void
-feed(struct sink *sink, struct source *source, bool enrich, bool allow_partials)
+feed(struct sink *sink, struct source *source, bool enrich,
+     const char *backend_uri, bool allow_partials)
 {
     struct rbh_mut_iterator *deduplicator;
 
@@ -193,10 +195,38 @@ feed(struct sink *sink, struct source *source, bool enrich, bool allow_partials)
         if (fsevents == NULL)
             break;
 
-        if (enrich)
-            fsevents = iter_enrich(fsevents, mount_fd);
-        else if (!allow_partials)
+        if (enrich) {
+            enum rbh_enricher_t enricher_type;
+            struct rbh_raw_uri *raw_uri;
+            struct rbh_uri *rbh_uri;
+            int save_errno;
+
+            raw_uri = rbh_raw_uri_from_string(backend_uri);
+            if (raw_uri == NULL)
+                error(EXIT_FAILURE, errno, "rbh_raw_uri_from_raw_uri: %s",
+                      backend_uri);
+            rbh_uri = rbh_uri_from_raw_uri(raw_uri);
+            save_errno = errno;
+            free(raw_uri);
+            errno = save_errno;
+            if (rbh_uri == NULL)
+                error(EXIT_FAILURE, errno, "rbh_uri_from_raw_uri: %s",
+                      backend_uri);
+
+            enricher_type = parse_enricher_type(rbh_uri->backend);
+            mount_fd = open(rbh_uri->fsname, O_RDONLY | O_CLOEXEC);
+            save_errno = errno;
+            free(rbh_uri);
+            errno = save_errno;
+            if (mount_fd == -1)
+                error(EXIT_FAILURE, errno, "open: %s", rbh_uri->fsname);
+
+            fsevents = iter_enrich(fsevents, enricher_type, mount_fd);
+        }
+        else if (!allow_partials) {
             fsevents = iter_no_partial(fsevents);
+        }
+
         if (fsevents == NULL)
             error(EXIT_FAILURE, errno, "iter_enrich");
 
@@ -236,15 +266,16 @@ main(int argc, char *argv[])
         {}
     };
     enum rbh_source_t source_type = SRC_DEFAULT;
+    char *backend_uri = NULL;
     char c;
 
     /* Parse the command line */
     while ((c = getopt_long(argc, argv, "e:hlr", LONG_OPTIONS, NULL)) != -1) {
         switch (c) {
         case 'e':
-            mount_fd = open(optarg, O_RDONLY | O_CLOEXEC);
-            if (mount_fd == -1)
-                error(EXIT_FAILURE, errno, "open: %s", optarg);
+            backend_uri = strdup(optarg);
+            if (backend_uri == NULL)
+                error(EXIT_FAILURE, errno, "strdup");
             break;
         case 'h':
             usage();
@@ -274,6 +305,7 @@ main(int argc, char *argv[])
     source = source_new(argv[optind++], source_type);
     sink = sink_new(argv[optind++]);
 
-    feed(sink, source, mount_fd != -1, strcmp(sink->name, "backend"));
+    feed(sink, source, backend_uri != NULL, backend_uri,
+         strcmp(sink->name, "backend"));
     return error_message_count == 0 ? EXIT_SUCCESS : EXIT_FAILURE;
 }
