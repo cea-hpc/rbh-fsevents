@@ -886,3 +886,56 @@ iter_no_partial(struct rbh_iterator *fsevents)
     no_partial->fsevents = fsevents;
     return &no_partial->iterator;
 }
+
+struct backend_enrich {
+    struct enrich enrich;
+    struct rbh_backend *backend;
+    int mount_fd;
+};
+
+static struct rbh_iterator *
+backend_enrich_process(void *_enrich, struct rbh_iterator *fsevents)
+{
+    struct backend_enrich *enrich = _enrich;
+
+    return iter_enrich(fsevents, enrich->mount_fd);
+}
+
+static void
+backend_enrich_destroy(void *_enrich)
+{
+    struct backend_enrich *enrich = _enrich;
+
+    rbh_backend_destroy(enrich->backend);
+    close(enrich->mount_fd);
+    free(enrich);
+}
+
+static const struct enrich_operations BACKEND_ENRICH_OPS = {
+    .process = backend_enrich_process,
+    .destroy = backend_enrich_destroy,
+};
+
+static const struct enrich BACKEND_ENRICH = {
+    .name = "backend",
+    .ops = &BACKEND_ENRICH_OPS,
+};
+
+struct enrich *
+enrich_from_backend(struct rbh_backend *backend, const char *mount_path)
+{
+    struct backend_enrich *enrich;
+
+    enrich = malloc(sizeof(*enrich));
+    if (enrich == NULL)
+        error(EXIT_FAILURE, errno, "malloc");
+
+    enrich->enrich = BACKEND_ENRICH;
+    enrich->backend = backend;
+
+    enrich->mount_fd = open(mount_path, O_RDONLY | O_CLOEXEC);
+    if (enrich->mount_fd == -1)
+        error(EXIT_FAILURE, errno, "open: %s", mount_path);
+
+    return &enrich->enrich;
+}
