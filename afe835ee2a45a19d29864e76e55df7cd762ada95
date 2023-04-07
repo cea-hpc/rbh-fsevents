@@ -22,6 +22,30 @@
       },
       "revId": "afe835ee2a45a19d29864e76e55df7cd762ada95",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27db13f1_9095be5a",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-07T14:53:25Z",
+      "side": 1,
+      "message": "Done because this part is removed.",
+      "parentUuid": "bc0357e0_3c29e5ff",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "afe835ee2a45a19d29864e76e55df7cd762ada95",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
