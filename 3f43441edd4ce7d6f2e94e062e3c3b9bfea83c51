@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54485cbc_676dbf50",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-07T14:54:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3011b7a6_c5795d60",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 48
+      },
+      "revId": "3f43441edd4ce7d6f2e94e062e3c3b9bfea83c51",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eea871e8_ec1f4ac2",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-05T11:02:23Z",
       "side": 1,
       "message": "comment: an improvement that could be done (in another patch of course) is to have a list of operations per backend that would enrich these information. For instance, if you have the following map:\n```\nxattrs:\n  rbh-fsevents:\n    path: ~\n```\ncalled with a Lustre enricher, it would call the Lustre enricher\u0027s \"enrich_path\" function, kept in a static array retrieved when loading up the enricher.\n\nIn the same way, you would have:\n```\nxattrs:\n  rbh-fsevents:\n    lustre:\n      - stripe_count\n      - stripe_size\n      - ...\n```\nwhich would call a \"backend_enrich\" function kept in that same array of operations, and it would be called with the value associated to the \"lustre\" key, so here the sequence of values",
+      "range": {
+        "startLine": 150,
+        "startChar": 4,
+        "endLine": 150,
+        "endChar": 61
+      },
+      "revId": "3f43441edd4ce7d6f2e94e062e3c3b9bfea83c51",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f57a87e9_c05793c9",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-07T14:54:25Z",
+      "side": 1,
+      "message": "Yeah, it would be a good improvement.",
+      "parentUuid": "eea871e8_ec1f4ac2",
       "range": {
         "startLine": 150,
         "startChar": 4,
