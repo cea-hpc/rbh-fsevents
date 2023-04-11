@@ -3,7 +3,7 @@
 project(
     'rbh-fsevents',
     'c',
-    version: '0.0.0',
+    version: '0.1.0',
     license: 'LGPL3.0-or-later',
     default_options: [
         'warning_level=2',
@@ -31,8 +31,8 @@ add_project_arguments(['-DHAVE_CONFIG_H',], language: 'c')
 extra_sources = []
 extra_dependencies = []
 
-librobinhood = dependency('robinhood', version: '>=0.0.0')
-miniyaml = dependency('miniyaml', version: '>=0.0.0')
+librobinhood = dependency('robinhood', version: '>=0.1.0')
+miniyaml = dependency('miniyaml', version: '>=0.1.0')
 liblustre = dependency('lustre', required: false)
 if not liblustre.found()
     liblustre = cc.find_library('lustreapi', required: false)
@@ -65,3 +65,19 @@ executable(
 )
 
 subdir('tests')
+
+specfile = configuration_data()
+specfile.set('version', meson.project_version())
+configure_file(
+    input: 'rbh-fsevents.spec.in',
+    output: 'rbh-fsevents.spec',
+    configuration: specfile,
+)
+
+meson.add_dist_script('utils/add_specfile_to_dist.sh')
+custom_target('rpm',
+    output: 'rbh-fsevents-' + meson.project_version() + '.rpm',
+    command: [
+        '../utils/make_rpm.sh', meson.current_build_dir(), meson.project_version()
+    ],
+)

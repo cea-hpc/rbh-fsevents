@@ -1,0 +1,42 @@
+Name:    rbh-fsevents
+Version: @version@
+Release: 1%{?dist}
+Summary: Backend updater for RobinHood V4
+
+Group:   Applications/System
+License: LGPLv3
+URL:     https://github.com/cea-hpc/rbh-fsevents.git
+Source0: %{name}-%{version}.tar.xz
+
+Requires: librobinhood
+Requires: lustre-client
+
+BuildRequires: meson
+BuildRequires: gcc
+BuildRequires: gcc-c++
+BuildRequires: check-devel
+BuildRequires: librobinhood
+BuildRequires: lustre-client
+BuildRequires: miniyaml
+
+%description
+The tool to update a backend for the RobinHood project. It reads a list of
+changelogs and update the information recorded in a backend.
+
+%prep
+%autosetup
+
+%build
+%meson
+%meson_build
+
+%install
+%meson_install
+
+%files
+%{_bindir}/rbh-fsevents
+
+%changelog
+
+* Tue Apr 11 2023 - Yoann Valeri <yoann.valeri@cea.fr> - 0.1-1
+- First version
