@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a8e071a_d04d0144",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-04-12T09:29:19Z",
+      "side": 1,
+      "message": "suggest: add a comment to explain the output differences between calling this on the root and on any other entry (I should have done this in my patch, my bad...)",
+      "range": {
+        "startLine": 46,
+        "startChar": 9,
+        "endLine": 46,
+        "endChar": 26
+      },
+      "revId": "5febbdf5c2fc0e90454a3313f66ba02ccaa1dfa2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
