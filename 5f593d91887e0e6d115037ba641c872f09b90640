@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cd4f83a_1205c634",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-12T07:33:16Z",
+      "side": 1,
+      "message": "typo: kind of deduplication -\u003e xattrs",
+      "range": {
+        "startLine": 491,
+        "startChar": 43,
+        "endLine": 491,
+        "endChar": 59
+      },
+      "revId": "5f593d91887e0e6d115037ba641c872f09b90640",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcb636e3_c0d12d36",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-12T07:33:16Z",
+      "side": 1,
+      "message": "typo: xattrs",
+      "range": {
+        "startLine": 495,
+        "startChar": 35,
+        "endLine": 495,
+        "endChar": 40
+      },
+      "revId": "5f593d91887e0e6d115037ba641c872f09b90640",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
