@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f7aeb0_a8fea683",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-04-12T09:22:14Z",
+      "side": 1,
+      "message": "question: why not call this function in _enrich, as an `else` to the if line 86 ?\nAlso, why is this called `posix_enrich` why for lustre it is `enrich_lustre` ?",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 28
+      },
+      "revId": "d7bcbf9f290042b1bcd59e1e2209bd3194a5245d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
