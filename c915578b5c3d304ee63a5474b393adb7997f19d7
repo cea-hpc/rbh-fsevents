@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff96de80_704b297a",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:15:20Z",
+      "side": 1,
+      "message": "defect?: shouldn\u0027t the path contain all the possible parents?",
+      "range": {
+        "startLine": 47,
+        "startChar": 9,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "c915578b5c3d304ee63a5474b393adb7997f19d7",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
