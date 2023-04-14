@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eefe37f8_bd515a0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:12:30Z",
+      "side": 1,
+      "message": "I will probably need to review this patch again.",
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50cf1854_1134e0e6",
+        "filename": "include/enricher.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:12:30Z",
+      "side": 1,
+      "message": "question: why did you add this include?",
+      "range": {
+        "startLine": 6,
+        "startChar": 9,
+        "endLine": 6,
+        "endChar": 30
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41c4c943_144353a2",
+        "filename": "meson.build",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:12:30Z",
+      "side": 1,
+      "message": "suggest: I might be wrong but I think meson can handle missing dependencies. Putting lustre regardless of whether it was found or not may work.",
+      "range": {
+        "startLine": 66,
+        "startChar": 45,
+        "endLine": 66,
+        "endChar": 63
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffcb3ed0_7ec328e2",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:12:30Z",
+      "side": 1,
+      "message": "major: it is a bit weird that a temporary structure is part of the API with the backend",
+      "range": {
+        "startLine": 35,
+        "startChar": 3,
+        "endLine": 39,
+        "endChar": 10
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26e24d38_0c9e283b",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:12:30Z",
+      "side": 1,
+      "message": "question: why does enrich_lustre do a statx?",
+      "range": {
+        "startLine": 53,
+        "startChar": 9,
+        "endLine": 53,
+        "endChar": 18
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b385e78_5637ca0a",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:12:30Z",
+      "side": 1,
+      "message": "suggest: there is a lot of code duplication. You could make a function which will extract the interesting pairs from the fsevent. For example:\n\n```\nrbh_fsevent_xattrs_find_key(original, \"rbh-fsevents\", enricher);\n```\n\nMaybe the name is not great, you can use a better one if you find one.",
+      "range": {
+        "startLine": 114,
+        "startChar": 3,
+        "endLine": 114,
+        "endChar": 7
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "358a1c9c_1a2e635b",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:12:30Z",
+      "side": 1,
+      "message": "suggest: this is the same as the posix one. The only difference is the enrich structure. Maybe you could have a common function that take the enrich structure as an argument.",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 26
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0283d374_80443dd2",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:12:30Z",
+      "side": 1,
+      "message": "suggest: build_empty_map",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 13
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05d95f6c_49b8c435",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:12:30Z",
+      "side": 1,
+      "message": "nit: return rbh_...",
+      "range": {
+        "startLine": 225,
+        "startChar": 4,
+        "endLine": 225,
+        "endChar": 12
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d7a83eb_33ba792b",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:12:30Z",
+      "side": 1,
+      "message": "question: if the function that builds the value fails, this will be NULL, shouldn\u0027t you ignore the NULL values? And when couting them as well?",
+      "range": {
+        "startLine": 274,
+        "startChar": 23,
+        "endLine": 274,
+        "endChar": 43
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70b15d83_224e803c",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:12:30Z",
+      "side": 1,
+      "message": "I am not sure what this does. If I understand it correctly, it seems to create a map with one pair of key \"rbh-fsevents\" which itself contains another pair of key \"path\" with no value. Why did you change the previous behavior? If I understand this correctly, you don\u0027t have the `{ xattrs { rbh-fsevents { xattrs { path: NULL } } } }` structure anymore?",
+      "range": {
+        "startLine": 325,
+        "startChar": 30,
+        "endLine": 325,
+        "endChar": 60
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
