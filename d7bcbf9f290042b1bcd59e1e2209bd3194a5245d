@@ -22,6 +22,30 @@
       },
       "revId": "d7bcbf9f290042b1bcd59e1e2209bd3194a5245d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5d4915c_94c5945b",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-14T07:52:03Z",
+      "side": 1,
+      "message": "First answer: because `_enrich` may increase in size with new arguments to the function, so I prefer managing the posix case here.\nSecond answer: well, `posix_enrich` is not the equivalent of `enrich_lustre`  but of `enrich` here. I may rename `enrich` to `lustre_enrich` and `enrich_lustre` to `_enrich_lustre`.",
+      "parentUuid": "29f7aeb0_a8fea683",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 28
+      },
+      "revId": "d7bcbf9f290042b1bcd59e1e2209bd3194a5245d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
