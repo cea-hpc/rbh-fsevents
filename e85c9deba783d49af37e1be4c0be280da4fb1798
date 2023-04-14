@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "abc8b7e0_27f85186",
+        "filename": "include/enricher.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T12:53:12Z",
+      "side": 1,
+      "message": "suggest: this will build iterators given an fsevent iterator. It could be name enrich_iterator_builder",
+      "range": {
+        "startLine": 16,
+        "startChar": 7,
+        "endLine": 16,
+        "endChar": 13
+      },
+      "revId": "e85c9deba783d49af37e1be4c0be280da4fb1798",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f37a770_707d7b2e",
+        "filename": "include/enricher.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T12:53:12Z",
+      "side": 1,
+      "message": "suggest: as far as I understand, this function will wrap the fsevents iterator inside another iterator that will enrich the entry. I find the function name \"enrich_process\" misleading. To me it implies that this function will actually process the fsevent but in reality, it will only create an iterator. You could rename it: enrich_iterator_from_fsevents for example. At the same time, the callback \"process\" of the enrich_operations structure could be named build_enrich_iterator for example.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 14
+      },
+      "revId": "e85c9deba783d49af37e1be4c0be280da4fb1798",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a5ab1fc_3f4eafd4",
         "filename": "rbh-fsevents.c",
         "patchSetId": 2
@@ -184,6 +230,29 @@
         "startChar": 4,
         "endLine": 202,
         "endChar": 28
+      },
+      "revId": "e85c9deba783d49af37e1be4c0be280da4fb1798",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd633516_eb8079ff",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T12:53:12Z",
+      "side": 1,
+      "message": "question: I feel like this structure only adds complexity to the code without solving an actual issue. Is there a reason why backend is not in enrich and mount_fd either in enrich for now since both lustre and posix need it or in each backend specific enrich?\n\nI think you could have the enrich struct and the backend specific ones only.",
+      "range": {
+        "startLine": 892,
+        "startChar": 4,
+        "endLine": 892,
+        "endChar": 32
       },
       "revId": "e85c9deba783d49af37e1be4c0be280da4fb1798",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
