@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e81d740c_e7c01908",
+        "filename": "include/enricher.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:25:59Z",
+      "side": 1,
+      "message": "I\u0027d rather have long and meaningful names.",
+      "parentUuid": "2de8d7d3_32f3e4f8",
+      "range": {
+        "startLine": 16,
+        "startChar": 7,
+        "endLine": 16,
+        "endChar": 13
+      },
+      "revId": "e85c9deba783d49af37e1be4c0be280da4fb1798",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8f37a770_707d7b2e",
         "filename": "include/enricher.h",
         "patchSetId": 2
@@ -320,6 +344,30 @@
       "side": 1,
       "message": "That\u0027s because we could have enrichers which do not depend on backends (that\u0027s why we had the check on mountpoint is a URI). For that point, `backend_enrich` overloads `enrich`.\n\nIf we are sure mountpoint will be a URI (or at least consider that for now), we can have the backend in enrich. For `mount_fd`, I know for sure that some backends will not have it, and we may relocate it once the hestia enrichment will be available for instance.",
       "parentUuid": "fd633516_eb8079ff",
+      "range": {
+        "startLine": 892,
+        "startChar": 4,
+        "endLine": 892,
+        "endChar": 32
+      },
+      "revId": "e85c9deba783d49af37e1be4c0be280da4fb1798",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73970a10_8b8cbe92",
+        "filename": "src/enricher.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-14T15:25:59Z",
+      "side": 1,
+      "message": "I\u0027m not sure we should support enrichers without backends otherwise we still have the issue of needing an additional parameter to specify which type of enrichement is required. Let say Hestia won\u0027t need one. How would you call fsevents?\n\n```\nrbh-fsevents --enrich ???\n```\n\nOk, in practice hestia will probably not need enrichement but this is just for the sake of argument. I think you will still have this issue even if, in practice, the backend is not useful. It seems to me that the backend will always be there and be parsed. The actual iterator or iterator_builder may not need to use it but that\u0027s internal to the iterator itself. If we can make the code simpler by removing this extra backend_enrich, I think we should do it. The code is quite complexe already.\n\nAs for the mount_fd. We can already put it in the specific enrich struct since the mount point is already opened in the enricher specific functions. But I am fine with having it in the main enrich struct for now as well.",
+      "parentUuid": "27bc7c72_ded81f89",
       "range": {
         "startLine": 892,
         "startChar": 4,
