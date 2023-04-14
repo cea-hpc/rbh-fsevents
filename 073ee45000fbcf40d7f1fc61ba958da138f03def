@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "226e363c_a5fd26c7",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-14T09:26:36Z",
+      "side": 1,
+      "message": "suggest: something I thought about a few days ago, we may alias this command",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 27
+      },
+      "revId": "073ee45000fbcf40d7f1fc61ba958da138f03def",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
