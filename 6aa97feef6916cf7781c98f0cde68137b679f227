@@ -95,6 +95,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2011169d_2b5797f5",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-04-17T08:39:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7ded8faa_d523e829",
+      "range": {
+        "startLine": 20,
+        "startChar": 50,
+        "endLine": 20,
+        "endChar": 61
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51fee8c2_9fa58f60",
@@ -108,6 +132,30 @@
       "writtenOn": "2023-02-06T14:15:15Z",
       "side": 1,
       "message": "this is the second time you use this function, you should put it in utils",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 1
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71dcd5cc_b9bff382",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-04-17T08:39:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51fee8c2_9fa58f60",
       "range": {
         "startLine": 37,
         "startChar": 0,
@@ -141,6 +189,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e12a03dd_465f706d",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-04-17T08:39:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7cb20558_55673a5c",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 58
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7edecdd9_2403d09a",
@@ -154,6 +226,30 @@
       "writtenOn": "2023-02-06T14:15:15Z",
       "side": 1,
       "message": "style: wrong identation",
+      "range": {
+        "startLine": 96,
+        "startChar": 3,
+        "endLine": 96,
+        "endChar": 8
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6eaccf2_3631eb9f",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-04-17T08:39:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7edecdd9_2403d09a",
       "range": {
         "startLine": 96,
         "startChar": 3,
@@ -189,6 +285,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e72043d7_52c0cb26",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-04-17T08:39:48Z",
+      "side": 1,
+      "message": "Currently no, we would to generate an event that would set the xattrs.user to NULL, but that means we would have to to check at update if the xattrs category still has any xattr in it. It is not currently done, maybe later",
+      "parentUuid": "395e2a55_7d97585e",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 53
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "372f9d61_765a5361",
         "filename": "tests/test_setxattr.bash",
         "patchSetId": 2
@@ -200,6 +320,30 @@
       "writtenOn": "2023-02-06T14:15:15Z",
       "side": 1,
       "message": "suggest: check_last_setxattr_is_inserted",
+      "range": {
+        "startLine": 103,
+        "startChar": 5,
+        "endLine": 103,
+        "endChar": 22
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af519e4b_7ea1c84a",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-04-17T08:39:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "372f9d61_765a5361",
       "range": {
         "startLine": 103,
         "startChar": 5,
@@ -223,6 +367,30 @@
       "writtenOn": "2023-02-06T14:15:15Z",
       "side": 1,
       "message": "major: I don\u0027t think you have tested that rbh-fsevents is capable of handling both the touch and the sefattr in one go.",
+      "range": {
+        "startLine": 132,
+        "startChar": 3,
+        "endLine": 139,
+        "endChar": 27
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92fc0ee3_1ffa1d0a",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-04-17T08:39:48Z",
+      "side": 1,
+      "message": "Yes, that will be the job of another test I will do in another patch. I want to have a test per event, and a test for all events at once",
+      "parentUuid": "4d031dbd_1e9be967",
       "range": {
         "startLine": 132,
         "startChar": 3,
