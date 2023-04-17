@@ -96,6 +96,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6658d503_311e4377",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-17T08:45:47Z",
+      "side": 1,
+      "message": "The point is that any event before the unlink will fail since the entry does not exist. So you make sure that you are not just ignoring errors on create but also on another event.",
+      "parentUuid": "46221c2b_9bd76ac5",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 16
+      },
+      "revId": "8d8c3e9da35c86a3ca68716eeb2c0060aba88a51",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd1a6427_ff92188e",
