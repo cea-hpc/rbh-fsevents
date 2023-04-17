@@ -45,6 +45,23 @@
       },
       "revId": "3ac75bd6ad5d65a104f15614761cce28283f1bf5",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80584296_5a64c676",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-17T08:43:38Z",
+      "side": 1,
+      "message": "Leave it at 0 because of Sebastien\u0027s comments.",
+      "revId": "3ac75bd6ad5d65a104f15614761cce28283f1bf5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
