@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dafb69d6_105c4370",
+        "filename": "tests/test_rmdir.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-17T09:01:45Z",
+      "side": 1,
+      "message": "minor: missing quotes (and rm_entry as well)",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 12
+      },
+      "revId": "71d91651e2030a793ebe2f33591f72d06837d7a8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08eb4055_326dbc8d",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-17T09:01:45Z",
+      "side": 1,
+      "message": "suggest: still contain $entry with no parent",
+      "range": {
+        "startLine": 41,
+        "startChar": 67,
+        "endLine": 42,
+        "endChar": 13
+      },
+      "revId": "71d91651e2030a793ebe2f33591f72d06837d7a8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a3f2284_56d6fa69",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-17T09:01:45Z",
+      "side": 1,
+      "message": "major: to remove",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 46
+      },
+      "revId": "71d91651e2030a793ebe2f33591f72d06837d7a8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63c7e894_14e3fa06",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-17T09:01:45Z",
+      "side": 1,
+      "message": "suggest: you should test that there is no parent in the entry",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 18
+      },
+      "revId": "71d91651e2030a793ebe2f33591f72d06837d7a8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
