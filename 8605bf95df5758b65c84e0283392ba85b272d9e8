@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b6664621_31b025b8",
+        "filename": "include/enricher.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-18T07:47:22Z",
+      "side": 1,
+      "message": "Because there is a ref to rbh_backend. But it had to be added in a previous patch, which is normally done now.",
+      "parentUuid": "50cf1854_1134e0e6",
+      "range": {
+        "startLine": 6,
+        "startChar": 9,
+        "endLine": 6,
+        "endChar": 30
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "41c4c943_144353a2",
         "filename": "meson.build",
         "patchSetId": 8
@@ -54,6 +78,30 @@
       "writtenOn": "2023-04-14T15:12:30Z",
       "side": 1,
       "message": "suggest: I might be wrong but I think meson can handle missing dependencies. Putting lustre regardless of whether it was found or not may work.",
+      "range": {
+        "startLine": 66,
+        "startChar": 45,
+        "endLine": 66,
+        "endChar": 63
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27c49dac_7c54aa86",
+        "filename": "meson.build",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-18T07:47:22Z",
+      "side": 1,
+      "message": "You seem to be right. From [meson\u0027s doc](https://mesonbuild.com/Dependencies.html#dependencies):\n\n\u003e You can pass the opt_dep variable to target construction functions whether the actual dependency was found or not. Meson will ignore non-found dependencies.",
+      "parentUuid": "41c4c943_144353a2",
       "range": {
         "startLine": 66,
         "startChar": 45,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "510e832f_678dc25b",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-18T07:47:22Z",
+      "side": 1,
+      "message": "I agree. But I did not have any other idea which do not need librbh-backend-lustre or its headers to work.",
+      "parentUuid": "ffcb3ed0_7ec328e2",
+      "range": {
+        "startLine": 35,
+        "startChar": 3,
+        "endLine": 39,
+        "endChar": 10
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26e24d38_0c9e283b",
         "filename": "src/enrichers/lustre.c",
         "patchSetId": 8
@@ -100,6 +172,30 @@
       "writtenOn": "2023-04-14T15:12:30Z",
       "side": 1,
       "message": "question: why does enrich_lustre do a statx?",
+      "range": {
+        "startLine": 53,
+        "startChar": 9,
+        "endLine": 53,
+        "endChar": 18
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1559246f_0ebaa57d",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-18T07:47:22Z",
+      "side": 1,
+      "message": "Because we need to retrieve the file mode for its type, some lustre attribute retrievals depend on the type.",
+      "parentUuid": "26e24d38_0c9e283b",
       "range": {
         "startLine": 53,
         "startChar": 9,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac21b8d8_4dc95b12",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-18T07:47:22Z",
+      "side": 1,
+      "message": "Do you agree in doing that later?",
+      "parentUuid": "3b385e78_5637ca0a",
+      "range": {
+        "startLine": 114,
+        "startChar": 3,
+        "endLine": 114,
+        "endChar": 7
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "358a1c9c_1a2e635b",
         "filename": "src/enrichers/lustre.c",
         "patchSetId": 8
@@ -146,6 +266,30 @@
       "writtenOn": "2023-04-14T15:12:30Z",
       "side": 1,
       "message": "suggest: this is the same as the posix one. The only difference is the enrich structure. Maybe you could have a common function that take the enrich structure as an argument.",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 26
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56fcc747_2ddd466e",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-18T07:47:22Z",
+      "side": 1,
+      "message": "I can think of that, externalize the structures to be able to use them in a common function. I will try something.",
+      "parentUuid": "358a1c9c_1a2e635b",
       "range": {
         "startLine": 212,
         "startChar": 0,
@@ -179,6 +323,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5444a987_1a3acaf9",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-18T07:47:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0283d374_80443dd2",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 13
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05d95f6c_49b8c435",
@@ -192,6 +360,30 @@
       "writtenOn": "2023-04-14T15:12:30Z",
       "side": 1,
       "message": "nit: return rbh_...",
+      "range": {
+        "startLine": 225,
+        "startChar": 4,
+        "endLine": 225,
+        "endChar": 12
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "635390d4_05c4f33a",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-18T07:47:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05d95f6c_49b8c435",
       "range": {
         "startLine": 225,
         "startChar": 4,
@@ -227,6 +419,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f36f71f_7ffd310a",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-18T07:47:22Z",
+      "side": 1,
+      "message": "If the value is NULL, the assert on line 261 will be raised.",
+      "parentUuid": "4d7a83eb_33ba792b",
+      "range": {
+        "startLine": 274,
+        "startChar": 23,
+        "endLine": 274,
+        "endChar": 43
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70b15d83_224e803c",
         "filename": "src/sources/lustre.c",
         "patchSetId": 8
@@ -238,6 +454,30 @@
       "writtenOn": "2023-04-14T15:12:30Z",
       "side": 1,
       "message": "I am not sure what this does. If I understand it correctly, it seems to create a map with one pair of key \"rbh-fsevents\" which itself contains another pair of key \"path\" with no value. Why did you change the previous behavior? If I understand this correctly, you don\u0027t have the `{ xattrs { rbh-fsevents { xattrs { path: NULL } } } }` structure anymore?",
+      "range": {
+        "startLine": 325,
+        "startChar": 30,
+        "endLine": 325,
+        "endChar": 60
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e90c64b_871c6e7f",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-18T07:47:22Z",
+      "side": 1,
+      "message": "That\u0027s totally right, instead of having `{ xattrs { rbh-fsevents { xattrs { path: NULL } } } }`, we will have `{ xattrs { rbh-fsevents { path: NULL } } }`, because the second `xattrs` map is not useful and misguiding: path is not a xattr for rbh-fsevent, so it must not be caught by the posix enricher.",
+      "parentUuid": "70b15d83_224e803c",
       "range": {
         "startLine": 325,
         "startChar": 30,
