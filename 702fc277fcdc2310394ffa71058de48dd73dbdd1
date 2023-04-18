@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "beff64a4_b0968462",
+        "filename": "tests/test_rename.bash",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-18T14:13:36Z",
+      "side": 1,
+      "message": "minor: you should be consistent with the quoting. It is not necessary in this case this $entry does not contain spaces ($entry_renamed as well).",
+      "range": {
+        "startLine": 75,
+        "startChar": 16,
+        "endLine": 75,
+        "endChar": 17
+      },
+      "revId": "702fc277fcdc2310394ffa71058de48dd73dbdd1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31bcd5e4_27170d03",
+        "filename": "tests/test_rename.bash",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-18T14:13:36Z",
+      "side": 1,
+      "message": "question: why do you read the changelogs here but not in the previous tests?",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 16
+      },
+      "revId": "702fc277fcdc2310394ffa71058de48dd73dbdd1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bccc03d_785cea52",
+        "filename": "tests/test_rename.bash",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-18T14:13:36Z",
+      "side": 1,
+      "message": "typo: since?",
+      "range": {
+        "startLine": 110,
+        "startChar": 25,
+        "endLine": 110,
+        "endChar": 30
+      },
+      "revId": "702fc277fcdc2310394ffa71058de48dd73dbdd1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e671bb25_c8cf95c2",
+        "filename": "tests/test_rename.bash",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-18T14:13:36Z",
+      "side": 1,
+      "message": "nit: this could be a function since you use it at several places",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 32
+      },
+      "revId": "702fc277fcdc2310394ffa71058de48dd73dbdd1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
