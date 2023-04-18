@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83825fbb_34c456d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-18T14:16:35Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 11,
+        "startChar": 19,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "67c70e6e454dc2cd53cc5a034af77aba64320781",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b035d23_75fb8db1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-18T14:16:35Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 12,
+        "endChar": 9
+      },
+      "revId": "67c70e6e454dc2cd53cc5a034af77aba64320781",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f976bbf_65319588",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-18T14:16:35Z",
+      "side": 1,
+      "message": "minor: the statx may have changed as well since a released file does not take space in the filesystem. It\u0027s block count may be different. I actually don\u0027t know. I shoudl test this later. Also, you need to retrive the trusted.hsm and trusted.lov xattrs. I don\u0027t think you will get a setxattr events for these.",
+      "range": {
+        "startLine": 674,
+        "startChar": 25,
+        "endLine": 674,
+        "endChar": 31
+      },
+      "revId": "67c70e6e454dc2cd53cc5a034af77aba64320781",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
