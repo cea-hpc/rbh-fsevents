@@ -22,6 +22,30 @@
       },
       "revId": "c915578b5c3d304ee63a5474b393adb7997f19d7",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b74a645_51e7f50a",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-19T11:31:44Z",
+      "side": 1,
+      "message": "We call `enrich_path()`, and so `llapi_fid2path_at()` on the parent directory, and we cannot have hardlinks for directories so only one path. Then we add `name` to the path, which is the file name.",
+      "parentUuid": "ff96de80_704b297a",
+      "range": {
+        "startLine": 47,
+        "startChar": 9,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "c915578b5c3d304ee63a5474b393adb7997f19d7",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
