@@ -30,7 +30,7 @@ test_hsm()
     local entry="$1"
     local state="$2"
 
-    rbh_fsevents --enrich "$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
+    rbh_fsevents --enrich rbh:lustre:"$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
         "rbh:mongo:$testdb"
 
     # Since an archived copy of $entry still exists, the DB should contain two

@@ -19,7 +19,7 @@ test_rename()
     local entry_renamed="$2"
     local count=$3
 
-    rbh_fsevents --enrich "$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
+    rbh_fsevents --enrich rbh:lustre:"$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
         "rbh:mongo:$testdb"
 
     local entries=$(mongo "$testdb" --eval "db.entries.find()" | wc -l)
@@ -83,7 +83,7 @@ test_rename_overwrite_data()
     mkdir tmp
     touch tmp/$entry_renamed
 
-    rbh_fsevents --enrich "$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
+    rbh_fsevents --enrich rbh:lustre:"$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
         "rbh:mongo:$testdb"
 
     mv $entry tmp/$entry_renamed
@@ -100,7 +100,7 @@ test_rename_overwrite_data_with_hsm_copy()
     mkdir tmp
     touch tmp/$entry_renamed
 
-    rbh_fsevents --enrich "$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
+    rbh_fsevents --enrich rbh:lustre:"$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
         "rbh:mongo:$testdb"
 
     hsm_archive_file tmp/$entry_renamed
