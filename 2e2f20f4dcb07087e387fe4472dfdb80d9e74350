@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65557a99_8c207d10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-21T14:41:04Z",
+      "side": 1,
+      "message": "Thanks for you reviews!",
+      "revId": "2e2f20f4dcb07087e387fe4472dfdb80d9e74350",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c16b4cd9_0d9e0dd2",
@@ -20,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7b9efa77_c42b7dd4",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-21T14:41:04Z",
+      "side": 1,
+      "message": "Well, you have the same version as ours I think. We effectively use `rbh_backend_from_uri` to build the backend (and not `backend_from_uri`).\n\nOur issue here is we need to retrieve the `fsname`, and we can not get it back from an `rbh_backend` structure without specializing it.\n\nSo, we may directly parse it from the uri argument or use those utils functions: the difference is the number of allocations (for `raw_uri` and `rbh_uri`). This builder is only called once for each rbh-fsevents command, so using the utils function seems good enough.",
+      "parentUuid": "c16b4cd9_0d9e0dd2",
+      "revId": "2e2f20f4dcb07087e387fe4472dfdb80d9e74350",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9e1ae8b_7855d656",
         "filename": "rbh-fsevents.c",
         "patchSetId": 4
@@ -31,6 +66,24 @@
       "writtenOn": "2023-04-21T11:52:13Z",
       "side": 1,
       "message": "`enrich_iter_builder_new` already checks for null (and exits), and you do the same here -- could be using `enrich_iter_builder_from_uri` here directy and drop the static inline wrapper",
+      "revId": "2e2f20f4dcb07087e387fe4472dfdb80d9e74350",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e97c39a1_0ca4cb84",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-21T14:41:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9e1ae8b_7855d656",
       "revId": "2e2f20f4dcb07087e387fe4472dfdb80d9e74350",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
