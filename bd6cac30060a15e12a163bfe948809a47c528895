@@ -41,6 +41,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7912fce5_d4702c47",
+        "filename": "src/enrichers/internals.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-21T10:25:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f79792a6_9b0368bb",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 5
+      },
+      "revId": "bd6cac30060a15e12a163bfe948809a47c528895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d446c02_083dd88b",
@@ -64,6 +88,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "efaf43a5_88594778",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-21T10:25:53Z",
+      "side": 1,
+      "message": "You\u0027re right.\n\nFrom [guidelines](https://github.com/cea-hpc/robinhood/blob/v4/doc/coding-style.rst#how-to-break-lines).",
+      "parentUuid": "0d446c02_083dd88b",
+      "range": {
+        "startLine": 82,
+        "startChar": 43,
+        "endLine": 82,
+        "endChar": 50
+      },
+      "revId": "bd6cac30060a15e12a163bfe948809a47c528895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5886025c_6a72dd78",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-04-21T08:09:03Z",
       "side": 1,
       "message": "style: no indentation?",
+      "range": {
+        "startLine": 202,
+        "startChar": 4,
+        "endLine": 202,
+        "endChar": 34
+      },
+      "revId": "bd6cac30060a15e12a163bfe948809a47c528895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1a79533_17465c80",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-21T10:25:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5886025c_6a72dd78",
       "range": {
         "startLine": 202,
         "startChar": 4,
