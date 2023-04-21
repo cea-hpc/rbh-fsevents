@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "726df097_92be3e18",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2023-04-21T12:19:44Z",
+      "side": 1,
+      "message": "(Semi offtopic: after a bit of time I really think rbh v4 being split in many git repos is more overhead than it brings. Having different independent tools is a good design, but they could all live within a single repo so e.g. tests could properly build everything together in coherent lock-stepped versions. I\u0027ll just drop that idea here and let you discuss it... Although I guess if you\u0027re already using it you must be done with packaging at which point it might no longer be worth it.\nFrom a technical point of view history could probably be kept through git filter-repo, if we\u0027re not interleaving the commits for coherency of past commits (probably not worth it) it\u0027s actually quite easy with 1/ filter-repo to add prefix to paths and 2/ plain old merge commit to bring things together)",
+      "parentUuid": "dd9f332d_922718f0",
+      "range": {
+        "startLine": 43,
+        "startChar": 32,
+        "endLine": 43,
+        "endChar": 42
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf1758e0_b520ed9f",
         "filename": "rbh-fsevents.c",
         "patchSetId": 3

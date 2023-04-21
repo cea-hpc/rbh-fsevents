@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ab14a69_a1e433a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2023-04-21T12:19:44Z",
+      "side": 1,
+      "message": "(didn\u0027t read all in detail)",
+      "revId": "1a96a21aefbe1b7eac7880ce32d9285dc411ebc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7d3893b_a7d12b61",
+        "filename": "meson.build",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2023-04-21T12:19:44Z",
+      "side": 1,
+      "message": "afaiu that means \"Do not build rbh-fsevents at all if lustre was not found\" -- how different is that from required when there is nothing else in the project?!\nAre you sure you want it to be a disabler?",
+      "range": {
+        "startLine": 36,
+        "startChar": 33,
+        "endLine": 36,
+        "endChar": 47
+      },
+      "revId": "1a96a21aefbe1b7eac7880ce32d9285dc411ebc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65766130_16eb434c",
+        "filename": "src/enrichers/posix.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2023-04-21T12:19:44Z",
+      "side": 1,
+      "message": "hm? fallthrough doesn\u0027t make sense as last item of a switch?\nEven a break isn\u0027t normally needed afaik, but this code base seems to use one more often than not -- although in this case I don\u0027t see the point of adding a default case at all, something warning the switch wasn\u0027t exhaustive?\n\n# hadn\u0027t tried building before writing this, but gcc 12 will actually warn this fallthrough isn\u0027t preceding another label...",
+      "revId": "1a96a21aefbe1b7eac7880ce32d9285dc411ebc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
