@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6edfe37a_fae4c50c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-21T08:09:03Z",
+      "side": 1,
+      "message": "I leave it at 0 for the major but otherwise this looks good to me.",
+      "revId": "bd6cac30060a15e12a163bfe948809a47c528895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f79792a6_9b0368bb",
+        "filename": "src/enrichers/internals.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-21T08:09:03Z",
+      "side": 1,
+      "message": "major: in a header you should define globals as extern and define the actual global in one .c file. Otherwise, every file including this header will have its own global variable.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 5
+      },
+      "revId": "bd6cac30060a15e12a163bfe948809a47c528895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d446c02_083dd88b",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-21T08:09:03Z",
+      "side": 1,
+      "message": "style: bad indentation",
+      "range": {
+        "startLine": 82,
+        "startChar": 43,
+        "endLine": 82,
+        "endChar": 50
+      },
+      "revId": "bd6cac30060a15e12a163bfe948809a47c528895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5886025c_6a72dd78",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-21T08:09:03Z",
+      "side": 1,
+      "message": "style: no indentation?",
+      "range": {
+        "startLine": 202,
+        "startChar": 4,
+        "endLine": 202,
+        "endChar": 34
+      },
+      "revId": "bd6cac30060a15e12a163bfe948809a47c528895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}

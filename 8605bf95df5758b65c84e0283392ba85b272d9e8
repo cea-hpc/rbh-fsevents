@@ -159,6 +159,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ed3112c_79b23dbb",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-21T08:09:03Z",
+      "side": 1,
+      "message": "At some point, we will need to have a public header per backend to handle these dependencies. We can leave it like this for now.",
+      "parentUuid": "510e832f_678dc25b",
+      "range": {
+        "startLine": 35,
+        "startChar": 3,
+        "endLine": 39,
+        "endChar": 10
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26e24d38_0c9e283b",
@@ -206,6 +230,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f49c207d_b71ea37c",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-21T08:09:03Z",
+      "side": 1,
+      "message": "Alright, but we have to keep in mind that we should minimise the number of stats per file (idealy to 1) to avoid unecessary requests and system calls. This is fine for now. Maybe the mode of the file needs to be passed from the changelog reader to the enricher, deduplicator, ... Or even the whole stat structure.",
+      "parentUuid": "1559246f_0ebaa57d",
+      "range": {
+        "startLine": 53,
+        "startChar": 9,
+        "endLine": 53,
+        "endChar": 18
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b385e78_5637ca0a",
@@ -243,6 +291,30 @@
       "side": 1,
       "message": "Do you agree in doing that later?",
       "parentUuid": "3b385e78_5637ca0a",
+      "range": {
+        "startLine": 114,
+        "startChar": 3,
+        "endLine": 114,
+        "endChar": 7
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59aede9c_0386b2cc",
+        "filename": "src/enrichers/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-21T08:09:03Z",
+      "side": 1,
+      "message": "Yep",
+      "parentUuid": "ac21b8d8_4dc95b12",
       "range": {
         "startLine": 114,
         "startChar": 3,
@@ -467,6 +539,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23d12aa3_b5b29eab",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-21T08:09:03Z",
+      "side": 1,
+      "message": "Ok, maybe it deserves a small comment around the assert.",
+      "parentUuid": "1f36f71f_7ffd310a",
+      "range": {
+        "startLine": 274,
+        "startChar": 23,
+        "endLine": 274,
+        "endChar": 43
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70b15d83_224e803c",
         "filename": "src/sources/lustre.c",
         "patchSetId": 8
@@ -502,6 +598,30 @@
       "side": 1,
       "message": "That\u0027s totally right, instead of having `{ xattrs { rbh-fsevents { xattrs { path: NULL } } } }`, we will have `{ xattrs { rbh-fsevents { path: NULL } } }`, because the second `xattrs` map is not useful and misguiding: path is not a xattr for rbh-fsevent, so it must not be caught by the posix enricher.",
       "parentUuid": "70b15d83_224e803c",
+      "range": {
+        "startLine": 325,
+        "startChar": 30,
+        "endLine": 325,
+        "endChar": 60
+      },
+      "revId": "8605bf95df5758b65c84e0283392ba85b272d9e8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a49eae8d_179dd6ed",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-04-21T08:09:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8e90c64b_871c6e7f",
       "range": {
         "startLine": 325,
         "startChar": 30,
