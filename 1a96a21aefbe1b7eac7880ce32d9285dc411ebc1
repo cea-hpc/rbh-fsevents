@@ -41,6 +41,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1427f440_e422c737",
+        "filename": "meson.build",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-21T14:40:53Z",
+      "side": 1,
+      "message": "You\u0027re right, my bad.",
+      "parentUuid": "b7d3893b_a7d12b61",
+      "range": {
+        "startLine": 36,
+        "startChar": 33,
+        "endLine": 36,
+        "endChar": 47
+      },
+      "revId": "1a96a21aefbe1b7eac7880ce32d9285dc411ebc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65766130_16eb434c",
@@ -54,6 +78,24 @@
       "writtenOn": "2023-04-21T12:19:44Z",
       "side": 1,
       "message": "hm? fallthrough doesn\u0027t make sense as last item of a switch?\nEven a break isn\u0027t normally needed afaik, but this code base seems to use one more often than not -- although in this case I don\u0027t see the point of adding a default case at all, something warning the switch wasn\u0027t exhaustive?\n\n# hadn\u0027t tried building before writing this, but gcc 12 will actually warn this fallthrough isn\u0027t preceding another label...",
+      "revId": "1a96a21aefbe1b7eac7880ce32d9285dc411ebc1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b375606d_2a18661a",
+        "filename": "src/enrichers/posix.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-04-21T14:40:53Z",
+      "side": 1,
+      "message": "Hum, I think that\u0027s a bit of code from a previous version, I will remove it. Nice spot.\n\nI let the previous break in (I agree this is not necessary).",
+      "parentUuid": "65766130_16eb434c",
       "revId": "1a96a21aefbe1b7eac7880ce32d9285dc411ebc1",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
