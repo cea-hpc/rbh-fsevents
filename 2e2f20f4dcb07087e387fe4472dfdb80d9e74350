@@ -53,6 +53,24 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0366f905_8c4c1990",
+        "filename": "rbh-fsevents.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2023-04-22T05:31:03Z",
+      "side": 1,
+      "message": "Ok sorry I had just misread this -- uri here is the string, while raw_uri/rbh_uri are of uri kind of things. Okay.\n\nThis is a bit wasteful but as you said it\u0027s not like we\u0027re doing this in a tight loop, and parsing the uri twice is cheap. Just a bit confusing with variable names :)",
+      "parentUuid": "7b9efa77_c42b7dd4",
+      "revId": "2e2f20f4dcb07087e387fe4472dfdb80d9e74350",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9e1ae8b_7855d656",
