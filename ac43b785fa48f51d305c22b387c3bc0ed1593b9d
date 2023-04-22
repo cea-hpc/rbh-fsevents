@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86f3e5c1_06b8fb7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2023-04-22T05:24:22Z",
+      "side": 1,
+      "message": "(code review was lost on trivial rebase :/ I apparently have permission to update refs/meta/config so I gave it a shot: I think there was a typo in the copy condition (  https://gerrit-review.googlesource.com/Documentation/config-labels.html lists change-kind: as an example, but below it\u0027s always changekind without dash -- I\u0027ve removed the dash); let\u0027s see if this works... I\u0027ll let someone else update the other repos)",
+      "revId": "ac43b785fa48f51d305c22b387c3bc0ed1593b9d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
