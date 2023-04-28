@@ -91,8 +91,7 @@ acceptance()
 
     touch $file8
 
-    rbh_fsevents --enrich rbh:lustre:"$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
-        "rbh:mongo:$testdb"
+    update_database
 
     for entry in "$(find *)"; do
         check_statx $entry
@@ -106,8 +105,7 @@ acceptance()
     rm $file1
     rm $file8
 
-    rbh_fsevents --enrich rbh:lustre:"$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
-        "rbh:mongo:$testdb"
+    update_database
 
     mongo $testdb --eval "db.entries.find()"
     local entries=$(mongo "$testdb" --eval "db.entries.find()" | wc -l)
