@@ -33,8 +33,7 @@ test_create_symlink()
     local entry="test_entry"
     create_entry "$entry"
 
-    rbh_fsevents --enrich rbh:lustre:"$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
-        "rbh:mongo:$testdb"
+    update_database
 
     mongo "$testdb" --eval "db.entries.find()"
     local entries=$(mongo "$testdb" --eval "db.entries.find()" | wc -l)
