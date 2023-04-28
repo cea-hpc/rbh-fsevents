@@ -19,8 +19,7 @@ test_rename()
     local entry_renamed="$2"
     local count=$3
 
-    rbh_fsevents --enrich rbh:lustre:"$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
-        "rbh:mongo:$testdb"
+    update_database
 
     local entries=$(mongo "$testdb" --eval "db.entries.find()" | wc -l)
     if [[ $entries -ne $count ]]; then
@@ -83,8 +82,7 @@ test_rename_overwrite_data()
     mkdir tmp
     touch tmp/$entry_renamed
 
-    rbh_fsevents --enrich rbh:lustre:"$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
-        "rbh:mongo:$testdb"
+    update_database
 
     mv $entry tmp/$entry_renamed
     local count=$(find . | wc -l)
@@ -100,8 +98,7 @@ test_rename_overwrite_data_with_hsm_copy()
     mkdir tmp
     touch tmp/$entry_renamed
 
-    rbh_fsevents --enrich rbh:lustre:"$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
-        "rbh:mongo:$testdb"
+    update_database
 
     hsm_archive_file tmp/$entry_renamed
     clear_changelogs

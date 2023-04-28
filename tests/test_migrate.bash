@@ -27,8 +27,7 @@ test_migrate()
     lfs setdirstripe -i 1 $entry
     lfs migrate -m 0 $entry
 
-    rbh_fsevents --enrich rbh:lustre:"$LUSTRE_DIR" --lustre "$LUSTRE_MDT" \
-        "rbh:mongo:$testdb"
+    update_database
 
     local entries=$(mongo "$testdb" --eval "db.entries.find()" | wc -l)
     local count=$(find . | wc -l)
