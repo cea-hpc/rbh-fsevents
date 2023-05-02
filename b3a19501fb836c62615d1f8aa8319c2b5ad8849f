@@ -214,6 +214,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cca664c6_7d7f0484",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003556
+      },
+      "writtenOn": "2023-05-02T01:15:01Z",
+      "side": 1,
+      "message": "FWIW I\u0027ve just done such a merge for $job; quick feedback:\n - filter-repo works well, but rewriting history also invalidates old tags, so after doing all the work with filter-repo I threw it all out and just kept the original history, appending a final \u0027git mv * subdir/\u0027 (unfortunately complains subdir cannot be moved to itself, so manual, not forgetting dot files...)\n - merge needs `--allow-unrelated-histories` to accept merging, but works fine.\n - merge can target multiple branches at once, but git seems to get lost e.g. the first time I\u0027ve done this with filter-repo I created one merge commit per branch and it worked well, but the second time I tried `git merge --allow-unrelated-histories branch1 branch2 branch3...` and it said it couldn\u0027t resolve a conflict and didn\u0027t do anything. I\u0027d assume I forgot moving something and there really was some conflict, but I couldn\u0027t find it so I just went through `git checkout branch branchdir` and commited the result, which was identical to my first try with filter-repo... I didn\u0027t dig further.\nThis is rather fun in git log --graph though, merge commits with more than 2 parents are rare :)\n \nEither way it\u0027s not too painful and can be done quite quickly, happy to do this work in a test branch if you want to play with it. I\u0027m quite happy with the result (for the one I did here)\nSince history isn\u0027t rewritten (assuming we also prefer my second approach with a rename commit), commits currently under review can be cherry-picked and git resolves the rename automatically so it\u0027s not too disturbing (it\u0027ll be in a different repo though so will create a new change); this should be done when there isn\u0027t too much activity.\n\nAnyway, not going to push too hard since that\u0027s just giving me more work: I\u0027ll wait for you all to discuss it a bit, just wanted to write down what I\u0027ve done before I forget.",
+      "parentUuid": "e8c68da6_30e28b95",
+      "range": {
+        "startLine": 43,
+        "startChar": 32,
+        "endLine": 43,
+        "endChar": 42
+      },
+      "revId": "b3a19501fb836c62615d1f8aa8319c2b5ad8849f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf1758e0_b520ed9f",
