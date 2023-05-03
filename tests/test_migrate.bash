@@ -35,6 +35,7 @@ test_migrate()
         error "There should be only $count entries in the database"
     fi
 
+    verify_statx $entry
     #TODO: verify the MDT is the correct one when the Lustre enricher is added
     find_attribute '"mdt_idx": [0]' '"mdt_count": 1' '"ns.name":"'$entry'"'
 }
