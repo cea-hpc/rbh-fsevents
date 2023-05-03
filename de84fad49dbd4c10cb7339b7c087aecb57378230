@@ -117,6 +117,30 @@
       },
       "revId": "de84fad49dbd4c10cb7339b7c087aecb57378230",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb5d4d26_e20431bc",
+        "filename": "tests/test_creat_close.bash",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-03T12:53:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f6c7a525_2415e4eb",
+      "range": {
+        "startLine": 102,
+        "startChar": 4,
+        "endLine": 102,
+        "endChar": 78
+      },
+      "revId": "de84fad49dbd4c10cb7339b7c087aecb57378230",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
