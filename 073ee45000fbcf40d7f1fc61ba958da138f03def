@@ -22,6 +22,30 @@
       },
       "revId": "073ee45000fbcf40d7f1fc61ba958da138f03def",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3554a51_0b9fb476",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-03T14:59:29Z",
+      "side": 1,
+      "message": "Done in a later patch",
+      "parentUuid": "226e363c_a5fd26c7",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 27
+      },
+      "revId": "073ee45000fbcf40d7f1fc61ba958da138f03def",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
