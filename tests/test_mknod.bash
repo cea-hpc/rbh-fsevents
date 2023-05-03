@@ -37,14 +37,8 @@ test_create_mknod()
         error "There should be only $count entries in the database"
     fi
 
-    local raw_mode="$(statx +%f "$entry.1" 16)"
-    local type=$((raw_mode & 00170000))
-    find_attribute "\"ns.name\":\"$entry.1\"" "\"statx.type\":$type" \
-                   "\"statx.rdev.major\":1" "\"statx.rdev.minor\":2"
-
-    raw_mode="$(statx +%f "$entry.2" 16)"
-    type=$((raw_mode & 00170000))
-    find_attribute "\"ns.name\":\"$entry.2\"" "\"statx.type\":$type"
+    verify_statx "$entry.1"
+    verify_statx "$entry.2"
 
     # XXX: to uncomment once the path is enriched
     # find_attribute "\"ns.xattrs.path\":\"/${testdir#*lustre/}/$entry.1\""
@@ -58,8 +52,7 @@ test_create_mknod()
 
 source $test_dir/test_create_inode.bash
 
-declare -a tests=(test_create_mknod test_create_two_entries
-                  test_create_entry_check_statx_attr)
+declare -a tests=(test_create_mknod test_create_two_entries)
 
 LUSTRE_DIR=/mnt/lustre/
 cd "$LUSTRE_DIR"
