@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c263b53_49baec81",
+        "filename": "tests/test_rmdir.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-03T14:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dafb69d6_105c4370",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 12
+      },
+      "revId": "71d91651e2030a793ebe2f33591f72d06837d7a8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08eb4055_326dbc8d",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-17T09:01:45Z",
       "side": 1,
       "message": "suggest: still contain $entry with no parent",
+      "range": {
+        "startLine": 41,
+        "startChar": 67,
+        "endLine": 42,
+        "endChar": 13
+      },
+      "revId": "71d91651e2030a793ebe2f33591f72d06837d7a8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a27dcfe_f07fcf1d",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-03T14:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08eb4055_326dbc8d",
       "range": {
         "startLine": 41,
         "startChar": 67,
@@ -70,6 +118,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb2cb004_e4fde95e",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-03T14:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a3f2284_56d6fa69",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 46
+      },
+      "revId": "71d91651e2030a793ebe2f33591f72d06837d7a8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63c7e894_14e3fa06",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-04-17T09:01:45Z",
       "side": 1,
       "message": "suggest: you should test that there is no parent in the entry",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 18
+      },
+      "revId": "71d91651e2030a793ebe2f33591f72d06837d7a8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d2d3dbd_7cbf7ace",
+        "filename": "tests/test_unlink.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-03T14:59:33Z",
+      "side": 1,
+      "message": "This is implicitly tested here, ns contains each link for an inode, and one link is the name of the entry, its path, and its parent id. So here, we test that the inode still exists, but has no link to it, so there is no parent either.",
+      "parentUuid": "63c7e894_14e3fa06",
       "range": {
         "startLine": 51,
         "startChar": 4,
