@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c248a3df_9d9e26c5",
+        "filename": "tests/meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-03T12:54:16Z",
+      "side": 1,
+      "message": "No, the events are MDT dependent, not client dependent",
+      "parentUuid": "e78cba10_4ec503e4",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6c7609f_30179968",
@@ -297,6 +321,30 @@
       "side": 1,
       "message": "Currently no, we would to generate an event that would set the xattrs.user to NULL, but that means we would have to to check at update if the xattrs category still has any xattr in it. It is not currently done, maybe later",
       "parentUuid": "395e2a55_7d97585e",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 53
+      },
+      "revId": "6aa97feef6916cf7781c98f0cde68137b679f227",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e088ffac_9248d7e4",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-03T12:54:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e72043d7_52c0cb26",
       "range": {
         "startLine": 99,
         "startChar": 4,
