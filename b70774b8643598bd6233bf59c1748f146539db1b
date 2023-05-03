@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac4eb0cb_3bded6da",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-03T14:59:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "651ef362_82350a52",
+      "range": {
+        "startLine": 10,
+        "startChar": 20,
+        "endLine": 12,
+        "endChar": 16
+      },
+      "revId": "b70774b8643598bd6233bf59c1748f146539db1b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4035615_42b5b68e",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-18T14:02:21Z",
       "side": 1,
       "message": "typo: to remove I think",
+      "range": {
+        "startLine": 600,
+        "startChar": 63,
+        "endLine": 600,
+        "endChar": 68
+      },
+      "revId": "b70774b8643598bd6233bf59c1748f146539db1b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd92ce0e_12da2b77",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-03T14:59:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4035615_42b5b68e",
       "range": {
         "startLine": 600,
         "startChar": 63,
@@ -70,6 +118,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdd9449a_ae815558",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-03T14:59:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3cfb6e2_c48a516d",
+      "range": {
+        "startLine": 607,
+        "startChar": 5,
+        "endLine": 610,
+        "endChar": 7
+      },
+      "revId": "b70774b8643598bd6233bf59c1748f146539db1b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c72e32b_d0809b7c",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-04-18T14:02:21Z",
       "side": 1,
       "message": "minor: we are allocating a new id for each process step. This allocation could be done outside once.",
+      "range": {
+        "startLine": 612,
+        "startChar": 13,
+        "endLine": 612,
+        "endChar": 21
+      },
+      "revId": "b70774b8643598bd6233bf59c1748f146539db1b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cb39e03_8df87179",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-03T14:59:37Z",
+      "side": 1,
+      "message": "Didn\u0027t manage to find a good way to do it, and a static variable didn\u0027t work for me... Added a comment above, if you want to try it yourself, but since it\u0027s a small optimization, we\u0027ll leave it for later.",
+      "parentUuid": "7c72e32b_d0809b7c",
       "range": {
         "startLine": 612,
         "startChar": 13,
