@@ -15,71 +15,61 @@ test_dir=$(dirname $(readlink -e $0))
 
 test_setxattr()
 {
-    touch "test_file"
+    local entry="test_file"
+    touch "$entry"
 
     invoke_rbh-fsevents
 
     clear_changelogs
-    setfattr -n user.test -v 42 "test_file"
+    setfattr -n user.test -v 42 "$entry"
 
     invoke_rbh-fsevents
 
-    mongo $testdb --eval "db.entries.find()"
-
-    find_attribute '"ns.name":"test_file"'
-    # to uncomment once the path is enriched
-    # find_attribute "\"ns.xattrs.path\":\"/${testdir#*lustre/}/test_file\""
-    find_attribute '"xattrs.user":{$exists: true}' '"ns.name":"test_file"'
-    find_attribute '"xattrs.user.test":{$exists: true}' '"ns.name":"test_file"'
-    find_attribute '"statx.ctime.sec":NumberLong('$(statx +%Z "test_file")')' \
-                   '"ns.name":"test_file"'
-    find_attribute '"statx.ctime.nsec":0' '"ns.name":"test_file"'
+    verify_statx $entry
+    find_attribute '"xattrs.user":{$exists: true}' '"ns.name":"'$entry'"'
+    find_attribute '"xattrs.user.test":{$exists: true}' '"ns.name":"'$entry'"'
 }
 
 test_setxattr_remove()
 {
-    touch "test_file"
+    local entry="test_file"
+    touch "$entry"
 
     invoke_rbh-fsevents
 
     clear_changelogs
-    setfattr -n user.test -v 42 "test_file"
+    setfattr -n user.test -v 42 "$entry"
 
     invoke_rbh-fsevents
 
-    find_attribute '"ns.name":"test_file"'
-    # to uncomment once the path is enriched
-    # find_attribute "\"ns.xattrs.path\":\"/${testdir#*lustre/}/test_file\""
+    verify_statx $entry
     find_attribute '"xattrs.user":{$exists: true}' '"ns.name":"test_file"'
     find_attribute '"xattrs.user.test":{$exists: true}' '"ns.name":"test_file"'
 
     clear_changelogs
-    setfattr --remove="user.test" "test_file"
+    setfattr --remove="user.test" "$entry"
 
     invoke_rbh-fsevents
 
-    find_attribute '"ns.name":"test_file"'
-    # to uncomment once the path is enriched
-    # find_attribute "\"ns.xattrs.path\":\"/${testdir#*lustre/}/test_file\""
+    verify_statx $entry
     find_attribute '"xattrs.user":{$exists: true}' '"ns.name":"test_file"'
     find_attribute '"xattrs.user.test":{$exists: false}' '"ns.name":"test_file"'
 }
 
 test_check_last_setxattr_is_inserted()
 {
-    touch "test_file"
+    local entry="test_file"
+    touch "$entry"
 
     invoke_rbh-fsevents
 
     clear_changelogs
-    setfattr -n user.test -v 42 "test_file"
-    setfattr -n user.blob -v 43 "test_file"
+    setfattr -n user.test -v 42 "$entry"
+    setfattr -n user.blob -v 43 "$entry"
 
     invoke_rbh-fsevents
 
-    find_attribute '"ns.name":"test_file"'
-    # to uncomment once the path is enriched
-    # find_attribute "\"ns.xattrs.path\":\"/${testdir#*lustre/}/test_file\""
+    verify_statx $entry
     find_attribute '"xattrs.user":{$exists: true}' '"ns.name":"test_file"'
     find_attribute '"xattrs.user.test":{$exists: true}' '"ns.name":"test_file"'
     find_attribute '"xattrs.user.blob":{$exists: true}' '"ns.name":"test_file"'
@@ -87,12 +77,13 @@ test_check_last_setxattr_is_inserted()
 
 test_setxattr_replace()
 {
-    touch "test_file"
+    local entry="test_file"
+    touch "$entry"
 
     invoke_rbh-fsevents
 
     clear_changelogs
-    setfattr -n user.test -v 42 "test_file"
+    setfattr -n user.test -v 42 "$entry"
 
     invoke_rbh-fsevents
 
