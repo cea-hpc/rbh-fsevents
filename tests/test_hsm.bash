@@ -20,7 +20,7 @@ test_dir=$(dirname $(readlink -e $0))
 
 # There is no test for releases and restores because these events both trigger a
 # layout changelog, and release also trigger a truncate changelog, so this test
-# will have to be enriched when these two types of changelogs will be managed
+# will have to be enriched when these two types of changelogs are managed
 
 test_hsm()
 {
@@ -28,8 +28,6 @@ test_hsm()
     local state="$2"
 
     invoke_rbh-fsevents
-
-    mongo "$testdb" --eval "db.entries.find()"
 
     # Since an archived copy of $entry still exists, the DB should contain two
     # entries
@@ -88,6 +86,7 @@ LUSTRE_MDT=lustre-MDT0000
 start_changelogs "$LUSTRE_MDT"
 
 tmpdir=$(mktemp --directory --tmpdir=$LUSTRE_DIR)
+lfs setdirstripe -D -i 0 $tmpdir
 trap -- "rm -rf '$tmpdir'; clear_changelogs" EXIT
 cd "$tmpdir"
 
