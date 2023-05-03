@@ -35,17 +35,15 @@ test_create_symlink()
 
     invoke_rbh-fsevents
 
-    mongo "$testdb" --eval "db.entries.find()"
     local entries=$(mongo "$testdb" --eval "db.entries.find()" | wc -l)
     local count=$(find . | wc -l)
     if [[ $entries -ne $count ]]; then
         error "There should be only $count entries in the database"
     fi
 
-    find_attribute "\"ns.name\":\"$entry.tmp\""
+    verify_statx "$entry"
+    verify_statx "$entry.tmp"
     find_attribute "\"ns.name\":\"$entry\"" "\"symlink\":\"$entry.tmp\""
-    # XXX: to uncomment once the path is enriched
-    # find_attribute "\"ns.xattrs.path\":\"/${testdir#*lustre/}/$entry\""
 }
 
 ################################################################################
@@ -54,8 +52,7 @@ test_create_symlink()
 
 source $test_dir/test_create_inode.bash
 
-declare -a tests=(test_create_symlink test_create_two_entries
-                  test_create_entry_check_statx_attr)
+declare -a tests=(test_create_symlink test_create_two_entries)
 
 LUSTRE_DIR=/mnt/lustre/
 cd "$LUSTRE_DIR"

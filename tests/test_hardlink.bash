@@ -51,8 +51,7 @@ test_create_hardlink()
 
 source $test_dir/test_create_inode.bash
 
-declare -a tests=(test_create_hardlink test_create_two_entries
-                  test_create_entry_check_statx_attr)
+declare -a tests=(test_create_hardlink test_create_two_entries)
 
 LUSTRE_DIR=/mnt/lustre/
 cd "$LUSTRE_DIR"
