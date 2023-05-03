@@ -13,45 +13,6 @@ test_dir=$(dirname $(readlink -e $0))
 #                                    TESTS                                     #
 ################################################################################
 
-check_statx()
-{
-    local entry="$1"
-
-    find_attribute '"ns.name":"'$entry'"'
-    # XXX: to uncomment once the path is enriched
-    # find_attribute "\"ns.xattrs.path\":\"/${testdir#*lustre/}/$entry\""
-    find_attribute '"statx.atime.sec":NumberLong('$(statx +%X "$entry")')' \
-                   '"ns.name":"'$entry'"'
-    find_attribute '"statx.atime.nsec":0' '"ns.name":"'$entry'"'
-    find_attribute '"statx.ctime.sec":NumberLong('$(statx +%Z "$entry")')' \
-                   '"ns.name":"'$entry'"'
-    find_attribute '"statx.ctime.nsec":0' '"ns.name":"'$entry'"'
-    find_attribute '"statx.mtime.sec":NumberLong('$(statx +%Y "$entry")')' \
-                   '"ns.name":"'$entry'"'
-    find_attribute '"statx.mtime.nsec":0' '"ns.name":"'$entry'"'
-    find_attribute '"statx.btime.nsec":0' '"ns.name":"'$entry'"'
-    find_attribute '"statx.blksize":'$(statx +%o "$entry") \
-                   '"ns.name":"'$entry'"'
-    find_attribute '"statx.blocks":NumberLong('$(statx +%b "$entry")')' \
-                   '"ns.name":"'$entry'"'
-    find_attribute '"statx.nlink":'$(statx +%h "$entry") \
-                   '"ns.name":"'$entry'"'
-    find_attribute '"statx.ino":NumberLong("'$(statx +%i "$entry")'")' \
-                   '"ns.name":"'$entry'"'
-    find_attribute '"statx.gid":'$(statx +%g "$entry") \
-                   '"ns.name":"'$entry'"'
-    find_attribute '"statx.uid":'$(statx +%u "$entry") \
-                   '"ns.name":"'$entry'"'
-    find_attribute '"statx.size":NumberLong('$(statx +%s "$entry")')' \
-                   '"ns.name":"'$entry'"'
-
-    local raw_mode="$(statx +%f "$entry" 16)"
-    local type=$((raw_mode & 00170000))
-    local mode=$((raw_mode & ~00170000))
-    find_attribute '"statx.type":'$type '"ns.name":"'$entry'"'
-    find_attribute '"statx.mode":'$mode '"ns.name":"'$entry'"'
-}
-
 acceptance()
 {
     local dir1="test_dir1"
@@ -94,7 +55,7 @@ acceptance()
     invoke_rbh-fsevents
 
     for entry in "$(find *)"; do
-        check_statx $entry
+        verify_statx $entry
     done
 
     clear_changelogs
@@ -107,7 +68,6 @@ acceptance()
 
     invoke_rbh-fsevents
 
-    mongo $testdb --eval "db.entries.find()"
     local entries=$(mongo "$testdb" --eval "db.entries.find()" | wc -l)
     local count=$(find . | wc -l)
     # +1 for $file1 which is still in the DB
