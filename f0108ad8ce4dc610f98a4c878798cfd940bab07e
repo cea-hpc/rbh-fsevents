@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74478d9d_3505ad3f",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-09T09:20:10Z",
+      "side": 1,
+      "message": "question: just to make sure that I understand things correctly. The xattrs.fid part is there to be actually writtent in the backend and rbh-fsevents.lustre is there to indicate to the enricher that we need to retrieve lustre attributes?",
+      "range": {
+        "startLine": 369,
+        "startChar": 35,
+        "endLine": 370,
+        "endChar": 49
+      },
+      "revId": "f0108ad8ce4dc610f98a4c878798cfd940bab07e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
