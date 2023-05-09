@@ -187,6 +187,30 @@
       },
       "revId": "702fc277fcdc2310394ffa71058de48dd73dbdd1",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "788b6da5_6907d84d",
+        "filename": "tests/test_rename.bash",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-09T11:13:54Z",
+      "side": 1,
+      "message": "Yes, in other tests. But maybe in different projects.",
+      "parentUuid": "19558478_54efe953",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 32
+      },
+      "revId": "702fc277fcdc2310394ffa71058de48dd73dbdd1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
