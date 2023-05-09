@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "514c7af2_34c529aa",
+        "filename": "tests/acceptance.bash",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-09T14:40:05Z",
+      "side": 1,
+      "message": "major: we should have a more explicit name. For example: invoke_rbh_fsevent. You can use a better one if you find one as long as rbh_fsevent is in the name.",
+      "range": {
+        "startLine": 94,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 19
+      },
+      "revId": "b37c83abd1260f546d2d8ddcf7add77cc8ef6687",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
