@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05f2f5cb_8fb7b9e7",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-09T14:42:22Z",
+      "side": 1,
+      "message": "minor: you are inconsistent with the use of quotes. In your tests they are not necessary as the files names never contain spaces but you should be consistent.",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 18
+      },
+      "revId": "4afe47f5a219723614b2a4b733bbe26bd0321ccc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
