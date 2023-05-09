@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66bbbccc_bcfb3ca5",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-09T10:10:39Z",
+      "side": 1,
+      "message": "nit: you could simplify the call to this function by only passing the record and the fsevent",
+      "range": {
+        "startLine": 621,
+        "startChar": 12,
+        "endLine": 621,
+        "endChar": 30
+      },
+      "revId": "668b62b9a6e5710cfb9841160dbaca6b948472cc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
