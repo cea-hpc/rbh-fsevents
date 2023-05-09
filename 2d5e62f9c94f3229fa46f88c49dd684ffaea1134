@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "579189ba_71e3df60",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-09T11:48:46Z",
+      "side": 1,
+      "message": "typo: tested",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 10,
+        "endChar": 38
+      },
+      "revId": "2d5e62f9c94f3229fa46f88c49dd684ffaea1134",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96c42348_0932acfe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-09T11:48:46Z",
+      "side": 1,
+      "message": "minor: this sentence is a bit weird. It suggest that restore and release are not HSM actions. You could simply write:\n\nThis patch adds tests for archive and remove hsm actions. Restore and release cannot be tested yet as they also trigger LAYOUT and TRUNC events which are not managed yet.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "2d5e62f9c94f3229fa46f88c49dd684ffaea1134",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d29d6b3b_e13648a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-09T11:48:46Z",
+      "side": 1,
+      "message": "minor: I would not put this information in the commit message. Also, what do you mean by \"they do not modify the backend yet\"?",
+      "range": {
+        "startLine": 11,
+        "startChar": 60,
+        "endLine": 13,
+        "endChar": 16
+      },
+      "revId": "2d5e62f9c94f3229fa46f88c49dd684ffaea1134",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61d96590_a14f0095",
+        "filename": "tests/test_hsm.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-09T11:48:46Z",
+      "side": 1,
+      "message": "typo: are",
+      "range": {
+        "startLine": 23,
+        "startChar": 62,
+        "endLine": 23,
+        "endChar": 69
+      },
+      "revId": "2d5e62f9c94f3229fa46f88c49dd684ffaea1134",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d492081_1a51deef",
+        "filename": "tests/test_hsm.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-09T11:48:46Z",
+      "side": 1,
+      "message": "minor: to remove",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 9
+      },
+      "revId": "2d5e62f9c94f3229fa46f88c49dd684ffaea1134",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "447947ef_e3fb4242",
+        "filename": "tests/test_hsm.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-09T11:48:46Z",
+      "side": 1,
+      "message": "major: this is not true for the hsm_remove test. It contains 2 entries because the file was not removed. Also, you could add a test for this sequence:\n\ntouch f\narchive f\nremove f\nrm f\n\nand make sure that f is not in the backend anymore.",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 13
+      },
+      "revId": "2d5e62f9c94f3229fa46f88c49dd684ffaea1134",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
