@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9df9ed05_6c4b7da6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-09T12:00:38Z",
+      "side": 1,
+      "message": "After this patch, you can test a truncate on a PFL layout. Something like:\n\n```\nlfs setstripe -E 4M -c 1 -E 64M -c 4 -E -1 -c -1 file1\ntruncate -s 100M file1\n```",
+      "revId": "48c7f5af754fab519e33d5382b77777ac4dfc5b5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
