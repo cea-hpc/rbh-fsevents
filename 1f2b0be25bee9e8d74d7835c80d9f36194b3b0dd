@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2dcd0ae_de2b20e2",
+        "filename": "tests/test_symlink.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-09T14:37:18Z",
+      "side": 1,
+      "message": "minor: to remove",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 9
+      },
+      "revId": "1f2b0be25bee9e8d74d7835c80d9f36194b3b0dd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
