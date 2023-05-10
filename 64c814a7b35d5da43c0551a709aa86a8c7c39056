@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5f7d6c5_5a39bd33",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-05-10T14:43:14Z",
+      "side": 1,
+      "message": "minor: the path is enriched now",
+      "range": {
+        "startLine": 32,
+        "startChar": 3,
+        "endLine": 32,
+        "endChar": 44
+      },
+      "revId": "64c814a7b35d5da43c0551a709aa86a8c7c39056",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "759b7957_6bec4e1b",
         "filename": "tests/test_setxattr.bash",
         "patchSetId": 6
@@ -42,6 +65,29 @@
         "startChar": 4,
         "endLine": 34,
         "endChar": 18
+      },
+      "revId": "64c814a7b35d5da43c0551a709aa86a8c7c39056",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e869aea2_a95739a3",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-05-10T14:43:14Z",
+      "side": 1,
+      "message": "question: why do you check this one?",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 74
       },
       "revId": "64c814a7b35d5da43c0551a709aa86a8c7c39056",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
