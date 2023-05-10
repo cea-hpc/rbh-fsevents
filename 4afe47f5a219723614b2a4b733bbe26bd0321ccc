@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2969568c_4eac0cf9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-05-10T14:48:31Z",
+      "side": 1,
+      "message": "Some \"XXX: uncomment this/that\" are still present here.",
+      "revId": "4afe47f5a219723614b2a4b733bbe26bd0321ccc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05f2f5cb_8fb7b9e7",
