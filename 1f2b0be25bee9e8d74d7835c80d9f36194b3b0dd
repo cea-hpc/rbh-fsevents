@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7635ec5f_c87a563a",
+        "filename": "tests/acceptance.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-05-10T14:44:14Z",
+      "side": 1,
+      "message": "minor: same here, the path is enriched",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 73
+      },
+      "revId": "1f2b0be25bee9e8d74d7835c80d9f36194b3b0dd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2dcd0ae_de2b20e2",
         "filename": "tests/test_symlink.bash",
         "patchSetId": 4
