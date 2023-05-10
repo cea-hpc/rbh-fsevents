@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5f51abf_74e4c464",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-05-10T14:46:51Z",
+      "side": 1,
+      "message": "Except for Guillaume\u0027s comment, agree with the rest of the patch",
+      "revId": "b37c83abd1260f546d2d8ddcf7add77cc8ef6687",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "514c7af2_34c529aa",
