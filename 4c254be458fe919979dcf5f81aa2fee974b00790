@@ -24,6 +24,23 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93cbadc8_17bc1751",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-05-10T10:04:22Z",
+      "side": 1,
+      "message": "I let 0 for Guillaume\u0027s comments",
+      "revId": "4c254be458fe919979dcf5f81aa2fee974b00790",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13f18cc2_56445c73",
@@ -42,6 +59,29 @@
         "startChar": 28,
         "endLine": 740,
         "endChar": 42
+      },
+      "revId": "4c254be458fe919979dcf5f81aa2fee974b00790",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4f970f4_f3d56d34",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-05-10T10:04:22Z",
+      "side": 1,
+      "message": "comment: we will need to merge those events, but not easily feasible now\n\nWhat I suggest is first having a variadic function for the sequence builder (to merge cases 2 and 3), then come with a combination of `build_enrich_xattr_fsevents` and the sequence builder to merge case 1 with cases 2-3.\n\nI will try to refactor this, and submit it later.",
+      "range": {
+        "startLine": 746,
+        "startChar": 0,
+        "endLine": 775,
+        "endChar": 14
       },
       "revId": "4c254be458fe919979dcf5f81aa2fee974b00790",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
