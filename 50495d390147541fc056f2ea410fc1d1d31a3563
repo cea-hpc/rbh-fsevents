@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4433275a_d60899d1",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-05-10T08:13:01Z",
+      "side": 1,
+      "message": "typo: recorded",
+      "range": {
+        "startLine": 644,
+        "startChar": 18,
+        "endLine": 644,
+        "endChar": 25
+      },
+      "revId": "50495d390147541fc056f2ea410fc1d1d31a3563",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
