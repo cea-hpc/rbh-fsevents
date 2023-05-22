@@ -14,9 +14,6 @@ if [[ $mdt_count -lt 2 ]]; then
     exit 77
 fi
 
-# Remove this line when the Lustre enricher is available
-exit 77
-
 ################################################################################
 #                                    TESTS                                     #
 ################################################################################
@@ -24,10 +21,14 @@ exit 77
 test_migrate()
 {
     local entry="test_entry"
-    lfs setdirstripe -i 1 $entry
+    mkdir $entry
+    lfs migrate -m 1 $entry
     lfs migrate -m 0 $entry
 
     invoke_rbh-fsevents
+
+    lfs changelog lustre-MDT0000
+    mongo "$testdb" --eval "db.entries.find()"
 
     local entries=$(mongo "$testdb" --eval "db.entries.find()" | wc -l)
     local count=$(find . | wc -l)
@@ -36,7 +37,9 @@ test_migrate()
     fi
 
     verify_statx $entry
-    #TODO: verify the MDT is the correct one when the Lustre enricher is added
+
+    mongo "$testdb" --eval "db.entries.find()"
+    exit 1
     find_attribute '"mdt_idx": [0]' '"mdt_count": 1' '"ns.name":"'$entry'"'
 }
 
