@@ -15,7 +15,6 @@ if liblustre.found()
                           'test_trunc', 'test_layout', 'test_migrate',
                           'test_flrw', 'test_resync', 'test_setxattr',
                           'acceptance']
-    integration_tests = ['test_migrate']
 endif
 
 foreach t: integration_tests
