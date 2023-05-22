@@ -21,7 +21,8 @@ fi
 test_resync()
 {
     local entry="test_entry"
-    lfs mirror create -N2 $entry
+    local n_mirror=2
+    lfs mirror create -N$n_mirror $entry
     echo "test_data" >> $entry
 
     invoke_rbh-fsevents
@@ -31,7 +32,7 @@ test_resync()
 
     local old_version=$(mongo "$testdb" --eval \
         'db.entries.find({"ns.name":"'$entry'"},
-                         {"statx.ctime":0, "statx.blocks":0})')
+                         {"statx.ctime":0, "statx.blocks":0, "xattrs":0})')
 
     invoke_rbh-fsevents
 
@@ -43,10 +44,10 @@ test_resync()
 
     local updated_version=$(mongo "$testdb" --eval \
         'db.entries.find({"ns.name":"'$entry'"},
-                         {"statx.ctime":0, "statx.blocks":0})')
+                         {"statx.ctime":0, "statx.blocks":0, "xattrs":0})')
 
     if [ "$old_version" != "$updated_version" ]; then
-        error "Layout event modified more than ctime, mtime and size"
+        error "Layout event modified more statx than ctime, mtime and size"
     fi
 
     find_attribute '"statx.ctime.sec":NumberLong('$(statx +%Z "$entry")')' \
@@ -55,7 +56,11 @@ test_resync()
     find_attribute '"statx.blocks":NumberLong('$(statx +%b "$entry")')' \
                    '"ns.name":"'$entry'"'
 
-    #TODO: enrich this test with Lustre specific testing
+    find_attribute '"xattrs.mirror_count":'$n_mirror '"ns.name":"'$entry'"'
+    find_attribute '"xattrs.mirror_id":'$(get_mirror_id "$entry") \
+                   '"ns.name":"'$entry'"'
+    find_attribute '"xattrs.flags":'$(get_flags "$entry") \
+                   '"ns.name":"'$entry'"'
 }
 
 ################################################################################

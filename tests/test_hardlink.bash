@@ -43,6 +43,7 @@ test_create_hardlink()
     # XXX: to uncomment once the path is enriched
     # find_attribute "\"ns.xattrs.path\":\"/${testdir#*lustre/}/$entry.tmp\"" \
     #                "\"ns.xattrs.path\":\"/${testdir#*lustre/}/$entry\""
+    verify_lustre "$entry"
 }
 
 ################################################################################
