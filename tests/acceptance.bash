@@ -55,8 +55,11 @@ acceptance()
 
     invoke_rbh-fsevents
 
-    for entry in "$(find *)"; do
+    for entry in $(find *); do
         verify_statx $entry
+        if [ -f "$entry" ]; then
+            verify_lustre $entry
+        fi
     done
 
     clear_changelogs

@@ -440,7 +440,7 @@ build_create_inode_events(unsigned int process_step,
                           struct changelog_rec *record,
                           struct rbh_fsevent *fsevent)
 {
-    assert(process_step < 4);
+    assert(process_step < 5);
     switch(process_step) {
     case 0:
         if (link_new_inode_event(record, fsevent))
@@ -462,9 +462,22 @@ build_create_inode_events(unsigned int process_step,
             return -1;
 
         break;
+    case 4:
+        fsevent->type = RBH_FET_XATTR;
+
+        /* Mark this fsevent for Lustre enrichment to retrieve all Lustre
+         * values.
+         */
+        if (build_enrich_xattr_fsevent(&fsevent->xattrs,
+                                       "rbh-fsevents",
+                                       build_empty_map("lustre"),
+                                       NULL))
+            return -1;
+
+        break;
     }
 
-    return process_step != 3 ? 1 : 0;
+    return process_step != 4 ? 1 : 0;
 }
 
 static int
