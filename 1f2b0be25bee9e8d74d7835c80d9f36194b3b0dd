@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c806b6b_e66763fe",
+        "filename": "tests/acceptance.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-22T13:34:42Z",
+      "side": 1,
+      "message": "Modified in the last patch",
+      "parentUuid": "7635ec5f_c87a563a",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 73
+      },
+      "revId": "1f2b0be25bee9e8d74d7835c80d9f36194b3b0dd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2dcd0ae_de2b20e2",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-09T14:37:18Z",
       "side": 1,
       "message": "minor: to remove",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 9
+      },
+      "revId": "1f2b0be25bee9e8d74d7835c80d9f36194b3b0dd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0be0cfee_359363d4",
+        "filename": "tests/test_symlink.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-22T13:34:42Z",
+      "side": 1,
+      "message": "Removed in the last patch",
+      "parentUuid": "c2dcd0ae_de2b20e2",
       "range": {
         "startLine": 39,
         "startChar": 4,
