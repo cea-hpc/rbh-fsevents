@@ -235,6 +235,30 @@
       },
       "revId": "702fc277fcdc2310394ffa71058de48dd73dbdd1",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8494c74_99d0f600",
+        "filename": "tests/test_rename.bash",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-22T13:35:20Z",
+      "side": 1,
+      "message": "True... Since it\u0027s only 2 places, I\u0027ll pass on this one",
+      "parentUuid": "26bd904d_45f24e1b",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 32
+      },
+      "revId": "702fc277fcdc2310394ffa71058de48dd73dbdd1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
