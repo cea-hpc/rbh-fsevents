@@ -22,6 +22,30 @@
       },
       "revId": "50495d390147541fc056f2ea410fc1d1d31a3563",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84f58016_5e576928",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-22T13:33:49Z",
+      "side": 1,
+      "message": "Done in the last patch",
+      "parentUuid": "4433275a_d60899d1",
+      "range": {
+        "startLine": 644,
+        "startChar": 18,
+        "endLine": 644,
+        "endChar": 25
+      },
+      "revId": "50495d390147541fc056f2ea410fc1d1d31a3563",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
