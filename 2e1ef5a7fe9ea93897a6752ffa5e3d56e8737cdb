@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17f7d4e8_0fa6fd36",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-22T13:34:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3339af83_f15e0249",
+      "range": {
+        "startLine": 815,
+        "startChar": 11,
+        "endLine": 815,
+        "endChar": 17
+      },
+      "revId": "2e1ef5a7fe9ea93897a6752ffa5e3d56e8737cdb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1d4939a_5e1ce15e",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-09T13:56:41Z",
       "side": 1,
       "message": "defect: my understanding of the MIGRATE changelog is that it indicates a metadata migration between MDTs. There is no new inode in the filesystem. The striping of the files/directories involved changes. For example:\n\n```\nMTD0: ROOT/a/f  -\u003e migrate f to MDT1 -\u003e  MTD0: ROOT/a/\nMDT1: ROOT/a/                            MDT1: ROOT/a/f\n```\n\nYou should update the mdt indexes of the relevent files and directories involved in the migration as well as the metadata striping of the parent directory.",
+      "range": {
+        "startLine": 842,
+        "startChar": 3,
+        "endLine": 867,
+        "endChar": 22
+      },
+      "revId": "2e1ef5a7fe9ea93897a6752ffa5e3d56e8737cdb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42b1df45_cd52fc6d",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 867,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-22T13:34:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1d4939a_5e1ce15e",
       "range": {
         "startLine": 842,
         "startChar": 3,
