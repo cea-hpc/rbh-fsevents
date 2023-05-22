@@ -801,8 +801,10 @@ build_layout_events(unsigned int process_step, struct rbh_fsevent *fsevent)
          * values. Will be changed later to retrieve only the modified values,
          * i.e. trusted.lov.
          */
-        fsevent->xattrs = build_enrich_map(fill_inode_xattrs, "lustre");
-        if (fsevent->xattrs.pairs == NULL)
+        if (build_enrich_xattr_fsevent(&fsevent->xattrs,
+                                       "rbh-fsevents",
+                                       build_empty_map("lustre"),
+                                       NULL))
             return -1;
 
         break;
@@ -839,8 +841,10 @@ build_flrw_events(unsigned int process_step, struct rbh_fsevent *fsevent)
          * values. Will be changed later to retrieve only the modified values,
          * i.e. layout (especially the component flags).
          */
-        fsevent->xattrs = build_enrich_map(fill_inode_xattrs, "lustre");
-        if (fsevent->xattrs.pairs == NULL)
+        if (build_enrich_xattr_fsevent(&fsevent->xattrs,
+                                       "rbh-fsevents",
+                                       build_empty_map("lustre"),
+                                       NULL))
             return -1;
 
         break;
@@ -876,8 +880,10 @@ build_resync_events(unsigned int process_step, struct rbh_fsevent *fsevent)
          * values. Will be changed later to retrieve only the modified values,
          * i.e. layout (especially the component flags).
          */
-        fsevent->xattrs = build_enrich_map(fill_inode_xattrs, "lustre");
-        if (fsevent->xattrs.pairs == NULL)
+        if (build_enrich_xattr_fsevent(&fsevent->xattrs,
+                                       "rbh-fsevents",
+                                       build_empty_map("lustre"),
+                                       NULL))
             return -1;
 
         break;
