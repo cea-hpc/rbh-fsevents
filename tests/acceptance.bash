@@ -54,8 +54,14 @@ acceptance()
 
     invoke_rbh-fsevents
 
-    for entry in "$(find *)"; do
+    mongo $testdb --eval "db.entries.find()"
+    for entry in $(find *); do
+        echo "check entry = '$entry'"
         verify_statx $entry
+        if [ -f "$entry" ]; then
+            echo "b"
+            verify_lustre $entry
+        fi
     done
 
     clear_changelogs
