@@ -39,6 +39,30 @@
       },
       "revId": "4afe47f5a219723614b2a4b733bbe26bd0321ccc",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da34d222_946d8733",
+        "filename": "tests/test_setxattr.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-23T07:33:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05f2f5cb_8fb7b9e7",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 18
+      },
+      "revId": "4afe47f5a219723614b2a4b733bbe26bd0321ccc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
