@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca3cbdd1_6f2701e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017196
+      },
+      "writtenOn": "2023-05-24T07:28:33Z",
+      "side": 1,
+      "message": "Even if the commit does not have any description :p.",
+      "revId": "95e3c15a854674be7d08f7bc35690ef7ba1a7c55",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
