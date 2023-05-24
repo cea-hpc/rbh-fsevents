@@ -22,6 +22,30 @@
       },
       "revId": "defbdbe46b3b4f4913302547db5086048ec8698c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39884f1b_2f4a6836",
+        "filename": "tests/test_rename.bash",
+        "patchSetId": 9
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-24T13:05:58Z",
+      "side": 1,
+      "message": "Because if we have multiple MDT available while using the tests, the directories/files may be stored on MDT that were not registered for changelog reading, which will mess up the test",
+      "parentUuid": "68be21a0_6a64f553",
+      "range": {
+        "startLine": 142,
+        "startChar": 17,
+        "endLine": 142,
+        "endChar": 24
+      },
+      "revId": "defbdbe46b3b4f4913302547db5086048ec8698c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
