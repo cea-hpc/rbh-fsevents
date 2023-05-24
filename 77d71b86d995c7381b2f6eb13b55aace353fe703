@@ -22,6 +22,30 @@
       },
       "revId": "77d71b86d995c7381b2f6eb13b55aace353fe703",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3c990aa_2229194b",
+        "filename": "tests/test_utils.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-24T13:36:12Z",
+      "side": 1,
+      "message": "I\u0027m not sure what is the problem, if the file is not archived, this function shouldn\u0027t be called, and it isn\u0027t. This \"issue\" also exists for release and remove, so why just the restore ?",
+      "parentUuid": "9c467fde_a368d7f5",
+      "range": {
+        "startLine": 81,
+        "startChar": 3,
+        "endLine": 81,
+        "endChar": 27
+      },
+      "revId": "77d71b86d995c7381b2f6eb13b55aace353fe703",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
