@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68be21a0_6a64f553",
+        "filename": "tests/test_rename.bash",
+        "patchSetId": 9
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-24T13:00:37Z",
+      "side": 1,
+      "message": "question: why did you add this?",
+      "range": {
+        "startLine": 142,
+        "startChar": 17,
+        "endLine": 142,
+        "endChar": 24
+      },
+      "revId": "defbdbe46b3b4f4913302547db5086048ec8698c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
