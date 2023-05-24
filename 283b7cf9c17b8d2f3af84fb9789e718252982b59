@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0a7aa2c_98daedfc",
+        "filename": "tests/test_hsm.bash",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-24T12:49:06Z",
+      "side": 1,
+      "message": "typo: are",
+      "range": {
+        "startLine": 23,
+        "startChar": 61,
+        "endLine": 23,
+        "endChar": 69
+      },
+      "revId": "283b7cf9c17b8d2f3af84fb9789e718252982b59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}

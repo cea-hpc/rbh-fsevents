@@ -281,6 +281,30 @@
       },
       "revId": "2d5e62f9c94f3229fa46f88c49dd684ffaea1134",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e90630a_a2ccf317",
+        "filename": "tests/test_hsm.bash",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-05-24T12:49:06Z",
+      "side": 1,
+      "message": "I wasn\u0027t clear in my comment but \"an archived copy of $entry still exists\" is not true for the test_hsm_remove. You should rephrase or remove this comment.",
+      "parentUuid": "f7a17f2b_bd25696d",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 13
+      },
+      "revId": "2d5e62f9c94f3229fa46f88c49dd684ffaea1134",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
