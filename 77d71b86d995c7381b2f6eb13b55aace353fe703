@@ -46,6 +46,30 @@
       },
       "revId": "77d71b86d995c7381b2f6eb13b55aace353fe703",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bf17b66_4c855db9",
+        "filename": "tests/test_utils.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-05-25T06:59:03Z",
+      "side": 1,
+      "message": "As discussed, this issue is present, but not that important for us. As long as the restore is called with an archived file, whether it did actually finish is irrelevant, as long as the changelog was created",
+      "parentUuid": "a3c990aa_2229194b",
+      "range": {
+        "startLine": 81,
+        "startChar": 3,
+        "endLine": 81,
+        "endChar": 27
+      },
+      "revId": "77d71b86d995c7381b2f6eb13b55aace353fe703",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
