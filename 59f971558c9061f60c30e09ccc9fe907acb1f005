@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03b95461_c5885a4f",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-02T09:21:45Z",
+      "side": 1,
+      "message": "This should be configurable. Not hard-coded.",
+      "range": {
+        "startLine": 129,
+        "startChar": 3,
+        "endLine": 129,
+        "endChar": 13
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42fc1e96_a9dcc5ce",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-02T09:21:45Z",
+      "side": 1,
+      "message": "I don\u0027t see the link between the invocation of rbh-fsevent and the way events are deduplicated. Why restrain yourself to read only one batch per invocation? The goal is to handle as much event as quickly as possible. One could argue that rbh-fsevent should be a long running process that constantly waits for new events. As does rbh3. Otherwise, you may fail to handle events as depending on how fast they arrive.",
+      "range": {
+        "startLine": 131,
+        "startChar": 38,
+        "endLine": 131,
+        "endChar": 70
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e0e6712_96f05408",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-02T09:21:45Z",
+      "side": 1,
+      "message": "I don\u0027t see how this solution is particularly more efficient than any other.",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 53
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c438dc0c_ff32f2b8",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-02T09:21:45Z",
+      "side": 1,
+      "message": "What is the link between the 2? The larger the batch size, the more likely it is that we will deduplicate many events and that we will reduce the load on the system (Lustre and Mongo). But the longueur it is, the longuer it takes to update the backend and the more memory it uses. If we have a batch size so large that it take 10 minutes to read all the events before processing one batch, we will have a lag of 10 minutes before the backend is up to date. I don\u0027t really see the point you are tying to make.",
+      "range": {
+        "startLine": 139,
+        "startChar": 28,
+        "endLine": 141,
+        "endChar": 1
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d739cd67_f562c4d3",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-02T09:21:45Z",
+      "side": 1,
+      "message": "I think you have tried to explain the idea that we discussed last time. My view was much simpler. We have a pool size of let say 1000 fsevents. As long as we have less than a 1000 events, we don\u0027t write anything in the backend. Once we receive the event 1001, we take all the events related to the oldest id in the pool and flush them to the backend.\n\nThe time argument you mentioned could also be applied to the batch solution. In fact, I don\u0027t see how the batch solution is different from this one.\n\nYou have 2 things to consider: will rbh-fsevents be a long running process that will constantly poll for new events? And will it sync all the events once the batch size is reached or only a few to continue the deduplication on more recent events?\n\nThose 2 questions can be answered independently. The idea of adding a timeout after which an event is flushed regardless of the number of events seen is also interesting and can make the system more reactive when the number of events received is low. But this is also an independant parameter that is not related to the way in which you batch events. You could have a fixed batch that you flush completetly or event by event and still have this timeout idea. So in fact, you have 3 independant ideas that are interesting.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 20
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3b08c2f_1ff695ca",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-02T09:21:45Z",
+      "side": 1,
+      "message": "One thing not mentionned here that could have an impact on performance is to do the deduplication and the update in the backend in seperate threads. You could have a function like fsevent_backend_update_async called each time you want to flush something in the backend that would spawn a new thread for example (or even have a thread pool). This consideration could be in the previous section though.",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 33
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2424d2b9_b813476b",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-02T09:21:45Z",
+      "side": 1,
+      "message": "I don\u0027t understand this part. Each fsevent will require some memory allocation. If you need additional data structures to store those events, they will also require some memory (most likely a list of fsevents per id and a hash map). But why the deduplication will require memory other than those additional data structures? Once an id is ready to be flush, you will probably need to merge some rbh_fsevents into one. But this can be done just before the flush not each time you have a new event.",
+      "range": {
+        "startLine": 210,
+        "startChar": 7,
+        "endLine": 210,
+        "endChar": 71
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
