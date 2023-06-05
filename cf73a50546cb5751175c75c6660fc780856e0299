@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c44db41f_e195f05a",
+        "filename": "tests/test_migrate.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-05T08:44:25Z",
+      "side": 1,
+      "message": "suggest: you should make sure that the entry is in the right MDT before the migrate.",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 65
+      },
+      "revId": "cf73a50546cb5751175c75c6660fc780856e0299",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
