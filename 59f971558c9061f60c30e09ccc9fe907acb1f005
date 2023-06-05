@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d38dfd9_0790ebd6",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-05T11:40:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03b95461_c5885a4f",
+      "range": {
+        "startLine": 129,
+        "startChar": 3,
+        "endLine": 129,
+        "endChar": 13
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42fc1e96_a9dcc5ce",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "acede946_79837f4a",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-05T11:40:15Z",
+      "side": 1,
+      "message": "In my mind, the command was not made so that it would run indefinitely, it would only manage a number of changelogs, then stop, and we would have to re-run, like the other commands which are ran at one point, and have to be re-run again at a later point, so why should rbh-fsevents be different ?\nBut I see your point yes.",
+      "parentUuid": "42fc1e96_a9dcc5ce",
+      "range": {
+        "startLine": 131,
+        "startChar": 38,
+        "endLine": 131,
+        "endChar": 70
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e0e6712_96f05408",
         "filename": "doc/adr/deduplication.rst",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-02T09:21:45Z",
       "side": 1,
       "message": "I don\u0027t see how this solution is particularly more efficient than any other.",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 53
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a0e5a00_2456ad8f",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-05T11:40:15Z",
+      "side": 1,
+      "message": "I didn\u0027t say it was more efficient than another one, I\u0027m saying it using this method, we are likely to be up-to-date to the source, but I wouldn\u0027t say it\u0027s more efficient than anything else.",
+      "parentUuid": "8e0e6712_96f05408",
       "range": {
         "startLine": 134,
         "startChar": 0,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d15f68ef_f923e993",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-05T11:40:15Z",
+      "side": 1,
+      "message": "My point is that if you manage N events in 10 minutes, but generate N + 1 events in those 10 minutes, then even when running the command every 10 minutes, you won\u0027t be able to catch up.",
+      "parentUuid": "c438dc0c_ff32f2b8",
+      "range": {
+        "startLine": 139,
+        "startChar": 28,
+        "endLine": 141,
+        "endChar": 1
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d739cd67_f562c4d3",
         "filename": "doc/adr/deduplication.rst",
         "patchSetId": 1
@@ -106,6 +202,30 @@
       "writtenOn": "2023-06-02T09:21:45Z",
       "side": 1,
       "message": "I think you have tried to explain the idea that we discussed last time. My view was much simpler. We have a pool size of let say 1000 fsevents. As long as we have less than a 1000 events, we don\u0027t write anything in the backend. Once we receive the event 1001, we take all the events related to the oldest id in the pool and flush them to the backend.\n\nThe time argument you mentioned could also be applied to the batch solution. In fact, I don\u0027t see how the batch solution is different from this one.\n\nYou have 2 things to consider: will rbh-fsevents be a long running process that will constantly poll for new events? And will it sync all the events once the batch size is reached or only a few to continue the deduplication on more recent events?\n\nThose 2 questions can be answered independently. The idea of adding a timeout after which an event is flushed regardless of the number of events seen is also interesting and can make the system more reactive when the number of events received is low. But this is also an independant parameter that is not related to the way in which you batch events. You could have a fixed batch that you flush completetly or event by event and still have this timeout idea. So in fact, you have 3 independant ideas that are interesting.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 20
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35f56c5c_248281cc",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-05T11:40:15Z",
+      "side": 1,
+      "message": "The main difference with the batch solution is that it would run for N events, while this one would run for any amount of events, but up until a constraint is met (or indefinitely, with \"regular\" synchro).",
+      "parentUuid": "d739cd67_f562c4d3",
       "range": {
         "startLine": 155,
         "startChar": 0,
@@ -141,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5cb4195c_8ade197a",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-05T11:40:15Z",
+      "side": 1,
+      "message": "I thought about this, but didn\u0027t want to put it here because imo, it should be in another file that is more specific to multi-threading in rbh-fsevents.\nFor instance, you could have a thread for source reading, one for deduplication, one for enrichment, and one for syncing. \nSo I\u0027d rather have another file for this idea than this one, which is specifically focused on the deduplication.",
+      "parentUuid": "a3b08c2f_1ff695ca",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 33
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2424d2b9_b813476b",
         "filename": "doc/adr/deduplication.rst",
         "patchSetId": 1
@@ -152,6 +296,30 @@
       "writtenOn": "2023-06-02T09:21:45Z",
       "side": 1,
       "message": "I don\u0027t understand this part. Each fsevent will require some memory allocation. If you need additional data structures to store those events, they will also require some memory (most likely a list of fsevents per id and a hash map). But why the deduplication will require memory other than those additional data structures? Once an id is ready to be flush, you will probably need to merge some rbh_fsevents into one. But this can be done just before the flush not each time you have a new event.",
+      "range": {
+        "startLine": 210,
+        "startChar": 7,
+        "endLine": 210,
+        "endChar": 71
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcb124a8_688711d3",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-05T11:40:15Z",
+      "side": 1,
+      "message": "What I wanted to convey is that, as you said, for one deduplication, you will have the allocation for the id in the hash map, the list of events as corresponding value, the event itself, and other potential values like xattr. The problem is that if you want two of the same events that can be merged together (like setxattr), they should be, but that is hard to do if you try to merge multiple events at the end, since you will have to create one event, copy all the events of the list into it, and then sync it. Whereas if it is done each time a new event is detected, you could limit the number of allocations to a few sstacks, and not worry about merging events later on.\n\nFor instance, if you have 10 setxattr you want to deduplicate, if I understand your idea correctly, you would create a list of 10 setxattr events, and then merge them all in one at the end. But that would mean you create 10 chained entries that contain these events, create one final event, create the list of xattr to enrich with a size you can only know by going through the list, then copy each xattr to that final event, and sync it.\n\nWhat I propose is, once you see a single setxattr event, you create a sstack of values and a single setxattr event in the list, then for each setxattr event found, you copy the xattr in question to that sstack and increase the number of xattr to consider in that sstack. Then, when the final event is found, you don\u0027t need to do anything since the vent is created and has the correct amount of xattrs to consider.",
+      "parentUuid": "2424d2b9_b813476b",
       "range": {
         "startLine": 210,
         "startChar": 7,
