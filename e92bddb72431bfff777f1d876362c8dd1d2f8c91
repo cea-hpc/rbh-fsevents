@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "290bcb49_bd20c979",
+        "filename": "tests/test_utils.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-05T09:21:37Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be moved to the previous patch?",
+      "range": {
+        "startLine": 391,
+        "startChar": 4,
+        "endLine": 391,
+        "endChar": 40
+      },
+      "revId": "e92bddb72431bfff777f1d876362c8dd1d2f8c91",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
