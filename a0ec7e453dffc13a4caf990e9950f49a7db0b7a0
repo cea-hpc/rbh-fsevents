@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a72beeef_28d96a8d",
+        "filename": "tests/test_trunc.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-05T09:19:09Z",
+      "side": 1,
+      "message": "major: to remove",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 4
+      },
+      "revId": "a0ec7e453dffc13a4caf990e9950f49a7db0b7a0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
