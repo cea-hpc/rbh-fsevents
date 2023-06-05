@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa57368c_87c952dc",
+        "filename": "src/sources/lustre.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-05T08:40:45Z",
+      "side": 1,
+      "message": "suggest: you could add a comment to indicate that we have to do this because the metadata migration will change the FID of the entry.",
+      "range": {
+        "startLine": 920,
+        "startChar": 12,
+        "endLine": 920,
+        "endChar": 32
+      },
+      "revId": "8a921bdcab4ad3daacb2280c0a181336053abf03",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d820eec1_6e70d0a7",
+        "filename": "tests/test_flrw.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-05T08:40:45Z",
+      "side": 1,
+      "message": "suggest: other statx elements than ctime...",
+      "range": {
+        "startLine": 50,
+        "startChar": 42,
+        "endLine": 50,
+        "endChar": 47
+      },
+      "revId": "8a921bdcab4ad3daacb2280c0a181336053abf03",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1859b42b_d594cdbc",
+        "filename": "tests/test_layout.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-05T08:40:45Z",
+      "side": 1,
+      "message": "suggest: same as the other one",
+      "range": {
+        "startLine": 43,
+        "startChar": 41,
+        "endLine": 43,
+        "endChar": 50
+      },
+      "revId": "8a921bdcab4ad3daacb2280c0a181336053abf03",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dfb72b7_6a2bd505",
+        "filename": "tests/test_resync.bash",
+        "patchSetId": 13
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-05T08:40:45Z",
+      "side": 1,
+      "message": "suggest: same as the other one",
+      "range": {
+        "startLine": 49,
+        "startChar": 42,
+        "endLine": 49,
+        "endChar": 50
+      },
+      "revId": "8a921bdcab4ad3daacb2280c0a181336053abf03",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
