@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0269fdd4_047eadce",
+        "filename": "tests/test_rename.bash",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-05T09:13:58Z",
+      "side": 1,
+      "message": "question: why not add verify_lustre to this one?",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 40
+      },
+      "revId": "5949a2eb338a7c0d19677d852d2b7d8c74565e54",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db7f1b97_47e2d9ad",
+        "filename": "tests/test_utils.bash",
+        "patchSetId": 8
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-05T09:13:58Z",
+      "side": 1,
+      "message": "minor: one thing missing from this test is when a value should not be in the database. For example, nothing should be recorded for block devices, a non mirrored file should not have a mirror count...",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 13
+      },
+      "revId": "5949a2eb338a7c0d19677d852d2b7d8c74565e54",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "668cbe61_16cf6de9",
+        "filename": "tests/test_utils.bash",
+        "patchSetId": 8
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-05T09:13:58Z",
+      "side": 1,
+      "message": "question: why not xargs here as well?",
+      "range": {
+        "startLine": 311,
+        "startChar": 44,
+        "endLine": 311,
+        "endChar": 53
+      },
+      "revId": "5949a2eb338a7c0d19677d852d2b7d8c74565e54",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecb7da13_0848326d",
+        "filename": "tests/test_utils.bash",
+        "patchSetId": 8
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-05T09:13:58Z",
+      "side": 1,
+      "message": "major: this is the data layout: DoM, raid0 or released",
+      "range": {
+        "startLine": 315,
+        "startChar": 10,
+        "endLine": 315,
+        "endChar": 21
+      },
+      "revId": "5949a2eb338a7c0d19677d852d2b7d8c74565e54",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
