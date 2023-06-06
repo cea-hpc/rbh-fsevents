@@ -22,6 +22,30 @@
       },
       "revId": "e92bddb72431bfff777f1d876362c8dd1d2f8c91",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ec967f8_383f22b1",
+        "filename": "tests/test_utils.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-06T15:11:45Z",
+      "side": 1,
+      "message": "No because since there was no deregister in the previous patch, we still needed to clear all changelogs of all other users. With this deregister, since it will clear all changelogs for the deregistered user, we don\u0027t need that for loop anymore.",
+      "parentUuid": "290bcb49_bd20c979",
+      "range": {
+        "startLine": 391,
+        "startChar": 4,
+        "endLine": 391,
+        "endChar": 40
+      },
+      "revId": "e92bddb72431bfff777f1d876362c8dd1d2f8c91",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
