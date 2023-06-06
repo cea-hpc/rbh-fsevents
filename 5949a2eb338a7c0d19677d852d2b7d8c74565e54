@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f5e21e4_5d28d630",
+        "filename": "tests/test_rename.bash",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-06T15:11:58Z",
+      "side": 1,
+      "message": "Forgot, done.",
+      "parentUuid": "0269fdd4_047eadce",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 40
+      },
+      "revId": "5949a2eb338a7c0d19677d852d2b7d8c74565e54",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db7f1b97_47e2d9ad",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-05T09:13:58Z",
       "side": 1,
       "message": "minor: one thing missing from this test is when a value should not be in the database. For example, nothing should be recorded for block devices, a non mirrored file should not have a mirror count...",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 13
+      },
+      "revId": "5949a2eb338a7c0d19677d852d2b7d8c74565e54",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18e9f836_dd0b1de9",
+        "filename": "tests/test_utils.bash",
+        "patchSetId": 8
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-06T15:11:58Z",
+      "side": 1,
+      "message": "That\u0027s what I want to do in another patch. This test isn\u0027t complete yet, for instance there\u0027s no check done on a mirrored file with a PFL mirror, and other things like you said. But right now, I wanted to have this patch as base line, and improve upon it later, if that\u0027s alright with you.",
+      "parentUuid": "db7f1b97_47e2d9ad",
       "range": {
         "startLine": 300,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3c68542a_3336aac2",
+        "filename": "tests/test_utils.bash",
+        "patchSetId": 8
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-06T15:11:58Z",
+      "side": 1,
+      "message": "I don\u0027t really know why, but a lfs getstripe -g returns multiple values for files with PFL.\n\nHere is the code I checked:\n```\necho \"a\"                                                                    \nlfs getstripe $entry                                                        \necho \"b\"                                                                    \nlfs getstripe -g $entry                                                     \necho \"c\"\n```\n\nHere is an entry checked in acceptance, which is migrated to the following layout: `lfs migrate -E 1k -c 2 -E -1 -c 1 $file6`, and here is the result:\n\n```\na\ntest_file6\n  lcm_layout_gen:    3\n  lcm_mirror_count:  1\n  lcm_entry_count:   2\n    lcme_id:             1\n    lcme_mirror_id:      0\n    lcme_flags:          init\n    lcme_extent.e_start: 0\n    lcme_extent.e_end:   1048576\n      lmm_stripe_count:  2\n      lmm_stripe_size:   1048576\n      lmm_pattern:       raid0\n      lmm_layout_gen:    0\n      lmm_stripe_offset: 0\n      lmm_objects:\n      - 0: { l_ost_idx: 0, l_fid: [0x100000000:0xc7:0x0] }\n      - 1: { l_ost_idx: 1, l_fid: [0x100010000:0xc7:0x0] }\n\n    lcme_id:             2\n    lcme_mirror_id:      0\n    lcme_flags:          0\n    lcme_extent.e_start: 1048576\n    lcme_extent.e_end:   EOF\n      lmm_stripe_count:  1\n      lmm_stripe_size:   1048576\n      lmm_pattern:       raid0\n      lmm_layout_gen:    0\n      lmm_stripe_offset: -1\n\nb\n3\n0\n\nc\n```\n\nlfs getstripe -g returns 2 values...",
+      "parentUuid": "668cbe61_16cf6de9",
+      "range": {
+        "startLine": 311,
+        "startChar": 44,
+        "endLine": 311,
+        "endChar": 53
+      },
+      "revId": "5949a2eb338a7c0d19677d852d2b7d8c74565e54",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ecb7da13_0848326d",
         "filename": "tests/test_utils.bash",
         "patchSetId": 8
@@ -83,6 +155,30 @@
       "writtenOn": "2023-06-05T09:13:58Z",
       "side": 1,
       "message": "major: this is the data layout: DoM, raid0 or released",
+      "range": {
+        "startLine": 315,
+        "startChar": 10,
+        "endLine": 315,
+        "endChar": 21
+      },
+      "revId": "5949a2eb338a7c0d19677d852d2b7d8c74565e54",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ec97282_44706ba0",
+        "filename": "tests/test_utils.bash",
+        "patchSetId": 8
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-06T15:11:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecb7da13_0848326d",
       "range": {
         "startLine": 315,
         "startChar": 10,
