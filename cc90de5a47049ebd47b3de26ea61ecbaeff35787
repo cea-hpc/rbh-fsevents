@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97e79e99_cfb9583a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-06T08:12:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eac80301_9ae197e2",
+      "range": {
+        "startLine": 9,
+        "startChar": 54,
+        "endLine": 9,
+        "endChar": 57
+      },
+      "revId": "cc90de5a47049ebd47b3de26ea61ecbaeff35787",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3afe0ba0_bbf13445",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-05T09:24:06Z",
       "side": 1,
       "message": "major: you should check for allocation failures",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 23
+      },
+      "revId": "cc90de5a47049ebd47b3de26ea61ecbaeff35787",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce70fb82_e77799ba",
+        "filename": "src/enricher.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-06T08:12:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3afe0ba0_bbf13445",
       "range": {
         "startLine": 43,
         "startChar": 3,
