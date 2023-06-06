@@ -24,6 +24,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba414ed9_fbc02ff1",
+        "filename": "tests/test_migrate.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-06T15:11:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ccda383_02fc5865",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 56
+      },
+      "revId": "a0ec7e453dffc13a4caf990e9950f49a7db0b7a0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a72beeef_28d96a8d",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-05T09:19:09Z",
       "side": 1,
       "message": "major: to remove",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 4
+      },
+      "revId": "a0ec7e453dffc13a4caf990e9950f49a7db0b7a0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "518ae546_842a0902",
+        "filename": "tests/test_trunc.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-06T15:11:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a72beeef_28d96a8d",
       "range": {
         "startLine": 81,
         "startChar": 0,
