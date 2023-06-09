@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e1aff4b_7018e42c",
+        "filename": "tests/test_migrate.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-09T11:14:46Z",
+      "side": 1,
+      "message": "suggest: since you\u0027ve hidden fsevents\u0027 invocation behind a function, you should probably do it for this as well.",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 27
+      },
+      "revId": "d25a58b556c2c7822e2ae6fed8d41c0d592844de",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
