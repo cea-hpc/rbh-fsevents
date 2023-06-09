@@ -142,6 +142,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93c4654a_d4227cd2",
+        "filename": "tests/test_utils.bash",
+        "patchSetId": 8
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-09T11:11:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3c68542a_3336aac2",
+      "range": {
+        "startLine": 311,
+        "startChar": 44,
+        "endLine": 311,
+        "endChar": 53
+      },
+      "revId": "5949a2eb338a7c0d19677d852d2b7d8c74565e54",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecb7da13_0848326d",
