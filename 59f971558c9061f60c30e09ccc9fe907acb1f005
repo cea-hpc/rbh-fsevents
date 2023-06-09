@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a622d532_89224d31",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-09T11:48:47Z",
+      "side": 1,
+      "message": "I guess my problem with the sentence I commented was the fact that it implied one batch per invocation. I think it would be better handle all the pending events on each invocation.",
+      "parentUuid": "acede946_79837f4a",
+      "range": {
+        "startLine": 131,
+        "startChar": 38,
+        "endLine": 131,
+        "endChar": 70
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e0e6712_96f05408",
         "filename": "doc/adr/deduplication.rst",
         "patchSetId": 1
@@ -191,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f329fca6_c24b0634",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-09T11:48:47Z",
+      "side": 1,
+      "message": "This issue does not exist if you have a long running process though. You can still be too slow to handle events though.",
+      "parentUuid": "d15f68ef_f923e993",
+      "range": {
+        "startLine": 139,
+        "startChar": 28,
+        "endLine": 141,
+        "endChar": 1
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d739cd67_f562c4d3",
         "filename": "doc/adr/deduplication.rst",
         "patchSetId": 1
@@ -238,6 +286,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d36c34b_03e834a1",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-09T11:48:47Z",
+      "side": 1,
+      "message": "This is only true because you made the implicit assumption that fsevents would only handle one batch. I assumed that it would try to handle every events before ending. Which is probably a better alternative.",
+      "parentUuid": "35f56c5c_248281cc",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 20
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3b08c2f_1ff695ca",
         "filename": "doc/adr/deduplication.rst",
         "patchSetId": 1
@@ -273,6 +345,30 @@
       "side": 1,
       "message": "I thought about this, but didn\u0027t want to put it here because imo, it should be in another file that is more specific to multi-threading in rbh-fsevents.\nFor instance, you could have a thread for source reading, one for deduplication, one for enrichment, and one for syncing. \nSo I\u0027d rather have another file for this idea than this one, which is specifically focused on the deduplication.",
       "parentUuid": "a3b08c2f_1ff695ca",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 33
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bad8854a_bb88310f",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-09T11:48:47Z",
+      "side": 1,
+      "message": "Yes, and I remembered that we can have multiple processes in the pipeline so multithreading is probably not an issue.",
+      "parentUuid": "5cb4195c_8ade197a",
       "range": {
         "startLine": 194,
         "startChar": 0,
