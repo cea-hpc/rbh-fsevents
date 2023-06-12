@@ -22,6 +22,30 @@
       },
       "revId": "d25a58b556c2c7822e2ae6fed8d41c0d592844de",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1250f8a_f74ef35b",
+        "filename": "tests/test_migrate.bash",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-12T09:40:01Z",
+      "side": 1,
+      "message": "Ack, this is the goal of the comment just above",
+      "parentUuid": "4e1aff4b_7018e42c",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 27
+      },
+      "revId": "d25a58b556c2c7822e2ae6fed8d41c0d592844de",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
