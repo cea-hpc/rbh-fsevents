@@ -119,6 +119,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9d30402_b96d806b",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-12T10:02:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a622d532_89224d31",
+      "range": {
+        "startLine": 131,
+        "startChar": 38,
+        "endLine": 131,
+        "endChar": 70
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e0e6712_96f05408",
@@ -237,6 +261,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4743aa88_2d5f0c4d",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-12T10:02:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f329fca6_c24b0634",
+      "range": {
+        "startLine": 139,
+        "startChar": 28,
+        "endLine": 141,
+        "endChar": 1
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d739cd67_f562c4d3",
@@ -298,6 +346,30 @@
       "side": 1,
       "message": "This is only true because you made the implicit assumption that fsevents would only handle one batch. I assumed that it would try to handle every events before ending. Which is probably a better alternative.",
       "parentUuid": "35f56c5c_248281cc",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 20
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5946cb6_a178597e",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-12T10:02:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4d36c34b_03e834a1",
       "range": {
         "startLine": 155,
         "startChar": 0,
@@ -379,6 +451,30 @@
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07e1a43b_8343902f",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-12T10:02:41Z",
+      "side": 1,
+      "message": "I think we can still use multi-threading even in that case, but that is another topic altogether.",
+      "parentUuid": "bad8854a_bb88310f",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 33
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2424d2b9_b813476b",
@@ -416,6 +512,30 @@
       "side": 1,
       "message": "What I wanted to convey is that, as you said, for one deduplication, you will have the allocation for the id in the hash map, the list of events as corresponding value, the event itself, and other potential values like xattr. The problem is that if you want two of the same events that can be merged together (like setxattr), they should be, but that is hard to do if you try to merge multiple events at the end, since you will have to create one event, copy all the events of the list into it, and then sync it. Whereas if it is done each time a new event is detected, you could limit the number of allocations to a few sstacks, and not worry about merging events later on.\n\nFor instance, if you have 10 setxattr you want to deduplicate, if I understand your idea correctly, you would create a list of 10 setxattr events, and then merge them all in one at the end. But that would mean you create 10 chained entries that contain these events, create one final event, create the list of xattr to enrich with a size you can only know by going through the list, then copy each xattr to that final event, and sync it.\n\nWhat I propose is, once you see a single setxattr event, you create a sstack of values and a single setxattr event in the list, then for each setxattr event found, you copy the xattr in question to that sstack and increase the number of xattr to consider in that sstack. Then, when the final event is found, you don\u0027t need to do anything since the vent is created and has the correct amount of xattrs to consider.",
       "parentUuid": "2424d2b9_b813476b",
+      "range": {
+        "startLine": 210,
+        "startChar": 7,
+        "endLine": 210,
+        "endChar": 71
+      },
+      "revId": "59f971558c9061f60c30e09ccc9fe907acb1f005",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b8996d9_b8df5d6c",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1019048
+      },
+      "writtenOn": "2023-06-12T10:02:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dcb124a8_688711d3",
       "range": {
         "startLine": 210,
         "startChar": 7,
