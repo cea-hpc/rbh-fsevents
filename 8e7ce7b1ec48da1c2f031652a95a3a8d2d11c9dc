@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4df804d0_6e8b3529",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-13T09:26:30Z",
+      "side": 1,
+      "message": "defect: remove this",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 18
+      },
+      "revId": "8e7ce7b1ec48da1c2f031652a95a3a8d2d11c9dc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a3c2033_62584e41",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-13T09:26:30Z",
+      "side": 1,
+      "message": "typo: parts",
+      "range": {
+        "startLine": 164,
+        "startChar": 60,
+        "endLine": 164,
+        "endChar": 64
+      },
+      "revId": "8e7ce7b1ec48da1c2f031652a95a3a8d2d11c9dc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d895682_6c2fc73f",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-13T09:26:30Z",
+      "side": 1,
+      "message": "typo: to remove",
+      "range": {
+        "startLine": 172,
+        "startChar": 45,
+        "endLine": 172,
+        "endChar": 48
+      },
+      "revId": "8e7ce7b1ec48da1c2f031652a95a3a8d2d11c9dc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a3710c3_b66b1cb3",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-13T09:26:30Z",
+      "side": 1,
+      "message": "typo: an",
+      "range": {
+        "startLine": 175,
+        "startChar": 53,
+        "endLine": 175,
+        "endChar": 55
+      },
+      "revId": "8e7ce7b1ec48da1c2f031652a95a3a8d2d11c9dc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd847fee_2de8c669",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-13T09:26:30Z",
+      "side": 1,
+      "message": "this is not a deduplication rule?",
+      "range": {
+        "startLine": 198,
+        "startChar": 2,
+        "endLine": 201,
+        "endChar": 61
+      },
+      "revId": "8e7ce7b1ec48da1c2f031652a95a3a8d2d11c9dc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b05eceb0_a5f9bf9c",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-13T09:26:30Z",
+      "side": 1,
+      "message": "typo: source",
+      "range": {
+        "startLine": 211,
+        "startChar": 14,
+        "endLine": 211,
+        "endChar": 21
+      },
+      "revId": "8e7ce7b1ec48da1c2f031652a95a3a8d2d11c9dc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9b31a3a_002c150b",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1019142
+      },
+      "writtenOn": "2023-06-13T09:26:30Z",
+      "side": 1,
+      "message": "suggest: something like -1 or simply \"unlimited\" or \"all\" would probably be simpler to understand for the user. Also, if the argument is not given, the command will by default run for as long as it can.",
+      "range": {
+        "startLine": 216,
+        "startChar": 46,
+        "endLine": 216,
+        "endChar": 47
+      },
+      "revId": "8e7ce7b1ec48da1c2f031652a95a3a8d2d11c9dc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
