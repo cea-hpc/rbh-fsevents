@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc9ef70a_66a3ece7",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1008040
+      },
+      "writtenOn": "2023-06-16T08:18:08Z",
+      "side": 1,
+      "message": "nit: inspected for deduplication.",
+      "range": {
+        "startLine": 138,
+        "startChar": 58,
+        "endLine": 138,
+        "endChar": 73
+      },
+      "revId": "bb8b08a816f152a631110757d25c6c5eab76990a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfa5390b_a5acfe85",
+        "filename": "doc/adr/deduplication.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1008040
+      },
+      "writtenOn": "2023-06-16T08:18:08Z",
+      "side": 1,
+      "message": "comment: It could be usefull to maintain in doc a comprehensive list of all deduplication rules. (It may be not mandatory for this patch but I think it could be very usefull for the future.)",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 19
+      },
+      "revId": "bb8b08a816f152a631110757d25c6c5eab76990a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
